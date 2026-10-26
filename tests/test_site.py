@@ -4,6 +4,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlsplit, unquote
 import unittest
+import re
 
 ROOT = Path(__file__).resolve().parents[1]
 spec = importlib.util.spec_from_file_location('portfolio_build', ROOT / 'build.py')
@@ -70,6 +71,23 @@ class SiteTests(unittest.TestCase):
                     self.assertIn('alt', attrs)
                 if attrs.get('target') == '_blank':
                     self.assertIn('noopener', attrs.get('rel', ''))
+
+    def test_detailed_technologies_are_searchable(self):
+        """Por que existe: evitar filtros que omitan stacks visibles. @returns: None. Efectos secundarios: ninguno."""
+        for fragment in (ROOT/'src/tools').glob('*.html'):
+            source = fragment.read_text()
+            metadata = set(re.search(r'data-stack="([^"]+)"', source).group(1).split(','))
+            details = [re.sub('<[^>]+>', '', tag) for stack in re.findall(r'<div class="stack">(.*?)</div>', source, re.S) for tag in re.findall(r'<span class="tag">(.*?)</span>', stack)]
+            self.assertTrue(set(details).issubset(metadata), f'{fragment.name}: {set(details)-metadata}')
+
+    def test_offline_cv_links_target_an_html_file(self):
+        """Por que existe: conservar navegación bajo file://. @returns: None. Efectos secundarios: ninguno."""
+        parser = PageParser(); parser.feed((self.output/'cv.html').read_text())
+        for tag, attrs in parser.nodes:
+            if tag == 'a':
+                url = urlsplit(attrs.get('href', ''))
+                if not url.scheme and not url.netloc:
+                    self.assertEqual(url.path, 'index.html')
 
     def test_valid_document_structure_and_printable_cv(self):
         """Por que existe: validar documentos y alternativa de CV. @returns: None. Efectos secundarios: ninguno."""
