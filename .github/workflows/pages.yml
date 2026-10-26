@@ -19,10 +19,13 @@ jobs:
           node --check src/app.js
           node --check src/cv.js
       - uses: actions/configure-pages@v5
+        if: ${{ !github.event.repository.private }}
       - uses: actions/upload-pages-artifact@v4
+        if: ${{ !github.event.repository.private }}
         with:
           path: dist
   deploy:
+    if: ${{ !github.event.repository.private }}
     needs: build
     runs-on: ubuntu-latest
     permissions:

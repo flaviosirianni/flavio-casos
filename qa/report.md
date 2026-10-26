@@ -9,3 +9,5 @@ Playwright MCP: filtros combinados, búsqueda sin acentos, vacío y recuperació
 Verificados escritorio de 1440px, móvil de 390px y tema oscuro. Sin desborde horizontal en catálogo y detalle. Sin errores de JavaScript durante los recorridos. El botón del CV invoca la impresión nativa; guardar el PDF depende del diálogo del navegador del visitante.
 
 La validación cubre el portfolio. No prueba las aplicaciones de clientes ni sus servicios externos.
+
+Publicación pública pendiente de autorización. El repositorio se conserva privado y el workflow omite despliegues mientras mantenga esa visibilidad.
