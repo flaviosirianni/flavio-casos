@@ -15,3 +15,7 @@ Further controls, publication and final review evidence are recorded in runtime-
 Control validation: exact technology and category filters, accent-insensitive search, empty/recovery, language switch retaining scene, speed 2× and automatic advance, pause stable beyond its interval, reduced-motion stop, global catalog pause/resume, paused CSS motion and both CVs passed. At 320px, catalog and case remain within viewport. Dark theme persists across language switches.
 
 Independent specification/privacy/localization and code-quality reviews passed after fixes. Catalog animation now has a global pause control; private identity checks remain outside the public repository.
+
+## Public release
+
+Published at https://flaviosirianni.github.io/flavio-sirianni-projects/ with English at /en/. GitHub Actions run 40345534447 completed successfully (build and deployment). Public smoke test returned HTTP 200, 36 cards, the two expected KPI, English catalog, case selection, scene2 preserved across EN→ES, both CVs and a 390px mobile layout without overflow or JavaScript errors. The account’s public repository inventory contains only this portfolio.

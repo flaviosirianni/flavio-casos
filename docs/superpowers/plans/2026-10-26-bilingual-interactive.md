@@ -7,4 +7,4 @@
 - [x] Generar páginas individuales y CV en ambos idiomas.
 - [x] Verificar contratos, privacidad y recorridos en escritorio/móvil.
 - [x] Revisar código y cumplimiento, corregir hallazgos.
-- [ ] Renombrar repositorio y carpeta, publicar, verificar URL y sincronización.
+- [x] Renombrar repositorio y carpeta, publicar, verificar URL y sincronización.
