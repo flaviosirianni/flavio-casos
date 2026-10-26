@@ -1,106 +1,30 @@
 <section class="tool" id="sync-rrhh" data-cat="integ"
   data-title="Sincronización de horas con recursos humanos"
   data-sector="Servicios de campo · EE.UU."
-  data-summary="Las horas registradas viajan solas al sistema de RR.HH., distinguiendo nuevas, modificadas y ya enviadas, con una consola para resolver conflictos."
-  data-stack="BambooHR,Plataforma de BI,Google Apps Script,Google Sheets,APIs REST,OAuth2">
+  data-summary="Enviar horas al sistema de RR.HH., reconocer lo ya sincronizado y dejar los conflictos visibles para revisión."
+  data-stack="BambooHR,Google Apps Script,Google Sheets,OAuth2,APIs REST" data-status="Implementado">
   <div class="wrap tool-head">
     <p class="eyebrow">Servicios de campo · EE.UU.</p>
     <h1>Sincronización de horas con recursos humanos</h1>
-    <p class="kind">Integración automática y consola operativa dentro de Google Sheets</p>
-    <p class="lead">Las horas que se registran en la operación llegan al sistema de recursos humanos sin cargarlas dos veces. El operador ve, registro por registro, qué se envió, qué cambió y qué necesita atención.</p>
+    <p class="kind">Integración con consola operativa en Google Sheets · Implementado</p>
+    <p class="lead">Enviar horas al sistema de RR.HH., reconocer lo ya sincronizado y dejar los conflictos visibles para revisión.</p>
   </div>
-
-  <div class="stage"><div class="wrap shots">
-    <figure class="shot w12">
-      <div class="dev dev-browser" style="--w:1060px">
-        <div class="bar"><i></i><i></i><i></i><div class="url">docs.google.com/spreadsheets · Hours Sync</div></div>
-        <div class="gs" style="position:relative">
-          <div class="gs-title"><span class="ic"></span><span class="nm">Hours → HR Sync</span></div>
-          <div class="gs-menu"><span>File</span><span>Edit</span><span>View</span><span>Insert</span><span>Format</span><span>Data</span><span>Tools</span><b>HR Sync</b><span>Help</span></div>
-          <div class="gs-drop" style="left:418px;top:58px"><div>Refresh source data</div><div class="on">Push pending now</div><div>Retry failed rows</div><hr><div>Push selected rows (override)</div><div>Delete selected entries in HR</div><hr><div>Help &amp; guide</div></div>
-          <div class="gs-tool"></div>
-          <div class="gs-fx"><span class="ref">G5</span><span class="fx">fx</span><span>CONFLICT</span></div>
-          <div class="gs-grid">
-            <table>
-              <thead><tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th><th>G</th><th>H</th></tr></thead>
-              <tbody>
-                <tr class="h" style="--hdr:#166534"><th>1</th><td>Source ID</td><td>Employee</td><td>Date</td><td>Clock in</td><td>Clock out</td><td>Hours</td><td>Sync status</td><td>Message</td></tr>
-                <tr><th>2</th><td class="mono">TC-88412</td><td>Jake Miller</td><td>10/20</td><td>07:02</td><td>16:31</td><td class="n">8.98</td><td class="cg">SENT</td><td>Created</td></tr>
-                <tr><th>3</th><td class="mono">TC-88413</td><td>Ashley Brooks</td><td>10/20</td><td>07:30</td><td>15:45</td><td class="n">7.75</td><td class="cg">UPDATED</td><td>Clock out changed 15:30 → 15:45</td></tr>
-                <tr><th>4</th><td class="mono">TC-88398</td><td>Ryan Cooper</td><td>10/19</td><td>08:00</td><td>16:00</td><td class="n">8.00</td><td class="cn">SKIPPED</td><td>Unchanged since last push</td></tr>
-                <tr><th>5</th><td class="mono">TC-88420</td><td>Tyler Reed</td><td>10/20</td><td>06:55</td><td>15:10</td><td class="n">8.25</td><td class="cr sel">CONFLICT</td><td>Same ID with a different payload in this batch</td></tr>
-                <tr><th>6</th><td class="mono">TC-88421</td><td>Kayla Foster</td><td>10/20</td><td>09:00</td><td>13:00</td><td class="n">4.00</td><td class="cy">RETRY</td><td>HTTP 429 · retrying in 60 s</td></tr>
-                <tr><th>7</th><td class="mono">TC-88425</td><td>Olivia Grant</td><td>10/20</td><td>08:10</td><td></td><td class="n"></td><td class="cr">ERROR</td><td>Missing clock out · not sent</td></tr>
-                <tr><th>8</th><td class="mono">TC-88426</td><td>Brandon Hughes</td><td>10/20</td><td>07:00</td><td>17:30</td><td class="n">10.50</td><td class="cg">SENT</td><td>Created</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="gs-tabs"><span class="on">Sync Status</span><span>Source</span><span>Error Report</span><span>Technical Log</span><span>Config</span></div>
-        </div>
-      </div>
-      <figcaption><b>Estado por registro.</b> Cada fila dice si se creó, se actualizó, se omitió por no tener cambios o necesita atención. El menú permite reintentar o corregir casos puntuales.</figcaption>
-    </figure>
-
-    <figure class="shot w6">
-      <div class="dev dev-browser" style="--w:560px">
-        <div class="bar"><i></i><i></i><i></i><div class="url">mail · Inbox</div></div>
-        <div class="mail">
-          <div class="subj">Hours sync needs attention · Oct 21, 6:00 AM</div>
-          <div class="from"><span class="av" style="--c:#166534">HR</span><div><div class="b sm">Hours Sync</div><div class="xs mut">to payroll-ops</div></div></div>
-          <div class="body">
-            <p>The scheduled sync finished with <b>212 sent</b>, <b>18 updated</b>, <b>1 conflict</b> and <b>1 error</b>.</p>
-            <table class="tbl" style="font-size:11.5px">
-              <tr><th>Source ID</th><th>Employee</th><th>Issue</th></tr>
-              <tr><td class="mono">TC-88420</td><td>Tyler Reed</td><td>Conflicting payload</td></tr>
-              <tr><td class="mono">TC-88425</td><td>Olivia Grant</td><td>Missing clock out</td></tr>
-            </table>
-            <p class="mut sm">Rows with issues were not sent. Fix them in the source or use “Push selected rows”.</p>
-          </div>
-        </div>
-      </div>
-      <figcaption><b>Alertas por correo.</b> Un resumen legible de lo que pasó y qué requiere acción.</figcaption>
-    </figure>
-
-    <figure class="shot w6">
-      <div class="dev dev-term" style="--w:560px">
-        <div class="bar"><i></i><i></i><i></i><span>Technical Log</span></div>
-<pre><span class="t-m">06:00:02</span> refresh source dataset · <span class="t-w">1,184 rows</span>
-<span class="t-m">06:00:04</span> normalize · 3 rows without employee mapping
-<span class="t-m">06:00:04</span> dedupe by <span class="t-p">source_id + content hash</span>
-<span class="t-m">06:00:04</span>   new 212 · changed 18 · unchanged 951
-<span class="t-m">06:00:05</span> batch 1/3 → POST time entries · <span class="t-g">200</span>
-<span class="t-m">06:00:07</span> batch 2/3 → <span class="t-y">429 rate limit</span> · backoff 60 s
-<span class="t-m">06:01:08</span> batch 2/3 → <span class="t-g">200</span>
-<span class="t-m">06:01:10</span> batch 3/3 → <span class="t-g">200</span>
-<span class="t-m">06:01:10</span> state saved · lock released</pre>
-      </div>
-      <figcaption><b>Registro técnico.</b> Envío por lotes, reintentos ante límites del proveedor y un candado para que dos corridas no se superpongan.</figcaption>
-    </figure>
-  </div></div>
-
+  <div class="wrap"><div class="demo-mount" data-demo="sync-rrhh"></div></div>
   <div class="wrap tool-body">
     <div class="prose">
-      <div class="technical-panel"><h2>Implementación técnica</h2><p>Integré APIs de BI y BambooHR mediante Google Apps Script y OAuth2. El proceso transforma horas regulares, prepara cargas y conserva controles de revisión en Google Sheets.</p></div>
-      <h2>Qué hace</h2>
-      <p>Traslada registros de horas desde la fuente operativa hacia el sistema de recursos humanos. Valida personas, fechas y duraciones y distingue registros nuevos, modificados y ya enviados. Ofrece un detalle de errores y conflictos para que el operador pueda corregirlos sin repetir toda la carga. Incluye reintentos y avisos cuando una sincronización necesita atención.</p>
-      <p>El operador puede revisar el resultado por registro, corregir casos puntuales y volver a enviar lo necesario. Las herramientas manuales permiten administrar excepciones y cambios, manteniendo una referencia de lo que ya se trasladó al sistema de recursos humanos.</p>
+      <div class="technical-panel"><h2>Implementación técnica</h2><p>La sincronización combina una identidad estable de fichada con un hash del contenido. Envía altas y cambios mediante upsert, omite contenido idéntico y aparta filas de origen contradictorias.</p></div>
+      <h2>Qué resuelve</h2><p>Elimina la recarga manual sin perder la distinción entre un cambio válido y dos versiones incompatibles de la misma fichada.</p>
+      <h2>Flujo y alcance</h2><p>El operador refresca la fuente y ejecuta la sincronización desde Sheets. Hay logs técnicos y legibles, acciones manuales puntuales y avisos por correo ante fallos.</p>
+      <ul class="points"><li>Hash actualizado solo a partir de resultados exitosos.</li><li>Validación de persona, fecha y horas antes del envío.</li><li>Bloqueo de ejecución concurrente y reintentos de API.</li></ul>
     </div>
-    <aside class="side">
-      <div class="panel">
-        <h3>Recorrido de la información</h3>
-        <div class="flow">
-          <div class="flow-step"><span>Origen</span><div class="items"><b>Plataforma de BI</b></div></div>
-          <div class="flow-arrow"></div>
-          <div class="flow-step mid"><span>Validación y consola</span><div class="items"><b>Google Apps Script</b><b>Google Sheets</b></div></div>
-          <div class="flow-arrow"></div>
-          <div class="flow-step"><span>Destino</span><div class="items"><b>BambooHR Time Tracking</b><b>Alertas por correo</b></div></div>
-        </div>
-        <p class="flow-text">La plataforma de BI aporta los registros de origen; BambooHR Time Tracking recibe las horas. Google Sheets permite revisar datos, estado de sincronización y errores. Los servicios de correo de Apps Script envían alertas.</p>
-      </div>
-      <div class="panel">
-        <h3>Stack tecnológico</h3>
-        <div class="stack"><span class="tag">Google Apps Script</span><span class="tag">Google Sheets</span><span class="tag">APIs REST</span><span class="tag">OAuth2</span></div>
-      </div>
+    <aside class="side"><div class="panel"><h3>Flujo de datos</h3>
+      <div class="flow-step"><div class="items">Exportación de horas</div></div>
+      <div class="flow-arrow" aria-hidden="true">↓</div>
+      <div class="flow-step"><div class="items">Identidad + hash + validación</div></div>
+      <div class="flow-arrow" aria-hidden="true">↓</div>
+      <div class="flow-step"><div class="items">BambooHR + logs</div></div>
+      <p class="flow-text">El operador refresca la fuente y ejecuta la sincronización desde Sheets. Hay logs técnicos y legibles, acciones manuales puntuales y avisos por correo ante fallos.</p></div>
+      <div class="panel"><h3>Stack</h3><div class="stack"><span class="tag">BambooHR</span><span class="tag">Google Apps Script</span><span class="tag">Google Sheets</span><span class="tag">OAuth2</span><span class="tag">APIs REST</span></div></div>
     </aside>
   </div>
 </section>

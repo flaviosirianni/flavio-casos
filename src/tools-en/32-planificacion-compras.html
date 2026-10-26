@@ -1,0 +1,21 @@
+<section class="tool" id="planificacion-compras" data-cat="datos" data-title="Purchasing and inventory planning" data-sector="Retail · store chain · USA" data-summary="Monthly model that projects inventory and calculates purchasing capacity by category and location." data-stack="SQL,Python,CSV,BI APIs" data-status="Under validation">
+  <div class="wrap tool-head">
+    <p class="eyebrow">Retail · store chain · USA</p>
+    <h1>Purchasing and inventory planning</h1>
+    <p class="kind">Inventory analytics model under validation</p>
+    <p class="lead">Monthly model that projects inventory and calculates purchasing capacity by category and location.</p>
+  </div>
+  <div class="wrap"><div class="demo-mount" data-demo="planificacion-compras"></div></div>
+  <div class="wrap tool-body">
+    <div class="prose">
+      <div class="technical-panel"><h2>Technical implementation</h2><p>I implemented SQL queries that normalize budget, inventory, order and sales reports to department, class, subclass, location and month. Python scripts support dataset ingestion and review.</p></div>
+      <h2>What it solves</h2><p>Deciding how much to buy requires anticipating closing inventory and comparing it with budget. The model makes inputs and the purchasing-capacity formula explicit.</p>
+      <h2>Flow and scope</h2><p>The calculation combines opening inventory, open orders and receipts, less sales and markdowns. It uses actuals for closed months and budgets to project open months. Integration and data quality remain under validation.</p>
+      <ul class="points"><li>Grain and types normalized before joining reports.</li><li>Monthly capacity and cumulative capacity from the current month.</li><li>Arithmetic demo using fictional amounts.</li></ul>
+    </div>
+    <aside class="side">
+      <div class="panel"><h3>Data flow</h3><div class="flow"><div class="flow-step"><span>Inputs</span><div class="items"><b>Inventory, orders and budget</b></div></div><div class="flow-arrow"></div><div class="flow-step"><span>Model</span><div class="items"><b>SQL</b><b>Python</b></div></div><div class="flow-arrow"></div><div class="flow-step"><span>Output</span><div class="items"><b>Projected close and purchasing capacity</b></div></div></div><p class="flow-text">The calculation combines opening inventory, open orders and receipts, less sales and markdowns. It uses actuals for closed months and budgets to project open months. Integration and data quality remain under validation.</p></div>
+      <div class="panel"><h3>Technology stack</h3><div class="stack"><span class="tag">SQL</span><span class="tag">Python</span><span class="tag">CSV</span><span class="tag">BI APIs</span></div></div>
+    </aside>
+  </div>
+</section>

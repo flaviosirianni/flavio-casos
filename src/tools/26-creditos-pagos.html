@@ -1,83 +1,21 @@
-<section class="tool" id="creditos-pagos" data-cat="prod"
-  data-title="Créditos y pagos para servicios con IA"
-  data-sector="Producto propio · infraestructura compartida"
-  data-summary="Una billetera de créditos común para bots y apps: saldo, consumos, recargas con Mercado Pago y controles contra cargos duplicados."
-  data-stack="Mercado Pago,Node.js,SQLite,APIs REST,Webhooks">
+<section class="tool" id="creditos-pagos" data-cat="prod" data-title="Créditos y pagos para servicios con IA" data-sector="Producto propio · infraestructura compartida" data-summary="Billetera compartida para consultar saldo, registrar consumos y acreditar recargas con control de duplicados." data-stack="Node.js,SQLite,Mercado Pago,APIs REST,Webhooks" data-status="Implementado">
   <div class="wrap tool-head">
     <p class="eyebrow">Producto propio · infraestructura compartida</p>
     <h1>Créditos y pagos para servicios con IA</h1>
-    <p class="kind">Servicio backend de billetera de créditos y procesamiento de pagos</p>
-    <p class="lead">Los asistentes con IA consumen recursos; este servicio lo hace medible y cobrable. Cada usuario ve su saldo y sus movimientos, recarga cuando lo necesita y nunca se le acredita ni se le cobra dos veces.</p>
+    <p class="kind">Servicio backend de billetera y pagos</p>
+    <p class="lead">Billetera compartida para consultar saldo, registrar consumos y acreditar recargas con control de duplicados.</p>
   </div>
-
-  <div class="stage"><div class="wrap shots">
-    <figure class="shot w4">
-      <div class="dev dev-phone ui" style="--h:640px;--brand:#0d9488;--brand-soft:#ddf3f0"><div class="screen">
-        <div class="sbar"><span>12:10</span></div>
-        <div style="padding:2px 16px 10px;border-bottom:1px solid var(--s-line)"><div class="ui-h1" style="font-size:16px">Mis créditos</div></div>
-        <div style="flex:1;overflow:hidden;padding:14px;display:flex;flex-direction:column;gap:12px;background:#f6f9f9">
-          <div class="ui-card" style="background:linear-gradient(135deg,#0d9488,#115e59);color:#fff;border:0;padding:16px"><div class="xs" style="opacity:.8;letter-spacing:.06em;text-transform:uppercase">Saldo disponible</div><div style="font-size:30px;font-weight:700;margin-top:2px">1.240 <span style="font-size:14px;font-weight:500">créditos</span></div><div class="xs" style="opacity:.8;margin-top:4px">≈ 60 consultas con documentos</div></div>
-          <div class="lbl">RECARGAR</div>
-          <div class="g3" style="gap:8px">
-            <div class="ui-card" style="padding:10px;text-align:center"><div class="b">500</div><div class="xs mut">$ 2.500</div></div>
-            <div class="ui-card" style="padding:10px;text-align:center;border:2px solid var(--brand)"><div class="b">1.500</div><div class="xs mut">$ 6.900</div><div class="pill g" style="margin-top:4px">−8 %</div></div>
-            <div class="ui-card" style="padding:10px;text-align:center"><div class="b">5.000</div><div class="xs mut">$ 19.900</div></div>
-          </div>
-          <span class="btn" style="padding:10px">Pagar con Mercado Pago</span>
-          <div class="lbl">MOVIMIENTOS</div>
-          <div class="ui-card" style="padding:4px 12px">
-            <div class="row sm" style="padding:7px 0;border-bottom:1px solid var(--s-line)"><span class="grow">Recarga 1.500</span><span class="up b">+1.500</span></div>
-            <div class="row sm" style="padding:7px 0;border-bottom:1px solid var(--s-line)"><span class="grow">Consulta con PDF<div class="xs mut">hoy 11:52</div></span><span class="down">−24</span></div>
-            <div class="row sm" style="padding:7px 0;border-bottom:1px solid var(--s-line)"><span class="grow">Audio transcripto<div class="xs mut">hoy 10:30</div></span><span class="down">−6</span></div>
-            <div class="row sm" style="padding:7px 0"><span class="grow">Consulta de texto<div class="xs mut">ayer</div></span><span class="down">−8</span></div>
-          </div>
-        </div>
-      </div></div>
-      <figcaption><b>Saldo, paquetes y movimientos.</b> El usuario ve cuánto tiene, en qué se consumió y recarga con un toque.</figcaption>
-    </figure>
-
-    <figure class="shot w8">
-      <div class="dev dev-term" style="--w:740px">
-        <div class="bar"><i></i><i></i><i></i><span>billing-service · journal</span></div>
-<pre><span class="t-m">12:08:41</span> <span class="t-b">POST</span> /checkout          user=u_2041  pack=1500  → preferencia creada
-<span class="t-m">12:09:37</span> <span class="t-b">POST</span> /webhooks/mercadopago  payment=<span class="t-w">98213377</span>  status=<span class="t-g">approved</span>
-<span class="t-m">12:09:37</span>      firma verificada · consulta de estado al proveedor <span class="t-g">ok</span>
-<span class="t-m">12:09:37</span>      idempotency_key=<span class="t-p">mp:98213377</span> → nueva
-<span class="t-m">12:09:37</span>      <span class="t-g">acreditado +1.500</span> · saldo u_2041 = <span class="t-w">1.240</span> → <span class="t-w">2.740</span>
-<span class="t-m">12:09:52</span> <span class="t-b">POST</span> /webhooks/mercadopago  payment=<span class="t-w">98213377</span>  status=approved
-<span class="t-m">12:09:52</span>      idempotency_key=<span class="t-p">mp:98213377</span> → <span class="t-y">ya procesado · se ignora</span>
-<span class="t-m">12:11:03</span> <span class="t-b">POST</span> /usage   bot=health  user=u_2041  units=24  key=<span class="t-p">msg:7f3a…</span>
-<span class="t-m">12:11:03</span>      <span class="t-g">debitado −24</span> · saldo = 2.716
-<span class="t-m">12:11:04</span> <span class="t-b">POST</span> /usage   (reintento del cliente)  key=<span class="t-p">msg:7f3a…</span> → <span class="t-y">duplicado · sin débito</span>
-<span class="t-m">03:00:00</span>      backup nocturno · verificación de integridad <span class="t-g">ok</span></pre>
-      </div>
-      <figcaption><b>Pagos sin duplicados.</b> Cada notificación y cada consumo llevan una clave única: si llegan dos veces, se procesan una sola. Todo queda en un registro para soporte.</figcaption>
-    </figure>
-  </div></div>
-
+  <div class="wrap"><div class="demo-mount" data-demo="creditos-pagos"></div></div>
   <div class="wrap tool-body">
     <div class="prose">
-      <div class="technical-panel"><h2>Implementación técnica</h2><p>Implementé servicios en Node.js para integrar Mercado Pago, webhooks y saldos de créditos. SQLite conserva los movimientos y permite coordinar cobros y consumo entre servicios con IA.</p></div>
-      <h2>Qué hace</h2>
-      <p>Permite consultar saldo, revisar consumos y comprar créditos para utilizar asistentes y otras funciones. Registra transacciones y procesa las confirmaciones de pago, con controles para evitar acreditaciones o cargos duplicados. Proporciona una forma común de administrar el consumo en varios servicios y consultar el historial de movimientos.</p>
-      <p>El usuario ve cuánto tiene disponible y qué movimientos se realizaron, y puede recargar cuando lo necesita. El equipo dispone de un registro de cobros y consumos para revisar casos de soporte, con controles frente a notificaciones repetidas.</p>
+      <div class="technical-panel"><h2>Implementación técnica</h2><p>Implementé un servicio HTTP y una base SQLite con billeteras, movimientos, eventos de uso y pagos procesados. La integración con Mercado Pago verifica pagos y usa identificadores de idempotencia.</p></div>
+      <h2>Qué resuelve</h2><p>Varios asistentes necesitan compartir saldo y dejar trazabilidad del consumo. Un servicio central evita que cada bot mantenga su propia lógica de cobro.</p>
+      <h2>Recorrido y alcance</h2><p>El usuario consulta saldo, consume créditos y recarga mediante el proveedor de pagos. Los reintentos se reconocen para evitar repetir el movimiento; el historial permite revisar qué ocurrió.</p>
+      <ul class="points"><li>Movimientos de crédito y débito por usuario.</li><li>Confirmación del pago antes de acreditar.</li><li>Identificadores de operación para detectar reintentos.</li></ul>
     </div>
     <aside class="side">
-      <div class="panel">
-        <h3>Recorrido de la información</h3>
-        <div class="flow">
-          <div class="flow-step"><span>Consumidores</span><div class="items"><b>Bots de Telegram</b><b>App móvil</b></div></div>
-          <div class="flow-arrow"></div>
-          <div class="flow-step mid"><span>Billetera</span><div class="items"><b>API interna</b><b>SQLite</b></div></div>
-          <div class="flow-arrow"></div>
-          <div class="flow-step"><span>Pagos</span><div class="items"><b>Mercado Pago</b></div></div>
-        </div>
-        <p class="flow-text">Mercado Pago genera el checkout y notifica los pagos. Los bots de Telegram y la aplicación móvil consultan sus respectivos servicios de saldo y consumo. SQLite conserva transacciones e historial.</p>
-      </div>
-      <div class="panel">
-        <h3>Stack tecnológico</h3>
-        <div class="stack"><span class="tag">Node.js</span><span class="tag">SQLite</span><span class="tag">Mercado Pago</span><span class="tag">APIs REST</span><span class="tag">Webhooks</span></div>
-      </div>
+      <div class="panel"><h3>Recorrido de la información</h3><div class="flow"><div class="flow-step"><span>Solicitud</span><div class="items"><b>APIs REST</b></div></div><div class="flow-arrow"></div><div class="flow-step"><span>Verificación</span><div class="items"><b>Mercado Pago</b><b>Webhooks</b></div></div><div class="flow-arrow"></div><div class="flow-step"><span>Registro</span><div class="items"><b>SQLite</b></div></div></div><p class="flow-text">El usuario consulta saldo, consume créditos y recarga mediante el proveedor de pagos. Los reintentos se reconocen para evitar repetir el movimiento; el historial permite revisar qué ocurrió.</p></div>
+      <div class="panel"><h3>Stack tecnológico</h3><div class="stack"><span class="tag">Node.js</span><span class="tag">SQLite</span><span class="tag">Mercado Pago</span><span class="tag">APIs REST</span><span class="tag">Webhooks</span></div></div>
     </aside>
   </div>
 </section>

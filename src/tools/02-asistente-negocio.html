@@ -1,140 +1,43 @@
 <section class="tool" id="asistente-negocio" data-cat="bots"
   data-title="Asistente para consultar el negocio por chat"
-  data-sector="Negocio gastronómico · +100 puntos de venta"
-  data-summary="Un bot de Telegram que responde ventas, cobros, compras y deudas en lenguaje cotidiano, y cada mañana manda la agenda de cobranza armada."
-  data-stack="OpenAI,Telegram,BigQuery,Python,FastAPI,Firestore,Cloud Run,Cloud Scheduler,SQL">
+  data-sector="Operación comercial · consultas internas"
+  data-summary="Consultas de ventas, cobros y saldos en Telegram, con SQL de solo lectura y agenda de cobranzas."
+  data-stack="Python,FastAPI,OpenAI,Telegram,BigQuery,Firestore,SQL,Cloud Run,Cloud Scheduler" data-status="">
   <div class="wrap tool-head">
-    <p class="eyebrow">Negocio gastronómico · +100 puntos de venta</p>
+    <p class="eyebrow">Operación comercial · consultas internas</p>
     <h1>Asistente para consultar el negocio por chat</h1>
-    <p class="kind">Bot conversacional de inteligencia de negocio en Telegram, con agenda automática de cobranzas</p>
-    <p class="lead">Preguntás "¿cuánto vendimos en septiembre?" desde el celular, por texto o por audio, y recibís la respuesta con el período, la comparación y el detalle. Además, cada día llega sola la lista de la próxima ronda de cobranza, en el formato que el equipo ya usaba.</p>
+    <p class="kind">Asistente conectado a una base analítica</p>
+    <p class="lead">Una pregunta cotidiana se convierte en una consulta sobre datos preparados. La respuesta explicita el período y puede continuar con un detalle o una exportación.</p>
   </div>
-
-  <div class="stage"><div class="wrap shots">
-    <figure class="shot w4">
-      <div class="dev dev-phone" style="--h:660px"><div class="screen">
-        <div class="sbar"><span>9:41</span></div>
-        <div class="tg-head"><span class="back">‹</span><span class="av" style="--c:#2f6eb5">AN</span><div><div class="t">Asistente de Negocio</div><div class="s">bot</div></div></div>
-        <div class="tg">
-          <div class="tg-feed">
-            <div class="msg out">¿Cuánto vendimos en septiembre comparado con agosto?<span class="tm">9:38 ✓✓</span></div>
-            <div class="msg in">
-              <div class="ttl">Ventas · septiembre 2026</div>
-              <div class="ln"><span>Facturado</span><span><b>$ 48.215.900</b></span></div>
-              <div class="ln"><span>Agosto</span><span>$ 44.630.200</span></div>
-              <div class="ln"><span>Variación</span><span style="color:#2f8a3e"><b>+8,0 %</b></span></div>
-              <hr>
-              <div class="b" style="margin-bottom:2px">Clientes con más compra</div>
-              <div class="ln"><span>1. Supermercado El Sol</span><span>$ 4,81 M</span></div>
-              <div class="ln"><span>2. Autoservicio Los Pinos</span><span>$ 2,92 M</span></div>
-              <div class="ln"><span>3. Confitería Rivadavia</span><span>$ 1,60 M</span></div>
-              <div style="font-size:10.5px;color:#7a8a7a;margin-top:5px">Datos actualizados a las 9:00 · 1.284 comprobantes</div>
-              <span class="tm">9:38</span>
-            </div>
-            <div class="ikb"><div><span>📊 Excel</span><span>📄 PDF</span></div></div>
-            <div class="msg out">¿Y por producto?<span class="tm">9:39 ✓✓</span></div>
-            <div class="msg in">En septiembre lideraron <b>Pan francés</b> (31 %), <b>Facturas surtidas</b> (18 %) y <b>Pan de molde</b> (12 %). ¿Querés ver la evolución de alguno?<span class="tm">9:39</span></div>
-          </div>
-          <div class="tg-input"><div class="box">Mensaje</div><div class="mic"></div></div>
-          <div class="kb"><div><span>🛒 Compras</span><span>📅 Ventas</span></div><div><span>💰 Cobros</span><span>💸 Pagos</span></div></div>
-        </div>
-      </div></div>
-      <figcaption><b>Preguntas en criollo.</b> Respuesta con período, comparación y descarga en Excel o PDF. El hilo se mantiene para repreguntar.</figcaption>
-    </figure>
-
-    <figure class="shot w4">
-      <div class="dev dev-phone" style="--h:660px"><div class="screen">
-        <div class="sbar"><span>18:12</span></div>
-        <div class="tg-head"><span class="back">‹</span><span class="av" style="--c:#2f6eb5">AN</span><div><div class="t">Asistente de Negocio</div><div class="s">bot</div></div></div>
-        <div class="tg">
-          <div class="tg-feed">
-            <div class="msg out"><div class="voice"><span class="pl"></span><span class="wv"></span><span style="font-size:10px;color:#5fa04e">0:06</span></div><div class="transcript">"¿Qué clientes tienen saldo pendiente de más de 30 días?"</div><span class="tm">18:10 ✓✓</span></div>
-            <div class="msg in">
-              <div class="ttl">Saldos con más de 30 días</div>
-              <div class="ln"><span>Supermercado El Sol</span><span>$ 1.572.600</span></div>
-              <div class="ln"><span>Almacén Don Bosco</span><span>$ 422.140</span></div>
-              <div class="ln"><span>Minimercado Belgrano</span><span>$ 196.300</span></div>
-              <div class="ln"><span>Kiosco La Esquina</span><span>$ 84.950</span></div>
-              <hr>
-              <div class="ln"><span><b>Total</b> · 4 clientes</span><span><b>$ 2.275.990</b></span></div>
-              <span class="tm">18:10</span>
-            </div>
-            <div class="msg out">De esos, ¿cuáles compraron esta semana?<span class="tm">18:11 ✓✓</span></div>
-            <div class="msg in">Dos siguieron comprando: <b>Supermercado El Sol</b> ($ 612.400 desde el lunes) y <b>Kiosco La Esquina</b> ($ 38.200). Los otros dos no tienen compras desde el 2 de octubre.<span class="tm">18:11</span></div>
-            <div class="msg out">Pasame el detalle de El Sol<span class="tm">18:12 ✓✓</span></div>
-            <div class="msg in"><div class="file"><i></i><div><div class="fn">saldo_el_sol_oct.xlsx</div><div class="xs" style="color:#7a8a7a">14 comprobantes · 18 KB</div></div></div><span class="tm">18:12</span></div>
-          </div>
-          <div class="tg-input"><div class="box">Mensaje</div><div class="mic"></div></div>
-        </div>
-      </div></div>
-      <figcaption><b>Audio, texto o imagen.</b> El asistente transcribe, entiende el seguimiento ("de esos…") y arma el archivo cuando se lo piden.</figcaption>
-    </figure>
-
-    <figure class="shot w4">
-      <div class="dev dev-phone" style="--h:660px"><div class="screen">
-        <div class="sbar"><span>7:00</span></div>
-        <div class="tg-head"><span class="back">‹</span><span class="av" style="--c:#2f6eb5">AN</span><div><div class="t">Asistente de Negocio</div><div class="s">bot</div></div></div>
-        <div class="tg">
-          <div class="tg-feed">
-            <div class="msg in" style="max-width:92%">
-              <div class="ttl">Cobranza del miércoles 29/10</div>
-              <div style="font-size:10.5px;color:#7a8a7a;margin-bottom:4px">Ciclo semanal · zona Centro</div>
-              <div class="ln"><span>Almacén Don Bosco</span><span>$ 186.400</span></div>
-              <div class="ln"><span>Café Central</span><span>$ 142.900</span></div>
-              <div class="ln"><span>Confitería Rivadavia</span><span>$ 318.250</span></div>
-              <div class="ln"><span>Despensa Mitre</span><span>$ 97.600</span></div>
-              <div class="ln"><span>Kiosco La Esquina</span><span>$ 38.200</span></div>
-              <div class="ln"><span>Minimercado Belgrano</span><span>$ 121.050</span></div>
-              <div class="ln"><span>Panadería Lavalle</span><span>$ 75.300</span></div>
-              <hr>
-              <div class="ln"><span><b>Total a cobrar</b> · 7 clientes</span><span><b>$ 979.700</b></span></div>
-              <hr>
-              <div class="b">Deuda anterior (aparte)</div>
-              <div class="ln"><span>Almacén Don Bosco</span><span>$ 422.140</span></div>
-              <div class="ln"><span>Minimercado Belgrano</span><span>$ 196.300</span></div>
-              <div style="margin-top:6px;padding:5px 7px;border-radius:7px;background:#fff6d9;font-size:11px">⚠ Falta cargar la facturación del sábado de 2 clientes: el total puede subir.</div>
-              <span class="tm">7:00</span>
-            </div>
-          </div>
-          <div class="tg-input"><div class="box">Mensaje</div><div class="mic"></div></div>
-        </div>
-      </div></div>
-      <figcaption><b>Agenda de cobranza automática.</b> Llega programada, separa el importe del ciclo de los atrasos y avisa cuando todavía falta documentación.</figcaption>
-    </figure>
-  </div></div>
-
+  <div class="wrap"><div class="demo-mount" data-demo="asistente-negocio"></div></div>
   <div class="wrap tool-body">
     <div class="prose">
-      <div class="technical-panel"><h2>Implementación técnica</h2><p>Conecté un bot de Telegram a un backend Python/FastAPI y a BigQuery. El asistente interpreta consultas con OpenAI y consulta información del negocio; Firestore conserva el contexto y Cloud Run ejecuta el servicio.</p></div>
-      <h2>Qué hace</h2>
-      <p>Permite preguntar por ventas, productos, compras, cobros o deudas usando lenguaje cotidiano, por texto, audio o imagen. Recupera la información disponible y presenta respuestas con contexto, comparaciones y períodos claros. Conserva el hilo para preguntas de seguimiento, ofrece accesos a consultas frecuentes y permite descargar resultados en Excel o PDF. El usuario puede obtener información desde el celular sin recorrer varias planillas.</p>
-      <p>Puede responder preguntas como cuánto se vendió en un período, qué clientes tienen saldo pendiente o cómo evolucionaron los cobros. Los accesos rápidos facilitan las consultas recurrentes y el seguimiento conversacional permite profundizar sobre un resultado sin comenzar de nuevo.</p>
-      <h3>Agenda automática de cobranzas</h3>
-      <p>Envía un resumen programado de la próxima jornada de cobranza, con el detalle por cliente y el importe correspondiente al ciclo de pago. Presenta por separado la deuda anterior y señala cuando todavía falta información para completar el período. Ayuda a preparar la ronda y priorizar el seguimiento sin armar y distribuir el listado a mano todos los días.</p>
-      <p>El destinatario recibe la información sin tener que abrir una aplicación o formular una consulta. Puede distinguir el importe de la ronda de los atrasos de otros períodos y reconocer cuándo el total todavía depende de documentación pendiente de cargar.</p>
-      <h2>Por qué es confiable</h2>
+      <div class="technical-panel"><h2>Implementación técnica</h2><p>Construí el flujo Telegram → planificación → generación y validación SQL → BigQuery → respuesta. Incluye contexto conversacional en Firestore, validación de consultas y generación de archivos de salida.</p></div>
+      <h2>Qué resuelve</h2>
+      <p>Acerca ventas, cobros, compras y deudas a usuarios que necesitan respuestas sin escribir SQL. La agenda de cobranza usa reglas y tablas específicas, además de las consultas abiertas.</p>
+      <h2>Flujo y alcance</h2>
+      <p>El asistente interpreta la pregunta, consulta el catálogo y valida el SQL antes de leer BigQuery. Puede conservar contexto para seguimientos y exportar resultados; no registra pagos ni altera el ERP.</p>
       <ul class="points">
-        <li>La IA interpreta la pregunta y genera la consulta; la consulta se valida como de solo lectura antes de ejecutarse y, si falla, se corrige y se reintenta.</li>
-        <li>Los importes salen de la base de datos, no de la memoria del modelo. La agenda de cobranza se calcula con reglas, sin IA de por medio.</li>
-        <li>Solo usuarios habilitados, registro de cada consulta y caché de respuestas frecuentes.</li>
-        <li>Cuando un nombre no aparece, sugiere coincidencias en lugar de inventar.</li>
+        <li>Validación de SELECT/WITH, datasets permitidos y costo estimado mediante dry-run.</li>
+        <li>Comparaciones entre períodos con cobertura comparable.</li>
+        <li>Agenda de cobranza y exportaciones XLSX/PDF implementadas.</li>
       </ul>
     </div>
     <aside class="side">
       <div class="panel">
         <h3>Recorrido de la información</h3>
         <div class="flow">
-          <div class="flow-step"><span>Fuente</span><div class="items"><b>Xubio</b></div></div>
+          <div class="flow-step"><span>Origen</span><div class="items"><b>Pregunta en Telegram</b></div></div>
           <div class="flow-arrow"></div>
-          <div class="flow-step mid"><span>Interpretación y contexto</span><div class="items"><b>OpenAI</b><b>Firestore</b><b>Cloud Scheduler</b></div></div>
+<div class="flow-step"><span>Procesamiento</span><div class="items"><b>SQL validado y BigQuery</b></div></div>
           <div class="flow-arrow"></div>
-          <div class="flow-step"><span>Canal y salidas</span><div class="items"><b>Telegram</b><b>Excel</b><b>PDF</b></div></div>
+<div class="flow-step"><span>Salida</span><div class="items"><b>Respuesta y archivo</b></div></div>
         </div>
-        <p class="flow-text">Telegram funciona como interfaz; OpenAI interpreta el pedido y prepara la respuesta; BigQuery aporta información proveniente de Xubio. Firestore conserva contexto y respuestas reutilizables. Para la agenda, BigQuery reúne saldos, ciclos y reglas de cobro, y Cloud Scheduler programa los envíos a las personas configuradas.</p>
+        <p class="flow-text">El modelo propone la consulta; la validación y BigQuery determinan qué datos se pueden devolver.</p>
       </div>
       <div class="panel">
         <h3>Stack tecnológico</h3>
-        <div class="stack"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">SQL</span><span class="tag">OpenAI</span><span class="tag">Telegram</span><span class="tag">BigQuery</span><span class="tag">Firestore</span><span class="tag">Cloud Run</span><span class="tag">Cloud Scheduler</span></div>
+        <div class="stack"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">OpenAI</span><span class="tag">Telegram</span><span class="tag">BigQuery</span><span class="tag">Firestore</span><span class="tag">SQL</span><span class="tag">Cloud Run</span><span class="tag">Cloud Scheduler</span></div>
       </div>
     </aside>
   </div>

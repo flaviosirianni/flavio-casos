@@ -1,0 +1,30 @@
+<section class="tool" id="horas-consultoria" data-cat="apps"
+  data-title="Professional services time tracking"
+  data-sector="BI and finance consulting · USA"
+  data-summary="Log work by client and project, paste multiple rows and review used and remaining hours."
+  data-stack="Google Apps Script,Google Sheets,Slack,HTML,CSS,JavaScript" data-status="Implemented">
+  <div class="wrap tool-head">
+    <p class="eyebrow">BI and finance consulting · USA</p>
+    <h1>Professional services time tracking</h1>
+    <p class="kind">Time entry forms and bulk upload with summaries · Implemented</p>
+    <p class="lead">Log work by client and project, paste multiple rows and review used and remaining hours.</p>
+  </div>
+  <div class="wrap"><div class="demo-mount" data-demo="horas-consultoria"></div></div>
+  <div class="wrap tool-body">
+    <div class="prose">
+      <div class="technical-panel"><h2>Technical implementation</h2><p>Apps Script validates identity, dates and active projects before appending entries. It rebuilds weekly and project summaries and prepares Slack upload notifications.</p></div>
+      <h2>Problem solved</h2><p>Organizes individual and bulk entries in a shared base so coordinators can review work and project consumption.</p>
+      <h2>Flow and scope</h2><p>The web app accepts individual rows and tabular text. Clients with several active projects require an explicit selection; the spreadsheet retains entries and derived summaries.</p>
+      <ul class="points"><li>Email and required field validation.</li><li>Project selection by client and service line.</li><li>Weekly summary, project balance and Slack notifications.</li></ul>
+    </div>
+    <aside class="side"><div class="panel"><h3>Data flow</h3>
+      <div class="flow-step"><div class="items">Form or pasted rows</div></div>
+      <div class="flow-arrow" aria-hidden="true">↓</div>
+      <div class="flow-step"><div class="items">Validation + time entry base</div></div>
+      <div class="flow-arrow" aria-hidden="true">↓</div>
+      <div class="flow-step"><div class="items">Summaries + Slack</div></div>
+      <p class="flow-text">The web app accepts individual rows and tabular text. Clients with several active projects require an explicit selection; the spreadsheet retains entries and derived summaries.</p></div>
+      <div class="panel"><h3>Stack</h3><div class="stack"><span class="tag">Google Apps Script</span><span class="tag">Google Sheets</span><span class="tag">Slack</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div></div>
+    </aside>
+  </div>
+</section>

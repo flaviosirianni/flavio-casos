@@ -1,0 +1,220 @@
+{
+  "slug": "salud",
+  "kind": "form",
+  "title": {
+    "es": "Información de salud con contexto",
+    "en": "Health information with context"
+  },
+  "steps": [
+    {
+      "title": {
+        "es": "Elegir un perfil",
+        "en": "Choose a profile"
+      },
+      "description": {
+        "es": "Cada consulta parte de la persona seleccionada.",
+        "en": "Each conversation starts with the selected person."
+      },
+      "action": {
+        "es": "Abrir perfil",
+        "en": "Open profile"
+      },
+      "view": {
+        "es": {
+          "type": "form",
+          "heading": "Perfil de salud",
+          "fields": [
+            {
+              "label": "Persona",
+              "value": "Perfil A"
+            },
+            {
+              "label": "Relación",
+              "value": "Familiar"
+            },
+            {
+              "label": "Objetivo",
+              "value": "Preparar consulta"
+            }
+          ]
+        },
+        "en": {
+          "type": "form",
+          "heading": "Health profile",
+          "fields": [
+            {
+              "label": "Person",
+              "value": "Profile A"
+            },
+            {
+              "label": "Relationship",
+              "value": "Family member"
+            },
+            {
+              "label": "Goal",
+              "value": "Prepare appointment"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Incorporar un documento",
+        "en": "Add a document"
+      },
+      "description": {
+        "es": "El archivo queda asociado al perfil y puede aportar contexto.",
+        "en": "The file belongs to the profile and can supply context."
+      },
+      "action": {
+        "es": "Revisar documento",
+        "en": "Review document"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Documentos de Perfil A",
+          "columns": [
+            "Archivo",
+            "Tipo",
+            "Estado"
+          ],
+          "rows": [
+            [
+              "estudio-demo.pdf",
+              "Laboratorio",
+              "Incorporado"
+            ],
+            [
+              "nota-demo.pdf",
+              "Consulta",
+              "Incorporado"
+            ]
+          ],
+          "highlight": 0
+        },
+        "en": {
+          "type": "table",
+          "heading": "Profile A documents",
+          "columns": [
+            "File",
+            "Type",
+            "Status"
+          ],
+          "rows": [
+            [
+              "sample-study.pdf",
+              "Laboratory",
+              "Added"
+            ],
+            [
+              "sample-note.pdf",
+              "Consultation",
+              "Added"
+            ]
+          ],
+          "highlight": 0
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Revisar lo extraído",
+        "en": "Review extracted information"
+      },
+      "description": {
+        "es": "La persona revisa el registro antes de conservarlo como antecedente.",
+        "en": "The person reviews the record before keeping it as history."
+      },
+      "action": {
+        "es": "Confirmar registro",
+        "en": "Confirm record"
+      },
+      "view": {
+        "es": {
+          "type": "form",
+          "heading": "Bitácora editable",
+          "fields": [
+            {
+              "label": "Dato propuesto",
+              "value": "Control de seguimiento"
+            },
+            {
+              "label": "Origen",
+              "value": "nota-demo.pdf"
+            },
+            {
+              "label": "Revisión",
+              "value": "Confirmado por el usuario"
+            }
+          ],
+          "notice": "Ejemplo ficticio sin diagnóstico."
+        },
+        "en": {
+          "type": "form",
+          "heading": "Editable health log",
+          "fields": [
+            {
+              "label": "Proposed item",
+              "value": "Follow-up appointment"
+            },
+            {
+              "label": "Source",
+              "value": "sample-note.pdf"
+            },
+            {
+              "label": "Review",
+              "value": "Confirmed by the user"
+            }
+          ],
+          "notice": "Fictional example without a diagnosis."
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Preparar la consulta",
+        "en": "Prepare the appointment"
+      },
+      "description": {
+        "es": "El asistente reúne preguntas con el contexto guardado.",
+        "en": "The assistant gathers questions using saved context."
+      },
+      "action": {
+        "es": "Ver preguntas",
+        "en": "View questions"
+      },
+      "view": {
+        "es": {
+          "type": "chat",
+          "heading": "Consulta con contexto",
+          "messages": [
+            {
+              "side": "user",
+              "text": "¿Qué conviene llevar a la próxima consulta de Perfil A?"
+            },
+            {
+              "side": "bot",
+              "text": "Podés llevar estudio-demo.pdf y nota-demo.pdf. Preguntas para conversar con el profesional: ¿qué seguimiento corresponde y cuándo es el próximo control?"
+            }
+          ]
+        },
+        "en": {
+          "type": "chat",
+          "heading": "Conversation with context",
+          "messages": [
+            {
+              "side": "user",
+              "text": "What should I bring to Profile A’s next appointment?"
+            },
+            {
+              "side": "bot",
+              "text": "You can bring sample-study.pdf and sample-note.pdf. Questions for the professional: what follow-up is appropriate, and when is the next appointment?"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

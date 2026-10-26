@@ -1,0 +1,44 @@
+<section class="tool" id="reclamos-whatsapp" data-cat="bots"
+  data-title="Service issue management through WhatsApp"
+  data-sector="Operational services · buildings and sites"
+  data-summary="Guided issue reporting with location, evidence, resolution and acceptance."
+  data-stack="WhatsApp Cloud API,Python,FastAPI,Firestore,Google Sheets,Google Drive,BigQuery,Google OAuth,Cloud Run,HTML,JavaScript" data-status="">
+  <div class="wrap tool-head">
+    <p class="eyebrow">Operational services · buildings and sites</p>
+    <h1>Service issue management through WhatsApp</h1>
+    <p class="kind">Issue-tracking bot</p>
+    <p class="lead">The reporter chooses a location, describes the problem and attaches evidence. The coordinator receives the case, records the solution and requests the reporter’s acceptance.</p>
+  </div>
+  <div class="wrap"><div class="demo-mount" data-demo="reclamos-whatsapp"></div></div>
+  <div class="wrap tool-body">
+    <div class="prose">
+      <div class="technical-panel"><h2>Technical implementation</h2><p>I developed a FastAPI webhook for WhatsApp Cloud API, with conversation state in Firestore, records in Sheets and files in Drive. The flow checks roles, deduplicates messages and protects state transitions.</p></div>
+      <h2>What it solves</h2>
+      <p>It centralizes issues that could otherwise remain scattered across conversations without traceability. It retains location, evidence, responsibility and timing for follow-up and analysis.</p>
+      <h2>Flow and scope</h2>
+      <p>The case moves from creation to receipt, resolution and acceptance. Rejection opens follow-up; reminders and alerts cover pending items. Analytical outputs are prepared in BigQuery.</p>
+      <ul class="points">
+        <li>Location by building, floor and area, with free-text details.</li>
+        <li>Initial and resolution evidence with file links.</li>
+        <li>Atomic transitions, deduplication and webhook validation.</li>
+      </ul>
+    </div>
+    <aside class="side">
+      <div class="panel">
+        <h3>Data flow</h3>
+        <div class="flow">
+          <div class="flow-step"><span>Source</span><div class="items"><b>WhatsApp report</b></div></div>
+          <div class="flow-arrow"></div>
+<div class="flow-step"><span>Processing</span><div class="items"><b>Case and evidence</b></div></div>
+          <div class="flow-arrow"></div>
+<div class="flow-step"><span>Output</span><div class="items"><b>Resolution and acceptance</b></div></div>
+        </div>
+        <p class="flow-text">WhatsApp guides the exchange; Sheets and Drive retain the case and evidence, while Firestore manages conversation state.</p>
+      </div>
+      <div class="panel">
+        <h3>Technology stack</h3>
+        <div class="stack"><span class="tag">WhatsApp Cloud API</span><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Firestore</span><span class="tag">Google Sheets</span><span class="tag">Google Drive</span><span class="tag">BigQuery</span><span class="tag">Google OAuth</span><span class="tag">Cloud Run</span><span class="tag">HTML</span><span class="tag">JavaScript</span></div>
+      </div>
+    </aside>
+  </div>
+</section>

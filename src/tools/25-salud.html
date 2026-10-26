@@ -1,102 +1,21 @@
-<section class="tool" id="salud" data-cat="bots"
-  data-title="Asistente para organizar información de salud"
-  data-sector="Producto propio · salud y familia"
-  data-summary="Una app móvil y un bot de Telegram para ordenar perfiles, estudios, episodios y pendientes de la familia, y preparar cada consulta médica."
-  data-stack="OpenAI,Expo,React Native,Telegram,Node.js,Express,SQLite,TypeScript,Mercado Pago,Resend">
+<section class="tool" id="salud" data-cat="bots" data-title="Información de salud con contexto" data-sector="Producto propio · salud y familia" data-summary="Perfiles, documentos y pendientes para preparar consultas y conservar el contexto de cada persona." data-stack="Expo,React Native,TypeScript,Node.js,Express,SQLite,OpenAI,Telegram" data-status="Implementado">
   <div class="wrap tool-head">
     <p class="eyebrow">Producto propio · salud y familia</p>
-    <h1>Asistente para organizar información de salud</h1>
-    <p class="kind">Aplicación móvil con backend propio y bot de Telegram, organizados por perfiles de salud</p>
-    <p class="lead">Estudios en PDF, fotos de recetas, audios con dudas y lo que dijo el médico la última vez: todo queda ordenado por persona. Antes de la próxima consulta, el asistente ayuda a preparar las preguntas con el contexto guardado.</p>
+    <h1>Información de salud con contexto</h1>
+    <p class="kind">App móvil y asistente en Telegram</p>
+    <p class="lead">Perfiles, documentos y pendientes para preparar consultas y conservar el contexto de cada persona.</p>
   </div>
-
-  <div class="stage"><div class="wrap shots">
-    <figure class="shot w4">
-      <div class="dev dev-phone ui" style="--h:650px;--brand:#0d9488;--brand-soft:#ddf3f0"><div class="screen">
-        <div class="sbar"><span>16:30</span></div>
-        <div style="padding:2px 16px 10px;border-bottom:1px solid var(--s-line)"><div class="row"><div class="ui-h1" style="font-size:16px">Consulta</div><span class="grow"></span><span class="pill b">Perfil: Mamá ▾</span></div></div>
-        <div style="flex:1;overflow:hidden;padding:12px;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;background:#f6f9f9">
-          <div style="align-self:flex-end;max-width:82%;background:var(--brand);color:#fff;padding:8px 11px;border-radius:14px 14px 4px 14px;font-size:12.3px"><div style="display:flex;align-items:center;gap:7px;margin-bottom:4px"><span style="width:26px;height:32px;border-radius:4px;background:#ffffff33;display:grid;place-items:center;font-size:9px;font-weight:700">PDF</span><span class="xs">laboratorio_oct.pdf</span></div>Llegaron los análisis de mamá, ¿qué cambió respecto de los de abril?</div>
-          <div style="align-self:flex-start;max-width:90%;background:#fff;border:1px solid var(--s-line);padding:9px 11px;border-radius:14px 14px 14px 4px;font-size:12.3px;line-height:1.45">Comparé con el estudio del <b>12/04</b> guardado en su perfil:<br>• <b>Glucemia</b> 104 → 98 mg/dL, dentro del rango del laboratorio.<br>• <b>Colesterol LDL</b> 142 → 151 mg/dL, sigue por encima del valor de referencia.<br>• El resto, sin cambios relevantes.<div style="margin-top:6px;padding:6px 8px;border-radius:8px;background:#f1f5f4;font-size:11px;color:#4b5563">Es información orientativa. Conviene revisar el LDL con su médica en el control de noviembre. ¿Lo agrego a las preguntas?</div></div>
-          <div class="row" style="gap:6px"><span class="btn soft sm">Agregar a preguntas</span><span class="btn ghost sm">Ver estudio</span></div>
-        </div>
-        <div style="padding:8px 12px;display:flex;gap:8px;align-items:center;border-top:1px solid var(--s-line)"><div class="inp" style="flex:1;border-radius:18px"><span class="ph">Escribí o grabá un audio</span></div><span class="av" style="--c:var(--brand)">●</span></div>
-        <div class="row xs" style="justify-content:space-around;padding:8px 6px 20px;border-top:1px solid var(--s-line);color:var(--s-muted)"><b style="color:var(--brand)">Consulta</b><span>Salud</span><span>Documentos</span><span>Historial</span></div>
-      </div></div>
-      <figcaption><b>Consultas con contexto.</b> Texto, audio, imágenes o PDF. Compara con estudios anteriores del mismo perfil y lo dice en palabras simples.</figcaption>
-    </figure>
-
-    <figure class="shot w4">
-      <div class="dev dev-phone ui" style="--h:650px;--brand:#0d9488;--brand-soft:#ddf3f0"><div class="screen">
-        <div class="sbar"><span>16:34</span></div>
-        <div style="padding:2px 16px 10px;border-bottom:1px solid var(--s-line)"><div class="ui-h1" style="font-size:16px">Bitácora de salud</div><div class="xs mut">Mamá · 68 años</div></div>
-        <div style="flex:1;overflow:hidden;padding:12px;display:flex;flex-direction:column;gap:9px;background:#f6f9f9">
-          <div class="lbl">ANTECEDENTES</div>
-          <div class="ui-card" style="padding:9px 11px"><div class="row"><b class="sm">Hipotiroidismo</b><span class="grow"></span><span class="pill g">Confirmado</span></div><div class="xs mut" style="margin-top:3px">Desde 2019 · cargado por vos</div></div>
-          <div class="lbl">MEDICACIÓN</div>
-          <div class="ui-card" style="padding:9px 11px"><div class="row"><b class="sm">Levotiroxina 75 mcg</b><span class="grow"></span><span class="pill g">Confirmado</span></div><div class="xs mut" style="margin-top:3px">1 por día en ayunas</div></div>
-          <div class="ui-card" style="padding:9px 11px;border-color:#f5c26b;background:#fffaf0"><div class="row"><b class="sm">Atorvastatina 10 mg</b><span class="grow"></span><span class="pill y">Para revisar</span></div><div class="xs mut" style="margin-top:3px">Extraído de la consulta del 12/10 · confianza media</div><div class="row" style="gap:6px;margin-top:7px"><span class="btn sm">Confirmar</span><span class="btn ghost sm">Editar</span><span class="btn ghost sm">Descartar</span></div></div>
-          <div class="lbl">PENDIENTES</div>
-          <div class="ui-card" style="padding:9px 11px"><div class="row sm"><span class="chk"></span>Control con cardiología · noviembre</div><div class="row sm" style="margin-top:6px"><span class="chk on"></span>Análisis de sangre · hecho 18/10</div></div>
-        </div>
-        <div class="row xs" style="justify-content:space-around;padding:8px 6px 20px;border-top:1px solid var(--s-line);color:var(--s-muted)"><span>Consulta</span><b style="color:var(--brand)">Salud</b><span>Documentos</span><span>Historial</span></div>
-      </div></div>
-      <figcaption><b>Bitácora editable.</b> Lo que surge de las consultas se guarda con su origen y nivel de confianza, y la persona lo confirma, edita o descarta.</figcaption>
-    </figure>
-
-    <figure class="shot w4">
-      <div class="dev dev-phone" style="--h:650px"><div class="screen">
-        <div class="sbar"><span>19:02</span></div>
-        <div class="tg-head"><span class="back">‹</span><span class="av" style="--c:#0d9488">AS</span><div><div class="t">Asistente de Salud</div><div class="s">bot</div></div></div>
-        <div class="tg">
-          <div class="tg-feed">
-            <div class="msg out">Mañana mamá tiene cardiología. ¿Qué le pregunto?<span class="tm">19:00 ✓✓</span></div>
-            <div class="msg in" style="max-width:92%">
-              <div class="ttl">Preguntas para cardiología · Mamá</div>
-              <div>1. El LDL subió de 142 a 151 mg/dL. ¿Conviene ajustar la dosis de atorvastatina?</div>
-              <div>2. ¿Hace falta repetir el ecocardiograma de 2025?</div>
-              <div>3. Los mareos al levantarse de los últimos 10 días, ¿pueden tener relación con la medicación?</div>
-              <hr>
-              <div style="font-size:10.5px;color:#7a8a7a">Basado en: laboratorio 18/10, consulta 12/10 y el episodio "mareos" abierto el 09/10.</div>
-              <span class="tm">19:01</span>
-            </div>
-            <div class="msg out">Después de la consulta te cuento qué dijo<span class="tm">19:02 ✓✓</span></div>
-            <div class="msg in">Perfecto. Cuando me cuentes, actualizo la bitácora y los pendientes. 💙<span class="tm">19:02</span></div>
-          </div>
-          <div class="tg-input"><div class="box">Mensaje</div><div class="mic"></div></div>
-        </div>
-      </div></div>
-      <figcaption><b>Preparar y registrar la consulta.</b> El bot de Telegram usa el mismo enfoque: preguntas antes, registro de lo conversado después.</figcaption>
-    </figure>
-  </div></div>
-
+  <div class="wrap"><div class="demo-mount" data-demo="salud"></div></div>
   <div class="wrap tool-body">
     <div class="prose">
-      <div class="technical-panel"><h2>Implementación técnica</h2><p>Desarrollé experiencias conversacionales en Telegram y una aplicación móvil con Expo, React Native y TypeScript. Los servicios en Node.js/Express integran OpenAI, SQLite y procesamiento de documentos para organizar información de salud.</p></div>
-      <h2>Qué hace</h2>
-      <p>Reúne perfiles, antecedentes, episodios, documentos y pendientes de una o varias personas. Permite incorporar estudios, recuperar información previa, preparar preguntas para una consulta y registrar lo conversado después. Conserva resúmenes estructurados para facilitar el seguimiento y ofrece orientación informativa con el contexto guardado por el usuario.</p>
-      <p>El usuario puede alternar entre perfiles, recuperar episodios previos y organizar preguntas y pendientes para la próxima consulta profesional. El registro posterior permite conservar lo conversado y mantener continuidad en el seguimiento sin buscar todo nuevamente en mensajes y archivos separados.</p>
-      <h3>Aplicación móvil</h3>
-      <p>Ofrece una experiencia móvil para consultar por texto o audio, cargar documentos e imágenes y mantener un historial por persona. La información relevante se organiza en una bitácora editable para recuperar contexto en futuras consultas. Incluye gestión de cuenta, verificación de correo, recuperación de acceso y un sistema de créditos con recargas para utilizar las funciones de IA.</p>
-      <p>La navegación separa conversaciones, documentos e historial para facilitar la recuperación del contexto. La persona puede revisar y editar información extraída de las consultas y administrar sus perfiles desde una experiencia de aplicación móvil, en lugar de depender de un único hilo de chat.</p>
-      <p class="note">Herramienta de organización y orientación informativa. No diagnostica ni reemplaza a profesionales de la salud.</p>
+      <div class="technical-panel"><h2>Implementación técnica</h2><p>Desarrollé una app móvil con Expo y servicios en Node.js/Express, además de un bot de Telegram. SQLite conserva perfiles, documentos, episodios y seguimientos; OpenAI procesa el contexto de las consultas.</p></div>
+      <h2>Qué resuelve</h2><p>La información familiar suele quedar repartida entre archivos y mensajes. El sistema la organiza por persona y recupera antecedentes para preparar una consulta profesional.</p>
+      <h2>Recorrido y alcance</h2><p>El recorrido parte de un perfil, incorpora documentos y conversaciones, y permite revisar información extraída y pendientes. Ofrece organización y orientación informativa; las decisiones médicas corresponden al profesional.</p>
+      <ul class="points"><li>Perfiles separados para distintas personas.</li><li>Documentos, episodios y consultas vinculados al perfil.</li><li>Información extraída revisable y preparación de preguntas.</li></ul>
     </div>
     <aside class="side">
-      <div class="panel">
-        <h3>Recorrido de la información</h3>
-        <div class="flow">
-          <div class="flow-step"><span>Entradas</span><div class="items"><b>App móvil</b><b>Telegram</b><b>Imágenes y PDF</b></div></div>
-          <div class="flow-arrow"></div>
-          <div class="flow-step mid"><span>Interpretación y registro</span><div class="items"><b>OpenAI</b><b>SQLite</b></div></div>
-          <div class="flow-arrow"></div>
-          <div class="flow-step"><span>Cuenta y pagos</span><div class="items"><b>Mercado Pago</b><b>Resend</b><b>Servicio de créditos</b></div></div>
-        </div>
-        <p class="flow-text">Telegram funciona como interfaz del bot; OpenAI procesa las consultas y los documentos incorporados y permite conversación, transcripción e interpretación de documentos en la app. SQLite conserva perfiles, episodios, documentos, historial y seguimiento. Mercado Pago procesa recargas, Resend envía correos de cuenta y el servicio compartido de créditos administra el consumo.</p>
-      </div>
-      <div class="panel">
-        <h3>Stack tecnológico</h3>
-        <div class="stack"><span class="tag">Expo</span><span class="tag">React Native</span><span class="tag">TypeScript</span><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">SQLite</span><span class="tag">OpenAI</span><span class="tag">Telegram</span><span class="tag">Mercado Pago</span><span class="tag">Resend</span></div>
-      </div>
+      <div class="panel"><h3>Recorrido de la información</h3><div class="flow"><div class="flow-step"><span>Entrada</span><div class="items"><b>Expo</b><b>Telegram</b></div></div><div class="flow-arrow"></div><div class="flow-step"><span>Contexto</span><div class="items"><b>OpenAI</b><b>SQLite</b></div></div><div class="flow-arrow"></div><div class="flow-step"><span>Seguimiento</span><div class="items"><b>Documentos y pendientes</b></div></div></div><p class="flow-text">El recorrido parte de un perfil, incorpora documentos y conversaciones, y permite revisar información extraída y pendientes. Ofrece organización y orientación informativa; las decisiones médicas corresponden al profesional.</p></div>
+      <div class="panel"><h3>Stack tecnológico</h3><div class="stack"><span class="tag">Expo</span><span class="tag">React Native</span><span class="tag">TypeScript</span><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">SQLite</span><span class="tag">OpenAI</span><span class="tag">Telegram</span></div></div>
     </aside>
   </div>
 </section>

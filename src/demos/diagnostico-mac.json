@@ -1,0 +1,218 @@
+{
+  "slug": "diagnostico-mac",
+  "kind": "terminal",
+  "title": {
+    "es": "Diagnóstico guiado de computadoras",
+    "en": "Guided computer diagnostics"
+  },
+  "steps": [
+    {
+      "title": {
+        "es": "Preparar el chequeo",
+        "en": "Prepare the check"
+      },
+      "description": {
+        "es": "Se reconoce el entorno sin cambiar su configuración.",
+        "en": "The environment is identified without changing its configuration."
+      },
+      "action": {
+        "es": "Ver entorno ficticio",
+        "en": "View fictional environment"
+      },
+      "view": {
+        "es": {
+          "type": "terminal",
+          "heading": "Entorno de demostración",
+          "lines": [
+            "> chequeo local · modo lectura",
+            "RAM de ejemplo: 8 GB",
+            "Umbral de swap: 3 GB",
+            "Sin cambios de configuración"
+          ]
+        },
+        "en": {
+          "type": "terminal",
+          "heading": "Demonstration environment",
+          "lines": [
+            "> local check · read-only mode",
+            "Sample RAM: 8 GB",
+            "Swap threshold: 3 GB",
+            "No configuration changes"
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Reunir mediciones",
+        "en": "Gather measurements"
+      },
+      "description": {
+        "es": "Las señales de memoria y disco se muestran por separado.",
+        "en": "Memory and disk signals are shown separately."
+      },
+      "action": {
+        "es": "Ver mediciones",
+        "en": "View measurements"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Lecturas ficticias",
+          "columns": [
+            "Señal",
+            "Valor",
+            "Lectura"
+          ],
+          "rows": [
+            [
+              "Swap",
+              "0,4 GB",
+              "Bajo el umbral"
+            ],
+            [
+              "Disco libre",
+              "80 GB",
+              "Dato medido"
+            ],
+            [
+              "Presión de memoria",
+              "Normal",
+              "Lectura disponible"
+            ]
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "Fictional readings",
+          "columns": [
+            "Signal",
+            "Value",
+            "Reading"
+          ],
+          "rows": [
+            [
+              "Swap",
+              "0.4 GB",
+              "Below threshold"
+            ],
+            [
+              "Free disk space",
+              "80 GB",
+              "Measured value"
+            ],
+            [
+              "Memory pressure",
+              "Normal",
+              "Reading available"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Marcar lo no medido",
+        "en": "Mark unmeasured items"
+      },
+      "description": {
+        "es": "Un error de lectura se conserva como limitación.",
+        "en": "A read error remains an explicit limitation."
+      },
+      "action": {
+        "es": "Revisar respaldo",
+        "en": "Review backup"
+      },
+      "view": {
+        "es": {
+          "type": "terminal",
+          "heading": "Lectura de respaldo",
+          "lines": [
+            "> consultar último respaldo",
+            "No se pudo confirmar la fecha del respaldo",
+            "Estado: no medido",
+            "Una salida vacía no prueba que el respaldo esté sano"
+          ]
+        },
+        "en": {
+          "type": "terminal",
+          "heading": "Backup reading",
+          "lines": [
+            "> inspect latest backup",
+            "Backup date could not be confirmed",
+            "Status: unmeasured",
+            "Empty output does not prove a healthy backup"
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Ordenar la revisión",
+        "en": "Prioritize review"
+      },
+      "description": {
+        "es": "El informe separa evidencia de hipótesis y próximos pasos.",
+        "en": "The report separates evidence, hypotheses and next steps."
+      },
+      "action": {
+        "es": "Ver informe",
+        "en": "View report"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Resumen de diagnóstico",
+          "columns": [
+            "Área",
+            "Conclusión"
+          ],
+          "rows": [
+            [
+              "Memoria",
+              "Sin alerta en esta muestra ficticia"
+            ],
+            [
+              "Respaldo",
+              "Verificación pendiente"
+            ],
+            [
+              "Causa de lentitud",
+              "No confirmada"
+            ],
+            [
+              "Acción automática",
+              "Ninguna"
+            ]
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "Diagnostic summary",
+          "columns": [
+            "Area",
+            "Conclusion"
+          ],
+          "rows": [
+            [
+              "Memory",
+              "No alert in this fictional sample"
+            ],
+            [
+              "Backup",
+              "Verification pending"
+            ],
+            [
+              "Cause of slowness",
+              "Unconfirmed"
+            ],
+            [
+              "Automatic action",
+              "None"
+            ]
+          ]
+        }
+      }
+    }
+  ]
+}

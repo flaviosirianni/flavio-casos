@@ -1,0 +1,278 @@
+{
+  "slug": "reserva-turnos",
+  "kind": "form",
+  "title": {
+    "es": "Búsqueda y reserva automática de turnos",
+    "en": "Automated appointment search and booking"
+  },
+  "steps": [
+    {
+      "title": {
+        "es": "Definir la búsqueda",
+        "en": "Define the search"
+      },
+      "description": {
+        "es": "El ejemplo acepta un centro y una franja de martes.",
+        "en": "The example accepts one location and a Tuesday window."
+      },
+      "action": {
+        "es": "Guardar preferencias",
+        "en": "Save preferences"
+      },
+      "view": {
+        "es": {
+          "type": "form",
+          "heading": "Búsqueda A",
+          "fields": [
+            {
+              "label": "Especialidad",
+              "value": "Especialidad A"
+            },
+            {
+              "label": "Centro",
+              "value": "Centro A"
+            },
+            {
+              "label": "Día",
+              "value": "Martes"
+            },
+            {
+              "label": "Horario",
+              "value": "09:00–12:00"
+            }
+          ]
+        },
+        "en": {
+          "type": "form",
+          "heading": "Search A",
+          "fields": [
+            {
+              "label": "Specialty",
+              "value": "Specialty A"
+            },
+            {
+              "label": "Location",
+              "value": "Location A"
+            },
+            {
+              "label": "Day",
+              "value": "Tuesday"
+            },
+            {
+              "label": "Time window",
+              "value": "09:00–12:00"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Filtrar la disponibilidad",
+        "en": "Filter availability"
+      },
+      "description": {
+        "es": "Se descartan las opciones fuera de los centros y horarios elegidos.",
+        "en": "Slots outside the selected location and time window are excluded."
+      },
+      "action": {
+        "es": "Comparar opciones",
+        "en": "Compare slots"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Disponibilidad de ejemplo",
+          "columns": [
+            "Fecha",
+            "Centro",
+            "Hora",
+            "Coincide"
+          ],
+          "rows": [
+            [
+              "03/11/2026",
+              "Centro A",
+              "08:00",
+              "No"
+            ],
+            [
+              "03/11/2026",
+              "Centro A",
+              "10:30",
+              "Sí"
+            ],
+            [
+              "03/11/2026",
+              "Centro B",
+              "11:00",
+              "No"
+            ]
+          ],
+          "highlight": 1
+        },
+        "en": {
+          "type": "table",
+          "heading": "Sample availability",
+          "columns": [
+            "Date",
+            "Location",
+            "Time",
+            "Matches"
+          ],
+          "rows": [
+            [
+              "Nov 3, 2026",
+              "Location A",
+              "08:00",
+              "No"
+            ],
+            [
+              "Nov 3, 2026",
+              "Location A",
+              "10:30",
+              "Yes"
+            ],
+            [
+              "Nov 3, 2026",
+              "Location B",
+              "11:00",
+              "No"
+            ]
+          ],
+          "highlight": 1
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Intentar la reserva",
+        "en": "Attempt booking"
+      },
+      "description": {
+        "es": "Una coincidencia pasa al flujo de confirmación del portal.",
+        "en": "A matching slot enters the portal confirmation flow."
+      },
+      "action": {
+        "es": "Ver confirmación",
+        "en": "View confirmation"
+      },
+      "view": {
+        "es": {
+          "type": "pipeline",
+          "heading": "Reserva compatible",
+          "nodes": [
+            {
+              "label": "Franja validada",
+              "status": "done"
+            },
+            {
+              "label": "Turno seleccionado",
+              "status": "done"
+            },
+            {
+              "label": "Confirmación del portal",
+              "status": "done"
+            }
+          ],
+          "log": [
+            "Centro A · 03/11/2026 · 10:30",
+            "Reserva de ejemplo confirmada"
+          ]
+        },
+        "en": {
+          "type": "pipeline",
+          "heading": "Matching booking",
+          "nodes": [
+            {
+              "label": "Time window validated",
+              "status": "done"
+            },
+            {
+              "label": "Slot selected",
+              "status": "done"
+            },
+            {
+              "label": "Portal confirmation",
+              "status": "done"
+            }
+          ],
+          "log": [
+            "Location A · Nov 3, 2026 · 10:30",
+            "Sample booking confirmed"
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Conservar el resultado",
+        "en": "Keep the result"
+      },
+      "description": {
+        "es": "El turno queda registrado y se prepara el aviso al usuario.",
+        "en": "The appointment is recorded and a notification is prepared."
+      },
+      "action": {
+        "es": "Ver actividad",
+        "en": "View activity"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Actividad de Búsqueda A",
+          "columns": [
+            "Evento",
+            "Resultado"
+          ],
+          "rows": [
+            [
+              "Búsqueda",
+              "Coincidencia encontrada"
+            ],
+            [
+              "Reserva",
+              "Confirmada · 10:30"
+            ],
+            [
+              "Búsqueda A",
+              "Cumplida"
+            ],
+            [
+              "Correo",
+              "Aviso de reserva"
+            ]
+          ],
+          "highlight": 1
+        },
+        "en": {
+          "type": "table",
+          "heading": "Search A activity",
+          "columns": [
+            "Event",
+            "Result"
+          ],
+          "rows": [
+            [
+              "Search",
+              "Matching slot found"
+            ],
+            [
+              "Booking",
+              "Confirmed · 10:30"
+            ],
+            [
+              "Search A",
+              "Completed"
+            ],
+            [
+              "Email",
+              "Booking notification"
+            ]
+          ],
+          "highlight": 1
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+<section class="tool" id="parte-diario" data-cat="apps"
+  data-title="Digital attendance and daily updates"
+  data-sector="Operational services · teams across multiple sites"
+  data-summary="Attendance, schedules and absences with drafts, staged posting and controlled daily closing."
+  data-stack="Google Apps Script,Google Sheets,BigQuery,HTML,CSS,JavaScript" data-status="">
+  <div class="wrap tool-head">
+    <p class="eyebrow">Operational services · teams across multiple sites</p>
+    <h1>Digital attendance and daily updates</h1>
+    <p class="kind">Operational web app connected to Sheets</p>
+    <p class="lead">The supervisor enters the day in a web app, reviews differences and confirms when everything is complete. History retains posted records.</p>
+  </div>
+  <div class="wrap"><div class="demo-mount" data-demo="parte-diario"></div></div>
+  <div class="wrap tool-body">
+    <div class="prose">
+      <div class="technical-panel"><h2>Technical implementation</h2><p>I extended Google Sheets operations with an HTML/JavaScript interface and Apps Script APIs. Validation, locks, absence rules and confirmation run on the server; outputs integrate with the analytical layer.</p></div>
+      <h2>What it solves</h2>
+      <p>It organizes attendance, absences and actual times without requiring direct cell editing. It distinguishes drafts, posted rows and confirmed days.</p>
+      <h2>Flow and scope</h2>
+      <p>Users choose a date and active staff, enter updates and post records. Confirmation checks pending items before closing; historical changes have a dedicated flow.</p>
+      <ul class="points">
+        <li>Individual or batch posting with data validation.</li>
+        <li>Rules for active staff, absences and departures.</li>
+        <li>Concurrency locks and controlled historical editing.</li>
+      </ul>
+    </div>
+    <aside class="side">
+      <div class="panel">
+        <h3>Data flow</h3>
+        <div class="flow">
+          <div class="flow-step"><span>Source</span><div class="items"><b>Supervisor entry</b></div></div>
+          <div class="flow-arrow"></div>
+<div class="flow-step"><span>Processing</span><div class="items"><b>Validation and posting</b></div></div>
+          <div class="flow-arrow"></div>
+<div class="flow-step"><span>Output</span><div class="items"><b>History and analysis</b></div></div>
+        </div>
+        <p class="flow-text">The web app prepares drafts; Apps Script validates and writes the history used by subsequent queries.</p>
+      </div>
+      <div class="panel">
+        <h3>Technology stack</h3>
+        <div class="stack"><span class="tag">Google Apps Script</span><span class="tag">Google Sheets</span><span class="tag">BigQuery</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+      </div>
+    </aside>
+  </div>
+</section>

@@ -1,0 +1,256 @@
+{
+  "slug": "entrenamiento",
+  "kind": "form",
+  "title": {
+    "es": "Registro y seguimiento de entrenamiento",
+    "en": "Workout logging and progress"
+  },
+  "steps": [
+    {
+      "title": {
+        "es": "Abrir una sesión",
+        "en": "Open a session"
+      },
+      "description": {
+        "es": "El ejercicio muestra una referencia de la sesión anterior.",
+        "en": "The exercise shows a reference from the previous session."
+      },
+      "action": {
+        "es": "Elegir ejercicio",
+        "en": "Choose exercise"
+      },
+      "view": {
+        "es": {
+          "type": "form",
+          "heading": "Sesión A",
+          "fields": [
+            {
+              "label": "Ejercicio",
+              "value": "Remo en máquina"
+            },
+            {
+              "label": "Registro anterior",
+              "value": "30 kg · 10 repeticiones"
+            },
+            {
+              "label": "Conexión",
+              "value": "Sin conexión"
+            }
+          ]
+        },
+        "en": {
+          "type": "form",
+          "heading": "Session A",
+          "fields": [
+            {
+              "label": "Exercise",
+              "value": "Machine row"
+            },
+            {
+              "label": "Previous record",
+              "value": "30 kg · 10 repetitions"
+            },
+            {
+              "label": "Connection",
+              "value": "Offline"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Registrar las series",
+        "en": "Log sets"
+      },
+      "description": {
+        "es": "Cada serie queda guardada en el dispositivo antes de indicar éxito.",
+        "en": "Each set is stored on the device before reporting success."
+      },
+      "action": {
+        "es": "Guardar series",
+        "en": "Save sets"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Remo · sesión actual",
+          "columns": [
+            "Serie",
+            "Peso",
+            "Repeticiones",
+            "Estado"
+          ],
+          "rows": [
+            [
+              "1",
+              "32,5 kg",
+              "10",
+              "Guardada localmente"
+            ],
+            [
+              "2",
+              "32,5 kg",
+              "10",
+              "Guardada localmente"
+            ],
+            [
+              "3",
+              "32,5 kg",
+              "8",
+              "Guardada localmente"
+            ]
+          ],
+          "highlight": 2
+        },
+        "en": {
+          "type": "table",
+          "heading": "Row · current session",
+          "columns": [
+            "Set",
+            "Weight",
+            "Repetitions",
+            "Status"
+          ],
+          "rows": [
+            [
+              "1",
+              "32.5 kg",
+              "10",
+              "Saved locally"
+            ],
+            [
+              "2",
+              "32.5 kg",
+              "10",
+              "Saved locally"
+            ],
+            [
+              "3",
+              "32.5 kg",
+              "8",
+              "Saved locally"
+            ]
+          ],
+          "highlight": 2
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Recuperar la conexión",
+        "en": "Reconnect"
+      },
+      "description": {
+        "es": "La cola envía los cambios usando la cuenta actual.",
+        "en": "The queue sends changes using the current account."
+      },
+      "action": {
+        "es": "Sincronizar cambios",
+        "en": "Sync changes"
+      },
+      "view": {
+        "es": {
+          "type": "pipeline",
+          "heading": "Sincronización de la sesión",
+          "nodes": [
+            {
+              "label": "Guardado local confirmado",
+              "status": "done"
+            },
+            {
+              "label": "Conexión recuperada",
+              "status": "done"
+            },
+            {
+              "label": "Cola enviada",
+              "status": "done"
+            },
+            {
+              "label": "Revisión remota confirmada",
+              "status": "done"
+            }
+          ],
+          "log": [
+            "3 series conservadas",
+            "Sesión sincronizada sin conflicto en este ejemplo"
+          ]
+        },
+        "en": {
+          "type": "pipeline",
+          "heading": "Session synchronization",
+          "nodes": [
+            {
+              "label": "Local save confirmed",
+              "status": "done"
+            },
+            {
+              "label": "Connection restored",
+              "status": "done"
+            },
+            {
+              "label": "Queue sent",
+              "status": "done"
+            },
+            {
+              "label": "Remote revision confirmed",
+              "status": "done"
+            }
+          ],
+          "log": [
+            "3 sets retained",
+            "Session synchronized without a conflict in this example"
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Consultar el progreso",
+        "en": "Review progress"
+      },
+      "description": {
+        "es": "El historial permite comparar la carga registrada en sesiones distintas.",
+        "en": "History supports comparing logged weight across sessions."
+      },
+      "action": {
+        "es": "Ver historial",
+        "en": "View history"
+      },
+      "view": {
+        "es": {
+          "type": "chart",
+          "heading": "Carga máxima registrada",
+          "bars": [
+            {
+              "label": "Sesión anterior",
+              "value": 30,
+              "display": "30 kg"
+            },
+            {
+              "label": "Sesión actual",
+              "value": 32.5,
+              "display": "32,5 kg"
+            }
+          ]
+        },
+        "en": {
+          "type": "chart",
+          "heading": "Highest logged weight",
+          "bars": [
+            {
+              "label": "Previous session",
+              "value": 30,
+              "display": "30 kg"
+            },
+            {
+              "label": "Current session",
+              "value": 32.5,
+              "display": "32.5 kg"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,244 @@
+{
+  "slug": "consolidacion-partes",
+  "kind": "table",
+  "title": {
+    "es": "Consolidación de partes de distintas planillas",
+    "en": "Consolidating attendance from separate spreadsheets"
+  },
+  "steps": [
+    {
+      "title": {
+        "es": "Recibir grillas",
+        "en": "Read grids"
+      },
+      "description": {
+        "es": "Dos sedes ficticias usan una grilla por mes.",
+        "en": "Two fictional sites use one grid per month."
+      },
+      "action": {
+        "es": "Leer fuentes",
+        "en": "Read sources"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Grilla de junio · Sede A",
+          "columns": [
+            "Persona",
+            "8 de junio",
+            "9 de junio"
+          ],
+          "rows": [
+            [
+              "Empleado A",
+              "P",
+              "F"
+            ]
+          ],
+          "metrics": [
+            {
+              "label": "Códigos",
+              "value": "P: presente · F: franco"
+            }
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "June grid · Site A",
+          "columns": [
+            "Person",
+            "June 8",
+            "June 9"
+          ],
+          "rows": [
+            [
+              "Employee A",
+              "P",
+              "F"
+            ]
+          ],
+          "metrics": [
+            {
+              "label": "Codes",
+              "value": "P: present · F: day off"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Interpretar fechas y estados",
+        "en": "Interpret dates and statuses"
+      },
+      "description": {
+        "es": "Las celdas se convierten en registros de persona y fecha.",
+        "en": "Cells are converted into person-and-date records."
+      },
+      "action": {
+        "es": "Normalizar grilla",
+        "en": "Normalize grid"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Filas normalizadas",
+          "columns": [
+            "Sede",
+            "Persona",
+            "Fecha",
+            "Estado"
+          ],
+          "rows": [
+            [
+              "Sede A",
+              "Empleado A",
+              "8 de junio",
+              "Presente"
+            ],
+            [
+              "Sede A",
+              "Empleado A",
+              "9 de junio",
+              "Franco"
+            ]
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "Normalized rows",
+          "columns": [
+            "Site",
+            "Person",
+            "Date",
+            "Status"
+          ],
+          "rows": [
+            [
+              "Site A",
+              "Employee A",
+              "June 8",
+              "Present"
+            ],
+            [
+              "Site A",
+              "Employee A",
+              "June 9",
+              "Day off"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Resolver solapamientos",
+        "en": "Resolve overlaps"
+      },
+      "description": {
+        "es": "Una misma clave repetida se reduce a una fila durante la extracción.",
+        "en": "A repeated key is reduced to one row during extraction."
+      },
+      "action": {
+        "es": "Deduplicar claves",
+        "en": "Deduplicate keys"
+      },
+      "view": {
+        "es": {
+          "type": "terminal",
+          "heading": "Control de claves",
+          "lines": [
+            "Sede A: 3 filas leídas",
+            "Clave repetida: Empleado A · 8 de junio",
+            "Salida: 2 filas únicas"
+          ]
+        },
+        "en": {
+          "type": "terminal",
+          "heading": "Key checks",
+          "lines": [
+            "Site A: 3 rows read",
+            "Repeated key: Employee A · June 8",
+            "Output: 2 unique rows"
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Unir sedes",
+        "en": "Combine sites"
+      },
+      "description": {
+        "es": "El maestro reúne tres registros únicos provenientes de las dos sedes.",
+        "en": "The master table combines three unique records from both sites."
+      },
+      "action": {
+        "es": "Reconstruir maestro",
+        "en": "Rebuild master table"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Maestro consolidado",
+          "columns": [
+            "Sede",
+            "Persona",
+            "Fecha",
+            "Estado"
+          ],
+          "rows": [
+            [
+              "Sede A",
+              "Empleado A",
+              "8 de junio",
+              "Presente"
+            ],
+            [
+              "Sede A",
+              "Empleado A",
+              "9 de junio",
+              "Franco"
+            ],
+            [
+              "Sede B",
+              "Empleado B",
+              "8 de junio",
+              "Presente"
+            ]
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "Consolidated master table",
+          "columns": [
+            "Site",
+            "Person",
+            "Date",
+            "Status"
+          ],
+          "rows": [
+            [
+              "Site A",
+              "Employee A",
+              "June 8",
+              "Present"
+            ],
+            [
+              "Site A",
+              "Employee A",
+              "June 9",
+              "Day off"
+            ],
+            [
+              "Site B",
+              "Employee B",
+              "June 8",
+              "Present"
+            ]
+          ]
+        }
+      }
+    }
+  ]
+}

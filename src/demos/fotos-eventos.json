@@ -1,0 +1,260 @@
+{
+  "slug": "fotos-eventos",
+  "kind": "form",
+  "title": {
+    "es": "Fotos y videos privados para eventos",
+    "en": "Private event photos and videos"
+  },
+  "steps": [
+    {
+      "title": {
+        "es": "Entrar al evento",
+        "en": "Enter the event"
+      },
+      "description": {
+        "es": "El invitado usa el enlace privado del evento de ejemplo.",
+        "en": "The guest uses the private link for the sample event."
+      },
+      "action": {
+        "es": "Abrir evento",
+        "en": "Open event"
+      },
+      "view": {
+        "es": {
+          "type": "form",
+          "heading": "Evento A",
+          "fields": [
+            {
+              "label": "Acceso",
+              "value": "Enlace del evento"
+            },
+            {
+              "label": "Invitado",
+              "value": "Invitado A"
+            },
+            {
+              "label": "Cuenta individual",
+              "value": "No requerida"
+            }
+          ]
+        },
+        "en": {
+          "type": "form",
+          "heading": "Event A",
+          "fields": [
+            {
+              "label": "Access",
+              "value": "Event link"
+            },
+            {
+              "label": "Guest",
+              "value": "Guest A"
+            },
+            {
+              "label": "Individual account",
+              "value": "Not required"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Seleccionar archivos",
+        "en": "Select files"
+      },
+      "description": {
+        "es": "La cola separa archivos completos y cargas pendientes.",
+        "en": "The queue separates completed files from pending uploads."
+      },
+      "action": {
+        "es": "Ver cola",
+        "en": "View queue"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Cola de carga",
+          "columns": [
+            "Archivo",
+            "Tipo",
+            "Estado"
+          ],
+          "rows": [
+            [
+              "foto-demo.jpg",
+              "Imagen",
+              "Completa"
+            ],
+            [
+              "video-demo.mp4",
+              "Video",
+              "Interrumpida · 2 de 4 partes"
+            ]
+          ],
+          "highlight": 1
+        },
+        "en": {
+          "type": "table",
+          "heading": "Upload queue",
+          "columns": [
+            "File",
+            "Type",
+            "Status"
+          ],
+          "rows": [
+            [
+              "sample-photo.jpg",
+              "Image",
+              "Complete"
+            ],
+            [
+              "sample-video.mp4",
+              "Video",
+              "Interrupted · 2 of 4 parts"
+            ]
+          ],
+          "highlight": 1
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Retomar la carga",
+        "en": "Resume the upload"
+      },
+      "description": {
+        "es": "Se vuelve a seleccionar el mismo archivo y se conservan las partes confirmadas.",
+        "en": "The same file is selected again and confirmed parts are retained."
+      },
+      "action": {
+        "es": "Reanudar video",
+        "en": "Resume video"
+      },
+      "view": {
+        "es": {
+          "type": "pipeline",
+          "heading": "Reanudación del video",
+          "nodes": [
+            {
+              "label": "Archivo verificado",
+              "status": "done"
+            },
+            {
+              "label": "Partes 1 y 2 conservadas",
+              "status": "done"
+            },
+            {
+              "label": "Partes 3 y 4 enviadas",
+              "status": "done"
+            },
+            {
+              "label": "Procesamiento",
+              "status": "active"
+            }
+          ],
+          "log": [
+            "Archivo vuelto a seleccionar",
+            "Carga completa; procesamiento pendiente"
+          ]
+        },
+        "en": {
+          "type": "pipeline",
+          "heading": "Video upload resumption",
+          "nodes": [
+            {
+              "label": "File verified",
+              "status": "done"
+            },
+            {
+              "label": "Parts 1 and 2 retained",
+              "status": "done"
+            },
+            {
+              "label": "Parts 3 and 4 uploaded",
+              "status": "done"
+            },
+            {
+              "label": "Processing",
+              "status": "active"
+            }
+          ],
+          "log": [
+            "File selected again",
+            "Upload complete; processing pending"
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Administrar los medios",
+        "en": "Manage media"
+      },
+      "description": {
+        "es": "El organizador puede revisar medios y preparar la exportación.",
+        "en": "The organizer can review media and prepare an export."
+      },
+      "action": {
+        "es": "Ver administración",
+        "en": "View administration"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Administración de Evento A",
+          "columns": [
+            "Elemento",
+            "Estado",
+            "Acción"
+          ],
+          "rows": [
+            [
+              "Foto A",
+              "Lista",
+              "Disponible en galería"
+            ],
+            [
+              "Video A",
+              "Listo",
+              "Disponible en galería"
+            ],
+            [
+              "Exportación A",
+              "Solicitada",
+              "Originales por lotes"
+            ]
+          ],
+          "highlight": 2
+        },
+        "en": {
+          "type": "table",
+          "heading": "Event A administration",
+          "columns": [
+            "Item",
+            "Status",
+            "Action"
+          ],
+          "rows": [
+            [
+              "Photo A",
+              "Ready",
+              "Available in gallery"
+            ],
+            [
+              "Video A",
+              "Ready",
+              "Available in gallery"
+            ],
+            [
+              "Export A",
+              "Requested",
+              "Originals in batches"
+            ]
+          ],
+          "highlight": 2
+        }
+      }
+    }
+  ]
+}

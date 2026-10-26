@@ -1,0 +1,44 @@
+<section class="tool" id="facturacion-servicios" data-cat="sheets"
+  data-title="Consolidating service billing data"
+  data-sector="Institutional food services · multiple sites"
+  data-summary="Meal spreadsheets combined into a validated master table for activity and billing analysis."
+  data-stack="Google Apps Script,Google Sheets,SQL,BigQuery,Apache Superset" data-status="">
+  <div class="wrap tool-head">
+    <p class="eyebrow">Institutional food services · multiple sites</p>
+    <h1>Consolidating service billing data</h1>
+    <p class="kind">Service-quantity consolidation</p>
+    <p class="lead">Breakfast, lunch, afternoon meal and dinner quantities are combined from separate sheets by site and diner type. The master table becomes available to the analytical layer.</p>
+  </div>
+  <div class="wrap"><div class="demo-mount" data-demo="facturacion-servicios"></div></div>
+  <div class="wrap tool-body">
+    <div class="prose">
+      <div class="technical-panel"><h2>Technical implementation</h2><p>I implemented an Apps Script that identifies source sheets, normalizes dates and quantities and consolidates a master union. It logs runs and checks that no row has lost its date before writing the output.</p></div>
+      <h2>What it solves</h2>
+      <p>It avoids manually copying activity from each site and category. It prepares comparable quantities for billing reports and staffing comparisons; it does not issue tax invoices.</p>
+      <h2>Flow and scope</h2>
+      <p>Sources are first refreshed by site, then the master table is rebuilt from those local copies. These are separate operations: rebuilding the union does not reread source files.</p>
+      <ul class="points">
+        <li>Diner types: patients, companions and authorized diners.</li>
+        <li>Integer or blank quantities, with issue logging.</li>
+        <li>The union aborts without writing if it detects rows without dates.</li>
+      </ul>
+    </div>
+    <aside class="side">
+      <div class="panel">
+        <h3>Data flow</h3>
+        <div class="flow">
+          <div class="flow-step"><span>Source</span><div class="items"><b>Sheets by site and category</b></div></div>
+          <div class="flow-arrow"></div>
+<div class="flow-step"><span>Processing</span><div class="items"><b>Normalization and master table</b></div></div>
+          <div class="flow-arrow"></div>
+<div class="flow-step"><span>Output</span><div class="items"><b>BigQuery and reports</b></div></div>
+        </div>
+        <p class="flow-text">The master table is the tabular source read by BigQuery. Updates depend on source refreshes followed by consolidation.</p>
+      </div>
+      <div class="panel">
+        <h3>Technology stack</h3>
+        <div class="stack"><span class="tag">Google Apps Script</span><span class="tag">Google Sheets</span><span class="tag">SQL</span><span class="tag">BigQuery</span><span class="tag">Apache Superset</span></div>
+      </div>
+    </aside>
+  </div>
+</section>

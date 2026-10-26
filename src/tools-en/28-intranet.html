@@ -1,0 +1,21 @@
+<section class="tool" id="intranet" data-cat="int" data-title="Projects, costs and effort intranet" data-sector="Internal use · software development" data-summary="Provider costs, development work logs and estimates brought together in a private intranet." data-stack="Next.js,React,TypeScript,Supabase,PostgreSQL,OpenAI Admin API,BigQuery,Node.js" data-status="Implemented">
+  <div class="wrap tool-head">
+    <p class="eyebrow">Internal use · software development</p>
+    <h1>Projects, costs and effort intranet</h1>
+    <p class="kind">Private project management intranet</p>
+    <p class="lead">Provider costs, development work logs and estimates brought together in a private intranet.</p>
+  </div>
+  <div class="wrap"><div class="demo-mount" data-demo="intranet"></div></div>
+  <div class="wrap tool-body">
+    <div class="prose">
+      <div class="technical-panel"><h2>Technical implementation</h2><p>I built project, cost reconciliation and work-log modules in Next.js and Supabase. Integrations query the OpenAI administration API and Google Cloud billing exports in BigQuery.</p></div>
+      <h2>What it solves</h2><p>Estimating effort and understanding project cost requires connecting providers, development activity and projects. The intranet brings those references together without relying on separate spreadsheets.</p>
+      <h2>Flow and scope</h2><p>Costs are linked to projects, work entries are ingested and historical references are summarized to estimate effort. Calculations distinguish observed values from estimates based on small samples.</p>
+      <ul class="points"><li>Reconciliation and deduplication of imported costs.</li><li>Work log with project, category and duration.</li><li>Estimation using references and complexity factors.</li></ul>
+    </div>
+    <aside class="side">
+      <div class="panel"><h3>Data flow</h3><div class="flow"><div class="flow-step"><span>Sources</span><div class="items"><b>OpenAI Admin API</b><b>BigQuery</b></div></div><div class="flow-arrow"></div><div class="flow-step"><span>Organization</span><div class="items"><b>Next.js</b><b>Supabase</b></div></div><div class="flow-arrow"></div><div class="flow-step"><span>Management</span><div class="items"><b>Costs, work log and estimates</b></div></div></div><p class="flow-text">Costs are linked to projects, work entries are ingested and historical references are summarized to estimate effort. Calculations distinguish observed values from estimates based on small samples.</p></div>
+      <div class="panel"><h3>Technology stack</h3><div class="stack"><span class="tag">Next.js</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Supabase</span><span class="tag">PostgreSQL</span><span class="tag">OpenAI Admin API</span><span class="tag">BigQuery</span><span class="tag">Node.js</span></div></div>
+    </aside>
+  </div>
+</section>

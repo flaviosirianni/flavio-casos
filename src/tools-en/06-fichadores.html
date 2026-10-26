@@ -1,0 +1,44 @@
+<section class="tool" id="fichadores" data-cat="integ"
+  data-title="Time-clock ingestion and attendance reconciliation"
+  data-sector="Operational services · staff across multiple sites"
+  data-summary="Biometric clock events in BigQuery compared with attendance reports."
+  data-stack="Python,REST APIs,BigQuery,SQL,Google Sheets,Google Apps Script" data-status="">
+  <div class="wrap tool-head">
+    <p class="eyebrow">Operational services · staff across multiple sites</p>
+    <h1>Time-clock ingestion and attendance reconciliation</h1>
+    <p class="kind">Clock-event integration and cross-checking</p>
+    <p class="lead">Clock events become more than an isolated device lookup. They are transformed into daily records that can be compared with attendance reports and staff lists.</p>
+  </div>
+  <div class="wrap"><div class="demo-mount" data-demo="fichadores"></div></div>
+  <div class="wrap tool-body">
+    <div class="prose">
+      <div class="technical-panel"><h2>Technical implementation</h2><p>I implemented Python ingestion from the time-clock API into daily BigQuery partitions. SQL transformations separate shifts and cross-check events against attendance reports; device and latency audits are available.</p></div>
+      <h2>What it solves</h2>
+      <p>It helps detect report entries without clock events, clock events without report entries and other differences requiring review. It provides a shared foundation for distinguishing device records from administrative entries.</p>
+      <h2>Flow and scope</h2>
+      <p>The API is queried by date and each partition is replaced to avoid duplicate loads. Data is normalized and reconciliation views are published, with specific outputs to Sheets summaries.</p>
+      <ul class="points">
+        <li>Read retries and device normalization.</li>
+        <li>Shift splitting and handling of repeated clock events.</li>
+        <li>Classification of matches and differences; review remains a human task.</li>
+      </ul>
+    </div>
+    <aside class="side">
+      <div class="panel">
+        <h3>Data flow</h3>
+        <div class="flow">
+          <div class="flow-step"><span>Source</span><div class="items"><b>Time-clock API</b></div></div>
+          <div class="flow-arrow"></div>
+<div class="flow-step"><span>Processing</span><div class="items"><b>Partitions and SQL views</b></div></div>
+          <div class="flow-arrow"></div>
+<div class="flow-step"><span>Output</span><div class="items"><b>Attendance reconciliation</b></div></div>
+        </div>
+        <p class="flow-text">The report represents administrative entries; clock events provide another source of evidence. The comparison flags differences without resolving them on its own.</p>
+      </div>
+      <div class="panel">
+        <h3>Technology stack</h3>
+        <div class="stack"><span class="tag">Python</span><span class="tag">REST APIs</span><span class="tag">BigQuery</span><span class="tag">SQL</span><span class="tag">Google Sheets</span><span class="tag">Google Apps Script</span></div>
+      </div>
+    </aside>
+  </div>
+</section>

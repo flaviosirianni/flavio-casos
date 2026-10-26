@@ -1,72 +1,21 @@
-<section class="tool" id="portal-herramientas" data-cat="int"
-  data-title="Portal interno de herramientas operativas"
-  data-sector="Servicios de campo · EE.UU."
-  data-summary="Una entrada única para las aplicaciones internas del equipo, con el propósito y el estado de cada una, sin colecciones de links sueltos."
-  data-stack="Google Apps Script,HTML,CSS,JavaScript,Google Sheets">
+<section class="tool" id="portal-herramientas" data-cat="int" data-title="Portal interno de herramientas operativas" data-sector="Servicios de campo · EE. UU." data-summary="Un catálogo interno con descripción, categoría y estado para abrir las aplicaciones de una suite." data-stack="Google Apps Script,HTML,CSS,JavaScript" data-status="Implementado">
   <div class="wrap tool-head">
-    <p class="eyebrow">Servicios de campo · EE.UU.</p>
+    <p class="eyebrow">Servicios de campo · EE. UU.</p>
     <h1>Portal interno de herramientas operativas</h1>
-    <p class="kind">Portal web interno de acceso a una suite de aplicaciones</p>
-    <p class="lead">Las herramientas de comisiones y de horas de nómina viven en un mismo lugar. El operador entra por un solo link, ve qué hace cada aplicación y vuelve al portal desde cualquiera de ellas.</p>
+    <p class="kind">Portal web de acceso a aplicaciones internas</p>
+    <p class="lead">Un catálogo interno con descripción, categoría y estado para abrir las aplicaciones de una suite.</p>
   </div>
-
-  <div class="stage"><div class="wrap shots">
-    <figure class="shot w8">
-      <div class="dev dev-browser ui" style="--w:860px;--brand:#1d4ed8;--brand-soft:#e7eefc">
-        <div class="bar"><i></i><i></i><i></i><div class="url">script.google.com · Ops Portal</div></div>
-        <div style="background:#f6f8fb;padding:30px 30px 34px">
-          <div class="xs b" style="color:#1d4ed8;letter-spacing:.08em;text-transform:uppercase">Operations</div>
-          <div style="font-size:26px;font-weight:800;letter-spacing:-.02em;margin-top:4px">Ops Portal</div>
-          <div class="sm mut" style="margin-top:4px">Your tools in one place. Each app keeps its own data.</div>
-          <div class="g3" style="margin-top:20px;gap:14px">
-            <div class="ui-card" style="padding:16px"><div style="width:34px;height:34px;border-radius:9px;background:#e7eefc;display:grid;place-items:center;color:#1d4ed8;font-weight:800">%</div><div class="b" style="margin-top:12px">Tech Commissions Sandbox</div><div class="sm mut" style="margin-top:4px;min-height:50px">Scenario planning for tech commissions, production, base salary and labor ratio.</div><div class="row" style="margin-top:10px"><span class="pill g dot">Active</span><span class="grow"></span><span class="btn sm">Open</span></div></div>
-            <div class="ui-card" style="padding:16px"><div style="width:34px;height:34px;border-radius:9px;background:#e0f2f7;display:grid;place-items:center;color:#0e7490;font-weight:800">h</div><div class="b" style="margin-top:12px">Payroll Hours</div><div class="sm mut" style="margin-top:4px;min-height:50px">Payroll hour review, PTO, holidays, posted runs and paid overtime tracking.</div><div class="row" style="margin-top:10px"><span class="pill g dot">Active</span><span class="grow"></span><span class="btn sm">Open</span></div></div>
-            <div class="ui-card" style="padding:16px;background:#fafbfc"><div style="width:34px;height:34px;border-radius:9px;background:#eef0f3;display:grid;place-items:center;color:#9aa3af;font-weight:800">Σ</div><div class="b mut" style="margin-top:12px">Macro Calculator</div><div class="sm mut" style="margin-top:4px;min-height:50px">Integrated compensation planning across commissions and payroll hours.</div><div class="row" style="margin-top:10px"><span class="pill">Coming soon</span></div></div>
-          </div>
-        </div>
-      </div>
-      <figcaption><b>Entrada común.</b> Cada herramienta muestra su propósito y disponibilidad; las planificadas aparecen deshabilitadas hasta estar listas.</figcaption>
-    </figure>
-
-    <figure class="shot w4">
-      <div class="dev dev-phone ui" style="--h:560px;--brand:#1d4ed8;--brand-soft:#e7eefc"><div class="screen" style="background:#f6f8fb">
-        <div class="sbar"><span>8:02</span></div>
-        <div style="padding:6px 16px 0"><div class="ui-h1">Ops Portal</div><div class="xs mut">2 tools available</div></div>
-        <div style="padding:14px;display:flex;flex-direction:column;gap:10px">
-          <div class="ui-card"><div class="row"><b class="sm">Tech Commissions Sandbox</b><span class="grow"></span><span class="pill g">Active</span></div><div class="xs mut" style="margin-top:4px">Scenario planning for commissions.</div></div>
-          <div class="ui-card"><div class="row"><b class="sm">Payroll Hours</b><span class="grow"></span><span class="pill g">Active</span></div><div class="xs mut" style="margin-top:4px">Payroll hour review and posted runs.</div></div>
-          <div class="ui-card" style="background:#fafbfc"><div class="row"><b class="sm mut">Macro Calculator</b><span class="grow"></span><span class="pill">Soon</span></div></div>
-          <div class="ui-card soft xs" style="padding:9px 10px">Inside each app, a "← Back to portal" link brings you here.</div>
-        </div>
-      </div></div>
-      <figcaption><b>También desde el celular.</b> El mismo portal adaptado a pantallas chicas.</figcaption>
-    </figure>
-  </div></div>
-
+  <div class="wrap"><div class="demo-mount" data-demo="portal-herramientas"></div></div>
   <div class="wrap tool-body">
     <div class="prose">
-      <div class="technical-panel"><h2>Implementación técnica</h2><p>Construí un portal en Apps Script con HTML, CSS y JavaScript para reunir herramientas operativas. La configuración por aplicación define accesos y navegación sin mezclar los cálculos de cada módulo.</p></div>
-      <h2>Qué hace</h2>
-      <p>Reúne aplicaciones de distintas funciones en un único punto de acceso. Cada herramienta presenta su propósito y disponibilidad, y los usuarios pueden ingresar y regresar al portal sin administrar una colección de enlaces separados. Permite sumar nuevas aplicaciones conservando la independencia de sus datos y procesos.</p>
-      <p>El usuario encuentra una entrada común con una explicación de cada función. La configuración permite publicar los accesos vigentes y diferenciar herramientas disponibles de las que todavía están planificadas.</p>
-      <p class="note">Las aplicaciones que reúne se describen en <a href="#comisiones">Simulación de metas y comisiones</a> y <a href="#horas-nomina">Preparación y revisión de horas de nómina</a>.</p>
+      <div class="technical-panel"><h2>Implementación técnica</h2><p>Desarrollé un portal servido por Google Apps Script. Una configuración central define las aplicaciones y el bootstrap devuelve al navegador sus nombres, descripciones, categorías, estados y destinos.</p></div>
+      <h2>Qué resuelve</h2><p>Los enlaces sueltos dificultan saber qué aplicación usar. El portal ofrece una entrada común y explica el propósito de cada herramienta.</p>
+      <h2>Recorrido y alcance</h2><p>El operador consulta el catálogo y abre una aplicación disponible. Las herramientas previstas sin destino habilitado se presentan como próximas; el portal no las convierte en funciones operativas.</p>
+      <ul class="points"><li>Accesos a comisiones y revisión de horas.</li><li>Estado visible para cada aplicación.</li><li>Catálogo mantenido desde una configuración común.</li></ul>
     </div>
     <aside class="side">
-      <div class="panel">
-        <h3>Recorrido de la información</h3>
-        <div class="flow">
-          <div class="flow-step"><span>Acceso</span><div class="items"><b>Portal interno</b></div></div>
-          <div class="flow-arrow"></div>
-          <div class="flow-step mid"><span>Aplicaciones</span><div class="items"><b>Simulación de comisiones</b><b>Horas de nómina</b></div></div>
-          <div class="flow-arrow"></div>
-          <div class="flow-step"><span>Datos propios de cada app</span><div class="items"><b>Google Sheets</b></div></div>
-        </div>
-        <p class="flow-text">La página reúne accesos a webapps de simulación de comisiones y preparación de horas de nómina. Google Apps Script sirve el portal y cada aplicación conserva sus propias fuentes y planillas de Google Sheets.</p>
-      </div>
-      <div class="panel">
-        <h3>Stack tecnológico</h3>
-        <div class="stack"><span class="tag">Google Apps Script</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
-      </div>
+      <div class="panel"><h3>Recorrido de la información</h3><div class="flow"><div class="flow-step"><span>Configuración</span><div class="items"><b>Catálogo de aplicaciones</b></div></div><div class="flow-arrow"></div><div class="flow-step"><span>Entrega</span><div class="items"><b>Google Apps Script</b></div></div><div class="flow-arrow"></div><div class="flow-step"><span>Acceso</span><div class="items"><b>Aplicación elegida</b></div></div></div><p class="flow-text">El operador consulta el catálogo y abre una aplicación disponible. Las herramientas previstas sin destino habilitado se presentan como próximas; el portal no las convierte en funciones operativas.</p></div>
+      <div class="panel"><h3>Stack tecnológico</h3><div class="stack"><span class="tag">Google Apps Script</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div></div>
     </aside>
   </div>
 </section>

@@ -1,116 +1,43 @@
 <section class="tool" id="comisiones" data-cat="apps"
   data-title="Simulación de metas y comisiones"
-  data-sector="Servicios de campo · EE.UU."
-  data-summary="Una webapp para probar políticas de comisiones antes de cambiarlas, con historial de metas y resultados que alimenta los reportes de BI."
-  data-stack="Google Apps Script,Google Sheets,Plataforma de BI,HTML,CSS,JavaScript,APIs de plataformas de BI">
+  data-sector="Servicios de campo · equipos técnicos"
+  data-summary="Escenarios de comisiones por tramos con comparación base, presets e histórico para BI."
+  data-stack="Google Apps Script,Google Sheets,Grow,APIs REST,HTML,CSS,JavaScript" data-status="">
   <div class="wrap tool-head">
-    <p class="eyebrow">Servicios de campo · EE.UU.</p>
+    <p class="eyebrow">Servicios de campo · equipos técnicos</p>
     <h1>Simulación de metas y comisiones</h1>
-    <p class="kind">Webapp interna de simulación, con historial de objetivos y resultados preparado para BI</p>
-    <p class="lead">La dirección mueve umbrales y porcentajes y ve al instante cuánto cambia la comisión de cada técnico, el costo laboral y la relación con la producción. Mientras tanto, el historial de metas y comisiones se mantiene solo y alimenta los reportes.</p>
+    <p class="kind">Webapp de simulación e integración con BI</p>
+    <p class="lead">La dirección ajusta umbrales y porcentajes y compara el resultado con la política base. Los escenarios permiten evaluar cambios sin aplicar una liquidación real.</p>
   </div>
-
-  <div class="stage"><div class="wrap shots">
-    <figure class="shot w12">
-      <div class="dev dev-browser ui" style="--w:1080px;--brand:#1d4ed8;--brand-soft:#e7eefc">
-        <div class="bar"><i></i><i></i><i></i><div class="url">script.google.com · Tech Commissions Sandbox</div></div>
-        <div class="ui-top"><b>Tech Commissions Sandbox</b><span class="grow"></span><span class="btn ghost">Reset to Default</span><span class="btn ghost">Save Setup</span><span class="btn">Recalculate</span></div>
-        <div style="display:grid;grid-template-columns:270px 1fr">
-          <div style="border-right:1px solid var(--s-line);padding:14px 16px;display:flex;flex-direction:column;gap:11px;background:#fafbfc">
-            <div class="ui-h2">Global Parameters</div>
-            <div class="fld"><label>Setup</label><div class="inp sel">Q1 proposal · tiered v2</div></div>
-            <div class="fld"><label>Months</label><div class="inp sel">Jan to Jun 2026 (6)</div></div>
-            <div class="fld"><label>Apply to Techs</label><div class="inp sel">All Techs (18)</div></div>
-            <div class="g3" style="gap:6px"><div class="fld"><label>Pre-Goal %</label><div class="inp">80</div></div><div class="fld"><label>Goal %</label><div class="inp focus">100</div></div><div class="fld"><label>Stretch %</label><div class="inp">120</div></div></div>
-            <div class="lbl">Licensed split</div>
-            <div class="g3" style="gap:6px"><div class="inp">4 %</div><div class="inp focus">6 %</div><div class="inp">8 %</div></div>
-            <div class="lbl">Non-licensed split</div>
-            <div class="g3" style="gap:6px"><div class="inp">3 %</div><div class="inp">4,5 %</div><div class="inp">6 %</div></div>
-            <div class="row sm"><span class="chk on"></span>Show Original <span class="chk"></span>Show Last Recalculated</div>
-          </div>
-          <div class="ui-main">
-            <div class="g4">
-              <div class="ui-card kpi"><div class="k">Total commission</div><div class="v">$52,940</div><div class="d down">+$4,730 vs baseline</div></div>
-              <div class="ui-card kpi"><div class="k">Base salary</div><div class="v">$214,600</div><div class="d mut">no change</div></div>
-              <div class="ui-card kpi"><div class="k">Total production</div><div class="v">$842,300</div><div class="d mut">actual + forecast</div></div>
-              <div class="ui-card kpi"><div class="k">Labor ratio</div><div class="v">31.8 %</div><div class="d down">+0.6 pp vs baseline</div></div>
-            </div>
-            <div style="display:grid;grid-template-columns:1fr 1.15fr;gap:12px">
-              <div class="ui-card"><div class="ui-h2 sm" style="margin-bottom:6px">Monthly commission · baseline vs scenario</div>
-                <div class="chart" data-type="bar" data-locale="en-US" data-w="360" data-h="150" data-fmt="k" data-pre="$" data-labels="Jan|Feb|Mar|Apr|May|Jun" data-series='[{"values":[7200,7640,8100,8420,8860,8000],"color":"#c7d2fe"},{"values":[7900,8310,8930,9280,9810,8710],"color":"#1d4ed8"}]'></div>
-                <div class="legend"><span><i style="--c:#c7d2fe"></i>Baseline</span><span><i style="--c:#1d4ed8"></i>Scenario</span><span class="mut">May to Jun = forecast</span></div>
-              </div>
-              <div class="ui-card" style="padding:0;overflow:hidden"><div class="ui-h2 sm" style="padding:10px 12px 6px">Totals By Tech</div>
-                <table class="tbl" style="font-size:11.5px">
-                  <tr><th>Tech</th><th>Tier</th><th class="num">Production</th><th class="num">Baseline</th><th class="num">Scenario</th></tr>
-                  <tr><td>Jake Miller</td><td><span class="pill b">Licensed</span></td><td class="num">$72,400</td><td class="num">$4,120</td><td class="num b">$4,610</td></tr>
-                  <tr><td>Ashley Brooks</td><td><span class="pill b">Licensed</span></td><td class="num">$68,950</td><td class="num">$3,880</td><td class="num b">$4,310</td></tr>
-                  <tr><td>Ryan Cooper</td><td><span class="pill">Non-lic.</span></td><td class="num">$51,200</td><td class="num">$2,050</td><td class="num b">$2,240</td></tr>
-                  <tr><td>Tyler Reed</td><td><span class="pill">Non-lic.</span></td><td class="num">$39,800</td><td class="num">$1,190</td><td class="num b">$1,190</td></tr>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <figcaption><b>Escenario contra política base.</b> Umbrales escalonados, porcentajes distintos para técnicos con y sin licencia, y alcance por meses y personas. Los escenarios se guardan como presets.</figcaption>
-    </figure>
-
-    <figure class="shot w12">
-      <div class="dev dev-browser" style="--w:1000px">
-        <div class="bar"><i></i><i></i><i></i><div class="url">docs.google.com/spreadsheets · Commissions Data</div></div>
-        <div class="gs">
-          <div class="gs-title"><span class="ic"></span><span class="nm">Commissions · Goals &amp; History</span></div>
-          <div class="gs-menu"><span>File</span><span>Edit</span><span>View</span><span>Insert</span><span>Format</span><span>Data</span><span>Tools</span><b>Commissions</b><span>Help</span></div>
-          <div class="gs-tool"></div>
-          <div class="gs-fx"><span class="ref">G7</span><span class="fx">fx</span><span>Projected</span></div>
-          <div class="gs-grid">
-            <table>
-              <thead><tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th><th>G</th><th>H</th></tr></thead>
-              <tbody>
-                <tr class="h" style="--hdr:#1e3a8a"><th>1</th><td>Month</td><td>Tech</td><td>Goal</td><td>Production</td><td>% of goal</td><td>Commission</td><td>Status</td><td>Note</td></tr>
-                <tr><th>2</th><td>2026-07</td><td>Jake Miller</td><td class="n">$11,000</td><td class="n">$12,640</td><td class="n">115 %</td><td class="n">$758</td><td class="cg">Posted</td><td></td></tr>
-                <tr><th>3</th><td>2026-07</td><td>Ashley Brooks</td><td class="n">$11,000</td><td class="n">$10,210</td><td class="n">93 %</td><td class="n">$408</td><td class="cg">Posted</td><td></td></tr>
-                <tr><th>4</th><td>2026-07</td><td>Kayla Foster</td><td class="n">$5,867</td><td class="n">$6,020</td><td class="n">103 %</td><td class="n">$271</td><td class="cg">Posted</td><td>Joined 07/15 · goal prorated</td></tr>
-                <tr><th>5</th><td>2026-08</td><td>Jake Miller</td><td class="n">$11,000</td><td class="n">$11,980</td><td class="n">109 %</td><td class="n">$719</td><td class="cg">Posted</td><td class="cy">Manual correction #12</td></tr>
-                <tr><th>6</th><td>2026-10</td><td>Jake Miller</td><td class="n">$11,500</td><td class="n">$7,420</td><td class="n">65 %</td><td class="n">$297</td><td class="cb">Projected</td><td>Open month</td></tr>
-                <tr><th>7</th><td>2026-10</td><td>Ashley Brooks</td><td class="n">$11,500</td><td class="n">$8,050</td><td class="n">70 %</td><td class="n">$322</td><td class="cb sel">Projected</td><td>Open month</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="gs-tabs"><span>GOALS_HISTORY</span><span>COMMISSIONS_HISTORY</span><span>MANUAL_CORRECTIONS</span><span class="on">GROW_REPORTING</span><span>Sync Log</span></div>
-        </div>
-      </div>
-      <figcaption><b>Historial para reporting.</b> Meses cerrados y proyectados separados, metas prorrateadas para quien entra a mitad de mes y correcciones con trazabilidad.</figcaption>
-    </figure>
-  </div></div>
-
+  <div class="wrap"><div class="demo-mount" data-demo="comisiones"></div></div>
   <div class="wrap tool-body">
     <div class="prose">
-      <div class="technical-panel"><h2>Implementación técnica</h2><p>Implementé una aplicación de simulación con Google Apps Script, HTML, CSS y JavaScript. Separé las reglas de cálculo de la interfaz y usé Sheets y datos de BI para comparar metas, producción y escenarios.</p></div>
-      <h2>Qué hace</h2>
-      <p>Permite comparar políticas de comisiones antes de modificar las reglas del equipo. Los responsables ajustan metas, porcentajes y condiciones y observan el impacto por persona y período. Combina resultados históricos con proyecciones, permite guardar escenarios y facilita evaluar la relación entre producción y compensación sin alterar el historial operativo.</p>
-      <p>La dirección puede seleccionar meses y personas, cambiar umbrales y comparar el escenario propuesto con la política base. El detalle permite entender qué parte del cambio proviene de la producción, de las metas o de los porcentajes, antes de tomar una decisión.</p>
-      <h3>Historial de objetivos y resultados</h3>
-      <p>Conserva metas y comisiones por período, diferenciando resultados cerrados de proyecciones abiertas. Contempla incorporaciones a mitad de mes y permite registrar ajustes históricos con trazabilidad. Prepara una salida común para reporting, de modo que los responsables puedan comparar objetivos, resultados y evolución sin reconstruir cada mes desde archivos separados.</p>
-      <p>Los períodos abiertos pueden actualizarse con información nueva mientras los cerrados conservan su referencia. La separación entre resultados y proyecciones permite revisar tendencias sin confundir lo efectivamente registrado con lo estimado para los meses siguientes.</p>
-      <p class="note">Simula y documenta escenarios de compensación; no ejecuta pagos ni aprueba nómina.</p>
+      <div class="technical-panel"><h2>Implementación técnica</h2><p>Construí una webapp Apps Script con cálculo por tramos y presets en Sheets. Los procesos de sincronización leen datasets de Grow, conservan metas y comisiones históricas y preparan una tabla de reporting con resultados posteados y proyectados.</p></div>
+      <h2>Qué resuelve</h2>
+      <p>Permite comparar políticas de incentivo sobre producción y metas sin rehacer fórmulas para cada escenario. El historial evita reemplazar meses cerrados en cada sincronización.</p>
+      <h2>Flujo y alcance</h2>
+      <p>Se selecciona el alcance por meses y técnicos, se modifican los parámetros globales y se recalcula. La salida muestra detalle y agregados; los presets guardan configuraciones reutilizables.</p>
+      <ul class="points">
+        <li>Comisión sobre producción que supera los umbrales de cada tramo.</li>
+        <li>Porcentajes por categoría y comparación con baseline.</li>
+        <li>Histórico de metas y comisiones, con meses cerrados preservados.</li>
+      </ul>
     </div>
     <aside class="side">
       <div class="panel">
         <h3>Recorrido de la información</h3>
         <div class="flow">
-          <div class="flow-step"><span>Fuente</span><div class="items"><b>Plataforma de BI</b></div></div>
+          <div class="flow-step"><span>Origen</span><div class="items"><b>Datasets de BI e históricos</b></div></div>
           <div class="flow-arrow"></div>
-          <div class="flow-step mid"><span>Datos, parámetros y escenarios</span><div class="items"><b>Google Sheets</b><b>Google Apps Script</b></div></div>
+<div class="flow-step"><span>Procesamiento</span><div class="items"><b>Motor de escenarios</b></div></div>
           <div class="flow-arrow"></div>
-          <div class="flow-step"><span>Salidas</span><div class="items"><b>Webapp de simulación</b><b>Tabla para BI</b><b>Alertas por correo</b></div></div>
+<div class="flow-step"><span>Salida</span><div class="items"><b>Comparación y presets</b></div></div>
         </div>
-        <p class="flow-text">La plataforma de BI aporta datasets de producción y referencias del equipo, y recibe una tabla preparada para reporting. Google Sheets conserva datos, parámetros, escenarios, metas, comisiones, ajustes y períodos; la webapp presenta comparaciones y Apps Script actualiza el conjunto y envía alertas por correo cuando corresponde.</p>
+        <p class="flow-text">Los datasets aportan metas y producción; el motor recalcula escenarios. Guardar un preset conserva parámetros, no ejecuta un pago.</p>
       </div>
       <div class="panel">
         <h3>Stack tecnológico</h3>
-        <div class="stack"><span class="tag">Google Apps Script</span><span class="tag">Google Sheets</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">APIs de plataformas de BI</span></div>
+        <div class="stack"><span class="tag">Google Apps Script</span><span class="tag">Google Sheets</span><span class="tag">Grow</span><span class="tag">APIs REST</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
       </div>
     </aside>
   </div>

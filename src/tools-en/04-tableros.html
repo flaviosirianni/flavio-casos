@@ -1,0 +1,44 @@
+<section class="tool" id="tableros" data-cat="datos"
+  data-title="Management dashboards with role-based access"
+  data-sector="Operational services · multiple implementations"
+  data-summary="Analytics portals with Google OAuth, topic-based permissions and versioned dashboards."
+  data-stack="Apache Superset,BigQuery,Google OAuth,SQL,Python,PostgreSQL,Cloud Run" data-status="">
+  <div class="wrap tool-head">
+    <p class="eyebrow">Operational services · multiple implementations</p>
+    <h1>Management dashboards with role-based access</h1>
+    <p class="kind">BI over a shared analytics warehouse</p>
+    <p class="lead">Each profile accesses authorized topics and filters metrics in the browser. Implementations cover attendance, service issues, billing, collections or stock depending on the context.</p>
+  </div>
+  <div class="wrap"><div class="demo-mount" data-demo="tableros"></div></div>
+  <div class="wrap tool-body">
+    <div class="prose">
+      <div class="technical-panel"><h2>Technical implementation</h2><p>I configured Apache Superset on Cloud Run, with PostgreSQL metadata and BigQuery read access. Dashboards, datasets and charts are versioned in YAML; Google login synchronizes the roles defined for each user.</p></div>
+      <h2>What it solves</h2>
+      <p>It avoids distributing reports without access controls or rebuilding metrics in every spreadsheet. Teams query metrics over shared transformations with topic-based permissions.</p>
+      <h2>Flow and scope</h2>
+      <p>Authorized access determines which dashboards appear; filters adjust the period, site and other dimensions. The demo represents an issues dashboard with fictional figures, not a connected session.</p>
+      <ul class="points">
+        <li>Google OAuth with an allowlist and role synchronization at login.</li>
+        <li>Reproducible asset imports using stable identifiers.</li>
+        <li>Business data in BigQuery; Superset metadata in PostgreSQL.</li>
+      </ul>
+    </div>
+    <aside class="side">
+      <div class="panel">
+        <h3>Data flow</h3>
+        <div class="flow">
+          <div class="flow-step"><span>Source</span><div class="items"><b>BigQuery</b></div></div>
+          <div class="flow-arrow"></div>
+<div class="flow-step"><span>Processing</span><div class="items"><b>Datasets and SQL metrics</b></div></div>
+          <div class="flow-arrow"></div>
+<div class="flow-step"><span>Output</span><div class="items"><b>Dashboards by role</b></div></div>
+        </div>
+        <p class="flow-text">Analytical views define the data; Superset adds filtering and visualization under access rules.</p>
+      </div>
+      <div class="panel">
+        <h3>Technology stack</h3>
+        <div class="stack"><span class="tag">Apache Superset</span><span class="tag">BigQuery</span><span class="tag">Google OAuth</span><span class="tag">SQL</span><span class="tag">Python</span><span class="tag">PostgreSQL</span><span class="tag">Cloud Run</span></div>
+      </div>
+    </aside>
+  </div>
+</section>

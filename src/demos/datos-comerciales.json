@@ -1,0 +1,270 @@
+{
+  "slug": "datos-comerciales",
+  "kind": "pipeline",
+  "title": {
+    "es": "Centralización de información comercial y contable",
+    "en": "Centralized commercial and accounting data"
+  },
+  "steps": [
+    {
+      "title": {
+        "es": "Leer cambios",
+        "en": "Read changes"
+      },
+      "description": {
+        "es": "Ejemplo ficticio: dos comprobantes nuevos y una corrección sobre uno anterior.",
+        "en": "Fictional example: two new documents and a correction to an earlier one."
+      },
+      "action": {
+        "es": "Extraer ventana",
+        "en": "Extract window"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Respuesta de origen",
+          "columns": [
+            "Comprobante",
+            "Cliente",
+            "Importe",
+            "Versión"
+          ],
+          "rows": [
+            [
+              "V-101",
+              "Cliente A",
+              "$120",
+              "Nueva"
+            ],
+            [
+              "V-102",
+              "Cliente B",
+              "$80",
+              "Nueva"
+            ],
+            [
+              "V-100",
+              "Cliente A",
+              "$100",
+              "Corrección"
+            ]
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "Source response",
+          "columns": [
+            "Document",
+            "Client",
+            "Amount",
+            "Version"
+          ],
+          "rows": [
+            [
+              "V-101",
+              "Client A",
+              "$120",
+              "New"
+            ],
+            [
+              "V-102",
+              "Client B",
+              "$80",
+              "New"
+            ],
+            [
+              "V-100",
+              "Client A",
+              "$100",
+              "Correction"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Conservar versiones",
+        "en": "Preserve versions"
+      },
+      "description": {
+        "es": "Los datos crudos mantienen el momento de extracción.",
+        "en": "Raw data keeps the extraction timestamp."
+      },
+      "action": {
+        "es": "Cargar datos crudos",
+        "en": "Load raw data"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Versiones del comprobante V-100",
+          "columns": [
+            "Comprobante",
+            "Importe",
+            "Extracción"
+          ],
+          "rows": [
+            [
+              "V-100",
+              "$90",
+              "09:00"
+            ],
+            [
+              "V-100",
+              "$100",
+              "10:00"
+            ]
+          ],
+          "highlight": 1
+        },
+        "en": {
+          "type": "table",
+          "heading": "Versions of document V-100",
+          "columns": [
+            "Document",
+            "Amount",
+            "Extraction"
+          ],
+          "rows": [
+            [
+              "V-100",
+              "$90",
+              "09:00"
+            ],
+            [
+              "V-100",
+              "$100",
+              "10:00"
+            ]
+          ],
+          "highlight": 1
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Preparar tablas",
+        "en": "Prepare tables"
+      },
+      "description": {
+        "es": "Staging conserva la última versión de cada comprobante.",
+        "en": "Staging retains the latest version of each document."
+      },
+      "action": {
+        "es": "Deduplicar",
+        "en": "Deduplicate"
+      },
+      "view": {
+        "es": {
+          "type": "pipeline",
+          "heading": "Transformación SQL",
+          "nodes": [
+            {
+              "label": "Datos crudos",
+              "status": "done"
+            },
+            {
+              "label": "Staging",
+              "status": "active"
+            },
+            {
+              "label": "Analítica",
+              "status": "pending"
+            }
+          ],
+          "log": [
+            "V-100: se toma la versión de las 10:00",
+            "3 comprobantes únicos"
+          ]
+        },
+        "en": {
+          "type": "pipeline",
+          "heading": "SQL transformation",
+          "nodes": [
+            {
+              "label": "Raw data",
+              "status": "done"
+            },
+            {
+              "label": "Staging",
+              "status": "active"
+            },
+            {
+              "label": "Analytics",
+              "status": "pending"
+            }
+          ],
+          "log": [
+            "V-100: the 10:00 version is selected",
+            "3 unique documents"
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Consultar el resultado",
+        "en": "Query the result"
+      },
+      "description": {
+        "es": "La vista reúne los importes actualizados por cliente.",
+        "en": "The view groups updated amounts by client."
+      },
+      "action": {
+        "es": "Abrir vista",
+        "en": "Open view"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Ventas del ejemplo",
+          "columns": [
+            "Cliente",
+            "Ventas"
+          ],
+          "rows": [
+            [
+              "Cliente A",
+              "$220"
+            ],
+            [
+              "Cliente B",
+              "$80"
+            ]
+          ],
+          "metrics": [
+            {
+              "label": "Total",
+              "value": "$300"
+            }
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "Example sales",
+          "columns": [
+            "Client",
+            "Sales"
+          ],
+          "rows": [
+            [
+              "Client A",
+              "$220"
+            ],
+            [
+              "Client B",
+              "$80"
+            ]
+          ],
+          "metrics": [
+            {
+              "label": "Total",
+              "value": "$300"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+<section class="tool" id="consolidacion-partes" data-cat="sheets"
+  data-title="Consolidating attendance from separate spreadsheets"
+  data-sector="Food services · central administration"
+  data-summary="Monthly grids converted into a shared record by person, day and status."
+  data-stack="Google Apps Script,Google Sheets,JavaScript,BigQuery" data-status="">
+  <div class="wrap tool-head">
+    <p class="eyebrow">Food services · central administration</p>
+    <h1>Consolidating attendance from separate spreadsheets</h1>
+    <p class="kind">Operational spreadsheet normalization</p>
+    <p class="lead">Each site can keep its working grid. A master process reads the months, interprets dates and statuses and generates comparable rows for analysis.</p>
+  </div>
+  <div class="wrap"><div class="demo-mount" data-demo="consolidacion-partes"></div></div>
+  <div class="wrap tool-body">
+    <div class="prose">
+      <div class="technical-panel"><h2>Technical implementation</h2><p>I built a modular Apps Script flow to detect monthly sheets, infer their layout and transform cells into records. It includes incremental updates, historical reimports and configurable deduplication by person, date and shift.</p></div>
+      <h2>What it solves</h2>
+      <p>It reduces the work of copying heterogeneous grids into a central table. Codes are matched with a status catalog so sites share an output structure.</p>
+      <h2>Flow and scope</h2>
+      <p>The normal run rereads a recent window and preserves earlier history. Full rebuilds are also available; source failures are logged and must not be interpreted as a complete load.</p>
+      <ul class="points">
+        <li>Detection of month, year, dates and shift markers.</li>
+        <li>One row per recorded status, with a normalized description.</li>
+        <li>Global lock, retries and per-source diagnostics.</li>
+      </ul>
+    </div>
+    <aside class="side">
+      <div class="panel">
+        <h3>Data flow</h3>
+        <div class="flow">
+          <div class="flow-step"><span>Source</span><div class="items"><b>Monthly grids</b></div></div>
+          <div class="flow-arrow"></div>
+<div class="flow-step"><span>Processing</span><div class="items"><b>Extraction and normalization</b></div></div>
+          <div class="flow-arrow"></div>
+<div class="flow-step"><span>Output</span><div class="items"><b>Master table for queries</b></div></div>
+        </div>
+        <p class="flow-text">The master process normalizes data from configured sources; BigQuery is a downstream consumer of that tabular output.</p>
+      </div>
+      <div class="panel">
+        <h3>Technology stack</h3>
+        <div class="stack"><span class="tag">Google Apps Script</span><span class="tag">Google Sheets</span><span class="tag">JavaScript</span><span class="tag">BigQuery</span></div>
+      </div>
+    </aside>
+  </div>
+</section>

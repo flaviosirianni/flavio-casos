@@ -1,0 +1,21 @@
+<section class="tool" id="reserva-turnos" data-cat="prod" data-title="Automated appointment search and booking" data-sector="Personal product · medical appointments" data-summary="Specialty, location and time preferences connected to an engine that searches for and books matching appointments." data-stack="Python,Playwright,Next.js,React,TypeScript,Supabase,Resend" data-status="Implemented">
+  <div class="wrap tool-head">
+    <p class="eyebrow">Personal product · medical appointments</p>
+    <h1>Automated appointment search and booking</h1>
+    <p class="kind">Web app with a search and booking engine</p>
+    <p class="lead">Specialty, location and time preferences connected to an engine that searches for and books matching appointments.</p>
+  </div>
+  <div class="wrap"><div class="demo-mount" data-demo="reserva-turnos"></div></div>
+  <div class="wrap tool-body">
+    <div class="prose">
+      <div class="technical-panel"><h2>Technical implementation</h2><p>I built a Next.js web app on Supabase and a Python engine with Playwright. The engine matches portal availability against configured locations and time windows, records results and sends email notifications.</p></div>
+      <h2>What it solves</h2><p>Repeatedly checking an appointment portal takes time. A persistent search captures when and where each person can attend.</p>
+      <h2>Flow and scope</h2><p>The user configures a search, the engine reviews options and attempts to book a matching slot. History distinguishes searches, bookings and situations requiring manual review. The integration depends on the specific implemented portal.</p>
+      <ul class="points"><li>Filters by location and weekday.</li><li>Time windows and activity history.</li><li>Notifications for bookings and failures requiring attention.</li></ul>
+    </div>
+    <aside class="side">
+      <div class="panel"><h3>Data flow</h3><div class="flow"><div class="flow-step"><span>Preferences</span><div class="items"><b>Next.js</b><b>Supabase</b></div></div><div class="flow-arrow"></div><div class="flow-step"><span>Search</span><div class="items"><b>Python</b><b>Playwright</b></div></div><div class="flow-arrow"></div><div class="flow-step"><span>Result</span><div class="items"><b>Supabase</b><b>Resend</b></div></div></div><p class="flow-text">The user configures a search, the engine reviews options and attempts to book a matching slot. History distinguishes searches, bookings and situations requiring manual review. The integration depends on the specific implemented portal.</p></div>
+      <div class="panel"><h3>Technology stack</h3><div class="stack"><span class="tag">Python</span><span class="tag">Playwright</span><span class="tag">Next.js</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Supabase</span><span class="tag">Resend</span></div></div>
+    </aside>
+  </div>
+</section>

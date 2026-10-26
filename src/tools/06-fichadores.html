@@ -1,128 +1,43 @@
 <section class="tool" id="fichadores" data-cat="integ"
   data-title="Lectura de fichadores y conciliación de asistencia"
-  data-sector="Empresa de logística · varias sedes"
-  data-summary="Las marcaciones de los relojes biométricos llegan solas a la planilla de asistencia y se cruzan con el padrón y el personal esperado por sede."
-  data-stack="JPH Lions / Cronos,BigQuery,Google Sheets,Python,SQL,Google Apps Script,Cloud Run,Tango,APIs de fichadores">
+  data-sector="Servicios operativos · personal en varias sedes"
+  data-summary="Marcaciones biométricas en BigQuery y comparación con los partes de asistencia."
+  data-stack="Python,APIs REST,BigQuery,SQL,Google Sheets,Google Apps Script" data-status="">
   <div class="wrap tool-head">
-    <p class="eyebrow">Empresa de logística · varias sedes</p>
+    <p class="eyebrow">Servicios operativos · personal en varias sedes</p>
     <h1>Lectura de fichadores y conciliación de asistencia</h1>
-    <p class="kind">Integración de fichadores con una planilla operativa automatizada y reportes de asistencia</p>
-    <p class="lead">Cada mañana la planilla ya tiene al personal esperado de cada depósito y los horarios que marcaron los relojes. El responsable solo mira las excepciones: quién no fichó, quién fichó una sola vez o quién trabajó en otra sede.</p>
+    <p class="kind">Integración de marcaciones y control cruzado</p>
+    <p class="lead">Las marcaciones dejan de ser una consulta aislada del reloj. Se transforman en registros diarios que pueden compararse con el parte y el padrón.</p>
   </div>
-
-  <div class="stage"><div class="wrap shots">
-    <figure class="shot w12">
-      <div class="dev dev-browser" style="--w:1060px">
-        <div class="bar"><i></i><i></i><i></i><div class="url">docs.google.com/spreadsheets · Parte Depósitos</div></div>
-        <div class="gs">
-          <div class="gs-title"><span class="ic"></span><span class="nm">Parte Diario · Depósitos</span></div>
-          <div class="gs-menu"><span>Archivo</span><span>Editar</span><span>Ver</span><span>Insertar</span><span>Formato</span><span>Datos</span><span>Herramientas</span><b>Asistencia</b><span>Ayuda</span></div>
-          <div class="gs-tool"></div>
-          <div class="gs-fx"><span class="ref">H6</span><span class="fx">fx</span><span>Fichada incompleta</span></div>
-          <div class="gs-wrap">
-            <div class="gs-grid">
-              <table>
-                <thead><tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th><th>G</th><th>H</th><th>I</th></tr></thead>
-                <tbody>
-                  <tr class="h" style="--hdr:#7c2d12"><th>1</th><td>Fecha</td><td>Empleado</td><td>Depósito</td><td>Turno</td><td>Entrada</td><td>Salida</td><td>Horas</td><td>Estado</td><td>Corrección manual</td></tr>
-                  <tr><th>2</th><td>21/10</td><td>Sofía Medina</td><td>Depósito Norte</td><td>06 a 14</td><td class="c">05:56</td><td class="c">14:03</td><td class="n">8,1</td><td class="cg">Presente</td><td></td></tr>
-                  <tr><th>3</th><td>21/10</td><td>Tomás Ledesma</td><td>Depósito Norte</td><td>06 a 14</td><td class="c">06:11</td><td class="c">14:00</td><td class="n">7,8</td><td class="cy">Llegada tarde</td><td></td></tr>
-                  <tr><th>4</th><td>21/10</td><td>Pablo Giménez</td><td>Depósito Norte</td><td>22 a 06</td><td class="c">21:52</td><td class="c">06:04 <span style="color:#7c2d12">+1</span></td><td class="n">8,2</td><td class="cg">Presente · nocturno</td><td></td></tr>
-                  <tr><th>5</th><td>21/10</td><td>Agustina Ríos</td><td>Depósito Norte</td><td>14 a 22</td><td class="c"></td><td class="c"></td><td class="n"></td><td class="cr">Sin fichada</td><td class="cy">Ausente con aviso</td></tr>
-                  <tr><th>6</th><td>21/10</td><td>Ramiro Acosta</td><td>Depósito Norte</td><td>14 a 22</td><td class="c">13:58</td><td class="c"></td><td class="n"></td><td class="cr sel">Fichada incompleta</td><td>Salida 22:00</td></tr>
-                  <tr><th>7</th><td>21/10</td><td>Diego Romero</td><td>Depósito Norte</td><td>06 a 14</td><td class="c">06:00</td><td class="c">14:02</td><td class="n">8,0</td><td class="cb">Rotación → Depósito Sur</td><td></td></tr>
-                  <tr><th>8</th><td>21/10</td><td>Valeria Ibáñez</td><td>Depósito Norte</td><td>06 a 14</td><td class="c"></td><td class="c"></td><td class="n"></td><td class="cn">Franco (ciclo 6×1)</td><td></td></tr>
-                  <tr><th>9</th><td>21/10</td><td>Martín Sosa</td><td>Depósito Norte</td><td>06 a 14</td><td class="c"></td><td class="c"></td><td class="n"></td><td class="cp">Licencia hasta 25/10</td><td></td></tr>
-                  <tr><th>10</th><td>21/10</td><td>Lucía Ferreyra</td><td>Depósito Norte</td><td>14 a 22</td><td class="c">14:00</td><td class="c">22:05</td><td class="n">8,1</td><td class="cg">Presente</td><td></td></tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="gs-side">
-              <div class="hd">Resumen del día</div>
-              <div class="xs mut">Depósito Norte · martes 21/10</div>
-              <div class="g2" style="gap:8px">
-                <div class="ui-card kpi" style="padding:8px 10px"><div class="k">Esperados</div><div class="v" style="font-size:18px">42</div></div>
-                <div class="ui-card kpi" style="padding:8px 10px"><div class="k">Con fichada</div><div class="v" style="font-size:18px">36</div></div>
-              </div>
-              <div class="col" style="gap:6px;font-size:12px">
-                <div class="row" style="justify-content:space-between"><span>Sin fichada</span><span class="pill r">2</span></div>
-                <div class="row" style="justify-content:space-between"><span>Fichada incompleta</span><span class="pill r">1</span></div>
-                <div class="row" style="justify-content:space-between"><span>Llegadas tarde</span><span class="pill y">3</span></div>
-                <div class="row" style="justify-content:space-between"><span>Rotaciones a otra sede</span><span class="pill b">1</span></div>
-                <div class="row" style="justify-content:space-between"><span>Francos proyectados</span><span class="pill">4</span></div>
-              </div>
-              <div class="divider"></div>
-              <div class="xs mut">Fichadas actualizadas 07:30 · próxima 08:30</div>
-              <span class="btn sm" style="--brand:#7c2d12">Ver solo excepciones</span>
-            </div>
-          </div>
-          <div class="gs-tabs"><span class="on">Parte del día</span><span>Anomalías</span><span>Licencias</span><span>Parte mensual</span><span>Consolidado</span></div>
-        </div>
-      </div>
-      <figcaption><b>Parte sembrado y completado solo.</b> El personal activo de cada depósito aparece cada mañana con sus marcaciones; los turnos que cruzan medianoche se agrupan y los francos se proyectan por ciclo.</figcaption>
-    </figure>
-
-    <figure class="shot w7">
-      <div class="dev dev-term" style="--w:720px">
-        <div class="bar"><i></i><i></i><i></i><span>Cloud Run Job · fichadas-sync</span></div>
-<pre><span class="t-m">07:30:01</span> <span class="t-b">INFO</span>  consulta API fichadores · desde <span class="t-w">2026-10-20 00:00</span>
-<span class="t-m">07:30:09</span> <span class="t-b">INFO</span>  2.418 marcaciones · 14 dispositivos
-<span class="t-m">07:30:09</span> <span class="t-b">INFO</span>  dispositivo normalizado: código <span class="t-p">SN-03</span> · "Depósito Norte · Expedición"
-<span class="t-m">07:30:10</span> <span class="t-y">WARN</span>  3 registros con formato de hora no confiable → separados para revisión
-<span class="t-m">07:30:12</span> <span class="t-b">INFO</span>  enriquecido con padrón administrativo · 412 legajos
-<span class="t-m">07:30:14</span> <span class="t-b">INFO</span>  turnos que cruzan medianoche agrupados: <span class="t-w">37</span>
-<span class="t-m">07:30:14</span> <span class="t-b">INFO</span>  repeticiones cercanas descartadas (&lt; 3 min): 12
-<span class="t-m">07:30:18</span> <span class="t-g">OK</span>    load → fichadas_diarias · partición 2026-10-21
-<span class="t-m">07:30:18</span> <span class="t-g">OK</span>    latencia del proveedor: 6 min · sin huecos</pre>
-      </div>
-      <figcaption><b>Lectura de marcaciones.</b> Carga incremental e histórica, reintentos y normalización de equipos. Lo dudoso se separa en vez de inventarse.</figcaption>
-    </figure>
-
-    <figure class="shot w5">
-      <div class="dev dev-browser" style="--w:500px">
-        <div class="bar"><i></i><i></i><i></i><div class="url">indicadores · Fichadas vs parte</div></div>
-        <div class="bi ui">
-          <div class="bi-grid">
-            <div class="bi-card"><div class="ct">Fichada vs parte · octubre</div>
-              <div class="chart" data-type="bar" data-mode="stack" data-w="440" data-h="180" data-labels="Norte|Sur|Este|Oeste|Central" data-series='[{"values":[94,91,96,89,93],"color":"#16a34a"},{"values":[4,6,3,7,5],"color":"#f59e0b"},{"values":[2,3,1,4,2],"color":"#dc2626"}]' data-fmt="%"></div>
-              <div class="legend" style="margin-top:6px"><span><i style="--c:#16a34a"></i>Coinciden</span><span><i style="--c:#f59e0b"></i>Fichada incompleta</span><span><i style="--c:#dc2626"></i>Sin fichada con presente</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <figcaption><b>Diferencias para revisar.</b> Cuánto coincide la presencia registrada en los relojes con lo informado en el parte, por depósito.</figcaption>
-    </figure>
-  </div></div>
-
+  <div class="wrap"><div class="demo-mount" data-demo="fichadores"></div></div>
   <div class="wrap tool-body">
     <div class="prose">
-      <div class="technical-panel"><h2>Implementación técnica</h2><p>Integré la API de fichadores con Python, BigQuery y ejecución en Cloud Run. Preparé transformaciones SQL para conciliar marcaciones con padrones y partes operativos, conservando las diferencias que requieren revisión.</p></div>
-      <h2>Qué hace</h2>
-      <p>Recupera las marcaciones de los fichadores y las incorpora a una planilla de asistencia. Cruza esos registros con el padrón del sistema administrativo y el personal esperado por sede, y permite revisar diferencias entre la presencia registrada y el parte diario. Contempla turnos que cruzan medianoche, rotaciones, licencias y ciclos de francos. Los responsables pueden corregir excepciones y generar un resumen mensual.</p>
-      <p>El sistema prepara el personal esperado y completa los horarios disponibles para que los responsables se concentren en las excepciones. Ayuda a identificar días sin fichada, marcaciones incompletas o diferencias con el parte, conservando la posibilidad de corregir horarios y situaciones particulares.</p>
-      <h2>Detalles que importan</h2>
+      <div class="technical-panel"><h2>Implementación técnica</h2><p>Implementé una ingesta Python desde la API de fichadores hacia particiones diarias de BigQuery. Las transformaciones SQL separan turnos y cruzan las marcaciones con los partes; hay auditorías de dispositivos y latencia.</p></div>
+      <h2>Qué resuelve</h2>
+      <p>Permite detectar días con parte y sin fichada, fichadas sin parte y otras diferencias que requieren revisión. Aporta una base común para distinguir el registro del dispositivo de la carga administrativa.</p>
+      <h2>Flujo y alcance</h2>
+      <p>La API se consulta por fecha y cada partición se reemplaza para evitar duplicar la carga. Los datos se normalizan y se publican vistas de conciliación, con salidas específicas hacia resúmenes de Sheets.</p>
       <ul class="points">
-        <li>La corrección manual de horarios tiene prioridad sobre la fichada y queda a la vista.</li>
-        <li>Francos proyectados con ciclos de trabajo y descanso a partir de una fecha de referencia.</li>
-        <li>Rotaciones entre sedes registradas sin duplicar a la persona.</li>
-        <li>Consolidado histórico disponible para tableros de asistencia.</li>
+        <li>Reintentos de lectura y normalización de dispositivos.</li>
+        <li>Separación de turnos y tratamiento de marcaciones repetidas.</li>
+        <li>Clasificación de coincidencias y diferencias; la revisión sigue siendo humana.</li>
       </ul>
     </div>
     <aside class="side">
       <div class="panel">
         <h3>Recorrido de la información</h3>
         <div class="flow">
-          <div class="flow-step"><span>Fuentes</span><div class="items"><b>Relojes de fichada</b><b>Padrón de Tango</b></div></div>
+          <div class="flow-step"><span>Origen</span><div class="items"><b>API de fichadores</b></div></div>
           <div class="flow-arrow"></div>
-          <div class="flow-step mid"><span>Preparación y cruce</span><div class="items"><b>Cloud Run</b><b>BigQuery</b><b>Google Apps Script</b></div></div>
+<div class="flow-step"><span>Procesamiento</span><div class="items"><b>Particiones y vistas SQL</b></div></div>
           <div class="flow-arrow"></div>
-          <div class="flow-step"><span>Operación y análisis</span><div class="items"><b>Google Sheets</b><b>Tableros</b></div></div>
+<div class="flow-step"><span>Salida</span><div class="items"><b>Conciliación de asistencia</b></div></div>
         </div>
-        <p class="flow-text">JPH Lions, mediante su plataforma WMS/Cronos, aporta las marcaciones. BigQuery las prepara y cruza con datos del padrón de Tango recibidos mediante fuentes administrativas. Google Sheets muestra el parte y Apache Superset permite analizar los resultados.</p>
+        <p class="flow-text">El parte expresa la carga administrativa; las fichadas aportan otra evidencia. La comparación señala diferencias, sin resolverlas por sí sola.</p>
       </div>
       <div class="panel">
         <h3>Stack tecnológico</h3>
-        <div class="stack"><span class="tag">Python</span><span class="tag">APIs de fichadores</span><span class="tag">SQL</span><span class="tag">BigQuery</span><span class="tag">Google Apps Script</span><span class="tag">Google Sheets</span><span class="tag">Cloud Run</span></div>
+        <div class="stack"><span class="tag">Python</span><span class="tag">APIs REST</span><span class="tag">BigQuery</span><span class="tag">SQL</span><span class="tag">Google Sheets</span><span class="tag">Google Apps Script</span></div>
       </div>
     </aside>
   </div>

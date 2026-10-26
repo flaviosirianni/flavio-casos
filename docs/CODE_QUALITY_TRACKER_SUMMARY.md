@@ -1,5 +1,5 @@
-# Calidad de código
+# Code quality
 
-Fecha: 2026-10-26. 31 símbolos documentados; compilador y contratos con pruebas Python, componentes visuales con evidencia de navegador.
+2026-10-26: 48 named symbols documented with build contracts or browser evidence.
 
-Sin pendientes para la entrega. Ver qa/report.md para alcance.
+Nine contracts and four JavaScript syntax checks cover static output. Runtime paths and scope: qa/report.md and qa/runtime-evidence.tsv.

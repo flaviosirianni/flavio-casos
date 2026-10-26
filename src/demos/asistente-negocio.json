@@ -1,0 +1,204 @@
+{
+  "slug": "asistente-negocio",
+  "kind": "chat",
+  "title": {
+    "es": "Asistente para consultar el negocio por chat",
+    "en": "Business queries through a chat assistant"
+  },
+  "steps": [
+    {
+      "title": {
+        "es": "Preguntar",
+        "en": "Ask"
+      },
+      "description": {
+        "es": "La conversación usa importes ficticios y un período explícito.",
+        "en": "The conversation uses fictional amounts and an explicit period."
+      },
+      "action": {
+        "es": "Enviar consulta",
+        "en": "Send query"
+      },
+      "view": {
+        "es": {
+          "type": "chat",
+          "heading": "Consulta comercial",
+          "messages": [
+            {
+              "side": "user",
+              "text": "¿Cuánto vendimos del 1 al 7 de junio?"
+            },
+            {
+              "side": "bot",
+              "text": "Voy a consultar las ventas de ese período."
+            }
+          ]
+        },
+        "en": {
+          "type": "chat",
+          "heading": "Business query",
+          "messages": [
+            {
+              "side": "user",
+              "text": "How much did we sell from June 1 to June 7?"
+            },
+            {
+              "side": "bot",
+              "text": "I will query sales for that period."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Validar la consulta",
+        "en": "Validate the query"
+      },
+      "description": {
+        "es": "Antes de ejecutar se comprueba que el SQL sea de lectura y use el dataset permitido.",
+        "en": "Before execution, SQL is checked for read-only access and the permitted dataset."
+      },
+      "action": {
+        "es": "Revisar SQL",
+        "en": "Review SQL"
+      },
+      "view": {
+        "es": {
+          "type": "pipeline",
+          "heading": "Consulta de solo lectura",
+          "nodes": [
+            {
+              "label": "Interpretación",
+              "status": "done"
+            },
+            {
+              "label": "Validación SQL",
+              "status": "active"
+            },
+            {
+              "label": "BigQuery",
+              "status": "pending"
+            }
+          ],
+          "log": [
+            "SELECT: permitido",
+            "Dataset analítico: permitido",
+            "Dry-run: dentro del límite configurado"
+          ]
+        },
+        "en": {
+          "type": "pipeline",
+          "heading": "Read-only query",
+          "nodes": [
+            {
+              "label": "Interpretation",
+              "status": "done"
+            },
+            {
+              "label": "SQL validation",
+              "status": "active"
+            },
+            {
+              "label": "BigQuery",
+              "status": "pending"
+            }
+          ],
+          "log": [
+            "SELECT: allowed",
+            "Analytics dataset: allowed",
+            "Dry run: within the configured limit"
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Responder con alcance",
+        "en": "Answer with scope"
+      },
+      "description": {
+        "es": "La respuesta conserva la fecha y el total de los registros consultados.",
+        "en": "The answer retains the date range and total of the queried records."
+      },
+      "action": {
+        "es": "Ver respuesta",
+        "en": "View answer"
+      },
+      "view": {
+        "es": {
+          "type": "chat",
+          "heading": "Ventas consultadas",
+          "messages": [
+            {
+              "side": "user",
+              "text": "¿Cuánto vendimos del 1 al 7 de junio?"
+            },
+            {
+              "side": "bot",
+              "text": "Del 1 al 7 de junio: $300. Cliente A: $220. Cliente B: $80. Datos ilustrativos."
+            }
+          ]
+        },
+        "en": {
+          "type": "chat",
+          "heading": "Queried sales",
+          "messages": [
+            {
+              "side": "user",
+              "text": "How much did we sell from June 1 to June 7?"
+            },
+            {
+              "side": "bot",
+              "text": "June 1–7: $300. Client A: $220. Client B: $80. Illustrative data."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Continuar y exportar",
+        "en": "Continue and export"
+      },
+      "description": {
+        "es": "Un seguimiento pide el mismo detalle en un archivo.",
+        "en": "A follow-up requests the same details in a file."
+      },
+      "action": {
+        "es": "Preparar XLSX",
+        "en": "Prepare XLSX"
+      },
+      "view": {
+        "es": {
+          "type": "chat",
+          "heading": "Detalle exportable",
+          "messages": [
+            {
+              "side": "user",
+              "text": "Pasámelo en Excel."
+            },
+            {
+              "side": "bot",
+              "text": "Archivo preparado: ventas_01-07_junio.xlsx · 2 clientes · total $300."
+            }
+          ]
+        },
+        "en": {
+          "type": "chat",
+          "heading": "Exportable detail",
+          "messages": [
+            {
+              "side": "user",
+              "text": "Send it as an Excel file."
+            },
+            {
+              "side": "bot",
+              "text": "File prepared: sales_june_01-07.xlsx · 2 clients · total $300."
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

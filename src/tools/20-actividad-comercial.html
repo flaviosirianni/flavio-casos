@@ -1,101 +1,30 @@
 <section class="tool" id="actividad-comercial" data-cat="sheets"
   data-title="Seguimiento diario de actividad comercial"
   data-sector="Equipo inmobiliario · EE.UU."
-  data-summary="Evalúa cada día la actividad de cada agente con reglas del negocio, guarda el motivo del resultado y conserva el historial aunque cambien los datos."
-  data-stack="Plataforma de BI,Google Apps Script,Google Sheets,APIs de plataformas de BI">
+  data-summary="Evaluar actividad diaria por agente, guardar el motivo del resultado y conservar el histórico con correcciones controladas."
+  data-stack="Google Apps Script,Google Sheets,JavaScript,CSV,APIs REST" data-status="Implementado">
   <div class="wrap tool-head">
     <p class="eyebrow">Equipo inmobiliario · EE.UU.</p>
     <h1>Seguimiento diario de actividad comercial</h1>
-    <p class="kind">Motor de indicadores comerciales y archivo histórico en Google Sheets</p>
-    <p class="lead">Cada día se evalúa si cada agente cumplió los criterios de actividad que fijó el equipo: conversaciones, llamadas, mensajes, visitas. El resultado queda archivado con su explicación, para revisar quién cumplió y por qué.</p>
+    <p class="kind">Reglas comerciales y archivo diario explicable · Implementado</p>
+    <p class="lead">Evaluar actividad diaria por agente, guardar el motivo del resultado y conservar el histórico con correcciones controladas.</p>
   </div>
-
-  <div class="stage"><div class="wrap shots">
-    <figure class="shot w12">
-      <div class="dev dev-browser" style="--w:1080px">
-        <div class="bar"><i></i><i></i><i></i><div class="url">docs.google.com/spreadsheets · Daily Activity</div></div>
-        <div class="gs" style="position:relative">
-          <div class="gs-title"><span class="ic"></span><span class="nm">Daily Activity · Archive</span></div>
-          <div class="gs-menu"><span>File</span><span>Edit</span><span>View</span><span>Insert</span><span>Format</span><span>Data</span><span>Tools</span><b>Admin</b><span>Help</span></div>
-          <div class="gs-drop" style="left:418px;top:58px"><div>Pull today's data</div><div>Archive yesterday</div><div class="on">Recalculate this week</div><div>Backfill missing rows…</div><hr><div>Open rules</div></div>
-          <div class="gs-tool"></div>
-          <div class="gs-fx"><span class="ref">I3</span><span class="fx">fx</span><span>Conversations 4 &lt; 5 · calls + texts 31 ≥ 25</span></div>
-          <div class="gs-grid">
-            <table>
-              <thead><tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th><th>G</th><th>H</th><th>I</th></tr></thead>
-              <tbody>
-                <tr class="h" style="--hdr:#312e81"><th>1</th><td>Date</td><td>Agent</td><td>Open houses</td><td>Conversations</td><td>Calls</td><td>Emails</td><td>Texts</td><td>Result</td><td>Reason</td></tr>
-                <tr><th>2</th><td>10/21</td><td>Olivia Grant</td><td class="n">1</td><td class="n">6</td><td class="n">22</td><td class="n">14</td><td class="n">18</td><td class="cg c">WON</td><td>Open house held</td></tr>
-                <tr><th>3</th><td>10/21</td><td>Brandon Hughes</td><td class="n">0</td><td class="n">4</td><td class="n">19</td><td class="n">8</td><td class="n">12</td><td class="cy c">NOT YET</td><td class="sel">Conversations 4 &lt; 5 · calls + texts 31 ≥ 25</td></tr>
-                <tr><th>4</th><td>10/21</td><td>Kayla Foster</td><td class="n">0</td><td class="n">7</td><td class="n">26</td><td class="n">9</td><td class="n">21</td><td class="cg c">WON</td><td>Conversations 7 ≥ 5</td></tr>
-                <tr><th>5</th><td>10/21</td><td>Tyler Reed</td><td class="n">0</td><td class="n">2</td><td class="n">8</td><td class="n">3</td><td class="n">5</td><td class="cy c">NOT YET</td><td>Conversations 2 &lt; 5 · calls + texts 13 &lt; 25</td></tr>
-                <tr><th>6</th><td>10/20</td><td>Brandon Hughes</td><td class="n">0</td><td class="n">5</td><td class="n">21</td><td class="n">11 <span style="color:#1f5fbf">↑</span></td><td class="n">16</td><td class="cg c">WON</td><td>Conversations 5 ≥ 5 · late emails added</td></tr>
-                <tr><th>7</th><td>10/20</td><td>Tyler Reed</td><td class="n">1</td><td class="n">3</td><td class="n">10</td><td class="n">2</td><td class="n">7</td><td class="cg c">WON</td><td>Open house held</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="gs-tabs"><span>Today</span><span class="on">Archive</span><span>Weekly</span><span>Rules</span><span>Log</span></div>
-        </div>
-      </div>
-      <figcaption><b>Archivo con explicación.</b> Cada fila guarda el resultado del día y la regla que lo decidió. Los correos y mensajes que llegan tarde se suman al día anterior sin bajar lo ya archivado.</figcaption>
-    </figure>
-
-    <figure class="shot w6">
-      <div class="dev dev-doc" style="--w:520px;padding:30px 34px">
-        <div class="xs mut" style="letter-spacing:.08em;text-transform:uppercase">Rules tab</div>
-        <div style="font-size:18px;font-weight:700;margin:4px 0 14px">How a day is "won"</div>
-        <div class="col" style="gap:10px;font-size:12.5px">
-          <div class="ui-card soft"><b>Option A</b> · held at least <b>1 open house</b></div>
-          <div class="ui-card soft"><b>Option B</b> · at least <b>5 conversations</b></div>
-          <div class="ui-card soft"><b>Option C</b> · <b>calls + texts ≥ 25</b> and <b>conversations ≥ 3</b></div>
-          <div class="xs mut">Business calendar in local time. Past days are frozen, except yesterday, which can still receive late activity.</div>
-        </div>
-      </div>
-      <figcaption><b>Reglas visibles.</b> La pestaña de reglas explica el criterio en lenguaje simple, igual al que aplica el motor.</figcaption>
-    </figure>
-
-    <figure class="shot w6">
-      <div class="dev dev-browser ui" style="--w:520px;--brand:#4338ca">
-        <div class="bar"><i></i><i></i><i></i><div class="url">Weekly view</div></div>
-        <div class="ui-main">
-          <div class="ui-h2">Days won this week</div>
-          <div class="hbars" style="--lw:110px">
-            <div><span>Olivia Grant</span><span class="bar-track"><i style="width:100%;--c:#4338ca"></i></span><span class="num">5 / 5</span></div>
-            <div><span>Kayla Foster</span><span class="bar-track"><i style="width:80%;--c:#4338ca"></i></span><span class="num">4 / 5</span></div>
-            <div><span>Brandon Hughes</span><span class="bar-track"><i style="width:60%;--c:#4338ca"></i></span><span class="num">3 / 5</span></div>
-            <div><span>Tyler Reed</span><span class="bar-track"><i style="width:40%;--c:#4338ca"></i></span><span class="num">2 / 5</span></div>
-            <div><span>Megan Price</span><span class="bar-track"><i style="width:40%;--c:#4338ca"></i></span><span class="num">2 / 5</span></div>
-          </div>
-          <div class="xs mut">Recalculated after backfilling 3 missing rows on Oct 19.</div>
-        </div>
-      </div>
-      <figcaption><b>Lectura semanal.</b> El histórico permite ver tendencias por agente y recuperar días faltantes sin rehacer todo.</figcaption>
-    </figure>
-  </div></div>
-
+  <div class="wrap"><div class="demo-mount" data-demo="actividad-comercial"></div></div>
   <div class="wrap tool-body">
     <div class="prose">
-      <div class="technical-panel"><h2>Implementación técnica</h2><p>Automaticé la carga de indicadores diarios desde una plataforma de BI hacia Sheets con Apps Script. La herramienta organiza la actividad comercial en una salida consistente para revisión del equipo.</p></div>
-      <h2>Qué hace</h2>
-      <p>Evalúa la actividad de cada integrante del equipo según reglas definidas por el negocio y conserva el motivo del resultado diario. Reúne indicadores como conversaciones, llamadas, mensajes y otras acciones comerciales. Mantiene un historial aunque cambie la información del día y permite incorporar correcciones tardías y recuperar registros faltantes.</p>
-      <p>El responsable puede revisar quién alcanzó los criterios del día y por qué. El histórico conserva el resultado cuando cambia el dataset operativo, y los mecanismos de corrección permiten incorporar actividad registrada con demora sin rehacer todo el seguimiento.</p>
+      <div class="technical-panel"><h2>Implementación técnica</h2><p>Apps Script importa un CSV de BI y evalúa conversaciones, llamadas, correos, mensajes y jornadas de puertas abiertas. El archivo usa una clave de agente y fecha operativa.</p></div>
+      <h2>Qué resuelve</h2><p>Permite entender por qué se cumplió o no una meta diaria sin depender de una cifra aislada que luego cambia.</p>
+      <h2>Flujo y alcance</h2><p>Una jornada de puertas abiertas cumple directamente. En los demás casos se exige una conversación o cinco actividades salientes, junto con una lista de limpieza vacía. El día actual se reemplaza; ayer admite correcciones crecientes de correos y mensajes.</p>
+      <ul class="points"><li>Llamadas + correos + mensajes componen la actividad saliente.</li><li>Resultado y motivos se guardan junto con valores de evaluación.</li><li>Fecha operativa calculada en America/Phoenix.</li></ul>
     </div>
-    <aside class="side">
-      <div class="panel">
-        <h3>Recorrido de la información</h3>
-        <div class="flow">
-          <div class="flow-step"><span>Fuente</span><div class="items"><b>Plataforma de BI</b></div></div>
-          <div class="flow-arrow"></div>
-          <div class="flow-step mid"><span>Reglas y archivo</span><div class="items"><b>Google Apps Script</b></div></div>
-          <div class="flow-arrow"></div>
-          <div class="flow-step"><span>Destino</span><div class="items"><b>Google Sheets</b></div></div>
-        </div>
-        <p class="flow-text">La plataforma de BI aporta las métricas de actividad comercial; Google Sheets conserva el resultado por agente y fecha y explica la regla aplicada. Apps Script permite recalcular períodos y recuperar faltantes.</p>
-      </div>
-      <div class="panel">
-        <h3>Stack tecnológico</h3>
-        <div class="stack"><span class="tag">Google Apps Script</span><span class="tag">Google Sheets</span><span class="tag">APIs de plataformas de BI</span></div>
-      </div>
+    <aside class="side"><div class="panel"><h3>Flujo de datos</h3>
+      <div class="flow-step"><div class="items">CSV de actividad</div></div>
+      <div class="flow-arrow" aria-hidden="true">↓</div>
+      <div class="flow-step"><div class="items">Reglas + motivo</div></div>
+      <div class="flow-arrow" aria-hidden="true">↓</div>
+      <div class="flow-step"><div class="items">Archivo por agente y día</div></div>
+      <p class="flow-text">Una jornada de puertas abiertas cumple directamente. En los demás casos se exige una conversación o cinco actividades salientes, junto con una lista de limpieza vacía. El día actual se reemplaza; ayer admite correcciones crecientes de correos y mensajes.</p></div>
+      <div class="panel"><h3>Stack</h3><div class="stack"><span class="tag">Google Apps Script</span><span class="tag">Google Sheets</span><span class="tag">JavaScript</span><span class="tag">CSV</span><span class="tag">APIs REST</span></div></div>
     </aside>
   </div>
 </section>

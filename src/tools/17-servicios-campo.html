@@ -1,93 +1,30 @@
 <section class="tool" id="servicios-campo" data-cat="integ"
   data-title="Actualización de tareas de servicios de campo"
   data-sector="Servicios de campo · EE.UU."
-  data-summary="Las tareas de la plataforma de gestión de campo se mantienen al día en una planilla, con histórico, cambios de estado y responsables legibles."
-  data-stack="FieldRoutes,Google Apps Script,Google Sheets,APIs REST,JavaScript">
+  data-summary="Consultar tareas, estados y responsables en una planilla que se actualiza por identificador."
+  data-stack="FieldRoutes,Google Apps Script,Google Sheets,APIs REST,JavaScript" data-status="Implementado">
   <div class="wrap tool-head">
     <p class="eyebrow">Servicios de campo · EE.UU.</p>
     <h1>Actualización de tareas de servicios de campo</h1>
-    <p class="kind">Integración de datos de tareas con operación y consulta en Google Sheets</p>
-    <p class="lead">Las tareas de campo, sus responsables y estados se copian solos a una planilla que el equipo ya sabe usar. Cuando una tarea cambia, se actualiza la misma fila; no hay que exportar nada para cada revisión.</p>
+    <p class="kind">Histórico e incrementales de tareas en Google Sheets · Implementado</p>
+    <p class="lead">Consultar tareas, estados y responsables en una planilla que se actualiza por identificador.</p>
   </div>
-
-  <div class="stage"><div class="wrap shots">
-    <figure class="shot w12">
-      <div class="dev dev-browser" style="--w:1060px">
-        <div class="bar"><i></i><i></i><i></i><div class="url">docs.google.com/spreadsheets · Field Tasks</div></div>
-        <div class="gs">
-          <div class="gs-title"><span class="ic"></span><span class="nm">Field Tasks</span></div>
-          <div class="gs-menu"><span>File</span><span>Edit</span><span>View</span><span>Insert</span><span>Format</span><span>Data</span><span>Tools</span><b>Task Sync</b><span>Help</span></div>
-          <div class="gs-tool"></div>
-          <div class="gs-fx"><span class="ref">F4</span><span class="fx">fx</span><span>Completed</span></div>
-          <div class="gs-grid">
-            <table>
-              <thead><tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th><th>G</th><th>H</th></tr></thead>
-              <tbody>
-                <tr class="h" style="--hdr:#14532d"><th>1</th><td>Task ID</td><td>Created</td><td>Due</td><td>Category</td><td>Assigned to</td><td>Status</td><td>Completed</td><td>Updated</td></tr>
-                <tr><th>2</th><td class="n">412088</td><td>10/14/2026</td><td>10/21/2026</td><td>Follow-up call</td><td>Megan Price</td><td class="cy">Pending</td><td></td><td>10/21 08:40</td></tr>
-                <tr><th>3</th><td class="n">412091</td><td>10/14/2026</td><td>10/16/2026</td><td>Re-service request</td><td>Jake Miller</td><td class="cg">Completed</td><td>10/16/2026</td><td>10/16 15:12</td></tr>
-                <tr><th>4</th><td class="n">412107</td><td>10/15/2026</td><td>10/20/2026</td><td>Inspection</td><td>Ashley Brooks</td><td class="cg sel">Completed</td><td>10/21/2026</td><td>10/21 11:02</td></tr>
-                <tr><th>5</th><td class="n">412115</td><td>10/16/2026</td><td>10/23/2026</td><td>Billing question</td><td>Kayla Foster</td><td class="cy">Pending</td><td></td><td>10/19 09:30</td></tr>
-                <tr><th>6</th><td class="n">412120</td><td>10/16/2026</td><td>10/18/2026</td><td>Cancellation save</td><td>Olivia Grant</td><td class="cn">Cancelled</td><td></td><td>10/18 17:45</td></tr>
-                <tr><th>7</th><td class="n">412133</td><td>10/19/2026</td><td>10/22/2026</td><td>Re-service request</td><td>Ryan Cooper</td><td class="cy">Pending</td><td></td><td>10/21 07:58</td></tr>
-                <tr><th>8</th><td class="n">412140</td><td>10/20/2026</td><td>10/24/2026</td><td>Inspection</td><td>Tyler Reed</td><td class="cy">Pending</td><td></td><td>10/20 13:20</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="gs-tabs"><span class="on">Tasks</span><span>Employees</span><span>Sync Log</span><span>Config</span></div>
-        </div>
-      </div>
-      <figcaption><b>Tabla de tareas.</b> Una fila por tarea, actualizada por su identificador, con responsables resueltos a nombres legibles y estados normalizados.</figcaption>
-    </figure>
-
-    <figure class="shot w12">
-      <div class="dev dev-browser" style="--w:980px">
-        <div class="bar"><i></i><i></i><i></i><div class="url">docs.google.com/spreadsheets · Field Tasks · Sync Log</div></div>
-        <div class="gs">
-          <div class="gs-fx"><span class="ref">A1</span><span class="fx">fx</span><span>Run at</span></div>
-          <div class="gs-grid">
-            <table>
-              <thead><tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th><th>G</th><th>H</th></tr></thead>
-              <tbody>
-                <tr class="h" style="--hdr:#14532d"><th>1</th><td>Run at</td><td>Mode</td><td>Lookback</td><td>Fetched</td><td>Inserted</td><td>Updated</td><td>Failed</td><td>Cursor advanced</td></tr>
-                <tr><th>2</th><td>10/01 03:00</td><td>Historic load</td><td>since 2024-01-01</td><td class="n">18,402</td><td class="n">18,402</td><td class="n">0</td><td class="n">0</td><td class="cg">Yes</td></tr>
-                <tr><th>3</th><td>10/21 06:00</td><td>Incremental</td><td>3 days</td><td class="n">214</td><td class="n">61</td><td class="n">153</td><td class="n">0</td><td class="cg">Yes</td></tr>
-                <tr><th>4</th><td>10/21 12:00</td><td>Incremental</td><td>3 days</td><td class="n">88</td><td class="n">9</td><td class="n">77</td><td class="n">2</td><td class="cr">No · will retry</td></tr>
-                <tr><th>5</th><td>10/21 18:00</td><td>Incremental</td><td>3 days</td><td class="n">97</td><td class="n">14</td><td class="n">83</td><td class="n">0</td><td class="cg">Yes</td></tr>
-                <tr><th>6</th><td>10/22 06:00</td><td>Incremental</td><td>3 days</td><td class="n">203</td><td class="n">47</td><td class="n">156</td><td class="n">0</td><td class="cg">Yes</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="gs-tabs"><span>Tasks</span><span>Employees</span><span class="on">Sync Log</span><span>Config</span></div>
-        </div>
-      </div>
-      <figcaption><b>Registro de cargas.</b> Carga histórica inicial y luego incrementales con ventana de seguridad. Si alguna fila falla, el cursor no avanza y se reintenta.</figcaption>
-    </figure>
-  </div></div>
-
+  <div class="wrap"><div class="demo-mount" data-demo="servicios-campo"></div></div>
   <div class="wrap tool-body">
     <div class="prose">
-      <div class="technical-panel"><h2>Implementación técnica</h2><p>Desarrollé una integración REST con FieldRoutes en Apps Script. Implementé extracción y transformación de tareas hacia Sheets, con funciones de soporte verificables y salidas para análisis operativo.</p></div>
-      <h2>Qué hace</h2>
-      <p>Recupera tareas desde una plataforma de gestión de campo y mantiene una planilla con responsables, estados y fechas. Incorpora el histórico y actualiza tareas existentes cuando cambian sus datos. Permite consultar y analizar el trabajo desde una fuente común, con seguimiento de las cargas y de los registros que requieren revisión.</p>
-      <p>Los responsables pueden analizar tareas y responsables desde una planilla habitual sin realizar una exportación nueva para cada revisión. Las actualizaciones conservan la identidad de cada tarea para reflejar sus cambios en el mismo registro.</p>
+      <div class="technical-panel"><h2>Implementación técnica</h2><p>Apps Script busca IDs, recupera detalles por lotes y resuelve responsables con el directorio de empleados. Inserta tareas nuevas y actualiza filas existentes por ID.</p></div>
+      <h2>Qué resuelve</h2><p>Reemplaza exportaciones repetidas por una tabla operativa con histórico y cambios de estado.</p>
+      <h2>Flujo y alcance</h2><p>Incluye carga histórica, sincronización incremental y una comprobación de configuración sin escritura de tareas. Excluye registros de feedback de la tabla operativa.</p>
+      <ul class="points"><li>Responsables legibles, fecha de creación, vencimiento y cierre.</li><li>Actualización sobre la misma fila para un ID existente.</li><li>El marcador incremental avanza después de una corrida sin filas fallidas.</li></ul>
     </div>
-    <aside class="side">
-      <div class="panel">
-        <h3>Recorrido de la información</h3>
-        <div class="flow">
-          <div class="flow-step"><span>Fuente</span><div class="items"><b>FieldRoutes</b></div></div>
-          <div class="flow-arrow"></div>
-          <div class="flow-step mid"><span>Proceso histórico e incremental</span><div class="items"><b>Google Apps Script</b></div></div>
-          <div class="flow-arrow"></div>
-          <div class="flow-step"><span>Destino</span><div class="items"><b>Google Sheets</b></div></div>
-        </div>
-        <p class="flow-text">FieldRoutes aporta tareas, estados y empleados mediante su API. Google Sheets recibe la tabla actualizada; Apps Script mantiene el proceso histórico e incremental y los registros de ejecución.</p>
-      </div>
-      <div class="panel">
-        <h3>Stack tecnológico</h3>
-        <div class="stack"><span class="tag">Google Apps Script</span><span class="tag">Google Sheets</span><span class="tag">JavaScript</span><span class="tag">APIs REST</span></div>
-      </div>
+    <aside class="side"><div class="panel"><h3>Flujo de datos</h3>
+      <div class="flow-step"><div class="items">FieldRoutes: IDs + detalles</div></div>
+      <div class="flow-arrow" aria-hidden="true">↓</div>
+      <div class="flow-step"><div class="items">Directorio + transformación</div></div>
+      <div class="flow-arrow" aria-hidden="true">↓</div>
+      <div class="flow-step"><div class="items">Tareas en Sheets</div></div>
+      <p class="flow-text">Incluye carga histórica, sincronización incremental y una comprobación de configuración sin escritura de tareas. Excluye registros de feedback de la tabla operativa.</p></div>
+      <div class="panel"><h3>Stack</h3><div class="stack"><span class="tag">FieldRoutes</span><span class="tag">Google Apps Script</span><span class="tag">Google Sheets</span><span class="tag">APIs REST</span><span class="tag">JavaScript</span></div></div>
     </aside>
   </div>
 </section>

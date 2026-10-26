@@ -1,5 +1,5 @@
-# Cobertura de la entrega
+# Release coverage
 
 Total gaps detectados: 0
 
-Pruebas de contrato y recorridos de navegador documentados. El diálogo nativo para guardar PDF corresponde al navegador del visitante; no es un flujo de servidor.
+Build contracts and browser evidence cover the portfolio. Customer applications and native save-to-PDF dialogs are outside this static site’s validation scope.

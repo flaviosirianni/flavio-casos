@@ -1,145 +1,43 @@
 <section class="tool" id="tableros" data-cat="datos"
   data-title="Tableros de gestión con acceso por rol"
-  data-sector="Servicios de facility y gastronomía · varias implementaciones"
-  data-summary="Un portal de indicadores con login de Google donde cada perfil ve sus temas: asistencia, cobranzas, stock, reclamos, facturación y costos."
-  data-stack="Apache Superset,BigQuery,Google OAuth,SQL,Python,PostgreSQL,Cloud Run">
+  data-sector="Servicios operativos · múltiples implementaciones"
+  data-summary="Portales de indicadores con Google OAuth, permisos por tema y dashboards versionados."
+  data-stack="Apache Superset,BigQuery,Google OAuth,SQL,Python,PostgreSQL,Cloud Run" data-status="">
   <div class="wrap tool-head">
-    <p class="eyebrow">Servicios de facility y gastronomía · varias implementaciones</p>
+    <p class="eyebrow">Servicios operativos · múltiples implementaciones</p>
     <h1>Tableros de gestión con acceso por rol</h1>
-    <p class="kind">Portal web de business intelligence con dashboards interactivos y accesos por perfil</p>
-    <p class="lead">Gerencia, supervisores y administración entran con su cuenta de Google y ven solo los temas que les corresponden. Del indicador general bajan a la sede, la fecha o la categoría, y todos discuten sobre los mismos números.</p>
+    <p class="kind">BI sobre una fuente analítica común</p>
+    <p class="lead">Cada perfil entra a los temas habilitados y filtra indicadores desde el navegador. Las implementaciones reúnen asistencia, reclamos, facturación, cobranzas o stock según el contexto.</p>
   </div>
-
-  <div class="stage"><div class="wrap shots">
-    <figure class="shot w12">
-      <div class="dev dev-browser" style="--w:1080px">
-        <div class="bar"><i></i><i></i><i></i><div class="url">indicadores.empresa.com.ar/dashboard/asistencia</div></div>
-        <div class="bi ui" style="--brand:#20a7c9">
-          <div class="bi-nav"><span class="lg">Indicadores</span><span class="on">Tableros</span><span>Gráficos</span><span>Datasets</span><span class="grow"></span><span class="pill b">Rol: Gerencia de operaciones</span><span class="av" style="--c:#0f766e">VI</span></div>
-          <div class="bi-title"><span class="t">Asistencia y dotación</span><span class="pill">Publicado</span><span class="grow"></span><span class="sm mut">Actualizado hoy 08:10</span><span class="btn ghost sm">Compartir</span></div>
-          <div class="bi-body">
-            <div class="bi-filters">
-              <div class="b sm">Filtros</div>
-              <div class="fld"><label>Sede</label><div class="inp sel"><span>Todas (12)</span></div></div>
-              <div class="fld"><label>Período</label><div class="inp sel"><span>Últimas 8 semanas</span></div></div>
-              <div class="fld"><label>Turno</label><div class="inp sel"><span>Todos</span></div></div>
-              <div class="fld"><label>Categoría</label><div class="inp sel"><span>Operarios</span></div></div>
-              <span class="btn sm" style="--brand:#20a7c9">Aplicar filtros</span>
-            </div>
-            <div class="bi-grid">
-              <div class="g4">
-                <div class="bi-card"><div class="ct">Presentismo</div><div class="bi-big">94,2 %</div><div class="sm up">▲ 1,3 pp vs período anterior</div></div>
-                <div class="bi-card"><div class="ct">Ausentismo</div><div class="bi-big">5,8 %</div><div class="sm up">▼ 1,3 pp</div></div>
-                <div class="bi-card"><div class="ct">Llegadas tarde</div><div class="bi-big">132</div><div class="sm down">▲ 14 vs período anterior</div></div>
-                <div class="bi-card"><div class="ct">Horas extra</div><div class="bi-big">418 h</div><div class="sm mut">3,1 % de horas trabajadas</div></div>
-              </div>
-              <div style="display:grid;grid-template-columns:1.25fr 1fr;gap:12px">
-                <div class="bi-card"><div class="ct">Presentismo semanal por tipo de servicio</div>
-                  <div class="chart" data-type="line" data-w="470" data-h="170" data-min="88" data-max="98" data-fmt="%" data-labels="S35|S36|S37|S38|S39|S40|S41|S42" data-series='[{"values":[92.1,92.8,93.4,91.9,93.0,93.8,94.4,94.6],"color":"#20a7c9"},{"values":[90.4,91.2,90.8,90.1,91.6,92.3,92.9,93.2],"color":"#f59e0b"},{"values":[89.9,90.6,91.4,92.2,92.0,92.8,93.1,93.9],"color":"#8b5cf6"}]'></div>
-                  <div class="legend" style="margin-top:6px"><span><i style="--c:#20a7c9"></i>Limpieza</span><span><i style="--c:#f59e0b"></i>Gastronomía</span><span><i style="--c:#8b5cf6"></i>Mantenimiento</span></div>
-                </div>
-                <div class="bi-card"><div class="ct">Dotación presente vs esperada por sede</div>
-                  <div class="chart" data-type="bar" data-w="380" data-h="170" data-labels="Norte|Centro|Sur|Oeste|Campus|Clínica" data-series='[{"values":[48,62,35,41,27,54],"color":"#cfd8e3"},{"values":[45,60,31,40,26,49],"color":"#20a7c9"}]'></div>
-                  <div class="legend" style="margin-top:6px"><span><i style="--c:#cfd8e3"></i>Esperada</span><span><i style="--c:#20a7c9"></i>Presente</span></div>
-                </div>
-              </div>
-              <div class="bi-card"><div class="ct">Detalle por sede</div>
-                <table class="tbl">
-                  <tr><th>Sede</th><th class="num">Dotación</th><th class="num">Presentismo</th><th class="num">Ausencias</th><th class="num">Licencias</th><th class="num">Tardanzas</th><th class="num">Horas extra</th></tr>
-                  <tr><td>Sede Centro</td><td class="num">62</td><td class="num">96,8 %</td><td class="num">12</td><td class="num">4</td><td class="num">18</td><td class="num">96</td></tr>
-                  <tr><td>Clínica Oeste</td><td class="num">54</td><td class="num">90,7 %</td><td class="num">31</td><td class="num">9</td><td class="num">29</td><td class="num">121</td></tr>
-                  <tr><td>Sede Norte</td><td class="num">48</td><td class="num">93,8 %</td><td class="num">17</td><td class="num">3</td><td class="num">22</td><td class="num">64</td></tr>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <figcaption><b>Indicadores con filtros.</b> Presentismo, ausencias, tardanzas y horas extra con desglose por sede, turno y categoría. El rol del usuario define qué tableros aparecen.</figcaption>
-    </figure>
-
-    <figure class="shot w8">
-      <div class="dev dev-browser" style="--w:760px">
-        <div class="bar"><i></i><i></i><i></i><div class="url">indicadores.empresa.com.ar/dashboard/cobranzas</div></div>
-        <div class="bi ui">
-          <div class="bi-title"><span class="t">Cobranzas</span><span class="grow"></span><span class="pill">Octubre 2026</span><span class="pill">Todas las zonas</span></div>
-          <div class="bi-grid">
-            <div class="g3">
-              <div class="bi-card"><div class="ct">Cobrado en el mes</div><div class="bi-big">$ 41,9 M</div><div class="sm mut">87 % de lo facturado</div></div>
-              <div class="bi-card"><div class="ct">Saldo total</div><div class="bi-big">$ 9,3 M</div><div class="sm down">▲ 6 % vs septiembre</div></div>
-              <div class="bi-card"><div class="ct">Deuda +30 días</div><div class="bi-big">$ 2,3 M</div><div class="sm mut">4 clientes</div></div>
-            </div>
-            <div style="display:grid;grid-template-columns:1.3fr 1fr;gap:12px">
-              <div class="bi-card"><div class="ct">Facturado y cobrado por semana</div>
-                <div class="chart" data-type="bar" data-w="380" data-h="160" data-fmt="M" data-pre="$" data-labels="S38|S39|S40|S41|S42|S43" data-series='[{"values":[10.2e6,11.1e6,10.8e6,11.9e6,12.4e6,11.6e6],"color":"#c7d2fe"},{"values":[9.1e6,9.8e6,9.9e6,10.2e6,11.0e6,10.7e6],"color":"#4f46e5"}]'></div>
-                <div class="legend"><span><i style="--c:#c7d2fe"></i>Facturado</span><span><i style="--c:#4f46e5"></i>Cobrado</span></div>
-              </div>
-              <div class="bi-card"><div class="ct">Antigüedad del saldo</div>
-                <div class="chart" data-type="donut" data-w="200" data-h="140" data-values="5.4,1.6,1.3,1.0" data-colors="#4f46e5,#818cf8,#f59e0b,#ef4444" data-center="$ 9,3 M" data-sub="saldo total"></div>
-                <div class="legend" style="justify-content:center"><span><i style="--c:#4f46e5"></i>0-7 d</span><span><i style="--c:#818cf8"></i>8-15 d</span><span><i style="--c:#f59e0b"></i>16-30 d</span><span><i style="--c:#ef4444"></i>+30 d</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <figcaption><b>Cobranzas y agenda de cobro.</b> Lo facturado contra lo cobrado y la antigüedad del saldo, con los datos del ERP contable.</figcaption>
-    </figure>
-
-    <figure class="shot w4">
-      <div class="dev dev-phone ui" style="--h:600px"><div class="screen" style="background:#f5f6f8">
-        <div class="sbar" style="background:#fff"><span>10:05</span></div>
-        <div style="background:#fff;padding:2px 16px 10px;border-bottom:1px solid #e3e6ea"><div class="b" style="color:#20a7c9;font-size:13px">Indicadores</div><div class="ui-h1" style="font-size:16px">Reclamos · vista celular</div></div>
-        <div style="padding:12px;display:flex;flex-direction:column;gap:10px">
-          <div class="g2"><div class="bi-card" style="padding:10px"><div class="ct">Abiertos</div><div class="bi-big" style="font-size:24px">14</div></div><div class="bi-card" style="padding:10px"><div class="ct">Resueltos (mes)</div><div class="bi-big" style="font-size:24px">186</div></div></div>
-          <div class="g2"><div class="bi-card" style="padding:10px"><div class="ct">Recepción prom.</div><div class="bi-big" style="font-size:20px">22 min</div></div><div class="bi-card" style="padding:10px"><div class="ct">Conformidad</div><div class="bi-big" style="font-size:20px">91 %</div></div></div>
-          <div class="bi-card"><div class="ct">Reclamos por tipo</div>
-            <div class="hbars" style="--lw:80px">
-              <div><span>Baños</span><span class="bar-track"><i style="width:88%;--c:#20a7c9"></i></span><span class="num">74</span></div>
-              <div><span>Residuos</span><span class="bar-track"><i style="width:55%;--c:#20a7c9"></i></span><span class="num">46</span></div>
-              <div><span>Aulas</span><span class="bar-track"><i style="width:40%;--c:#20a7c9"></i></span><span class="num">34</span></div>
-              <div><span>Insumos</span><span class="bar-track"><i style="width:26%;--c:#20a7c9"></i></span><span class="num">22</span></div>
-            </div>
-          </div>
-          <div class="bi-card"><div class="ct">Tiempo de resolución (h)</div>
-            <div class="chart" data-type="line" data-area="1" data-w="260" data-h="90" data-labels="S39|S40|S41|S42|S43" data-series='[{"values":[6.8,5.9,5.1,4.6,4.2],"color":"#20a7c9"}]'></div>
-          </div>
-        </div>
-      </div></div>
-      <figcaption><b>Versión para celular.</b> Los tableros que se miran en la calle tienen su propia vista móvil.</figcaption>
-    </figure>
-  </div></div>
-
+  <div class="wrap"><div class="demo-mount" data-demo="tableros"></div></div>
   <div class="wrap tool-body">
     <div class="prose">
-      <div class="technical-panel"><h2>Implementación técnica</h2><p>Implementé tableros en Apache Superset sobre modelos SQL de BigQuery, con acceso por rol y autenticación Google. La infraestructura utiliza Cloud Run y PostgreSQL para la metadata del servicio.</p></div>
-      <h2>Qué hace</h2>
-      <p>Transforma información de distintos procesos en paneles para responsables de operación, administración y dirección. Permite analizar ventas, cobranzas, stock, asistencia, dotación, facturación, reclamos y costos, con filtros por sede, período o categoría. Cada perfil ve los temas autorizados. Incluye vistas adaptadas al celular y seguimiento del uso de los propios tableros para conocer su adopción.</p>
-      <p>Los usuarios pueden pasar de un indicador general a un desglose por sede, fecha o categoría y compartir una misma lectura de la operación. Las implementaciones incluyen temas de cobranzas, inventario, dotación, asistencia, reclamos, calidad de datos y costos. Las vistas móviles se preparan para los tableros que las requieren.</p>
-      <h2>Temas implementados</h2>
+      <div class="technical-panel"><h2>Implementación técnica</h2><p>Configuré Apache Superset en Cloud Run, con metadatos en PostgreSQL y lectura de BigQuery. Los dashboards, datasets y gráficos se versionan en YAML; el login de Google sincroniza los roles definidos para cada acceso.</p></div>
+      <h2>Qué resuelve</h2>
+      <p>Evita repartir reportes sin control de acceso o reconstruir métricas en cada planilla. Los equipos consultan indicadores sobre transformaciones compartidas y permisos por tema.</p>
+      <h2>Flujo y alcance</h2>
+      <p>El acceso autorizado define qué dashboards aparecen; los filtros ajustan período, sede y otras dimensiones. La demo representa una vista de reclamos con cifras ficticias, no una sesión conectada.</p>
       <ul class="points">
-        <li>Asistencia y parte diario: presentismo, ausentismo, tardanzas, horas extra, licencias y fichadas completas por sede.</li>
-        <li>Gastronomía en sanatorios: dotación por turno frente a comidas y categorías facturadas.</li>
-        <li>Reclamos: estados, tiempos de recepción y resolución, conformidad y reaperturas, con una vista para el cliente sin datos internos.</li>
-        <li>Cobranzas, agenda de cobro y stock por planta para el negocio gastronómico.</li>
-        <li>Calidad de datos, costos de la nube y adopción de los propios tableros (quién entra, qué mira).</li>
+        <li>Google OAuth con allowlist y sincronización de roles al ingresar.</li>
+        <li>Importación reproducible de assets con identificadores estables.</li>
+        <li>Datos de negocio en BigQuery; metadatos de Superset en PostgreSQL.</li>
       </ul>
-      <p class="note">Tableros, gráficos y permisos se guardan como código: cada cambio pasa por revisión y se despliega solo, y un script verifica qué ve cada rol.</p>
     </div>
     <aside class="side">
       <div class="panel">
         <h3>Recorrido de la información</h3>
         <div class="flow">
-          <div class="flow-step"><span>Fuentes según la implementación</span><div class="items"><b>Xubio</b><b>Google Sheets</b><b>Relojes de fichada</b><b>Tango</b><b>WhatsApp</b><b>Costos de la nube</b></div></div>
+          <div class="flow-step"><span>Origen</span><div class="items"><b>BigQuery</b></div></div>
           <div class="flow-arrow"></div>
-          <div class="flow-step mid"><span>Base analítica</span><div class="items"><b>BigQuery</b></div></div>
+<div class="flow-step"><span>Procesamiento</span><div class="items"><b>Datasets y métricas SQL</b></div></div>
           <div class="flow-arrow"></div>
-          <div class="flow-step"><span>Visualización y acceso</span><div class="items"><b>Tableros</b><b>Ingreso con cuenta de Google</b></div></div>
+<div class="flow-step"><span>Salida</span><div class="items"><b>Dashboards por rol</b></div></div>
         </div>
-        <p class="flow-text">Apache Superset muestra los resultados; BigQuery reúne la información analítica; Google OAuth gestiona el ingreso. Según la implementación, las fuentes incluyen Xubio, Google Sheets, JPH Lions/Cronos, datos de Tango, reclamos de WhatsApp y Google Cloud Billing.</p>
+        <p class="flow-text">Las vistas analíticas definen los datos; Superset agrega filtros y visualización bajo las reglas de acceso.</p>
       </div>
       <div class="panel">
         <h3>Stack tecnológico</h3>
-        <div class="stack"><span class="tag">Apache Superset</span><span class="tag">BigQuery</span><span class="tag">SQL</span><span class="tag">Python</span><span class="tag">PostgreSQL</span><span class="tag">Google OAuth</span><span class="tag">Cloud Run</span></div>
+        <div class="stack"><span class="tag">Apache Superset</span><span class="tag">BigQuery</span><span class="tag">Google OAuth</span><span class="tag">SQL</span><span class="tag">Python</span><span class="tag">PostgreSQL</span><span class="tag">Cloud Run</span></div>
       </div>
     </aside>
   </div>

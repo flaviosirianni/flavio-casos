@@ -1,120 +1,30 @@
 <section class="tool" id="dias-libres" data-cat="apps"
-  data-title="Registro de días libres y recordatorios al equipo"
-  data-sector="Equipo de tecnología distribuido en varios países"
-  data-summary="Carga de días libres aprobados con feriados por país, sin superposiciones, avisos en Slack y una tabla diaria lista para BI."
-  data-stack="Google Apps Script,Google Sheets,Slack,HTML,JavaScript">
+  data-title="Registro de días libres y recordatorios"
+  data-sector="Equipo distribuido en varios países"
+  data-summary="Registrar días libres ya aprobados, contar solo los días aplicables y avisar al equipo por Slack."
+  data-stack="Google Apps Script,Google Sheets,Slack,HTML,JavaScript" data-status="Implementado">
   <div class="wrap tool-head">
-    <p class="eyebrow">Equipo de tecnología distribuido en varios países</p>
-    <h1>Registro de días libres y recordatorios al equipo</h1>
-    <p class="kind">Webapp interna de PTO con calendario de reglas por país y avisos en Slack</p>
-    <p class="lead">Cada persona carga sus días libres aprobados en un calendario que ya conoce los feriados de su país. El equipo se entera por Slack, recibe recordatorios de salida y regreso, y BI tiene una tabla diaria confiable.</p>
+    <p class="eyebrow">Equipo distribuido en varios países</p>
+    <h1>Registro de días libres y recordatorios</h1>
+    <p class="kind">Webapp de PTO aprobado con salida diaria para BI · Implementado</p>
+    <p class="lead">Registrar días libres ya aprobados, contar solo los días aplicables y avisar al equipo por Slack.</p>
   </div>
-
-  <div class="stage"><div class="wrap shots">
-    <figure class="shot w7">
-      <div class="dev dev-browser ui" style="--w:720px;--brand:#7c3aed;--brand-soft:#f1eafe">
-        <div class="bar"><i></i><i></i><i></i><div class="url">script.google.com · Plan your time off</div></div>
-        <div class="ui-main">
-          <div class="row"><div class="ui-h1">Plan your time off</div><span class="grow"></span><div class="tabs" style="border:0"><span class="on">New Submission</span><span>Modify/Cancel Submission</span></div></div>
-          <div style="display:grid;grid-template-columns:1fr 230px;gap:16px">
-            <div class="ui-card">
-              <div class="row" style="justify-content:space-between;margin-bottom:8px"><span class="btn ghost sm">‹ Previous</span><b>November 2026</b><span class="btn ghost sm">Next ›</span></div>
-              <div id="pto-cal" style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px;font-size:11.5px;text-align:center"></div>
-              <div class="legend" style="margin-top:10px"><span><i style="--c:#7c3aed"></i>Counted</span><span><i style="--c:#fde68a"></i>Holiday (AR)</span><span><i style="--c:#eef0f3"></i>Weekend</span><span><i style="--c:#fecaca"></i>Already booked</span></div>
-            </div>
-            <div class="col">
-              <div class="fld"><label>Employee</label><div class="inp sel">Nicolás Paz · Argentina</div></div>
-              <div class="g2" style="gap:6px"><div class="fld"><label>Start date</label><div class="inp">Nov 20</div></div><div class="fld"><label>End date</label><div class="inp">Nov 27</div></div></div>
-              <div class="ui-card soft" style="padding:10px"><div class="kpi"><div class="k">Business days counted</div><div class="v">5</div></div><div class="xs mut" style="margin-top:4px">Excluded: 2 weekend days, Nov 23 holiday (AR)</div></div>
-              <div class="fld"><label>Notes</label><div class="inp" style="min-height:44px;white-space:normal;align-items:flex-start">Family trip · approved by M. Price</div></div>
-              <span class="btn" style="padding:9px">Submit PTO</span>
-              <span class="btn ghost sm">Clear dates</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <figcaption><b>Calendario con reglas por país.</b> Fines de semana y feriados se excluyen solos, y no se permiten fechas pasadas ni superpuestas.</figcaption>
-    </figure>
-
-    <figure class="shot w5">
-      <div class="dev dev-browser" style="--w:500px">
-        <div class="bar"><i></i><i></i><i></i><div class="url">Slack · #team-availability</div></div>
-        <div class="slack">
-          <div class="slack-head"># team-availability</div>
-          <div class="slack-msg"><span class="ic" style="--c:#7c3aed"></span><div><div class="who">Time Off Bot<em>APP</em><span>9:14 AM</span></div><div class="txt">🌴 <b>New PTO</b> · Nicolás Paz</div><div class="slack-att" style="--c:#7c3aed"><span>Nov 20 to Nov 27 · <b>5 business days</b></span><span style="color:#616061">Holiday excluded: Nov 23 (AR)</span></div></div></div>
-          <div class="slack-msg"><span class="ic" style="--c:#7c3aed"></span><div><div class="who">Time Off Bot<em>APP</em><span>11:02 AM</span></div><div class="txt">✏️ <b>PTO modified</b> · Ashley Brooks</div><div class="slack-att" style="--c:#f59e0b"><span><s>Dec 22 to Jan 2</s> → Dec 26 to Jan 2 · 4 business days</span></div></div></div>
-          <div class="slack-msg"><span class="ic" style="--c:#7c3aed"></span><div><div class="who">Time Off Bot<em>APP</em><span>6:00 PM</span></div><div class="txt">⏰ <b>Starting tomorrow</b>: Megan Price (back Mon Oct 26)<br>👋 <b>Back today</b>: Jake Miller</div></div></div>
-        </div>
-      </div>
-      <figcaption><b>Avisos en Slack.</b> Altas, cambios y cancelaciones, más recordatorios de inicio y regreso sin duplicados.</figcaption>
-    </figure>
-
-    <figure class="shot w12">
-      <div class="dev dev-browser" style="--w:980px">
-        <div class="bar"><i></i><i></i><i></i><div class="url">docs.google.com/spreadsheets · PTO Tracker</div></div>
-        <div class="gs">
-          <div class="gs-fx"><span class="ref">A1</span><span class="fx">fx</span><span>date</span></div>
-          <div class="gs-grid">
-            <table>
-              <thead><tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th></tr></thead>
-              <tbody>
-                <tr class="h" style="--hdr:#5b21b6"><th>1</th><td>date</td><td>employee</td><td>country</td><td>pto_hours</td><td>source</td><td>submission_id</td></tr>
-                <tr><th>2</th><td>2026-11-20</td><td>Nicolás Paz</td><td>AR</td><td class="n">8</td><td>webapp</td><td class="mono">PTO-0318</td></tr>
-                <tr><th>3</th><td>2026-11-24</td><td>Nicolás Paz</td><td>AR</td><td class="n">8</td><td>webapp</td><td class="mono">PTO-0318</td></tr>
-                <tr><th>4</th><td>2026-11-25</td><td>Nicolás Paz</td><td>AR</td><td class="n">8</td><td>webapp</td><td class="mono">PTO-0318</td></tr>
-                <tr><th>5</th><td>2026-03-09</td><td>Megan Price</td><td>US</td><td class="n">8</td><td>calendar baseline</td><td class="mono">HIST-1182</td></tr>
-                <tr><th>6</th><td>2026-03-10</td><td>Megan Price</td><td>US</td><td class="n">8</td><td>calendar baseline</td><td class="mono">HIST-1182</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="gs-tabs"><span>Employees</span><span>Holidays</span><span>Submissions</span><span>Audit Log</span><span class="on">PTO_DAILY_OUTCOME</span></div>
-        </div>
-      </div>
-      <figcaption><b>Salida diaria para BI.</b> Una fila por persona y día libre, que combina la línea base histórica del calendario compartido con lo cargado en la webapp.</figcaption>
-    </figure>
-  </div></div>
-
+  <div class="wrap"><div class="demo-mount" data-demo="dias-libres"></div></div>
   <div class="wrap tool-body">
     <div class="prose">
-      <div class="technical-panel"><h2>Implementación técnica</h2><p>Construí una aplicación sobre Apps Script y Sheets para registrar ausencias y coordinar el calendario del equipo. Integré notificaciones de Slack y recordatorios para reducir tareas manuales de seguimiento.</p></div>
-      <h2>Qué hace</h2>
-      <p>Permite cargar, modificar y cancelar días libres ya aprobados, aplicando feriados por país y evitando superposiciones. Combina la información nueva con el calendario histórico y genera un detalle diario para reportes. Envía notificaciones y recordatorios de inicio y regreso, y conserva un historial de cambios para facilitar la coordinación del equipo.</p>
-      <p>El usuario selecciona persona y fechas y ve cuántos días se contabilizan según su calendario. Las solicitudes futuras se pueden modificar o cancelar, mientras la administración conserva una visión diaria para coordinar ausencias y analizar períodos anteriores.</p>
-      <p class="note">Registra días libres ya aprobados; no reemplaza el circuito de aprobación.</p>
+      <div class="technical-panel"><h2>Implementación técnica</h2><p>Google Apps Script valida rangos, país y superposiciones. Expande solicitudes activas e histórico de calendario en una tabla diaria, excluyendo fines de semana y feriados del país.</p></div>
+      <h2>Qué resuelve</h2><p>Evita contar dos veces una ausencia o aplicar a una persona el calendario de feriados de otro país.</p>
+      <h2>Flujo y alcance</h2><p>Incluye alta, modificación, cancelación y recordatorios de salida y regreso. Los fallos de Slack se registran sin bloquear el guardado del PTO.</p>
+      <ul class="points"><li>El registro parte de PTO ya aprobado; no incorpora aprobación gerencial.</li><li>Rechazo de rangos sin días computables y de fechas superpuestas.</li><li>Una fila por persona y día activo para consumo de BI.</li></ul>
     </div>
-    <aside class="side">
-      <div class="panel">
-        <h3>Recorrido de la información</h3>
-        <div class="flow">
-          <div class="flow-step"><span>Fuentes</span><div class="items"><b>Webapp de PTO</b><b>Exportación del calendario compartido</b></div></div>
-          <div class="flow-arrow"></div>
-          <div class="flow-step mid"><span>Reglas y registro</span><div class="items"><b>Google Apps Script</b><b>Google Sheets</b></div></div>
-          <div class="flow-arrow"></div>
-          <div class="flow-step"><span>Salidas</span><div class="items"><b>Slack</b><b>Tabla diaria para BI</b></div></div>
-        </div>
-        <p class="flow-text">Google Sheets conserva empleados, países, feriados y solicitudes. Una exportación del calendario compartido aporta la línea base histórica; Slack recibe avisos y recordatorios. La salida diaria queda preparada para herramientas de BI.</p>
-      </div>
-      <div class="panel">
-        <h3>Stack tecnológico</h3>
-        <div class="stack"><span class="tag">Google Apps Script</span><span class="tag">Google Sheets</span><span class="tag">HTML</span><span class="tag">JavaScript</span><span class="tag">Slack</span></div>
-      </div>
+    <aside class="side"><div class="panel"><h3>Flujo de datos</h3>
+      <div class="flow-step"><div class="items">Persona + rango + país</div></div>
+      <div class="flow-arrow" aria-hidden="true">↓</div>
+      <div class="flow-step"><div class="items">Validación de calendario</div></div>
+      <div class="flow-arrow" aria-hidden="true">↓</div>
+      <div class="flow-step"><div class="items">PTO diario + Slack</div></div>
+      <p class="flow-text">Incluye alta, modificación, cancelación y recordatorios de salida y regreso. Los fallos de Slack se registran sin bloquear el guardado del PTO.</p></div>
+      <div class="panel"><h3>Stack</h3><div class="stack"><span class="tag">Google Apps Script</span><span class="tag">Google Sheets</span><span class="tag">Slack</span><span class="tag">HTML</span><span class="tag">JavaScript</span></div></div>
     </aside>
   </div>
-  <script>
-  (function () {
-    var box = document.getElementById("pto-cal"); if (!box) return;
-    var h = "";
-    ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"].forEach(function (d) { h += '<span class="mut b" style="padding:3px 0">' + d + "</span>"; });
-    for (var i = 0; i < 0; i++) h += "<span></span>";
-    for (var d = 1; d <= 30; d++) {
-      var dow = (d - 1) % 7, st = "padding:6px 0;border-radius:6px;";
-      if (dow === 0 || dow === 6) st += "background:#eef0f3;color:#9aa3af;";
-      if (d === 23) st += "background:#fde68a;";
-      if (d >= 20 && d <= 27 && dow !== 0 && dow !== 6 && d !== 23) st += "background:#7c3aed;color:#fff;font-weight:600;";
-      if (d === 4 || d === 5) st += "background:#fecaca;";
-      h += '<span style="' + st + '">' + d + "</span>";
-    }
-    box.innerHTML = h;
-  })();
-  </script>
 </section>

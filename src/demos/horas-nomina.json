@@ -1,0 +1,280 @@
+{
+  "slug": "horas-nomina",
+  "kind": "form",
+  "title": {
+    "es": "Preparación y revisión de horas de nómina",
+    "en": "Payroll hours preparation and review"
+  },
+  "steps": [
+    {
+      "title": {
+        "es": "Seleccionar alcance",
+        "en": "Select scope"
+      },
+      "description": {
+        "es": "Período de una semana cerrada y personal administrativo ficticio.",
+        "en": "A closed weekly period and fictional office employees."
+      },
+      "action": {
+        "es": "Calcular vista previa",
+        "en": "Calculate preview"
+      },
+      "view": {
+        "es": {
+          "type": "form",
+          "heading": "Preparar corrida",
+          "fields": [
+            {
+              "label": "Período",
+              "value": "04/10/2026 – 10/10/2026"
+            },
+            {
+              "label": "Tipo",
+              "value": "Administrativo"
+            },
+            {
+              "label": "Personas",
+              "value": "Empleado A · Empleado B"
+            }
+          ]
+        },
+        "en": {
+          "type": "form",
+          "heading": "Prepare run",
+          "fields": [
+            {
+              "label": "Period",
+              "value": "Oct 4–10, 2026"
+            },
+            {
+              "label": "Type",
+              "value": "Office staff"
+            },
+            {
+              "label": "People",
+              "value": "Employee A · Employee B"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Revisar composición",
+        "en": "Review breakdown"
+      },
+      "description": {
+        "es": "La vista previa separa trabajo regular, PTO pagado y extras.",
+        "en": "The preview separates regular work, paid PTO and overtime."
+      },
+      "action": {
+        "es": "Abrir detalle",
+        "en": "Open detail"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Horas a pagar",
+          "columns": [
+            "Persona",
+            "Regular trabajado",
+            "PTO pagado",
+            "Extra",
+            "Total"
+          ],
+          "rows": [
+            [
+              "Empleado A",
+              "40 h",
+              "0 h",
+              "4 h",
+              "44 h"
+            ],
+            [
+              "Empleado B",
+              "32 h",
+              "8 h",
+              "0 h",
+              "40 h"
+            ]
+          ],
+          "metrics": [
+            {
+              "label": "Total",
+              "value": "84 h"
+            }
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "Payable hours",
+          "columns": [
+            "Person",
+            "Regular worked",
+            "Paid PTO",
+            "Overtime",
+            "Total"
+          ],
+          "rows": [
+            [
+              "Employee A",
+              "40 h",
+              "0 h",
+              "4 h",
+              "44 h"
+            ],
+            [
+              "Employee B",
+              "32 h",
+              "8 h",
+              "0 h",
+              "40 h"
+            ]
+          ],
+          "metrics": [
+            {
+              "label": "Total",
+              "value": "84 h"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Comprobar semana",
+        "en": "Check week"
+      },
+      "description": {
+        "es": "El PTO no aumenta las horas trabajadas para el umbral de extras.",
+        "en": "PTO does not increase worked hours for the overtime threshold."
+      },
+      "action": {
+        "es": "Confirmar corrida",
+        "en": "Post run"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Detalle de Empleado B",
+          "columns": [
+            "Concepto",
+            "Horas",
+            "Cuenta para extra"
+          ],
+          "rows": [
+            [
+              "Trabajo",
+              "32",
+              "Sí"
+            ],
+            [
+              "Vacaciones aprobadas",
+              "8",
+              "No"
+            ],
+            [
+              "Total a pagar",
+              "40",
+              "—"
+            ]
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "Employee B detail",
+          "columns": [
+            "Item",
+            "Hours",
+            "Counts for overtime"
+          ],
+          "rows": [
+            [
+              "Work",
+              "32",
+              "Yes"
+            ],
+            [
+              "Approved vacation",
+              "8",
+              "No"
+            ],
+            [
+              "Total payable",
+              "40",
+              "—"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Conservar resultado",
+        "en": "Keep result"
+      },
+      "description": {
+        "es": "La corrida conserva las líneas calculadas y luego su estado de pago.",
+        "en": "The run retains calculated lines and then its payment status."
+      },
+      "action": {
+        "es": "Ver corrida guardada",
+        "en": "View saved run"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Archivo de corridas",
+          "columns": [
+            "Corrida",
+            "Personas",
+            "Regular",
+            "Extra",
+            "Estado"
+          ],
+          "rows": [
+            [
+              "DEMO-013",
+              "2",
+              "80 h",
+              "4 h",
+              "Pagada"
+            ]
+          ],
+          "metrics": [
+            {
+              "label": "Horas guardadas",
+              "value": "84 h"
+            }
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "Run archive",
+          "columns": [
+            "Run",
+            "People",
+            "Regular",
+            "Overtime",
+            "Status"
+          ],
+          "rows": [
+            [
+              "DEMO-013",
+              "2",
+              "80 h",
+              "4 h",
+              "Paid"
+            ]
+          ],
+          "metrics": [
+            {
+              "label": "Saved hours",
+              "value": "84 h"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

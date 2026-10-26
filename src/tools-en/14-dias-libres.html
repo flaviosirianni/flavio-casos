@@ -1,0 +1,30 @@
+<section class="tool" id="dias-libres" data-cat="apps"
+  data-title="Time off tracking and reminders"
+  data-sector="Team distributed across countries"
+  data-summary="Record already approved time off, count applicable days and notify the team through Slack."
+  data-stack="Google Apps Script,Google Sheets,Slack,HTML,JavaScript" data-status="Implemented">
+  <div class="wrap tool-head">
+    <p class="eyebrow">Team distributed across countries</p>
+    <h1>Time off tracking and reminders</h1>
+    <p class="kind">Approved PTO web app with daily BI output · Implemented</p>
+    <p class="lead">Record already approved time off, count applicable days and notify the team through Slack.</p>
+  </div>
+  <div class="wrap"><div class="demo-mount" data-demo="dias-libres"></div></div>
+  <div class="wrap tool-body">
+    <div class="prose">
+      <div class="technical-panel"><h2>Technical implementation</h2><p>Google Apps Script validates ranges, country and overlaps. It expands active requests and calendar history into daily rows, excluding weekends and country holidays.</p></div>
+      <h2>Problem solved</h2><p>Avoids counting an absence twice or applying another country’s holiday calendar.</p>
+      <h2>Flow and scope</h2><p>Includes creation, editing, cancellation and departure and return reminders. Slack failures are logged without blocking PTO storage.</p>
+      <ul class="points"><li>Entries represent already approved PTO; there is no managerial approval workflow.</li><li>Ranges with no counted days and overlapping dates are rejected.</li><li>One row per person and active day for BI ingestion.</li></ul>
+    </div>
+    <aside class="side"><div class="panel"><h3>Data flow</h3>
+      <div class="flow-step"><div class="items">Person + range + country</div></div>
+      <div class="flow-arrow" aria-hidden="true">↓</div>
+      <div class="flow-step"><div class="items">Calendar validation</div></div>
+      <div class="flow-arrow" aria-hidden="true">↓</div>
+      <div class="flow-step"><div class="items">Daily PTO + Slack</div></div>
+      <p class="flow-text">Includes creation, editing, cancellation and departure and return reminders. Slack failures are logged without blocking PTO storage.</p></div>
+      <div class="panel"><h3>Stack</h3><div class="stack"><span class="tag">Google Apps Script</span><span class="tag">Google Sheets</span><span class="tag">Slack</span><span class="tag">HTML</span><span class="tag">JavaScript</span></div></div>
+    </aside>
+  </div>
+</section>

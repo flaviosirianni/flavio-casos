@@ -1,0 +1,21 @@
+<section class="tool" id="entrenamiento" data-cat="prod" data-title="Workout logging and progress" data-sector="Personal product · fitness" data-summary="Beta PWA with set logging, private history and synchronization after working offline." data-stack="React,TypeScript,Vite,Supabase,PostgreSQL,Dexie,IndexedDB,PWA" data-status="Beta">
+  <div class="wrap tool-head">
+    <p class="eyebrow">Personal product · fitness</p>
+    <h1>Workout logging and progress</h1>
+    <p class="kind">Mobile PWA in invitation-only beta</p>
+    <p class="lead">Beta PWA with set logging, private history and synchronization after working offline.</p>
+  </div>
+  <div class="wrap"><div class="demo-mount" data-demo="entrenamiento"></div></div>
+  <div class="wrap tool-body">
+    <div class="prose">
+      <div class="technical-panel"><h2>Technical implementation</h2><p>I built a React and TypeScript PWA with domain rules independent of the interface. Dexie stores account-specific records in IndexedDB; Supabase synchronizes revisions and stores private photos.</p></div>
+      <h2>What it solves</h2><p>Logging between sets needs to be quick and work without reception. The app records weight and repetitions, retrieves the previous session and shows progress by exercise.</p>
+      <h2>Flow and scope</h2><p>The beta runs in the phone browser with invitation-only access. It saves locally first, then synchronizes a change queue. Concurrent edits create a reviewable conflict instead of silently overwriting data.</p>
+      <ul class="points"><li>Sessions, routines and a personal exercise catalogue.</li><li>Account-specific local storage and private photos.</li><li>History and comparisons per exercise.</li></ul>
+    </div>
+    <aside class="side">
+      <div class="panel"><h3>Data flow</h3><div class="flow"><div class="flow-step"><span>Logging</span><div class="items"><b>React</b><b>TypeScript</b></div></div><div class="flow-arrow"></div><div class="flow-step"><span>Local storage</span><div class="items"><b>Dexie</b><b>IndexedDB</b></div></div><div class="flow-arrow"></div><div class="flow-step"><span>Synchronization</span><div class="items"><b>Supabase</b><b>PostgreSQL</b></div></div></div><p class="flow-text">The beta runs in the phone browser with invitation-only access. It saves locally first, then synchronizes a change queue. Concurrent edits create a reviewable conflict instead of silently overwriting data.</p></div>
+      <div class="panel"><h3>Technology stack</h3><div class="stack"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Vite</span><span class="tag">Supabase</span><span class="tag">PostgreSQL</span><span class="tag">Dexie</span><span class="tag">IndexedDB</span><span class="tag">PWA</span></div></div>
+    </aside>
+  </div>
+</section>

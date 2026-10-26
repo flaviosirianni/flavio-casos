@@ -1,0 +1,250 @@
+{
+  "slug": "personal-multiempresa",
+  "kind": "form",
+  "title": {
+    "es": "Gestión de personal para varias organizaciones",
+    "en": "Personnel management across organizations"
+  },
+  "steps": [
+    {
+      "title": {
+        "es": "Elegir organización y fecha",
+        "en": "Choose organization and date"
+      },
+      "description": {
+        "es": "El parte se abre dentro del ámbito de una organización.",
+        "en": "Attendance opens within one organization’s scope."
+      },
+      "action": {
+        "es": "Abrir parte",
+        "en": "Open attendance"
+      },
+      "view": {
+        "es": {
+          "type": "form",
+          "heading": "Parte diario",
+          "fields": [
+            {
+              "label": "Organización",
+              "value": "Organización A"
+            },
+            {
+              "label": "Fecha",
+              "value": "03/11/2026"
+            },
+            {
+              "label": "Estado",
+              "value": "Borrador"
+            }
+          ]
+        },
+        "en": {
+          "type": "form",
+          "heading": "Daily attendance",
+          "fields": [
+            {
+              "label": "Organization",
+              "value": "Organization A"
+            },
+            {
+              "label": "Date",
+              "value": "Nov 3, 2026"
+            },
+            {
+              "label": "Status",
+              "value": "Draft"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Cargar el día",
+        "en": "Enter the day"
+      },
+      "description": {
+        "es": "Los estados y horarios forman las filas del parte.",
+        "en": "Statuses and hours form the attendance rows."
+      },
+      "action": {
+        "es": "Revisar filas",
+        "en": "Review rows"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Parte de Organización A",
+          "columns": [
+            "Empleado",
+            "Estado",
+            "Entrada",
+            "Salida"
+          ],
+          "rows": [
+            [
+              "Empleado A",
+              "Presente",
+              "08:00",
+              "16:00"
+            ],
+            [
+              "Empleado B",
+              "Ausencia registrada",
+              "—",
+              "—"
+            ]
+          ],
+          "highlight": 0
+        },
+        "en": {
+          "type": "table",
+          "heading": "Organization A attendance",
+          "columns": [
+            "Employee",
+            "Status",
+            "In",
+            "Out"
+          ],
+          "rows": [
+            [
+              "Employee A",
+              "Present",
+              "08:00",
+              "16:00"
+            ],
+            [
+              "Employee B",
+              "Recorded absence",
+              "—",
+              "—"
+            ]
+          ],
+          "highlight": 0
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Validar y postear",
+        "en": "Validate and post"
+      },
+      "description": {
+        "es": "La confirmación requiere que las filas cumplan las reglas del día.",
+        "en": "Confirmation requires rows to satisfy the day’s rules."
+      },
+      "action": {
+        "es": "Ver validaciones",
+        "en": "View validations"
+      },
+      "view": {
+        "es": {
+          "type": "pipeline",
+          "heading": "Preparación de confirmación",
+          "nodes": [
+            {
+              "label": "Horarios presentes completos",
+              "status": "done"
+            },
+            {
+              "label": "Ausencias verificadas",
+              "status": "done"
+            },
+            {
+              "label": "Filas posteadas",
+              "status": "done"
+            },
+            {
+              "label": "Confirmación del día",
+              "status": "active"
+            }
+          ],
+          "log": [
+            "2 filas revisadas",
+            "Sin bloqueos en este ejemplo ficticio"
+          ]
+        },
+        "en": {
+          "type": "pipeline",
+          "heading": "Preparation for confirmation",
+          "nodes": [
+            {
+              "label": "Present employees’ times complete",
+              "status": "done"
+            },
+            {
+              "label": "Absences checked",
+              "status": "done"
+            },
+            {
+              "label": "Rows posted",
+              "status": "done"
+            },
+            {
+              "label": "Day confirmation",
+              "status": "active"
+            }
+          ],
+          "log": [
+            "2 rows reviewed",
+            "No blockers in this fictional example"
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Conservar el cierre",
+        "en": "Keep the confirmed day"
+      },
+      "description": {
+        "es": "El día confirmado queda disponible para consulta y auditoría.",
+        "en": "The confirmed day remains available for queries and auditing."
+      },
+      "action": {
+        "es": "Ver estado final",
+        "en": "View final state"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Resultado del parte",
+          "columns": [
+            "Organización",
+            "Fecha",
+            "Estado",
+            "Registro"
+          ],
+          "rows": [
+            [
+              "Organización A",
+              "03/11/2026",
+              "Confirmado",
+              "Auditoría conservada"
+            ]
+          ],
+          "highlight": 0
+        },
+        "en": {
+          "type": "table",
+          "heading": "Attendance result",
+          "columns": [
+            "Organization",
+            "Date",
+            "Status",
+            "Record"
+          ],
+          "rows": [
+            [
+              "Organization A",
+              "Nov 3, 2026",
+              "Confirmed",
+              "Audit retained"
+            ]
+          ],
+          "highlight": 0
+        }
+      }
+    }
+  ]
+}

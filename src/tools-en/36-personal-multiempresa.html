@@ -1,0 +1,21 @@
+<section class="tool" id="personal-multiempresa" data-cat="apps" data-title="Personnel management across organizations" data-sector="Facility services · daily attendance evolution" data-summary="Web prototype with employees, shifts, absences and attendance separated by organization." data-stack="Next.js,React,TypeScript,Prisma,PostgreSQL" data-status="Prototype">
+  <div class="wrap tool-head">
+    <p class="eyebrow">Facility services · daily attendance evolution</p>
+    <h1>Personnel management across organizations</h1>
+    <p class="kind">Multi-organization web app prototype</p>
+    <p class="lead">Web prototype with employees, shifts, absences and attendance separated by organization.</p>
+  </div>
+  <div class="wrap"><div class="demo-mount" data-demo="personal-multiempresa"></div></div>
+  <div class="wrap tool-body">
+    <div class="prose">
+      <div class="technical-panel"><h2>Technical implementation</h2><p>I implemented domain modules in Next.js and a Prisma schema on PostgreSQL. Employees, catalogues, absences, attendance and audit records include the organization; services apply entry, posting and confirmation rules.</p></div>
+      <h2>What it solves</h2><p>Daily attendance needs consistency when several organizations share an application. The prototype models each organization’s data and settings separately.</p>
+      <h2>Flow and scope</h2><p>The user chooses an organization and date, records statuses and hours, posts rows and confirms the day once rules are satisfied. It includes services for absences, historical queries and monthly attendance. Its status remains a prototype.</p>
+      <ul class="points"><li>Organization-specific settings and catalogues.</li><li>Absence rules and time validation.</li><li>Change auditing and transactional confirmation.</li></ul>
+    </div>
+    <aside class="side">
+      <div class="panel"><h3>Data flow</h3><div class="flow"><div class="flow-step"><span>Operation</span><div class="items"><b>Next.js</b><b>React</b></div></div><div class="flow-arrow"></div><div class="flow-step"><span>Rules</span><div class="items"><b>TypeScript</b></div></div><div class="flow-arrow"></div><div class="flow-step"><span>Persistence</span><div class="items"><b>Prisma</b><b>PostgreSQL</b></div></div></div><p class="flow-text">The user chooses an organization and date, records statuses and hours, posts rows and confirms the day once rules are satisfied. It includes services for absences, historical queries and monthly attendance. Its status remains a prototype.</p></div>
+      <div class="panel"><h3>Technology stack</h3><div class="stack"><span class="tag">Next.js</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Prisma</span><span class="tag">PostgreSQL</span></div></div>
+    </aside>
+  </div>
+</section>

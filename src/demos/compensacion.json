@@ -1,0 +1,282 @@
+{
+  "slug": "compensacion",
+  "kind": "form",
+  "title": {
+    "es": "Revisión semanal de compensación",
+    "en": "Weekly compensation review"
+  },
+  "steps": [
+    {
+      "title": {
+        "es": "Reunir la semana",
+        "en": "Gather the week"
+      },
+      "description": {
+        "es": "El ejemplo usa una semana completamente contenida en un mes cerrado.",
+        "en": "The example uses a week fully contained in a closed month."
+      },
+      "action": {
+        "es": "Ver entradas semanales",
+        "en": "View weekly inputs"
+      },
+      "view": {
+        "es": {
+          "type": "form",
+          "heading": "Empleado A · semana de ejemplo",
+          "fields": [
+            {
+              "label": "Horas trabajadas",
+              "value": "45 h"
+            },
+            {
+              "label": "Tarifa base",
+              "value": "USD 15/h"
+            },
+            {
+              "label": "Comisión asignada",
+              "value": "USD 225"
+            },
+            {
+              "label": "Mes de origen",
+              "value": "Cerrado"
+            }
+          ]
+        },
+        "en": {
+          "type": "form",
+          "heading": "Employee A · sample week",
+          "fields": [
+            {
+              "label": "Hours worked",
+              "value": "45 h"
+            },
+            {
+              "label": "Base rate",
+              "value": "USD 15/hour"
+            },
+            {
+              "label": "Allocated commission",
+              "value": "USD 225"
+            },
+            {
+              "label": "Source month",
+              "value": "Closed"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Verificar la disponibilidad",
+        "en": "Check availability"
+      },
+      "description": {
+        "es": "Las semanas de frontera se omiten mientras falten meses cerrados.",
+        "en": "Boundary weeks are omitted while required months remain open."
+      },
+      "action": {
+        "es": "Revisar cierre de fuentes",
+        "en": "Review source closing"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Control de semanas",
+          "columns": [
+            "Semana",
+            "Meses requeridos",
+            "Estado"
+          ],
+          "rows": [
+            [
+              "Semana A",
+              "Mes cerrado",
+              "Calculable"
+            ],
+            [
+              "Semana B",
+              "Un mes abierto",
+              "Omitida hasta cierre"
+            ]
+          ],
+          "highlight": 0
+        },
+        "en": {
+          "type": "table",
+          "heading": "Week checks",
+          "columns": [
+            "Week",
+            "Required months",
+            "Status"
+          ],
+          "rows": [
+            [
+              "Week A",
+              "Closed month",
+              "Ready to calculate"
+            ],
+            [
+              "Week B",
+              "One open month",
+              "Omitted until close"
+            ]
+          ],
+          "highlight": 0
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Separar los componentes",
+        "en": "Separate components"
+      },
+      "description": {
+        "es": "La tarifa regular incorpora comisión antes de calcular la prima.",
+        "en": "The regular rate includes commission before calculating the premium."
+      },
+      "action": {
+        "es": "Ver cálculo",
+        "en": "View calculation"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Cálculo ilustrativo",
+          "columns": [
+            "Componente",
+            "Valor"
+          ],
+          "rows": [
+            [
+              "Pago base · 45 × USD 15",
+              "USD 675"
+            ],
+            [
+              "Comisión",
+              "USD 225"
+            ],
+            [
+              "Pago ordinario total",
+              "USD 900"
+            ],
+            [
+              "Tarifa regular · 900 / 45",
+              "USD 20/h"
+            ],
+            [
+              "Horas extra · 45 − 40",
+              "5 h"
+            ],
+            [
+              "Prima · 5 × 20 × 0,5",
+              "USD 50"
+            ]
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "Illustrative calculation",
+          "columns": [
+            "Component",
+            "Value"
+          ],
+          "rows": [
+            [
+              "Base pay · 45 × USD 15",
+              "USD 675"
+            ],
+            [
+              "Commission",
+              "USD 225"
+            ],
+            [
+              "Straight-time total",
+              "USD 900"
+            ],
+            [
+              "Regular rate · 900 / 45",
+              "USD 20/hour"
+            ],
+            [
+              "Overtime hours · 45 − 40",
+              "5 h"
+            ],
+            [
+              "Premium · 5 × 20 × 0.5",
+              "USD 50"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Documentar la decisión",
+        "en": "Document the decision"
+      },
+      "description": {
+        "es": "Las hipótesis de asignación quedan visibles para revisión.",
+        "en": "Allocation assumptions remain visible for review."
+      },
+      "action": {
+        "es": "Ver registro de reglas",
+        "en": "View rules log"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Reglas por validar",
+          "columns": [
+            "Área",
+            "Regla",
+            "Estado"
+          ],
+          "rows": [
+            [
+              "Comisión semanal",
+              "Distribución por días calendario",
+              "Propuesta"
+            ],
+            [
+              "Tarifa base",
+              "Usar historial vigente",
+              "En revisión"
+            ],
+            [
+              "Bonos",
+              "Revisar tratamiento y alcance",
+              "Pendiente"
+            ]
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "Rules awaiting validation",
+          "columns": [
+            "Area",
+            "Rule",
+            "Status"
+          ],
+          "rows": [
+            [
+              "Weekly commission",
+              "Allocation by calendar day",
+              "Proposed"
+            ],
+            [
+              "Base rate",
+              "Use effective rate history",
+              "Under review"
+            ],
+            [
+              "Bonuses",
+              "Review treatment and scope",
+              "Pending"
+            ]
+          ]
+        }
+      }
+    }
+  ]
+}

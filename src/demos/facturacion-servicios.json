@@ -1,0 +1,270 @@
+{
+  "slug": "facturacion-servicios",
+  "kind": "table",
+  "title": {
+    "es": "Consolidación de facturación de servicios",
+    "en": "Consolidating service billing data"
+  },
+  "steps": [
+    {
+      "title": {
+        "es": "Leer categorías",
+        "en": "Read categories"
+      },
+      "description": {
+        "es": "Dos categorías ficticias aportan cantidades para una sede.",
+        "en": "Two fictional categories provide quantities for one site."
+      },
+      "action": {
+        "es": "Refrescar sede",
+        "en": "Refresh site"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Origen · Sede A · 8 de junio",
+          "columns": [
+            "Comensal",
+            "Desayunos",
+            "Almuerzos",
+            "Meriendas",
+            "Cenas"
+          ],
+          "rows": [
+            [
+              "Pacientes",
+              "10",
+              "12",
+              "10",
+              "12"
+            ],
+            [
+              "Acompañantes",
+              "2",
+              "3",
+              "2",
+              "3"
+            ]
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "Source · Site A · June 8",
+          "columns": [
+            "Diner",
+            "Breakfasts",
+            "Lunches",
+            "Afternoon meals",
+            "Dinners"
+          ],
+          "rows": [
+            [
+              "Patients",
+              "10",
+              "12",
+              "10",
+              "12"
+            ],
+            [
+              "Companions",
+              "2",
+              "3",
+              "2",
+              "3"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Normalizar filas",
+        "en": "Normalize rows"
+      },
+      "description": {
+        "es": "Fecha, sede y tipo de comensal se conservan junto a cantidades enteras.",
+        "en": "Date, site and diner type are retained alongside integer quantities."
+      },
+      "action": {
+        "es": "Preparar tabla",
+        "en": "Prepare table"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Copia normalizada",
+          "columns": [
+            "Fecha",
+            "Sede",
+            "Comensal",
+            "Servicios"
+          ],
+          "rows": [
+            [
+              "8 de junio",
+              "Sede A",
+              "Pacientes",
+              "44"
+            ],
+            [
+              "8 de junio",
+              "Sede A",
+              "Acompañantes",
+              "10"
+            ]
+          ],
+          "metrics": [
+            {
+              "label": "Total de servicios",
+              "value": "54"
+            }
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "Normalized copy",
+          "columns": [
+            "Date",
+            "Site",
+            "Diner",
+            "Services"
+          ],
+          "rows": [
+            [
+              "June 8",
+              "Site A",
+              "Patients",
+              "44"
+            ],
+            [
+              "June 8",
+              "Site A",
+              "Companions",
+              "10"
+            ]
+          ],
+          "metrics": [
+            {
+              "label": "Total services",
+              "value": "54"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Verificar la unión",
+        "en": "Check the union"
+      },
+      "description": {
+        "es": "El guard comprueba que las filas conservan su fecha antes de escribir.",
+        "en": "The guard checks that rows retain their dates before writing."
+      },
+      "action": {
+        "es": "Validar maestro",
+        "en": "Validate master table"
+      },
+      "view": {
+        "es": {
+          "type": "terminal",
+          "heading": "Validación previa",
+          "lines": [
+            "Filas de sedes: 2",
+            "Filas sin fecha: 0",
+            "Validación aprobada: se permite escribir la unión"
+          ]
+        },
+        "en": {
+          "type": "terminal",
+          "heading": "Pre-write validation",
+          "lines": [
+            "Site rows: 2",
+            "Rows without dates: 0",
+            "Validation passed: the union can be written"
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Consultar consolidado",
+        "en": "Query the aggregate"
+      },
+      "description": {
+        "es": "BigQuery puede agrupar las cantidades del maestro por servicio.",
+        "en": "BigQuery can group master-table quantities by service."
+      },
+      "action": {
+        "es": "Ver actividad",
+        "en": "View activity"
+      },
+      "view": {
+        "es": {
+          "type": "chart",
+          "heading": "Servicios del día · Sede A",
+          "bars": [
+            {
+              "label": "Desayunos",
+              "value": 12,
+              "display": "12"
+            },
+            {
+              "label": "Almuerzos",
+              "value": 15,
+              "display": "15"
+            },
+            {
+              "label": "Meriendas",
+              "value": 12,
+              "display": "12"
+            },
+            {
+              "label": "Cenas",
+              "value": 15,
+              "display": "15"
+            }
+          ],
+          "metrics": [
+            {
+              "label": "Total",
+              "value": "54"
+            }
+          ]
+        },
+        "en": {
+          "type": "chart",
+          "heading": "Daily services · Site A",
+          "bars": [
+            {
+              "label": "Breakfasts",
+              "value": 12,
+              "display": "12"
+            },
+            {
+              "label": "Lunches",
+              "value": 15,
+              "display": "15"
+            },
+            {
+              "label": "Afternoon meals",
+              "value": 12,
+              "display": "12"
+            },
+            {
+              "label": "Dinners",
+              "value": 15,
+              "display": "15"
+            }
+          ],
+          "metrics": [
+            {
+              "label": "Total",
+              "value": "54"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

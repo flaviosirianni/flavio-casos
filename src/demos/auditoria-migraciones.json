@@ -1,0 +1,314 @@
+{
+  "slug": "auditoria-migraciones",
+  "kind": "table",
+  "title": {
+    "es": "Auditoría y preparación de migraciones de datos",
+    "en": "Data migration audit and preparation"
+  },
+  "steps": [
+    {
+      "title": {
+        "es": "Delimitar comparación",
+        "en": "Scope comparison"
+      },
+      "description": {
+        "es": "Una muestra ficticia compara conceptos y formatos, sin unir transacciones por IDs internos.",
+        "en": "A fictional sample compares concepts and formats without joining transactions by internal IDs."
+      },
+      "action": {
+        "es": "Revisar campos",
+        "en": "Review fields"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Inventario de campos",
+          "columns": [
+            "Campo",
+            "Sistema A",
+            "Sistema B"
+          ],
+          "rows": [
+            [
+              "ID",
+              "Interno del sistema",
+              "Interno del sistema"
+            ],
+            [
+              "Estado",
+              "Etapa comercial",
+              "Estado de transacción"
+            ],
+            [
+              "Comisión",
+              "Porcentaje en texto",
+              "Importe o fracción"
+            ],
+            [
+              "Fecha",
+              "Fecha calendario",
+              "Marca temporal"
+            ]
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "Field inventory",
+          "columns": [
+            "Field",
+            "System A",
+            "System B"
+          ],
+          "rows": [
+            [
+              "ID",
+              "System internal",
+              "System internal"
+            ],
+            [
+              "Status",
+              "Sales stage",
+              "Transaction status"
+            ],
+            [
+              "Commission",
+              "Text percentage",
+              "Amount or fraction"
+            ],
+            [
+              "Date",
+              "Calendar date",
+              "Timestamp"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Clasificar diferencias",
+        "en": "Classify differences"
+      },
+      "description": {
+        "es": "El nombre de una columna no alcanza para definir su equivalencia.",
+        "en": "A column name alone does not establish equivalence."
+      },
+      "action": {
+        "es": "Ver reglas propuestas",
+        "en": "View proposed rules"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Mapa de decisión",
+          "columns": [
+            "Campo",
+            "Clasificación",
+            "Acción"
+          ],
+          "rows": [
+            [
+              "ID",
+              "No compartido",
+              "No usar como clave cruzada"
+            ],
+            [
+              "Estado",
+              "Alcance distinto",
+              "Definir universo comparable"
+            ],
+            [
+              "Comisión",
+              "Unidad ambigua",
+              "Confirmar definición"
+            ],
+            [
+              "Fecha",
+              "Transformable",
+              "Normalizar granularidad"
+            ]
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "Decision map",
+          "columns": [
+            "Field",
+            "Classification",
+            "Action"
+          ],
+          "rows": [
+            [
+              "ID",
+              "Not shared",
+              "Do not use as a cross-system key"
+            ],
+            [
+              "Status",
+              "Different scope",
+              "Define comparable population"
+            ],
+            [
+              "Commission",
+              "Ambiguous unit",
+              "Confirm definition"
+            ],
+            [
+              "Date",
+              "Transformable",
+              "Normalize granularity"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Investigar un faltante",
+        "en": "Investigate a missing record"
+      },
+      "description": {
+        "es": "Otro recorrido diagnóstico revisa qué filtros dejarían fuera un registro histórico ficticio.",
+        "en": "A separate diagnostic path checks which filters would exclude a fictional historical record."
+      },
+      "action": {
+        "es": "Documentar evidencia",
+        "en": "Document evidence"
+      },
+      "view": {
+        "es": {
+          "type": "pipeline",
+          "heading": "Diagnóstico de registro",
+          "nodes": [
+            {
+              "label": "Clave normalizada",
+              "status": "done"
+            },
+            {
+              "label": "Versiones históricas",
+              "status": "done"
+            },
+            {
+              "label": "Filtros y joins",
+              "status": "active"
+            },
+            {
+              "label": "Conclusión",
+              "status": "pending"
+            }
+          ],
+          "log": [
+            "Caso ficticio E-501: identidad localizada.",
+            "Comparar versiones activas y fechas de corte.",
+            "Verificar relaciones requeridas antes de atribuir la ausencia a pérdida."
+          ]
+        },
+        "en": {
+          "type": "pipeline",
+          "heading": "Record diagnostics",
+          "nodes": [
+            {
+              "label": "Normalized key",
+              "status": "done"
+            },
+            {
+              "label": "Historical versions",
+              "status": "done"
+            },
+            {
+              "label": "Filters and joins",
+              "status": "active"
+            },
+            {
+              "label": "Conclusion",
+              "status": "pending"
+            }
+          ],
+          "log": [
+            "Fictional case E-501: identity located.",
+            "Compare active versions and cutoff dates.",
+            "Check required relationships before attributing absence to data loss."
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Entregar decisiones",
+        "en": "Deliver decisions"
+      },
+      "description": {
+        "es": "El resultado mantiene separados los hallazgos verificables y las definiciones pendientes.",
+        "en": "The result separates verifiable findings from pending definitions."
+      },
+      "action": {
+        "es": "Ver entregable",
+        "en": "View deliverable"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Lista de revisión",
+          "columns": [
+            "Tema",
+            "Evidencia",
+            "Próximo paso"
+          ],
+          "rows": [
+            [
+              "IDs internos",
+              "No son clave compartida",
+              "Elegir estrategia de correspondencia"
+            ],
+            [
+              "Estado",
+              "Distinto alcance",
+              "Acordar filtros"
+            ],
+            [
+              "Comisión",
+              "Unidad sin resolver",
+              "Consulta al responsable"
+            ],
+            [
+              "Fechas",
+              "Granularidad distinta",
+              "Documentar transformación"
+            ]
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "Review checklist",
+          "columns": [
+            "Topic",
+            "Evidence",
+            "Next step"
+          ],
+          "rows": [
+            [
+              "Internal IDs",
+              "Not a shared key",
+              "Choose a matching strategy"
+            ],
+            [
+              "Status",
+              "Different scope",
+              "Agree on filters"
+            ],
+            [
+              "Commission",
+              "Unresolved unit",
+              "Ask the owner"
+            ],
+            [
+              "Dates",
+              "Different granularity",
+              "Document transformation"
+            ]
+          ]
+        }
+      }
+    }
+  ]
+}

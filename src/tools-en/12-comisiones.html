@@ -1,0 +1,44 @@
+<section class="tool" id="comisiones" data-cat="apps"
+  data-title="Goal and commission simulation"
+  data-sector="Field services · technical teams"
+  data-summary="Tiered commission scenarios with baseline comparison, presets and history for BI."
+  data-stack="Google Apps Script,Google Sheets,Grow,REST APIs,HTML,CSS,JavaScript" data-status="">
+  <div class="wrap tool-head">
+    <p class="eyebrow">Field services · technical teams</p>
+    <h1>Goal and commission simulation</h1>
+    <p class="kind">Simulation web app and BI integration</p>
+    <p class="lead">Management adjusts thresholds and rates and compares results with the baseline policy. Scenarios allow changes to be evaluated without applying an actual payout.</p>
+  </div>
+  <div class="wrap"><div class="demo-mount" data-demo="comisiones"></div></div>
+  <div class="wrap tool-body">
+    <div class="prose">
+      <div class="technical-panel"><h2>Technical implementation</h2><p>I built an Apps Script web app with tiered calculations and presets in Sheets. Synchronization processes read Grow datasets, retain goal and commission history and prepare a reporting table with posted and projected results.</p></div>
+      <h2>What it solves</h2>
+      <p>It allows incentive policies to be compared against production and goals without rebuilding formulas for every scenario. History avoids replacing closed months during each synchronization.</p>
+      <h2>Flow and scope</h2>
+      <p>Users select months and technicians, change global parameters and recalculate. The output shows details and aggregates; presets store reusable configurations.</p>
+      <ul class="points">
+        <li>Commission on production exceeding each tier’s threshold.</li>
+        <li>Rates by category and comparison against a baseline.</li>
+        <li>Goal and commission history, with closed months preserved.</li>
+      </ul>
+    </div>
+    <aside class="side">
+      <div class="panel">
+        <h3>Data flow</h3>
+        <div class="flow">
+          <div class="flow-step"><span>Source</span><div class="items"><b>BI datasets and history</b></div></div>
+          <div class="flow-arrow"></div>
+<div class="flow-step"><span>Processing</span><div class="items"><b>Scenario engine</b></div></div>
+          <div class="flow-arrow"></div>
+<div class="flow-step"><span>Output</span><div class="items"><b>Comparison and presets</b></div></div>
+        </div>
+        <p class="flow-text">Datasets supply goals and production; the engine recalculates scenarios. Saving a preset preserves parameters without making a payment.</p>
+      </div>
+      <div class="panel">
+        <h3>Technology stack</h3>
+        <div class="stack"><span class="tag">Google Apps Script</span><span class="tag">Google Sheets</span><span class="tag">Grow</span><span class="tag">REST APIs</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+      </div>
+    </aside>
+  </div>
+</section>

@@ -1,0 +1,256 @@
+{
+  "slug": "intranet",
+  "kind": "form",
+  "title": {
+    "es": "Intranet de proyectos, costos y esfuerzo",
+    "en": "Projects, costs and effort intranet"
+  },
+  "steps": [
+    {
+      "title": {
+        "es": "Relacionar un proyecto",
+        "en": "Link a project"
+      },
+      "description": {
+        "es": "El proyecto del ejemplo agrupa costos y entradas de trabajo.",
+        "en": "The sample project groups costs and work entries."
+      },
+      "action": {
+        "es": "Abrir proyecto",
+        "en": "Open project"
+      },
+      "view": {
+        "es": {
+          "type": "form",
+          "heading": "Proyecto A",
+          "fields": [
+            {
+              "label": "Cliente",
+              "value": "Cliente A"
+            },
+            {
+              "label": "Tipo",
+              "value": "Aplicación web"
+            },
+            {
+              "label": "Fuentes",
+              "value": "Proveedor de IA · nube"
+            }
+          ]
+        },
+        "en": {
+          "type": "form",
+          "heading": "Project A",
+          "fields": [
+            {
+              "label": "Client",
+              "value": "Client A"
+            },
+            {
+              "label": "Type",
+              "value": "Web application"
+            },
+            {
+              "label": "Sources",
+              "value": "AI provider · cloud"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Conciliar costos",
+        "en": "Reconcile costs"
+      },
+      "description": {
+        "es": "Los importes conservan su proveedor y proyecto.",
+        "en": "Amounts retain their provider and project."
+      },
+      "action": {
+        "es": "Ver costos",
+        "en": "View costs"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Costos del período",
+          "columns": [
+            "Concepto",
+            "Proyecto",
+            "USD"
+          ],
+          "rows": [
+            [
+              "Servicio de IA",
+              "Proyecto A",
+              "24,00"
+            ],
+            [
+              "Servicio de nube",
+              "Proyecto A",
+              "16,00"
+            ],
+            [
+              "Total",
+              "Proyecto A",
+              "40,00"
+            ]
+          ],
+          "highlight": 2
+        },
+        "en": {
+          "type": "table",
+          "heading": "Period costs",
+          "columns": [
+            "Item",
+            "Project",
+            "USD"
+          ],
+          "rows": [
+            [
+              "AI service",
+              "Project A",
+              "24.00"
+            ],
+            [
+              "Cloud service",
+              "Project A",
+              "16.00"
+            ],
+            [
+              "Total",
+              "Project A",
+              "40.00"
+            ]
+          ],
+          "highlight": 2
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Resumir el trabajo",
+        "en": "Summarize work"
+      },
+      "description": {
+        "es": "La bitácora conserva categorías y duraciones por proyecto.",
+        "en": "The work log retains categories and durations per project."
+      },
+      "action": {
+        "es": "Ver bitácora",
+        "en": "View work log"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Actividad de Proyecto A",
+          "columns": [
+            "Entrada",
+            "Categoría",
+            "Duración"
+          ],
+          "rows": [
+            [
+              "Sesión A",
+              "Implementación",
+              "90 min"
+            ],
+            [
+              "Sesión B",
+              "Pruebas",
+              "30 min"
+            ],
+            [
+              "Total",
+              "Trabajo registrado",
+              "120 min"
+            ]
+          ],
+          "highlight": 2
+        },
+        "en": {
+          "type": "table",
+          "heading": "Project A activity",
+          "columns": [
+            "Entry",
+            "Category",
+            "Duration"
+          ],
+          "rows": [
+            [
+              "Session A",
+              "Implementation",
+              "90 min"
+            ],
+            [
+              "Session B",
+              "Testing",
+              "30 min"
+            ],
+            [
+              "Total",
+              "Recorded work",
+              "120 min"
+            ]
+          ],
+          "highlight": 2
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Preparar una estimación",
+        "en": "Prepare an estimate"
+      },
+      "description": {
+        "es": "Se eligen referencias y complejidad para proyectar esfuerzo.",
+        "en": "References and complexity are selected to project effort."
+      },
+      "action": {
+        "es": "Ver parámetros",
+        "en": "View parameters"
+      },
+      "view": {
+        "es": {
+          "type": "form",
+          "heading": "Estimador",
+          "fields": [
+            {
+              "label": "Referencias",
+              "value": "Proyecto A · Proyecto B"
+            },
+            {
+              "label": "Complejidad",
+              "value": "Media"
+            },
+            {
+              "label": "Tarifa",
+              "value": "USD 30/h"
+            }
+          ],
+          "notice": "Con pocas referencias, el margen superior es aproximado."
+        },
+        "en": {
+          "type": "form",
+          "heading": "Estimator",
+          "fields": [
+            {
+              "label": "References",
+              "value": "Project A · Project B"
+            },
+            {
+              "label": "Complexity",
+              "value": "Medium"
+            },
+            {
+              "label": "Rate",
+              "value": "USD 30/hour"
+            }
+          ],
+          "notice": "With few references, the upper estimate is approximate."
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,284 @@
+{
+  "slug": "datos-sinteticos",
+  "kind": "table",
+  "title": {
+    "es": "Generación de datos para pruebas y demostraciones",
+    "en": "Synthetic data for testing and demos"
+  },
+  "steps": [
+    {
+      "title": {
+        "es": "Inspeccionar muestra",
+        "en": "Inspect sample"
+      },
+      "description": {
+        "es": "Un CSV ficticio define las columnas y el motor propone tipos.",
+        "en": "A fictional CSV defines the columns and the engine proposes types."
+      },
+      "action": {
+        "es": "Configurar generación",
+        "en": "Configure generation"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Esquema detectado",
+          "columns": [
+            "Columna",
+            "Tipo",
+            "Ejemplo ficticio"
+          ],
+          "rows": [
+            [
+              "pedido_id",
+              "Texto",
+              "PED-001"
+            ],
+            [
+              "unidades",
+              "Número",
+              "2"
+            ],
+            [
+              "precio",
+              "Número",
+              "15"
+            ],
+            [
+              "total",
+              "Número",
+              "30"
+            ]
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "Detected schema",
+          "columns": [
+            "Column",
+            "Type",
+            "Fictional example"
+          ],
+          "rows": [
+            [
+              "order_id",
+              "Text",
+              "ORD-001"
+            ],
+            [
+              "units",
+              "Number",
+              "2"
+            ],
+            [
+              "price",
+              "Number",
+              "15"
+            ],
+            [
+              "total",
+              "Number",
+              "30"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Definir reglas",
+        "en": "Define rules"
+      },
+      "description": {
+        "es": "La misma semilla y configuración permiten repetir el conjunto.",
+        "en": "The same seed and configuration allow the dataset to be reproduced."
+      },
+      "action": {
+        "es": "Ejecutar prueba en seco",
+        "en": "Run dry run"
+      },
+      "view": {
+        "es": {
+          "type": "form",
+          "heading": "Parámetros de generación",
+          "fields": [
+            {
+              "label": "Filas",
+              "value": "1.000"
+            },
+            {
+              "label": "Semilla",
+              "value": "42"
+            },
+            {
+              "label": "Clave única",
+              "value": "pedido_id"
+            },
+            {
+              "label": "Regla de total",
+              "value": "unidades * precio"
+            }
+          ]
+        },
+        "en": {
+          "type": "form",
+          "heading": "Generation parameters",
+          "fields": [
+            {
+              "label": "Rows",
+              "value": "1,000"
+            },
+            {
+              "label": "Seed",
+              "value": "42"
+            },
+            {
+              "label": "Unique key",
+              "value": "order_id"
+            },
+            {
+              "label": "Total rule",
+              "value": "units * price"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Validar sin escribir CSV",
+        "en": "Validate without writing CSV"
+      },
+      "description": {
+        "es": "La prueba en seco produce un resumen antes de generar archivos.",
+        "en": "The dry run produces a summary before files are generated."
+      },
+      "action": {
+        "es": "Generar archivo",
+        "en": "Generate file"
+      },
+      "view": {
+        "es": {
+          "type": "terminal",
+          "heading": "Prueba en seco",
+          "lines": [
+            "Modo: prueba en seco",
+            "Filas previstas: 1.000",
+            "Columnas: 4, orden preservado",
+            "Clave única configurada: pedido_id",
+            "Fórmula total: unidades * precio",
+            "Sin archivo CSV generado."
+          ]
+        },
+        "en": {
+          "type": "terminal",
+          "heading": "Dry run",
+          "lines": [
+            "Mode: dry run",
+            "Expected rows: 1,000",
+            "Columns: 4, order preserved",
+            "Configured unique key: order_id",
+            "Total formula: units * price",
+            "No CSV file generated."
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Revisar y descargar",
+        "en": "Review and download"
+      },
+      "description": {
+        "es": "El CSV y su configuración se entregan juntos para reproducir la corrida.",
+        "en": "The CSV and its configuration are delivered together to reproduce the run."
+      },
+      "action": {
+        "es": "Ver archivos generados",
+        "en": "View generated files"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Vista del resultado",
+          "columns": [
+            "pedido_id",
+            "unidades",
+            "precio",
+            "total"
+          ],
+          "rows": [
+            [
+              "PED-001",
+              "2",
+              "15",
+              "30"
+            ],
+            [
+              "PED-002",
+              "3",
+              "20",
+              "60"
+            ],
+            [
+              "PED-003",
+              "1",
+              "12",
+              "12"
+            ]
+          ],
+          "metrics": [
+            {
+              "label": "Filas generadas",
+              "value": "1.000"
+            },
+            {
+              "label": "Archivos",
+              "value": "CSV + configuración JSON"
+            }
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "Result preview",
+          "columns": [
+            "order_id",
+            "units",
+            "price",
+            "total"
+          ],
+          "rows": [
+            [
+              "ORD-001",
+              "2",
+              "15",
+              "30"
+            ],
+            [
+              "ORD-002",
+              "3",
+              "20",
+              "60"
+            ],
+            [
+              "ORD-003",
+              "1",
+              "12",
+              "12"
+            ]
+          ],
+          "metrics": [
+            {
+              "label": "Generated rows",
+              "value": "1,000"
+            },
+            {
+              "label": "Files",
+              "value": "CSV + JSON configuration"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

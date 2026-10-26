@@ -1,0 +1,30 @@
+<section class="tool" id="horas-nomina" data-cat="apps"
+  data-title="Payroll hours preparation and review"
+  data-sector="Field services · USA"
+  data-summary="Choose a period and employees, review hours and warnings, and save a run with its source dates and payment status."
+  data-stack="Google Apps Script,Google Sheets,BambooHR,HTML,JavaScript,CSV" data-status="Implemented">
+  <div class="wrap tool-head">
+    <p class="eyebrow">Field services · USA</p>
+    <h1>Payroll hours preparation and review</h1>
+    <p class="kind">Payroll calculation and archive web app · Implemented</p>
+    <p class="lead">Choose a period and employees, review hours and warnings, and save a run with its source dates and payment status.</p>
+  </div>
+  <div class="wrap"><div class="demo-mount" data-demo="horas-nomina"></div></div>
+  <div class="wrap tool-body">
+    <div class="prose">
+      <div class="technical-panel"><h2>Technical implementation</h2><p>Server-side calculations use snapshots of time entries, PTO and holidays. Rules vary by employee type and consult a ledger of overtime already included in previous runs.</p></div>
+      <h2>Problem solved</h2><p>Brings separate sources together and shows how payable hours are calculated before a run is posted.</p>
+      <h2>Flow and scope</h2><p>The preview supports filtering and CSV export. Posting stores lines and source dates; saved runs can be reviewed and marked paid without recalculation.</p>
+      <ul class="points"><li>Overtime is calculated only for closed weeks.</li><li>PTO and holidays are kept separate from worked time for overtime.</li><li>Warnings flag incomplete data and overlapping work and PTO.</li></ul>
+    </div>
+    <aside class="side"><div class="panel"><h3>Data flow</h3>
+      <div class="flow-step"><div class="items">Time entries + PTO + holidays</div></div>
+      <div class="flow-arrow" aria-hidden="true">↓</div>
+      <div class="flow-step"><div class="items">Calculation and review</div></div>
+      <div class="flow-arrow" aria-hidden="true">↓</div>
+      <div class="flow-step"><div class="items">Saved run + overtime ledger</div></div>
+      <p class="flow-text">The preview supports filtering and CSV export. Posting stores lines and source dates; saved runs can be reviewed and marked paid without recalculation.</p></div>
+      <div class="panel"><h3>Stack</h3><div class="stack"><span class="tag">Google Apps Script</span><span class="tag">Google Sheets</span><span class="tag">BambooHR</span><span class="tag">HTML</span><span class="tag">JavaScript</span><span class="tag">CSV</span></div></div>
+    </aside>
+  </div>
+</section>

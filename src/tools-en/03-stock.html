@@ -1,0 +1,44 @@
+<section class="tool" id="stock" data-cat="apps"
+  data-title="Stock control across multiple sites"
+  data-sector="Food service operations · multiple plants"
+  data-summary="Stock counts by plant with history, comparable pack sizes and embedded dashboards."
+  data-stack="Next.js,React,TypeScript,Supabase,PostgreSQL,OpenAI,Apache Superset,BigQuery,Cloud Run" data-status="">
+  <div class="wrap tool-head">
+    <p class="eyebrow">Food service operations · multiple plants</p>
+    <h1>Stock control across multiple sites</h1>
+    <p class="kind">Stock counting and reporting web app</p>
+    <p class="lead">The team counts supplies on a phone and views the latest value alongside the previous count. Pack sizes are grouped by raw material to compare useful quantities.</p>
+  </div>
+  <div class="wrap"><div class="demo-mount" data-demo="stock"></div></div>
+  <div class="wrap tool-body">
+    <div class="prose">
+      <div class="technical-panel"><h2>Technical implementation</h2><p>I developed a Next.js web app with Supabase Auth, role and plant permissions, and PostgreSQL storage. Current stock is accompanied by history; BigQuery and Superset outputs support trend analysis.</p></div>
+      <h2>What it solves</h2>
+      <p>It replaces scattered counts and comparisons between different pack sizes. It shows how much stock exists, where it is and when it was counted.</p>
+      <h2>Flow and scope</h2>
+      <p>Users choose an authorized plant, record quantities by product and view stock and history. Tags and pack contents allow raw-material aggregation; minimum levels add replenishment references.</p>
+      <ul class="points">
+        <li>Roles and plant access are also enforced in the database.</li>
+        <li>AI tag suggestions with a manual fallback.</li>
+        <li>Exports and an embedded dashboard with access filters.</li>
+      </ul>
+    </div>
+    <aside class="side">
+      <div class="panel">
+        <h3>Data flow</h3>
+        <div class="flow">
+          <div class="flow-step"><span>Source</span><div class="items"><b>Plant stock count</b></div></div>
+          <div class="flow-arrow"></div>
+<div class="flow-step"><span>Processing</span><div class="items"><b>Supabase and history</b></div></div>
+          <div class="flow-arrow"></div>
+<div class="flow-step"><span>Output</span><div class="items"><b>Stock and dashboard</b></div></div>
+        </div>
+        <p class="flow-text">Operational entries are stored in Supabase; synchronization prepares the data queried by BigQuery and the dashboard.</p>
+      </div>
+      <div class="panel">
+        <h3>Technology stack</h3>
+        <div class="stack"><span class="tag">Next.js</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Supabase</span><span class="tag">PostgreSQL</span><span class="tag">OpenAI</span><span class="tag">Apache Superset</span><span class="tag">BigQuery</span><span class="tag">Cloud Run</span></div>
+      </div>
+    </aside>
+  </div>
+</section>

@@ -1,0 +1,238 @@
+{
+  "slug": "portal-herramientas",
+  "kind": "table",
+  "title": {
+    "es": "Portal interno de herramientas operativas",
+    "en": "Internal operations tool portal"
+  },
+  "steps": [
+    {
+      "title": {
+        "es": "Entrar al portal",
+        "en": "Enter the portal"
+      },
+      "description": {
+        "es": "El catálogo muestra propósito y disponibilidad.",
+        "en": "The catalogue shows purpose and availability."
+      },
+      "action": {
+        "es": "Ver herramientas",
+        "en": "View tools"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Suite operativa",
+          "columns": [
+            "Aplicación",
+            "Propósito",
+            "Estado"
+          ],
+          "rows": [
+            [
+              "Comisiones",
+              "Probar escenarios",
+              "Disponible"
+            ],
+            [
+              "Horas de nómina",
+              "Revisar horas",
+              "Disponible"
+            ],
+            [
+              "Calculadora integrada",
+              "Planificar compensación",
+              "Próximamente"
+            ]
+          ],
+          "highlight": 0
+        },
+        "en": {
+          "type": "table",
+          "heading": "Operations suite",
+          "columns": [
+            "Application",
+            "Purpose",
+            "Status"
+          ],
+          "rows": [
+            [
+              "Commissions",
+              "Explore scenarios",
+              "Available"
+            ],
+            [
+              "Payroll hours",
+              "Review hours",
+              "Available"
+            ],
+            [
+              "Integrated calculator",
+              "Plan compensation",
+              "Coming soon"
+            ]
+          ],
+          "highlight": 0
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Elegir una aplicación",
+        "en": "Choose an application"
+      },
+      "description": {
+        "es": "Cada acceso incluye una descripción de su alcance.",
+        "en": "Each entry describes its scope."
+      },
+      "action": {
+        "es": "Seleccionar horas",
+        "en": "Select payroll hours"
+      },
+      "view": {
+        "es": {
+          "type": "form",
+          "heading": "Horas de nómina",
+          "fields": [
+            {
+              "label": "Categoría",
+              "value": "Nómina"
+            },
+            {
+              "label": "Descripción",
+              "value": "Horas, licencias y feriados"
+            },
+            {
+              "label": "Disponibilidad",
+              "value": "Activa"
+            }
+          ]
+        },
+        "en": {
+          "type": "form",
+          "heading": "Payroll hours",
+          "fields": [
+            {
+              "label": "Category",
+              "value": "Payroll"
+            },
+            {
+              "label": "Description",
+              "value": "Hours, leave and holidays"
+            },
+            {
+              "label": "Availability",
+              "value": "Active"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Abrir el destino",
+        "en": "Open the destination"
+      },
+      "description": {
+        "es": "El enlace configurado lleva a la herramienta correspondiente.",
+        "en": "The configured link opens the corresponding tool."
+      },
+      "action": {
+        "es": "Abrir herramienta",
+        "en": "Open tool"
+      },
+      "view": {
+        "es": {
+          "type": "pipeline",
+          "heading": "Acceso desde el portal",
+          "nodes": [
+            {
+              "label": "Catálogo cargado",
+              "status": "done"
+            },
+            {
+              "label": "Aplicación disponible",
+              "status": "done"
+            },
+            {
+              "label": "Destino abierto",
+              "status": "done"
+            }
+          ],
+          "log": [
+            "Herramienta seleccionada: horas de nómina",
+            "El procesamiento de horas ocurre en esa aplicación"
+          ]
+        },
+        "en": {
+          "type": "pipeline",
+          "heading": "Access from the portal",
+          "nodes": [
+            {
+              "label": "Catalogue loaded",
+              "status": "done"
+            },
+            {
+              "label": "Application available",
+              "status": "done"
+            },
+            {
+              "label": "Destination opened",
+              "status": "done"
+            }
+          ],
+          "log": [
+            "Selected tool: payroll hours",
+            "Hour processing takes place in that application"
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Identificar lo pendiente",
+        "en": "Identify planned tools"
+      },
+      "description": {
+        "es": "Un módulo futuro conserva su estado sin ofrecer un enlace activo.",
+        "en": "A future module retains its status without offering an active link."
+      },
+      "action": {
+        "es": "Ver próximo módulo",
+        "en": "View upcoming module"
+      },
+      "view": {
+        "es": {
+          "type": "form",
+          "heading": "Calculadora integrada",
+          "fields": [
+            {
+              "label": "Estado",
+              "value": "Próximamente"
+            },
+            {
+              "label": "Destino",
+              "value": "Sin enlace habilitado"
+            }
+          ],
+          "notice": "La configuración distingue accesos activos de módulos previstos."
+        },
+        "en": {
+          "type": "form",
+          "heading": "Integrated calculator",
+          "fields": [
+            {
+              "label": "Status",
+              "value": "Coming soon"
+            },
+            {
+              "label": "Destination",
+              "value": "No enabled link"
+            }
+          ],
+          "notice": "Configuration distinguishes active entries from planned modules."
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,248 @@
+{
+  "slug": "tableros",
+  "kind": "chart",
+  "title": {
+    "es": "Tableros de gestión con acceso por rol",
+    "en": "Management dashboards with role-based access"
+  },
+  "steps": [
+    {
+      "title": {
+        "es": "Ingresar al portal",
+        "en": "Enter the portal"
+      },
+      "description": {
+        "es": "El perfil ilustrativo tiene acceso al tema de reclamos.",
+        "en": "The illustrative profile has access to the issues topic."
+      },
+      "action": {
+        "es": "Continuar con Google",
+        "en": "Continue with Google"
+      },
+      "view": {
+        "es": {
+          "type": "form",
+          "heading": "Acceso al portal",
+          "fields": [
+            {
+              "label": "Perfil",
+              "value": "Lector de reclamos"
+            },
+            {
+              "label": "Tema habilitado",
+              "value": "Reclamos"
+            }
+          ],
+          "notice": "Los roles se sincronizan al iniciar sesión."
+        },
+        "en": {
+          "type": "form",
+          "heading": "Portal access",
+          "fields": [
+            {
+              "label": "Profile",
+              "value": "Issues viewer"
+            },
+            {
+              "label": "Authorized topic",
+              "value": "Issues"
+            }
+          ],
+          "notice": "Roles synchronize at login."
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Acotar la consulta",
+        "en": "Narrow the query"
+      },
+      "description": {
+        "es": "El filtro selecciona una sede y un período.",
+        "en": "The filter selects one site and a period."
+      },
+      "action": {
+        "es": "Aplicar filtros",
+        "en": "Apply filters"
+      },
+      "view": {
+        "es": {
+          "type": "form",
+          "heading": "Filtros del dashboard",
+          "fields": [
+            {
+              "label": "Sede",
+              "value": "Sede A"
+            },
+            {
+              "label": "Período",
+              "value": "1–7 de junio"
+            }
+          ],
+          "notice": "Datos ficticios para la demostración."
+        },
+        "en": {
+          "type": "form",
+          "heading": "Dashboard filters",
+          "fields": [
+            {
+              "label": "Site",
+              "value": "Site A"
+            },
+            {
+              "label": "Period",
+              "value": "June 1–7"
+            }
+          ],
+          "notice": "Fictional data for the demonstration."
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Ver distribución",
+        "en": "View distribution"
+      },
+      "description": {
+        "es": "Los diez reclamos del período se agrupan por estado.",
+        "en": "The ten issues in the period are grouped by status."
+      },
+      "action": {
+        "es": "Consultar indicadores",
+        "en": "Query metrics"
+      },
+      "view": {
+        "es": {
+          "type": "chart",
+          "heading": "Reclamos por estado",
+          "bars": [
+            {
+              "label": "Abiertos",
+              "value": 3,
+              "display": "3"
+            },
+            {
+              "label": "Resueltos",
+              "value": 5,
+              "display": "5"
+            },
+            {
+              "label": "Cerrados",
+              "value": 2,
+              "display": "2"
+            }
+          ],
+          "metrics": [
+            {
+              "label": "Total",
+              "value": "10"
+            }
+          ]
+        },
+        "en": {
+          "type": "chart",
+          "heading": "Issues by status",
+          "bars": [
+            {
+              "label": "Open",
+              "value": 3,
+              "display": "3"
+            },
+            {
+              "label": "Resolved",
+              "value": 5,
+              "display": "5"
+            },
+            {
+              "label": "Closed",
+              "value": 2,
+              "display": "2"
+            }
+          ],
+          "metrics": [
+            {
+              "label": "Total",
+              "value": "10"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Desglosar resultados",
+        "en": "Break down results"
+      },
+      "description": {
+        "es": "La tabla del mismo período permite comparar sectores.",
+        "en": "The table for the same period allows sector comparisons."
+      },
+      "action": {
+        "es": "Ver detalle",
+        "en": "View detail"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Reclamos por sector",
+          "columns": [
+            "Sector",
+            "Abiertos",
+            "Resueltos",
+            "Cerrados"
+          ],
+          "rows": [
+            [
+              "Sector Norte",
+              "2",
+              "3",
+              "1"
+            ],
+            [
+              "Sector Sur",
+              "1",
+              "2",
+              "1"
+            ]
+          ],
+          "metrics": [
+            {
+              "label": "Período",
+              "value": "1–7 de junio"
+            }
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "Issues by area",
+          "columns": [
+            "Area",
+            "Open",
+            "Resolved",
+            "Closed"
+          ],
+          "rows": [
+            [
+              "North Area",
+              "2",
+              "3",
+              "1"
+            ],
+            [
+              "South Area",
+              "1",
+              "2",
+              "1"
+            ]
+          ],
+          "metrics": [
+            {
+              "label": "Period",
+              "value": "June 1–7"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

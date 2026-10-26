@@ -1,0 +1,264 @@
+{
+  "slug": "parte-diario",
+  "kind": "table",
+  "title": {
+    "es": "Registro digital de asistencia y novedades",
+    "en": "Digital attendance and daily updates"
+  },
+  "steps": [
+    {
+      "title": {
+        "es": "Abrir el día",
+        "en": "Open the day"
+      },
+      "description": {
+        "es": "Se carga personal activo de una sede ficticia.",
+        "en": "Active staff from a fictional site is loaded."
+      },
+      "action": {
+        "es": "Elegir fecha",
+        "en": "Choose date"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Parte · 8 de junio",
+          "columns": [
+            "Persona",
+            "Turno previsto",
+            "Estado"
+          ],
+          "rows": [
+            [
+              "Empleado A",
+              "08:00–16:00",
+              "Pendiente"
+            ],
+            [
+              "Empleado B",
+              "08:00–16:00",
+              "Pendiente"
+            ]
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "Daily report · June 8",
+          "columns": [
+            "Person",
+            "Planned shift",
+            "Status"
+          ],
+          "rows": [
+            [
+              "Employee A",
+              "08:00–16:00",
+              "Pending"
+            ],
+            [
+              "Employee B",
+              "08:00–16:00",
+              "Pending"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Cargar novedades",
+        "en": "Enter updates"
+      },
+      "description": {
+        "es": "Una persona trabajó su jornada y otra informa ausencia.",
+        "en": "One person worked the shift and another has an absence recorded."
+      },
+      "action": {
+        "es": "Guardar borrador",
+        "en": "Save draft"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Borrador del día",
+          "columns": [
+            "Persona",
+            "Novedad",
+            "Horario real",
+            "Carga"
+          ],
+          "rows": [
+            [
+              "Empleado A",
+              "Presente",
+              "08:00–16:00",
+              "Borrador"
+            ],
+            [
+              "Empleado B",
+              "Ausencia justificada",
+              "—",
+              "Borrador"
+            ]
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "Daily draft",
+          "columns": [
+            "Person",
+            "Update",
+            "Actual times",
+            "Entry"
+          ],
+          "rows": [
+            [
+              "Employee A",
+              "Present",
+              "08:00–16:00",
+              "Draft"
+            ],
+            [
+              "Employee B",
+              "Excused absence",
+              "—",
+              "Draft"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Postear registros",
+        "en": "Post records"
+      },
+      "description": {
+        "es": "Los registros completos pasan del borrador al histórico.",
+        "en": "Complete records move from the draft to history."
+      },
+      "action": {
+        "es": "Postear hasta ahora",
+        "en": "Post current entries"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Registros posteados",
+          "columns": [
+            "Persona",
+            "Horas reales",
+            "Estado de carga"
+          ],
+          "rows": [
+            [
+              "Empleado A",
+              "8",
+              "Posteado"
+            ],
+            [
+              "Empleado B",
+              "0",
+              "Posteado"
+            ]
+          ],
+          "metrics": [
+            {
+              "label": "Pendientes",
+              "value": "0"
+            }
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "Posted records",
+          "columns": [
+            "Person",
+            "Actual hours",
+            "Entry status"
+          ],
+          "rows": [
+            [
+              "Employee A",
+              "8",
+              "Posted"
+            ],
+            [
+              "Employee B",
+              "0",
+              "Posted"
+            ]
+          ],
+          "metrics": [
+            {
+              "label": "Pending",
+              "value": "0"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Confirmar el día",
+        "en": "Confirm the day"
+      },
+      "description": {
+        "es": "La confirmación comprueba que no queden personas pendientes.",
+        "en": "Confirmation checks that no staff entries remain pending."
+      },
+      "action": {
+        "es": "Confirmar día",
+        "en": "Confirm day"
+      },
+      "view": {
+        "es": {
+          "type": "form",
+          "heading": "Cierre del parte",
+          "fields": [
+            {
+              "label": "Fecha",
+              "value": "8 de junio"
+            },
+            {
+              "label": "Personas",
+              "value": "2"
+            },
+            {
+              "label": "Horas trabajadas",
+              "value": "8"
+            },
+            {
+              "label": "Estado",
+              "value": "Día confirmado"
+            }
+          ],
+          "notice": "Ejemplo ilustrativo del cierre con validación."
+        },
+        "en": {
+          "type": "form",
+          "heading": "Daily report closing",
+          "fields": [
+            {
+              "label": "Date",
+              "value": "June 8"
+            },
+            {
+              "label": "People",
+              "value": "2"
+            },
+            {
+              "label": "Hours worked",
+              "value": "8"
+            },
+            {
+              "label": "Status",
+              "value": "Day confirmed"
+            }
+          ],
+          "notice": "Illustrative example of closing with validation."
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+<section class="tool" id="diagnostico-mac" data-cat="int" data-title="Guided computer diagnostics" data-sector="Internal tool · computer maintenance" data-summary="Local read-only checks that distinguish measurements, alerts and incomplete data." data-stack="Bash,Python,macOS" data-status="Implemented">
+  <div class="wrap tool-head">
+    <p class="eyebrow">Internal tool · computer maintenance</p>
+    <h1>Guided computer diagnostics</h1>
+    <p class="kind">Terminal tool for macOS diagnostics</p>
+    <p class="lead">Local read-only checks that distinguish measurements, alerts and incomplete data.</p>
+  </div>
+  <div class="wrap"><div class="demo-mount" data-demo="diagnostico-mac"></div></div>
+  <div class="wrap tool-body">
+    <div class="prose">
+      <div class="technical-panel"><h2>Technical implementation</h2><p>I implemented a Bash check that integrates a diagnostic methodology and scales the swap threshold to RAM. Python tests use fixtures to verify signals and errors without exposing machine information.</p></div>
+      <h2>What it solves</h2><p>A slow computer can have several causes. The check gathers signals and avoids treating a failed measurement as a healthy result.</p>
+      <h2>Flow and scope</h2><p>The flow measures memory, disk, backups and system reports. It retains read limitations and requires interpretation before concluding a cause. The check does not delete files or change settings.</p>
+      <ul class="points"><li>Thresholds related to the machine’s RAM.</li><li>Incomplete data explicitly identified.</li><li>Private local evidence; demo uses fictional values.</li></ul>
+    </div>
+    <aside class="side">
+      <div class="panel"><h3>Data flow</h3><div class="flow"><div class="flow-step"><span>Read</span><div class="items"><b>macOS</b></div></div><div class="flow-arrow"></div><div class="flow-step"><span>Check</span><div class="items"><b>Bash</b></div></div><div class="flow-arrow"></div><div class="flow-step"><span>Verification</span><div class="items"><b>Python</b></div></div></div><p class="flow-text">The flow measures memory, disk, backups and system reports. It retains read limitations and requires interpretation before concluding a cause. The check does not delete files or change settings.</p></div>
+      <div class="panel"><h3>Technology stack</h3><div class="stack"><span class="tag">Bash</span><span class="tag">Python</span><span class="tag">macOS</span></div></div>
+    </aside>
+  </div>
+</section>

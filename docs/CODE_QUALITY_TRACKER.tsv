@@ -1,32 +1,49 @@
 id	layer	file	symbol	kind	returns	side_effects	criticality	purity	doc_status	test_mode	test_ref	qa_ref	owner	updated_at
-normalize	web	src/app.js	normalize	function	void or rendered value	DOM local	low	impure	done	runtime_qa	n/a	qa/runtime-evidence.tsv	Flavio Sirianni	2026-10-26
-toggleTheme	web	src/app.js	toggleTheme	function	void or rendered value	DOM local	low	impure	done	runtime_qa	n/a	qa/runtime-evidence.tsv	Flavio Sirianni	2026-10-26
-ok	web	src/app.js	ok	function	void or rendered value	DOM local	low	impure	done	runtime_qa	n/a	qa/runtime-evidence.tsv	Flavio Sirianni	2026-10-26
-nums	web	src/app.js	nums	function	void or rendered value	DOM local	low	impure	done	runtime_qa	n/a	qa/runtime-evidence.tsv	Flavio Sirianni	2026-10-26
-el	web	src/app.js	el	function	void or rendered value	DOM local	low	impure	done	runtime_qa	n/a	qa/runtime-evidence.tsv	Flavio Sirianni	2026-10-26
-niceMax	web	src/app.js	niceMax	function	void or rendered value	DOM local	low	impure	done	runtime_qa	n/a	qa/runtime-evidence.tsv	Flavio Sirianni	2026-10-26
-fmt	web	src/app.js	fmt	function	void or rendered value	DOM local	low	impure	done	runtime_qa	n/a	qa/runtime-evidence.tsv	Flavio Sirianni	2026-10-26
-renderChart	web	src/app.js	renderChart	function	void or rendered value	DOM local	low	impure	done	runtime_qa	n/a	qa/runtime-evidence.tsv	Flavio Sirianni	2026-10-26
-y	web	src/app.js	y	function	void or rendered value	DOM local	low	impure	done	runtime_qa	n/a	qa/runtime-evidence.tsv	Flavio Sirianni	2026-10-26
-fit	web	src/app.js	fit	function	void or rendered value	DOM local	low	impure	done	runtime_qa	n/a	qa/runtime-evidence.tsv	Flavio Sirianni	2026-10-26
-fitThumb	web	src/app.js	fitThumb	function	void or rendered value	DOM local	low	impure	done	runtime_qa	n/a	qa/runtime-evidence.tsv	Flavio Sirianni	2026-10-26
-count	web	src/app.js	count	function	void or rendered value	DOM local	low	impure	done	runtime_qa	n/a	qa/runtime-evidence.tsv	Flavio Sirianni	2026-10-26
-applyFilter	web	src/app.js	applyFilter	function	void or rendered value	DOM local	low	impure	done	runtime_qa	n/a	qa/runtime-evidence.tsv	Flavio Sirianni	2026-10-26
-route	web	src/app.js	route	function	void or rendered value	DOM local	low	impure	done	runtime_qa	n/a	qa/runtime-evidence.tsv	Flavio Sirianni	2026-10-26
-printCV	web	src/cv.js	printCV	function	void or rendered value	DOM local	low	impure	done	runtime_qa	n/a	qa/runtime-evidence.tsv	Flavio Sirianni	2026-10-26
-build.py:CatalogParser	build	build.py	CatalogParser	class	documented	build output or local assertions	low	impure	done	auto_integration	tests/test_site.py	n/a	Flavio Sirianni	2026-10-26
-build.py:render_cv	build	build.py	render_cv	function	documented	build output or local assertions	low	impure	done	auto_integration	tests/test_site.py	n/a	Flavio Sirianni	2026-10-26
-build.py:build	build	build.py	build	function	documented	build output or local assertions	low	impure	done	auto_integration	tests/test_site.py	n/a	Flavio Sirianni	2026-10-26
-build.py:__init__	build	build.py	__init__	function	documented	build output or local assertions	low	impure	done	auto_integration	tests/test_site.py	n/a	Flavio Sirianni	2026-10-26
-build.py:handle_starttag	build	build.py	handle_starttag	function	documented	build output or local assertions	low	impure	done	auto_integration	tests/test_site.py	n/a	Flavio Sirianni	2026-10-26
-tests/test_site.py:PageParser	build	tests/test_site.py	PageParser	class	documented	build output or local assertions	low	impure	done	auto_integration	tests/test_site.py	n/a	Flavio Sirianni	2026-10-26
-tests/test_site.py:SiteTests	build	tests/test_site.py	SiteTests	class	documented	build output or local assertions	low	impure	done	auto_integration	tests/test_site.py	n/a	Flavio Sirianni	2026-10-26
-tests/test_site.py:__init__	build	tests/test_site.py	__init__	function	documented	build output or local assertions	low	impure	done	auto_integration	tests/test_site.py	n/a	Flavio Sirianni	2026-10-26
-tests/test_site.py:handle_starttag	build	tests/test_site.py	handle_starttag	function	documented	build output or local assertions	low	impure	done	auto_integration	tests/test_site.py	n/a	Flavio Sirianni	2026-10-26
-tests/test_site.py:setUpClass	build	tests/test_site.py	setUpClass	function	documented	build output or local assertions	low	impure	done	auto_integration	tests/test_site.py	n/a	Flavio Sirianni	2026-10-26
-tests/test_site.py:test_complete_unique_catalog_with_stack_and_implementation	build	tests/test_site.py	test_complete_unique_catalog_with_stack_and_implementation	function	documented	build output or local assertions	low	impure	done	auto_integration	tests/test_site.py	n/a	Flavio Sirianni	2026-10-26
-tests/test_site.py:test_no_corporate_identity_in_public_output	build	tests/test_site.py	test_no_corporate_identity_in_public_output	function	documented	build output or local assertions	low	impure	done	auto_integration	tests/test_site.py	n/a	Flavio Sirianni	2026-10-26
-tests/test_site.py:test_portable_resources_and_case_links	build	tests/test_site.py	test_portable_resources_and_case_links	function	documented	build output or local assertions	low	impure	done	auto_integration	tests/test_site.py	n/a	Flavio Sirianni	2026-10-26
-tests/test_site.py:test_valid_document_structure_and_printable_cv	build	tests/test_site.py	test_valid_document_structure_and_printable_cv	function	documented	build output or local assertions	low	impure	done	auto_integration	tests/test_site.py	n/a	Flavio Sirianni	2026-10-26
-tests/test_site.py:test_detailed_technologies_are_searchable	build	tests/test_site.py	test_detailed_technologies_are_searchable	function	None	local assertions	low	pure	done	auto_integration	tests/test_site.py	n/a	Flavio Sirianni	2026-10-26
-tests/test_site.py:test_offline_cv_links_target_an_html_file	build	tests/test_site.py	test_offline_cv_links_target_an_html_file	function	None	local assertions	low	pure	done	auto_integration	tests/test_site.py	n/a	Flavio Sirianni	2026-10-26
+src/app.js:normalize	web	src/app.js	normalize	function	documented	local DOM or timer	low	impure	done	runtime_qa	n/a	qa/runtime-evidence.tsv	Flavio Sirianni	2026-10-26
+src/app.js:updateThemeLabel	web	src/app.js	updateThemeLabel	function	documented	local DOM or timer	low	impure	done	runtime_qa	n/a	qa/runtime-evidence.tsv	Flavio Sirianni	2026-10-26
+src/app.js:toggleTheme	web	src/app.js	toggleTheme	function	documented	local DOM or timer	low	impure	done	runtime_qa	n/a	qa/runtime-evidence.tsv	Flavio Sirianni	2026-10-26
+src/app.js:filterCatalog	web	src/app.js	filterCatalog	function	documented	local DOM or timer	low	impure	done	runtime_qa	n/a	qa/runtime-evidence.tsv	Flavio Sirianni	2026-10-26
+src/app.js:resetCatalog	web	src/app.js	resetCatalog	function	documented	local DOM or timer	low	impure	done	runtime_qa	n/a	qa/runtime-evidence.tsv	Flavio Sirianni	2026-10-26
+src/app.js:updatePreviewLabel	web	src/app.js	updatePreviewLabel	function	documented	local DOM or timer	low	impure	done	runtime_qa	n/a	qa/runtime-evidence.tsv	Flavio Sirianni	2026-10-26
+src/app.js:togglePreviews	web	src/app.js	togglePreviews	function	documented	local DOM or timer	low	impure	done	runtime_qa	n/a	qa/runtime-evidence.tsv	Flavio Sirianni	2026-10-26
+src/demos.js:node	web	src/demos.js	node	function	documented	local DOM or timer	low	impure	done	runtime_qa	n/a	qa/runtime-evidence.tsv	Flavio Sirianni	2026-10-26
+src/demos.js:metrics	web	src/demos.js	metrics	function	documented	local DOM or timer	low	impure	done	runtime_qa	n/a	qa/runtime-evidence.tsv	Flavio Sirianni	2026-10-26
+src/demos.js:renderView	web	src/demos.js	renderView	function	documented	local DOM or timer	low	impure	done	runtime_qa	n/a	qa/runtime-evidence.tsv	Flavio Sirianni	2026-10-26
+src/demos.js:button	web	src/demos.js	button	function	documented	local DOM or timer	low	impure	done	runtime_qa	n/a	qa/runtime-evidence.tsv	Flavio Sirianni	2026-10-26
+src/demos.js:mount	web	src/demos.js	mount	function	documented	local DOM or timer	low	impure	done	runtime_qa	n/a	qa/runtime-evidence.tsv	Flavio Sirianni	2026-10-26
+src/demos.js:stopTimer	web	src/demos.js	stopTimer	function	documented	local DOM or timer	low	impure	done	runtime_qa	n/a	qa/runtime-evidence.tsv	Flavio Sirianni	2026-10-26
+src/demos.js:schedule	web	src/demos.js	schedule	function	documented	local DOM or timer	low	impure	done	runtime_qa	n/a	qa/runtime-evidence.tsv	Flavio Sirianni	2026-10-26
+src/demos.js:draw	web	src/demos.js	draw	function	documented	local DOM or timer	low	impure	done	runtime_qa	n/a	qa/runtime-evidence.tsv	Flavio Sirianni	2026-10-26
+src/demos.js:select	web	src/demos.js	select	function	documented	local DOM or timer	low	impure	done	runtime_qa	n/a	qa/runtime-evidence.tsv	Flavio Sirianni	2026-10-26
+src/demos.js:setPlaying	web	src/demos.js	setPlaying	function	documented	local DOM or timer	low	impure	done	runtime_qa	n/a	qa/runtime-evidence.tsv	Flavio Sirianni	2026-10-26
+src/theme.js:applySavedTheme	web	src/theme.js	applySavedTheme	function	documented	local DOM or timer	low	impure	done	runtime_qa	n/a	qa/runtime-evidence.tsv	Flavio Sirianni	2026-10-26
+src/cv.js:printCV	web	src/cv.js	printCV	function	documented	local DOM or timer	low	impure	done	runtime_qa	n/a	qa/runtime-evidence.tsv	Flavio Sirianni	2026-10-26
+build.py:CatalogParser	build	build.py	CatalogParser	class	documented	local build or assertions	low	impure	done	auto_integration	tests/test_site.py	n/a	Flavio Sirianni	2026-10-26
+build.py:relative	build	build.py	relative	function	documented	local build or assertions	low	impure	done	auto_integration	tests/test_site.py	n/a	Flavio Sirianni	2026-10-26
+build.py:locale_path	build	build.py	locale_path	function	documented	local build or assertions	low	impure	done	auto_integration	tests/test_site.py	n/a	Flavio Sirianni	2026-10-26
+build.py:head	build	build.py	head	function	documented	local build or assertions	low	impure	done	auto_integration	tests/test_site.py	n/a	Flavio Sirianni	2026-10-26
+build.py:header	build	build.py	header	function	documented	local build or assertions	low	impure	done	auto_integration	tests/test_site.py	n/a	Flavio Sirianni	2026-10-26
+build.py:footer	build	build.py	footer	function	documented	local build or assertions	low	impure	done	auto_integration	tests/test_site.py	n/a	Flavio Sirianni	2026-10-26
+build.py:scripts	build	build.py	scripts	function	documented	local build or assertions	low	impure	done	auto_integration	tests/test_site.py	n/a	Flavio Sirianni	2026-10-26
+build.py:catalog	build	build.py	catalog	function	documented	local build or assertions	low	impure	done	auto_integration	tests/test_site.py	n/a	Flavio Sirianni	2026-10-26
+build.py:project	build	build.py	project	function	documented	local build or assertions	low	impure	done	auto_integration	tests/test_site.py	n/a	Flavio Sirianni	2026-10-26
+build.py:render_cv	build	build.py	render_cv	function	documented	local build or assertions	low	impure	done	auto_integration	tests/test_site.py	n/a	Flavio Sirianni	2026-10-26
+build.py:load_cases	build	build.py	load_cases	function	documented	local build or assertions	low	impure	done	auto_integration	tests/test_site.py	n/a	Flavio Sirianni	2026-10-26
+build.py:build	build	build.py	build	function	documented	local build or assertions	low	impure	done	auto_integration	tests/test_site.py	n/a	Flavio Sirianni	2026-10-26
+build.py:__init__	build	build.py	__init__	function	documented	local build or assertions	low	impure	done	auto_integration	tests/test_site.py	n/a	Flavio Sirianni	2026-10-26
+build.py:handle_starttag	build	build.py	handle_starttag	function	documented	local build or assertions	low	impure	done	auto_integration	tests/test_site.py	n/a	Flavio Sirianni	2026-10-26
+tests/test_site.py:PageParser	build	tests/test_site.py	PageParser	class	documented	local build or assertions	low	impure	done	auto_integration	tests/test_site.py	n/a	Flavio Sirianni	2026-10-26
+tests/test_site.py:parse	build	tests/test_site.py	parse	function	documented	local build or assertions	low	impure	done	auto_integration	tests/test_site.py	n/a	Flavio Sirianni	2026-10-26
+tests/test_site.py:SiteTests	build	tests/test_site.py	SiteTests	class	documented	local build or assertions	low	impure	done	auto_integration	tests/test_site.py	n/a	Flavio Sirianni	2026-10-26
+tests/test_site.py:__init__	build	tests/test_site.py	__init__	function	documented	local build or assertions	low	impure	done	auto_integration	tests/test_site.py	n/a	Flavio Sirianni	2026-10-26
+tests/test_site.py:handle_starttag	build	tests/test_site.py	handle_starttag	function	documented	local build or assertions	low	impure	done	auto_integration	tests/test_site.py	n/a	Flavio Sirianni	2026-10-26
+tests/test_site.py:setUpClass	build	tests/test_site.py	setUpClass	function	documented	local build or assertions	low	impure	done	auto_integration	tests/test_site.py	n/a	Flavio Sirianni	2026-10-26
+tests/test_site.py:test_bilingual_catalog_and_individual_pages	build	tests/test_site.py	test_bilingual_catalog_and_individual_pages	function	documented	local build or assertions	low	impure	done	auto_integration	tests/test_site.py	n/a	Flavio Sirianni	2026-10-26
+tests/test_site.py:test_every_demo_has_localized_specific_scenes	build	tests/test_site.py	test_every_demo_has_localized_specific_scenes	function	documented	local build or assertions	low	impure	done	auto_integration	tests/test_site.py	n/a	Flavio Sirianni	2026-10-26
+tests/test_site.py:test_no_client_identity_or_removed_case_in_public_output	build	tests/test_site.py	test_no_client_identity_or_removed_case_in_public_output	function	documented	local build or assertions	low	impure	done	auto_integration	tests/test_site.py	n/a	Flavio Sirianni	2026-10-26
+tests/test_site.py:test_all_relative_links_and_assets_resolve	build	tests/test_site.py	test_all_relative_links_and_assets_resolve	function	documented	local build or assertions	low	impure	done	auto_integration	tests/test_site.py	n/a	Flavio Sirianni	2026-10-26
+tests/test_site.py:test_language_switch_preserves_project_and_cv	build	tests/test_site.py	test_language_switch_preserves_project_and_cv	function	documented	local build or assertions	low	impure	done	auto_integration	tests/test_site.py	n/a	Flavio Sirianni	2026-10-26
+tests/test_site.py:test_portable_printable_cv_in_both_languages	build	tests/test_site.py	test_portable_printable_cv_in_both_languages	function	documented	local build or assertions	low	impure	done	auto_integration	tests/test_site.py	n/a	Flavio Sirianni	2026-10-26
+tests/test_site.py:test_minimal_intro_only_two_kpis	build	tests/test_site.py	test_minimal_intro_only_two_kpis	function	documented	local build or assertions	low	impure	done	auto_integration	tests/test_site.py	n/a	Flavio Sirianni	2026-10-26
+tests/test_site.py:test_catalog_offers_a_localized_motion_control	build	tests/test_site.py	test_catalog_offers_a_localized_motion_control	function	documented	local build or assertions	low	impure	done	auto_integration	tests/test_site.py	n/a	Flavio Sirianni	2026-10-26
+tests/test_site.py:test_metadata_and_visible_stack_agree	build	tests/test_site.py	test_metadata_and_visible_stack_agree	function	documented	local build or assertions	low	impure	done	auto_integration	tests/test_site.py	n/a	Flavio Sirianni	2026-10-26

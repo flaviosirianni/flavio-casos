@@ -1,88 +1,30 @@
 <section class="tool" id="datos-sinteticos" data-cat="int"
   data-title="Generación de datos para pruebas y demostraciones"
   data-sector="Equipos de datos y desarrollo"
-  data-summary="Un generador de CSV sintéticos a partir de un archivo de ejemplo, con reglas por columna, relaciones entre tablas y resultados repetibles."
-  data-stack="Node.js,Express,JavaScript,HTML,CSS,CSV">
+  data-summary="Partir de un CSV de ejemplo, ajustar reglas por columna y generar datos repetibles sin usar registros reales."
+  data-stack="Node.js,Express,JavaScript,HTML,CSS,CSV" data-status="Implementado">
   <div class="wrap tool-head">
     <p class="eyebrow">Equipos de datos y desarrollo</p>
     <h1>Generación de datos para pruebas y demostraciones</h1>
-    <p class="kind">Aplicación web local y herramienta por línea de comandos, con un motor compartido</p>
-    <p class="lead">Subís un CSV de ejemplo, ajustás cómo se genera cada columna y obtenés miles o millones de filas creíbles, con las mismas columnas y relaciones consistentes entre tablas. Ideal para demos, pruebas de carga o validar reportes sin datos reales.</p>
+    <p class="kind">Generador CSV con interfaz local y CLI · Implementado</p>
+    <p class="lead">Partir de un CSV de ejemplo, ajustar reglas por columna y generar datos repetibles sin usar registros reales.</p>
   </div>
-
-  <div class="stage"><div class="wrap shots">
-    <figure class="shot w12">
-      <div class="dev dev-browser ui" style="--w:1060px;--brand:#0f172a;--brand-soft:#eef2f7">
-        <div class="bar"><i></i><i></i><i></i><div class="url">localhost:4310 · Dummy Data Generator</div></div>
-        <div class="ui-top"><b>Dummy Data Generator</b><span class="pill">sales_sample.csv · 12 columnas · 240 filas</span><span class="grow"></span><span class="btn ghost">Probar (dry run)</span><span class="btn">Generar y descargar</span></div>
-        <div style="display:grid;grid-template-columns:1fr 280px">
-          <div class="ui-main">
-            <div class="ui-h2">Esquema detectado</div>
-            <table class="tbl">
-              <tr><th>Columna</th><th>Tipo inferido</th><th>Estrategia</th><th>Parámetros</th><th class="num">Nulos</th></tr>
-              <tr><td class="mono">order_id</td><td>id</td><td><div class="inp sel" style="min-height:26px;padding:3px 8px">Secuencia</div></td><td class="mono sm">ORD-{000000}</td><td class="num">0 %</td></tr>
-              <tr><td class="mono">order_date</td><td>fecha</td><td><div class="inp sel" style="min-height:26px;padding:3px 8px">Rango de fechas</div></td><td class="mono sm">2025-01-01 → 2026-09-30 · lun a sáb</td><td class="num">0 %</td></tr>
-              <tr><td class="mono">store_id</td><td>categoría</td><td><div class="inp sel" style="min-height:26px;padding:3px 8px">Pool compartido</div></td><td class="mono sm">stores.store_id (48)</td><td class="num">0 %</td></tr>
-              <tr class="sel"><td class="mono">qty</td><td>entero</td><td><div class="inp sel focus" style="min-height:26px;padding:3px 8px">Distribución normal</div></td><td class="mono sm">μ 6 · σ 2.5 · min 1</td><td class="num">0 %</td></tr>
-              <tr><td class="mono">unit_price</td><td>decimal</td><td><div class="inp sel" style="min-height:26px;padding:3px 8px">Muestra del original</div></td><td class="mono sm">conserva distribución</td><td class="num">0 %</td></tr>
-              <tr><td class="mono">total</td><td>decimal</td><td><div class="inp sel" style="min-height:26px;padding:3px 8px">Fórmula</div></td><td class="mono sm">qty * unit_price</td><td class="num">0 %</td></tr>
-              <tr><td class="mono">coupon_code</td><td>texto</td><td><div class="inp sel" style="min-height:26px;padding:3px 8px">Lista ponderada</div></td><td class="mono sm">NONE 80 · OCT10 15 · VIP 5</td><td class="num">12 %</td></tr>
-            </table>
-          </div>
-          <div style="border-left:1px solid var(--s-line);padding:16px;display:flex;flex-direction:column;gap:12px;background:#fafbfc">
-            <div class="ui-h2">Generación</div>
-            <div class="fld"><label>Modo</label><div class="inp sel">Cantidad de filas</div></div>
-            <div class="fld"><label>Filas</label><div class="inp">500.000</div></div>
-            <div class="fld"><label>Semilla</label><div class="inp">42</div></div>
-            <div class="fld"><label>Salida</label><div class="row" style="gap:6px"><span class="pill b">CSV</span><span class="pill b">gzip</span><span class="pill">partición por mes</span></div></div>
-            <div class="ui-card soft sm">Vista previa de <b>qty</b><div class="chart" data-type="bar" data-w="230" data-h="80" data-nolabels="y" data-labels="1|2|3|4|5|6|7|8|9|10|11" data-values="3,6,10,14,17,18,16,12,8,5,3" data-color="#0f172a" data-ticks="2"></div></div>
-            <div class="xs mut">La configuración se guarda como JSON para repetir la misma corrida.</div>
-          </div>
-        </div>
-      </div>
-      <figcaption><b>Interfaz local.</b> Revisa columnas y tipos antes de generar, con estrategias por columna, fórmulas y pools compartidos entre tablas.</figcaption>
-    </figure>
-
-    <figure class="shot w12">
-      <div class="dev dev-term" style="--w:860px">
-        <div class="bar"><i></i><i></i><i></i><span>zsh · dummy-data</span></div>
-<pre><span class="t-g">$</span> node generate-dummy-data.js --config configs/sales.json --rows 500000 --seed 42 --gzip --partition month
-<span class="t-m">→</span> esquema: sales_sample.csv · 12 columnas (orden original conservado)
-<span class="t-m">→</span> pools: stores.store_id (48) · customers.customer_id (12.000)
-<span class="t-m">→</span> generando… <span class="t-b">████████████████████████████</span> 500.000 / 500.000
-<span class="t-m">→</span> validación: claves únicas <span class="t-g">ok</span> · duplicados <span class="t-g">0</span> · fórmulas <span class="t-g">ok</span>
-<span class="t-m">→</span> distribución qty: media 6,02 · desvío 2,48
-<span class="t-g">✓</span> 21 archivos en <span class="t-w">generated/sales/</span> (sales_2025-01.csv.gz … sales_2026-09.csv.gz)
-<span class="t-g">✓</span> configuración de la corrida: <span class="t-w">generated/sales/run-config.json</span></pre>
-      </div>
-      <figcaption><b>Línea de comandos.</b> El mismo motor, para repetir la tarea dentro de un flujo de trabajo, con la misma semilla y el mismo resultado.</figcaption>
-    </figure>
-  </div></div>
-
+  <div class="wrap"><div class="demo-mount" data-demo="datos-sinteticos"></div></div>
   <div class="wrap tool-body">
     <div class="prose">
-      <div class="technical-panel"><h2>Implementación técnica</h2><p>Desarrollé un motor de generación en Node.js con interfaz de línea de comandos y una UI web con Express. Ambas entradas comparten reglas de esquema y generación de CSV para pruebas y demos reproducibles.</p></div>
-      <h2>Qué hace</h2>
-      <p>Produce archivos de datos sintéticos a partir de una estructura de ejemplo. Permite elegir cantidades, fechas, distribuciones y reglas por columna, y mantener referencias compartidas entre varias tablas. La configuración se guarda para repetir una generación. Puede utilizarse desde una interfaz local o por comandos, para preparar demos, validar reportes o probar una aplicación con distintos volúmenes.</p>
-      <p>Permite preparar escenarios de distinta escala, generar valores repetibles y probar reglas de negocio sobre datos controlados. La interfaz ayuda a revisar columnas y tipos antes de descargar el resultado; los comandos permiten repetir la misma tarea dentro de un flujo de trabajo.</p>
-      <p class="note">Genera datos nuevos a partir de una estructura; no es una herramienta de anonimización de datos reales.</p>
+      <div class="technical-panel"><h2>Implementación técnica</h2><p>Un motor Node.js compartido conserva encabezados, infiere tipos y genera filas en streaming. Soporta semillas, pools de entidades, modos por grano y fórmulas con un parser acotado.</p></div>
+      <h2>Qué resuelve</h2><p>Permite preparar demos y pruebas con estructura coherente y conservar una configuración para repetir el resultado.</p>
+      <h2>Flujo y alcance</h2><p>La interfaz Express inspecciona un archivo, ofrece prueba en seco y descarga CSV y configuración. La CLI admite varias tablas y pools compartidos para mantener relaciones.</p>
+      <ul class="points"><li>Encabezados y orden de columnas preservados.</li><li>Claves únicas, valores nulos, rangos de fecha y distribuciones configurables.</li><li>Resumen de validación y ejecución reproducible por semilla.</li></ul>
     </div>
-    <aside class="side">
-      <div class="panel">
-        <h3>Recorrido de la información</h3>
-        <div class="flow">
-          <div class="flow-step"><span>Entrada</span><div class="items"><b>Archivo de ejemplo</b></div></div>
-          <div class="flow-arrow"></div>
-          <div class="flow-step mid"><span>Configuración</span><div class="items"><b>Navegador local</b><b>Terminal</b></div></div>
-          <div class="flow-arrow"></div>
-          <div class="flow-step"><span>Salida</span><div class="items"><b>Datos de prueba</b><b>Configuración reutilizable</b></div></div>
-        </div>
-        <p class="flow-text">La entrada son archivos CSV de ejemplo; el usuario configura la generación desde el navegador local o la terminal. La salida son CSV sintéticos y archivos de configuración reutilizables, con opciones de compresión y partición.</p>
-      </div>
-      <div class="panel">
-        <h3>Stack tecnológico</h3>
-        <div class="stack"><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">JavaScript</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">CSV</span></div>
-      </div>
+    <aside class="side"><div class="panel"><h3>Flujo de datos</h3>
+      <div class="flow-step"><div class="items">CSV de muestra + reglas</div></div>
+      <div class="flow-arrow" aria-hidden="true">↓</div>
+      <div class="flow-step"><div class="items">Motor de generación</div></div>
+      <div class="flow-arrow" aria-hidden="true">↓</div>
+      <div class="flow-step"><div class="items">CSV + configuración + validación</div></div>
+      <p class="flow-text">La interfaz Express inspecciona un archivo, ofrece prueba en seco y descarga CSV y configuración. La CLI admite varias tablas y pools compartidos para mantener relaciones.</p></div>
+      <div class="panel"><h3>Stack</h3><div class="stack"><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">JavaScript</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">CSV</span></div></div>
     </aside>
   </div>
 </section>

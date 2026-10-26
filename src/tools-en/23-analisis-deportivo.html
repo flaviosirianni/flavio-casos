@@ -1,0 +1,30 @@
+<section class="tool" id="analisis-deportivo" data-cat="bots"
+  data-title="Sports research and tracking assistant"
+  data-sector="Personal product · combat sports"
+  data-summary="Choose an event and matchup, consult statistics and recent signals, and keep a personal ledger with reviewable operations."
+  data-stack="OpenAI,Telegram,Node.js,SQLite,UFCStats,The Odds API" data-status="Implemented">
+  <div class="wrap tool-head">
+    <p class="eyebrow">Personal product · combat sports</p>
+    <h1>Sports research and tracking assistant</h1>
+    <p class="kind">Telegram bot with research and personal tracking · Implemented</p>
+    <p class="lead">Choose an event and matchup, consult statistics and recent signals, and keep a personal ledger with reviewable operations.</p>
+  </div>
+  <div class="wrap"><div class="demo-mount" data-demo="analisis-deportivo"></div></div>
+  <div class="wrap tool-body">
+    <div class="prose">
+      <div class="technical-panel"><h2>Technical implementation</h2><p>Node.js coordinates statistics, odds and web information tools with OpenAI and SQLite. A gate validates event identity, status and freshness before allowing consumption.</p></div>
+      <h2>Problem solved</h2><p>Reduces confusion between cards and matchups and separates research from persistent operation records.</p>
+      <h2>Flow and scope</h2><p>The current configuration prioritizes guided menus and session states. The personal ledger provides previews and confirmations for sensitive operations; results are not settled automatically without sufficient evidence.</p>
+      <ul class="points"><li>Checks dates, sources and verification expiry.</li><li>History and odds treated as research signals.</li><li>SQLite persistence and change auditing.</li></ul>
+    </div>
+    <aside class="side"><div class="panel"><h3>Data flow</h3>
+      <div class="flow-step"><div class="items">Menu + event + matchup</div></div>
+      <div class="flow-arrow" aria-hidden="true">↓</div>
+      <div class="flow-step"><div class="items">Verification + tools</div></div>
+      <div class="flow-arrow" aria-hidden="true">↓</div>
+      <div class="flow-step"><div class="items">Response + personal ledger</div></div>
+      <p class="flow-text">The current configuration prioritizes guided menus and session states. The personal ledger provides previews and confirmations for sensitive operations; results are not settled automatically without sufficient evidence.</p></div>
+      <div class="panel"><h3>Stack</h3><div class="stack"><span class="tag">OpenAI</span><span class="tag">Telegram</span><span class="tag">Node.js</span><span class="tag">SQLite</span><span class="tag">UFCStats</span><span class="tag">The Odds API</span></div></div>
+    </aside>
+  </div>
+</section>

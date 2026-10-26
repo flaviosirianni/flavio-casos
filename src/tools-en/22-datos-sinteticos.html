@@ -1,0 +1,30 @@
+<section class="tool" id="datos-sinteticos" data-cat="int"
+  data-title="Synthetic data for testing and demos"
+  data-sector="Data and development teams"
+  data-summary="Start from a sample CSV, adjust column rules and generate repeatable data without real records."
+  data-stack="Node.js,Express,JavaScript,HTML,CSS,CSV" data-status="Implemented">
+  <div class="wrap tool-head">
+    <p class="eyebrow">Data and development teams</p>
+    <h1>Synthetic data for testing and demos</h1>
+    <p class="kind">CSV generator with local UI and CLI · Implemented</p>
+    <p class="lead">Start from a sample CSV, adjust column rules and generate repeatable data without real records.</p>
+  </div>
+  <div class="wrap"><div class="demo-mount" data-demo="datos-sinteticos"></div></div>
+  <div class="wrap tool-body">
+    <div class="prose">
+      <div class="technical-panel"><h2>Technical implementation</h2><p>A shared Node.js engine preserves headers, infers types and streams generated rows. It supports seeds, entity pools, grain-based modes and formulas through a restricted parser.</p></div>
+      <h2>Problem solved</h2><p>Enables demos and tests with coherent structure and a retained configuration for reproducing results.</p>
+      <h2>Flow and scope</h2><p>The Express UI inspects one file, offers a dry run and downloads CSV plus configuration. The CLI supports several tables and shared pools to maintain relationships.</p>
+      <ul class="points"><li>Headers and column order preserved.</li><li>Configurable unique keys, null values, date ranges and distributions.</li><li>Validation summary and seed-based reproducibility.</li></ul>
+    </div>
+    <aside class="side"><div class="panel"><h3>Data flow</h3>
+      <div class="flow-step"><div class="items">Sample CSV + rules</div></div>
+      <div class="flow-arrow" aria-hidden="true">↓</div>
+      <div class="flow-step"><div class="items">Generation engine</div></div>
+      <div class="flow-arrow" aria-hidden="true">↓</div>
+      <div class="flow-step"><div class="items">CSV + configuration + validation</div></div>
+      <p class="flow-text">The Express UI inspects one file, offers a dry run and downloads CSV plus configuration. The CLI supports several tables and shared pools to maintain relationships.</p></div>
+      <div class="panel"><h3>Stack</h3><div class="stack"><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">JavaScript</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">CSV</span></div></div>
+    </aside>
+  </div>
+</section>

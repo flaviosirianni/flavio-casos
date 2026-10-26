@@ -1,110 +1,30 @@
 <section class="tool" id="nutricion" data-cat="bots"
   data-title="Registro alimentario por conversación"
   data-sector="Producto propio · bienestar"
-  data-summary="Comidas y pesajes registrados escribiendo como se habla, con catálogo de alimentos, lectura de etiquetas y resúmenes según los objetivos de cada persona."
-  data-stack="OpenAI,Telegram,Node.js,SQLite">
+  data-summary="Convertir mensajes sobre comidas y pesajes en registros revisables, distinguir estimaciones y consultar totales desde lo guardado."
+  data-stack="OpenAI,Telegram,Node.js,SQLite" data-status="Implementado">
   <div class="wrap tool-head">
     <p class="eyebrow">Producto propio · bienestar</p>
     <h1>Registro alimentario por conversación</h1>
-    <p class="kind">Bot de Telegram para registro nutricional y seguimiento personal</p>
-    <p class="lead">"Desayuné dos tostadas con queso crema y un café con leche." Con eso alcanza: el bot lo convierte en un registro, marca lo que es estimado y deja corregirlo. Los resúmenes salen de lo guardado, no de la memoria del chat.</p>
+    <p class="kind">Bot de Telegram con catálogo y resumen persistente · Implementado</p>
+    <p class="lead">Convertir mensajes sobre comidas y pesajes en registros revisables, distinguir estimaciones y consultar totales desde lo guardado.</p>
   </div>
-
-  <div class="stage"><div class="wrap shots">
-    <figure class="shot w4">
-      <div class="dev dev-phone" style="--h:640px"><div class="screen">
-        <div class="sbar"><span>8:47</span></div>
-        <div class="tg-head"><span class="back">‹</span><span class="av" style="--c:#15803d">NB</span><div><div class="t">Nutri Bot</div><div class="s">bot</div></div></div>
-        <div class="tg">
-          <div class="tg-feed">
-            <div class="msg out">Desayuné 2 tostadas integrales con queso crema y un café con leche<span class="tm">8:45 ✓✓</span></div>
-            <div class="msg in" style="max-width:92%">
-              <div class="ttl">Desayuno registrado</div>
-              <div class="ln"><span>Pan integral · 2 rebanadas</span><span>152 kcal</span></div>
-              <div class="ln"><span>Queso crema light · 30 g</span><span>58 kcal</span></div>
-              <div class="ln"><span>Café con leche · 250 ml ~</span><span>~95 kcal</span></div>
-              <hr>
-              <div class="ln"><span><b>Total</b></span><span><b>~305 kcal</b></span></div>
-              <div style="font-size:10.5px;color:#7a8a7a;margin-top:4px">~ valor estimado: no indicaste el tipo de leche</div>
-              <span class="tm">8:45</span>
-            </div>
-            <div class="ikb"><div><span>Corregir</span><span>Borrar</span></div></div>
-            <div class="msg out">La leche era descremada<span class="tm">8:46 ✓✓</span></div>
-            <div class="msg in">Listo, actualicé el café con leche descremada: <b>78 kcal</b>. Total del desayuno: <b>288 kcal</b>.<span class="tm">8:46</span></div>
-          </div>
-          <div class="tg-input"><div class="box">Mensaje</div><div class="mic"></div></div>
-        </div>
-      </div></div>
-      <figcaption><b>Registro en lenguaje natural.</b> Usa el catálogo de alimentos cuando puede y marca lo estimado. Se corrige con un mensaje.</figcaption>
-    </figure>
-
-    <figure class="shot w4">
-      <div class="dev dev-phone" style="--h:640px"><div class="screen">
-        <div class="sbar"><span>13:20</span></div>
-        <div class="tg-head"><span class="back">‹</span><span class="av" style="--c:#15803d">NB</span><div><div class="t">Nutri Bot</div><div class="s">bot</div></div></div>
-        <div class="tg">
-          <div class="tg-feed">
-            <div class="msg out"><div style="width:200px;margin:-2px -5px 4px;border-radius:8px;background:#fff;border:1px solid #e5e7eb;padding:8px 10px;font-size:10px;line-height:1.5;color:#111"><div style="font-weight:800;border-bottom:3px solid #111;margin-bottom:3px">INFORMACIÓN NUTRICIONAL</div><div>Porción 30 g (1 barrita)</div><div style="display:flex;justify-content:space-between"><span>Valor energético</span><b>118 kcal</b></div><div style="display:flex;justify-content:space-between"><span>Carbohidratos</span><span>19 g</span></div><div style="display:flex;justify-content:space-between"><span>Proteínas</span><span>3,1 g</span></div><div style="display:flex;justify-content:space-between"><span>Grasas totales</span><span>3,4 g</span></div></div>Esta es la barrita que como a la tarde<span class="tm">13:18 ✓✓</span></div>
-            <div class="msg in">Leí la etiqueta y la guardé en tu catálogo como <b>"Barrita de cereal (marca propia)"</b>: 118 kcal por unidad de 30 g. La próxima vez alcanza con decir "una barrita".<span class="tm">13:19</span></div>
-            <div class="msg out">Peso de hoy 78,4<span class="tm">13:20 ✓✓</span></div>
-            <div class="msg in">Pesaje guardado: <b>78,4 kg</b> (−0,6 kg desde el lunes).<span class="tm">13:20</span></div>
-          </div>
-          <div class="tg-input"><div class="box">Mensaje</div><div class="mic"></div></div>
-        </div>
-      </div></div>
-      <figcaption><b>Etiquetas y pesajes.</b> La lectura de etiquetas suma productos al catálogo personal; los pesajes quedan en el historial.</figcaption>
-    </figure>
-
-    <figure class="shot w4">
-      <div class="dev dev-phone" style="--h:640px"><div class="screen">
-        <div class="sbar"><span>22:05</span></div>
-        <div class="tg-head"><span class="back">‹</span><span class="av" style="--c:#15803d">NB</span><div><div class="t">Nutri Bot</div><div class="s">bot</div></div></div>
-        <div class="tg">
-          <div class="tg-feed">
-            <div class="msg out">¿Cómo vengo hoy?<span class="tm">22:04 ✓✓</span></div>
-            <div class="msg in" style="max-width:92%">
-              <div class="ttl">Resumen · martes 21/10</div>
-              <div class="ln"><span>Objetivo diario</span><span>1.900 kcal</span></div>
-              <div class="ln"><span>Registrado</span><span><b>1.642 kcal</b></span></div>
-              <div style="height:8px;border-radius:5px;background:#e3eadc;margin:5px 0;overflow:hidden"><div style="width:86%;height:100%;background:#4fae4e"></div></div>
-              <div class="ln"><span>Proteínas</span><span>92 g · objetivo 110 g</span></div>
-              <div class="ln"><span>Comidas</span><span>4 · 1 con valores estimados</span></div>
-              <hr>
-              <div>Te quedan unas <b>260 kcal</b>. Si cenás algo liviano con proteína, llegás al objetivo.</div>
-              <span class="tm">22:05</span>
-            </div>
-          </div>
-          <div class="tg-input"><div class="box">Mensaje</div><div class="mic"></div></div>
-        </div>
-      </div></div>
-      <figcaption><b>Resúmenes según objetivos.</b> Calculados desde lo efectivamente guardado, con aviso de qué parte es estimada.</figcaption>
-    </figure>
-  </div></div>
-
+  <div class="wrap"><div class="demo-mount" data-demo="nutricion"></div></div>
   <div class="wrap tool-body">
     <div class="prose">
-      <div class="technical-panel"><h2>Implementación técnica</h2><p>Desarrollé un asistente de Telegram en Node.js que interpreta registros conversacionales con OpenAI. SQLite conserva el historial para consultar registros y resúmenes.</p></div>
-      <h2>Qué hace</h2>
-      <p>Permite registrar comidas y pesajes mediante mensajes cotidianos y consultar resúmenes vinculados al perfil y los objetivos de cada persona. Utiliza un catálogo de alimentos y puede incorporar información de etiquetas nutricionales. El usuario puede corregir o eliminar entradas, distinguir valores estimados y revisar lo registrado sin depender únicamente de la memoria del chat.</p>
-      <p>La persona puede escribir lo que comió de manera cotidiana y ajustar el registro cuando falte algún dato. El historial permite recuperar comidas y pesajes y construir resúmenes a partir de lo efectivamente guardado, con indicación de los valores estimados.</p>
-      <p class="note">Herramienta de registro y seguimiento personal; no reemplaza el acompañamiento de un profesional.</p>
+      <div class="technical-panel"><h2>Implementación técnica</h2><p>El bot resuelve cantidades, unidades y fechas en la zona horaria del usuario. Combina catálogo, preferencias e interpretación con OpenAI; guarda ingestas y pesajes en SQLite con recibos de operación.</p></div>
+      <h2>Qué resuelve</h2><p>Permite registrar lo cotidiano sin completar una planilla, manteniendo trazabilidad sobre la fuente de los valores nutricionales.</p>
+      <h2>Flujo y alcance</h2><p>Incluye catálogo, lectura de etiquetas, correcciones de registros, pesajes y resúmenes diarios. Los totales se calculan sobre la base persistida por persona y fecha.</p>
+      <ul class="points"><li>Marca valores estimados y origen de catálogo o etiqueta.</li><li>Permite revisar registros y corregir referencias temporales.</li><li>Comidas, perfil y pesajes se mantienen separados.</li></ul>
     </div>
-    <aside class="side">
-      <div class="panel">
-        <h3>Recorrido de la información</h3>
-        <div class="flow">
-          <div class="flow-step"><span>Canal</span><div class="items"><b>Telegram</b></div></div>
-          <div class="flow-arrow"></div>
-          <div class="flow-step mid"><span>Interpretación</span><div class="items"><b>OpenAI</b><b>Catálogo de alimentos</b></div></div>
-          <div class="flow-arrow"></div>
-          <div class="flow-step"><span>Registro</span><div class="items"><b>SQLite</b></div></div>
-        </div>
-        <p class="flow-text">Telegram permite cargar y consultar información; OpenAI interpreta mensajes y etiquetas nutricionales. Un catálogo propio de alimentos y SQLite conservan productos, ingestas, pesajes y preferencias de cada usuario.</p>
-      </div>
-      <div class="panel">
-        <h3>Stack tecnológico</h3>
-        <div class="stack"><span class="tag">Node.js</span><span class="tag">OpenAI</span><span class="tag">Telegram</span><span class="tag">SQLite</span></div>
-      </div>
+    <aside class="side"><div class="panel"><h3>Flujo de datos</h3>
+      <div class="flow-step"><div class="items">Mensaje o imagen de etiqueta</div></div>
+      <div class="flow-arrow" aria-hidden="true">↓</div>
+      <div class="flow-step"><div class="items">Interpretación + catálogo</div></div>
+      <div class="flow-arrow" aria-hidden="true">↓</div>
+      <div class="flow-step"><div class="items">SQLite + resumen diario</div></div>
+      <p class="flow-text">Incluye catálogo, lectura de etiquetas, correcciones de registros, pesajes y resúmenes diarios. Los totales se calculan sobre la base persistida por persona y fecha.</p></div>
+      <div class="panel"><h3>Stack</h3><div class="stack"><span class="tag">OpenAI</span><span class="tag">Telegram</span><span class="tag">Node.js</span><span class="tag">SQLite</span></div></div>
     </aside>
   </div>
 </section>

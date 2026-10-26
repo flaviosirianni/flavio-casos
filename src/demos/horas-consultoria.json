@@ -1,0 +1,272 @@
+{
+  "slug": "horas-consultoria",
+  "kind": "form",
+  "title": {
+    "es": "Registro de horas de servicios profesionales",
+    "en": "Professional services time tracking"
+  },
+  "steps": [
+    {
+      "title": {
+        "es": "Elegir proyecto",
+        "en": "Choose project"
+      },
+      "description": {
+        "es": "El catálogo presenta proyectos activos y horas restantes.",
+        "en": "The catalog shows active projects and remaining hours."
+      },
+      "action": {
+        "es": "Agregar trabajo",
+        "en": "Add work"
+      },
+      "view": {
+        "es": {
+          "type": "form",
+          "heading": "Carga de horas",
+          "fields": [
+            {
+              "label": "Consultor",
+              "value": "Consultor A"
+            },
+            {
+              "label": "Cliente",
+              "value": "Cliente A"
+            },
+            {
+              "label": "Proyecto",
+              "value": "Tablero financiero"
+            },
+            {
+              "label": "Horas restantes",
+              "value": "20 h"
+            }
+          ]
+        },
+        "en": {
+          "type": "form",
+          "heading": "Time entry",
+          "fields": [
+            {
+              "label": "Consultant",
+              "value": "Consultant A"
+            },
+            {
+              "label": "Client",
+              "value": "Client A"
+            },
+            {
+              "label": "Project",
+              "value": "Finance dashboard"
+            },
+            {
+              "label": "Remaining hours",
+              "value": "20 h"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Pegar varias filas",
+        "en": "Paste multiple rows"
+      },
+      "description": {
+        "es": "Dos registros de ejemplo para el mismo proyecto.",
+        "en": "Two sample entries for the same project."
+      },
+      "action": {
+        "es": "Validar carga",
+        "en": "Validate upload"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Filas de la semana",
+          "columns": [
+            "Fecha",
+            "Cliente",
+            "Horas",
+            "Descripción"
+          ],
+          "rows": [
+            [
+              "19/10/2026",
+              "Cliente A",
+              "3",
+              "Modelo de datos"
+            ],
+            [
+              "20/10/2026",
+              "Cliente A",
+              "2",
+              "Revisión de métricas"
+            ]
+          ],
+          "metrics": [
+            {
+              "label": "A cargar",
+              "value": "5 h"
+            }
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "Weekly entries",
+          "columns": [
+            "Date",
+            "Client",
+            "Hours",
+            "Description"
+          ],
+          "rows": [
+            [
+              "Oct 19, 2026",
+              "Client A",
+              "3",
+              "Data model"
+            ],
+            [
+              "Oct 20, 2026",
+              "Client A",
+              "2",
+              "Metric review"
+            ]
+          ],
+          "metrics": [
+            {
+              "label": "To upload",
+              "value": "5 h"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Resolver ambigüedad",
+        "en": "Resolve ambiguity"
+      },
+      "description": {
+        "es": "Un cliente con dos proyectos activos requiere selección explícita.",
+        "en": "A client with two active projects requires explicit selection."
+      },
+      "action": {
+        "es": "Confirmar proyecto",
+        "en": "Confirm project"
+      },
+      "view": {
+        "es": {
+          "type": "form",
+          "heading": "Validar proyecto",
+          "fields": [
+            {
+              "label": "Cliente",
+              "value": "Cliente A"
+            },
+            {
+              "label": "Opciones",
+              "value": "Tablero financiero · Presupuesto"
+            },
+            {
+              "label": "Seleccionado",
+              "value": "Tablero financiero"
+            }
+          ],
+          "notice": "No se asigna automáticamente cuando hay varios proyectos activos."
+        },
+        "en": {
+          "type": "form",
+          "heading": "Validate project",
+          "fields": [
+            {
+              "label": "Client",
+              "value": "Client A"
+            },
+            {
+              "label": "Options",
+              "value": "Finance dashboard · Budget"
+            },
+            {
+              "label": "Selected",
+              "value": "Finance dashboard"
+            }
+          ],
+          "notice": "No automatic assignment when several projects are active."
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Actualizar consumo",
+        "en": "Update consumption"
+      },
+      "description": {
+        "es": "Las cinco horas se anexan y el resumen refleja el nuevo saldo.",
+        "en": "The five hours are appended and the summary reflects the new balance."
+      },
+      "action": {
+        "es": "Ver resumen",
+        "en": "View summary"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Resumen del proyecto",
+          "columns": [
+            "Proyecto",
+            "Saldo anterior",
+            "Nueva carga",
+            "Saldo actual"
+          ],
+          "rows": [
+            [
+              "Tablero financiero",
+              "20 h",
+              "5 h",
+              "15 h"
+            ]
+          ],
+          "metrics": [
+            {
+              "label": "Filas guardadas",
+              "value": "2"
+            },
+            {
+              "label": "Aviso Slack",
+              "value": "Preparado"
+            }
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "Project summary",
+          "columns": [
+            "Project",
+            "Previous balance",
+            "New entry",
+            "Current balance"
+          ],
+          "rows": [
+            [
+              "Finance dashboard",
+              "20 h",
+              "5 h",
+              "15 h"
+            ]
+          ],
+          "metrics": [
+            {
+              "label": "Rows saved",
+              "value": "2"
+            },
+            {
+              "label": "Slack notice",
+              "value": "Prepared"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

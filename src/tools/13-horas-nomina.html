@@ -1,107 +1,30 @@
 <section class="tool" id="horas-nomina" data-cat="apps"
   data-title="Preparación y revisión de horas de nómina"
   data-sector="Servicios de campo · EE.UU."
-  data-summary="Fichadas, días libres y feriados combinados con las reglas de cada tipo de empleado, con vista previa, advertencias y corridas auditables."
-  data-stack="Google Apps Script,Google Sheets,Plataforma de BI,BambooHR,HTML,JavaScript,Integraciones de asistencia y RR.HH.">
+  data-summary="Elegir período y empleados, revisar horas y advertencias, y guardar una corrida con sus fuentes y estado de pago."
+  data-stack="Google Apps Script,Google Sheets,BambooHR,HTML,JavaScript,CSV" data-status="Implementado">
   <div class="wrap tool-head">
     <p class="eyebrow">Servicios de campo · EE.UU.</p>
     <h1>Preparación y revisión de horas de nómina</h1>
-    <p class="kind">Webapp interna para preparar y auditar horas de nómina</p>
-    <p class="lead">El operador elige el período y las personas, revisa horas regulares, extras, garantías y advertencias, y recién después confirma la corrida. Cada cálculo confirmado queda guardado tal cual se usó, con su estado de pago.</p>
+    <p class="kind">Webapp de cálculo y archivo de nómina · Implementado</p>
+    <p class="lead">Elegir período y empleados, revisar horas y advertencias, y guardar una corrida con sus fuentes y estado de pago.</p>
   </div>
-
-  <div class="stage"><div class="wrap shots">
-    <figure class="shot w12">
-      <div class="dev dev-browser ui" style="--w:1080px;--brand:#0e7490;--brand-soft:#e0f2f7">
-        <div class="bar"><i></i><i></i><i></i><div class="url">script.google.com · Payroll Hours</div></div>
-        <div class="ui-top"><b>Payroll Hours</b><span class="pill g dot">Data synced · Time Clock through Oct 21</span><span class="grow"></span><span class="btn ghost">Refresh Data</span><span class="btn ghost">Export CSV</span><span class="btn soft">Calculate</span><span class="btn">Post Payroll Run</span></div>
-        <div class="ui-main">
-          <div class="row">
-            <div class="fld"><label>Pay Period Start</label><div class="inp" style="width:140px">10/05/2026</div></div>
-            <div class="fld"><label>Pay Period End</label><div class="inp" style="width:140px">10/18/2026</div></div>
-            <div class="fld"><label>Employee Type</label><div class="row" style="gap:6px"><span class="pill b">Technician ✕</span><span class="pill b">Office Staff ✕</span><span class="pill">Salary</span></div></div>
-            <div class="fld"><label>Employees</label><div class="inp sel" style="width:200px">34 of 34 selected</div></div>
-          </div>
-          <div class="g5">
-            <div class="ui-card kpi"><div class="k">Regular</div><div class="v">2,184.5 h</div></div>
-            <div class="ui-card kpi"><div class="k">Overtime</div><div class="v">96.25 h</div><div class="d mut">closed weeks only</div></div>
-            <div class="ui-card kpi"><div class="k">PTO</div><div class="v">64 h</div></div>
-            <div class="ui-card kpi"><div class="k">Holiday</div><div class="v">32 h</div></div>
-            <div class="ui-card kpi" style="border-color:#f5c26b;background:#fffaf0"><div class="k">Warnings</div><div class="v" style="color:#8a5a00">3</div><div class="d mut">review before posting</div></div>
-          </div>
-          <table class="tbl">
-            <tr><th>Employee</th><th>Type</th><th class="num">Regular</th><th class="num">OT</th><th class="num">Guarantee</th><th class="num">PTO</th><th class="num">Holiday</th><th>Warnings</th></tr>
-            <tr><td><b>Jake Miller</b></td><td>Technician</td><td class="num">80.00</td><td class="num">6.50</td><td class="num"></td><td class="num">0</td><td class="num">0</td><td></td></tr>
-            <tr><td><b>Ashley Brooks</b></td><td>Technician</td><td class="num">72.25</td><td class="num">0</td><td class="num">7.75</td><td class="num">0</td><td class="num">0</td><td><span class="pill y">Guarantee applied</span></td></tr>
-            <tr class="sel"><td><b>Ryan Cooper</b></td><td>Technician</td><td class="num">64.00</td><td class="num">2.25</td><td class="num"></td><td class="num">16</td><td class="num">0</td><td><span class="pill y">Missing punch · 10/14</span></td></tr>
-            <tr><td><b>Megan Price</b></td><td>Office Staff</td><td class="num">72.00</td><td class="num">0</td><td class="num"></td><td class="num">0</td><td class="num">8</td><td></td></tr>
-            <tr><td><b>Brandon Hughes</b></td><td>Technician</td><td class="num">80.00</td><td class="num">11.75</td><td class="num"></td><td class="num">0</td><td class="num">0</td><td><span class="pill r">OT already paid in run #41</span></td></tr>
-          </table>
-        </div>
-      </div>
-      <figcaption><b>Vista previa del período.</b> Reglas por tipo de empleado, horas extra solo de semanas cerradas y advertencias que se revisan antes de confirmar.</figcaption>
-    </figure>
-
-    <figure class="shot w12">
-      <div class="dev dev-browser ui" style="--w:1040px;--brand:#0e7490;--brand-soft:#e0f2f7">
-        <div class="bar"><i></i><i></i><i></i><div class="url">script.google.com · Payroll Hours · Posted Runs</div></div>
-        <div style="display:grid;grid-template-columns:360px 1fr">
-          <div style="border-right:1px solid var(--s-line);padding:14px 16px;display:flex;flex-direction:column;gap:10px">
-            <div class="ui-h2">Posted Runs</div>
-            <table class="tbl" style="font-size:11.5px">
-              <tr><th>#</th><th>Period</th><th>Posted</th><th>Status</th></tr>
-              <tr class="sel"><td>43</td><td>Oct 05 to Oct 18</td><td>Oct 21</td><td><span class="pill b">Posted</span></td></tr>
-              <tr><td>42</td><td>Sep 21 to Oct 04</td><td>Oct 07</td><td><span class="pill g">Paid</span></td></tr>
-              <tr><td>41</td><td>Sep 07 to Sep 20</td><td>Sep 23</td><td><span class="pill g">Paid</span></td></tr>
-              <tr><td>40b</td><td>Sep 07 to Sep 20</td><td>Sep 22</td><td><span class="pill">Deleted</span></td></tr>
-              <tr><td>39</td><td>Aug 24 to Sep 06</td><td>Sep 09</td><td><span class="pill g">Paid</span></td></tr>
-            </table>
-            <div class="row"><span class="btn sm">Mark as Paid</span><span class="btn ghost sm">Open snapshot</span><span class="btn ghost sm">Delete</span></div>
-            <div class="xs mut">Snapshots are stored as posted; they are never recalculated.</div>
-          </div>
-          <div class="ui-main">
-            <div class="row"><div class="ui-h2">Employee Detail · Ryan Cooper</div><span class="grow"></span><span class="pill b">Run #43</span></div>
-            <table class="tbl" style="font-size:11.5px">
-              <tr><th>Date</th><th>Week</th><th>Kind</th><th class="num">Hours</th><th>PTO Category</th><th>Week Closed</th><th class="num">Included OT</th></tr>
-              <tr><td>Mon 10/05</td><td>W41</td><td>Time Clock</td><td class="num">8.25</td><td></td><td>Yes</td><td class="num">0</td></tr>
-              <tr><td>Tue 10/06</td><td>W41</td><td>Time Clock</td><td class="num">9.00</td><td></td><td>Yes</td><td class="num">0</td></tr>
-              <tr><td>Fri 10/09</td><td>W41</td><td>Time Clock</td><td class="num">10.50</td><td></td><td>Yes</td><td class="num">2.25</td></tr>
-              <tr><td>Mon 10/12</td><td>W42</td><td>PTO</td><td class="num">8.00</td><td>Vacation</td><td>Yes</td><td class="num">0</td></tr>
-              <tr><td>Tue 10/13</td><td>W42</td><td>PTO</td><td class="num">8.00</td><td>Vacation</td><td>Yes</td><td class="num">0</td></tr>
-              <tr style="background:#fffaf0"><td>Wed 10/14</td><td>W42</td><td>Time Clock</td><td class="num">4.00</td><td></td><td>Yes</td><td class="num">0</td></tr>
-            </table>
-            <div class="ui-card soft sm"><b>Warning:</b> single punch on 10/14 (clock-in 7:58, no clock-out). Hours capped at 4.00 until corrected in the source.</div>
-          </div>
-        </div>
-      </div>
-      <figcaption><b>Corridas auditables.</b> Cada corrida guarda su copia, se marca pagada o se anula sin borrar el historial, y un registro evita reconocer dos veces la misma hora extra.</figcaption>
-    </figure>
-  </div></div>
-
+  <div class="wrap"><div class="demo-mount" data-demo="horas-nomina"></div></div>
   <div class="wrap tool-body">
     <div class="prose">
-      <div class="technical-panel"><h2>Implementación técnica</h2><p>Desarrollé una herramienta de preparación y revisión de horas con Apps Script y una interfaz web. Integré datos operativos, reglas de cálculo y salidas auditables; el sistema prepara horas y no ejecuta pagos.</p></div>
-      <h2>Qué hace</h2>
-      <p>Combina fichadas, días libres y feriados para calcular las horas del período según las reglas de cada tipo de empleado. Permite revisar horas regulares, extraordinarias, garantías y advertencias antes de confirmar una corrida. Conserva una copia de cada cálculo y controla horas extra ya reconocidas. Los operadores pueden consultar corridas anteriores, exportarlas y registrar su estado de pago o anulación.</p>
-      <p>El operador selecciona el período y las personas, revisa el detalle diario y semanal y confirma una corrida cuando está lista. Las advertencias permiten investigar situaciones particulares y el historial evita perder la referencia de qué cálculo se utilizó en cada cierre.</p>
-      <p class="note">Calcula y documenta horas; los importes y el pago se resuelven en el sistema de nómina.</p>
+      <div class="technical-panel"><h2>Implementación técnica</h2><p>El cálculo corre en el servidor sobre snapshots de fichadas, PTO y feriados. Aplica reglas por tipo de empleado y consulta un registro de horas extra ya incluidas en corridas anteriores.</p></div>
+      <h2>Qué resuelve</h2><p>Reúne fuentes dispersas y hace visible cómo se componen las horas a pagar antes de confirmar la corrida.</p>
+      <h2>Flujo y alcance</h2><p>La vista previa permite filtrar y exportar CSV. Al confirmar se guardan líneas y fechas de origen; una corrida guardada puede revisarse y marcarse como pagada sin recalcularla.</p>
+      <ul class="points"><li>Horas extra calculadas solo sobre semanas cerradas.</li><li>PTO y feriados separados del tiempo trabajado para horas extra.</li><li>Advertencias por datos incompletos y coincidencia entre trabajo y PTO.</li></ul>
     </div>
-    <aside class="side">
-      <div class="panel">
-        <h3>Recorrido de la información</h3>
-        <div class="flow">
-          <div class="flow-step"><span>Fuentes</span><div class="items"><b>Plataforma de BI</b><b>BambooHR (días libres y feriados)</b></div></div>
-          <div class="flow-arrow"></div>
-          <div class="flow-step mid"><span>Cálculo y almacenamiento</span><div class="items"><b>Google Apps Script</b><b>Google Sheets</b></div></div>
-          <div class="flow-arrow"></div>
-          <div class="flow-step"><span>Salidas</span><div class="items"><b>App de revisión</b><b>Archivo para la nómina</b></div></div>
-        </div>
-        <p class="flow-text">La plataforma de BI suministra datasets de empleados y fichadas, además de datos de PTO y feriados provenientes de BambooHR. Google Sheets almacena las fuentes y las corridas; la webapp presenta el cálculo y permite exportarlo a CSV.</p>
-      </div>
-      <div class="panel">
-        <h3>Stack tecnológico</h3>
-        <div class="stack"><span class="tag">Google Apps Script</span><span class="tag">Google Sheets</span><span class="tag">HTML</span><span class="tag">JavaScript</span><span class="tag">Integraciones de asistencia y RR.HH.</span></div>
-      </div>
+    <aside class="side"><div class="panel"><h3>Flujo de datos</h3>
+      <div class="flow-step"><div class="items">Fichadas + PTO + feriados</div></div>
+      <div class="flow-arrow" aria-hidden="true">↓</div>
+      <div class="flow-step"><div class="items">Cálculo y revisión</div></div>
+      <div class="flow-arrow" aria-hidden="true">↓</div>
+      <div class="flow-step"><div class="items">Corrida guardada + registro de extras</div></div>
+      <p class="flow-text">La vista previa permite filtrar y exportar CSV. Al confirmar se guardan líneas y fechas de origen; una corrida guardada puede revisarse y marcarse como pagada sin recalcularla.</p></div>
+      <div class="panel"><h3>Stack</h3><div class="stack"><span class="tag">Google Apps Script</span><span class="tag">Google Sheets</span><span class="tag">BambooHR</span><span class="tag">HTML</span><span class="tag">JavaScript</span><span class="tag">CSV</span></div></div>
     </aside>
   </div>
 </section>

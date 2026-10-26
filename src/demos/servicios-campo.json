@@ -1,0 +1,292 @@
+{
+  "slug": "servicios-campo",
+  "kind": "pipeline",
+  "title": {
+    "es": "Actualización de tareas de servicios de campo",
+    "en": "Field service task synchronization"
+  },
+  "steps": [
+    {
+      "title": {
+        "es": "Buscar cambios",
+        "en": "Find changes"
+      },
+      "description": {
+        "es": "Una ventana incremental devuelve IDs de tareas para revisar.",
+        "en": "An incremental window returns task IDs to review."
+      },
+      "action": {
+        "es": "Recuperar detalles",
+        "en": "Retrieve details"
+      },
+      "view": {
+        "es": {
+          "type": "pipeline",
+          "heading": "Consulta incremental",
+          "nodes": [
+            {
+              "label": "Buscar IDs",
+              "status": "done"
+            },
+            {
+              "label": "Detalles por lotes",
+              "status": "active"
+            },
+            {
+              "label": "Actualizar planilla",
+              "status": "pending"
+            }
+          ],
+          "log": [
+            "IDs recibidos: T-201, T-202, T-203.",
+            "Directorio de empleados disponible."
+          ]
+        },
+        "en": {
+          "type": "pipeline",
+          "heading": "Incremental query",
+          "nodes": [
+            {
+              "label": "Search IDs",
+              "status": "done"
+            },
+            {
+              "label": "Batched details",
+              "status": "active"
+            },
+            {
+              "label": "Update sheet",
+              "status": "pending"
+            }
+          ],
+          "log": [
+            "IDs received: T-201, T-202, T-203.",
+            "Employee directory available."
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Resolver y filtrar",
+        "en": "Resolve and filter"
+      },
+      "description": {
+        "es": "Los nombres reemplazan IDs de responsables y el feedback queda excluido.",
+        "en": "Names replace owner IDs and feedback is excluded."
+      },
+      "action": {
+        "es": "Aplicar cambios",
+        "en": "Apply changes"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Detalles recuperados",
+          "columns": [
+            "Tarea",
+            "Categoría",
+            "Responsable",
+            "Destino"
+          ],
+          "rows": [
+            [
+              "T-201",
+              "Seguimiento",
+              "Técnico A",
+              "Actualizar"
+            ],
+            [
+              "T-202",
+              "Inspección",
+              "Técnico B",
+              "Insertar"
+            ],
+            [
+              "T-203",
+              "Feedback",
+              "Técnico A",
+              "Excluir"
+            ]
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "Retrieved details",
+          "columns": [
+            "Task",
+            "Category",
+            "Owner",
+            "Destination"
+          ],
+          "rows": [
+            [
+              "T-201",
+              "Follow-up",
+              "Technician A",
+              "Update"
+            ],
+            [
+              "T-202",
+              "Inspection",
+              "Technician B",
+              "Insert"
+            ],
+            [
+              "T-203",
+              "Feedback",
+              "Technician A",
+              "Exclude"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Actualizar por ID",
+        "en": "Update by ID"
+      },
+      "description": {
+        "es": "La tarea existente cambia de estado sin crear una segunda fila.",
+        "en": "The existing task changes status without creating a second row."
+      },
+      "action": {
+        "es": "Revisar tabla",
+        "en": "Review table"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Tareas operativas",
+          "columns": [
+            "ID",
+            "Responsable",
+            "Estado",
+            "Cambio"
+          ],
+          "rows": [
+            [
+              "T-201",
+              "Técnico A",
+              "Completada",
+              "Fila actualizada"
+            ],
+            [
+              "T-202",
+              "Técnico B",
+              "Pendiente",
+              "Fila nueva"
+            ]
+          ],
+          "highlight": 0
+        },
+        "en": {
+          "type": "table",
+          "heading": "Operational tasks",
+          "columns": [
+            "ID",
+            "Owner",
+            "Status",
+            "Change"
+          ],
+          "rows": [
+            [
+              "T-201",
+              "Technician A",
+              "Completed",
+              "Row updated"
+            ],
+            [
+              "T-202",
+              "Technician B",
+              "Pending",
+              "New row"
+            ]
+          ],
+          "highlight": 0
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Guardar avance",
+        "en": "Save progress"
+      },
+      "description": {
+        "es": "El resumen distingue inserciones, actualizaciones, exclusiones y fallos.",
+        "en": "The summary distinguishes inserts, updates, exclusions and failures."
+      },
+      "action": {
+        "es": "Ver resumen de corrida",
+        "en": "View run summary"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Resultado de sincronización",
+          "columns": [
+            "Resultado",
+            "Cantidad"
+          ],
+          "rows": [
+            [
+              "Insertadas",
+              "1"
+            ],
+            [
+              "Actualizadas",
+              "1"
+            ],
+            [
+              "Feedback excluido",
+              "1"
+            ],
+            [
+              "Fallidas",
+              "0"
+            ]
+          ],
+          "metrics": [
+            {
+              "label": "Marcador",
+              "value": "Actualizado"
+            }
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "Synchronization result",
+          "columns": [
+            "Result",
+            "Count"
+          ],
+          "rows": [
+            [
+              "Inserted",
+              "1"
+            ],
+            [
+              "Updated",
+              "1"
+            ],
+            [
+              "Feedback excluded",
+              "1"
+            ],
+            [
+              "Failed",
+              "0"
+            ]
+          ],
+          "metrics": [
+            {
+              "label": "Marker",
+              "value": "Updated"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

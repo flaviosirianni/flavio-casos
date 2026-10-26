@@ -1,99 +1,21 @@
-<section class="tool" id="entrenamiento" data-cat="prod" data-status="Beta"
-  data-title="Registro y seguimiento de entrenamiento"
-  data-sector="Producto propio · fitness"
-  data-summary="PWA en beta para registrar ejercicios, consultar el progreso y trabajar offline, con cuentas privadas y sincronización en Supabase."
-  data-stack="React,TypeScript,Vite,Supabase,PostgreSQL,Dexie,IndexedDB,PWA,Vitest,Playwright">
+<section class="tool" id="entrenamiento" data-cat="prod" data-title="Registro y seguimiento de entrenamiento" data-sector="Producto propio · fitness" data-summary="PWA en beta con registro de series, historial privado y sincronización tras trabajar sin conexión." data-stack="React,TypeScript,Vite,Supabase,PostgreSQL,Dexie,IndexedDB,PWA" data-status="Beta">
   <div class="wrap tool-head">
     <p class="eyebrow">Producto propio · fitness</p>
     <h1>Registro y seguimiento de entrenamiento</h1>
-    <p class="kind">Aplicación web progresiva para registrar sesiones y revisar el progreso</p>
-    <div class="meta-row"></div>
-    <p class="lead">Aplicación en beta para registrar ejercicios entre series, consultar la sesión anterior y seguir el progreso. Funciona como web y PWA, con guardado offline y sincronización al recuperar conexión. Las pantallas siguientes son recreaciones ilustrativas del flujo.</p>
+    <p class="kind">PWA móvil en beta por invitación</p>
+    <p class="lead">PWA en beta con registro de series, historial privado y sincronización tras trabajar sin conexión.</p>
   </div>
-
-  <div class="stage"><div class="wrap shots">
-    <figure class="shot w4">
-      <div class="dev dev-phone ui" style="--h:620px;--brand:#ea580c;--brand-soft:#fff1e7"><div class="screen" style="background:#0f1115;color:#f3f4f6">
-        <div class="sbar"><span>19:22</span></div>
-        <div style="padding:4px 16px 10px"><div class="xs" style="color:#9ca3af">Sesión en curso · 38 min</div><div style="font-size:18px;font-weight:700">Prensa 45°</div><div class="xs" style="color:#9ca3af">Máquina 12 · piernas</div></div>
-        <div style="flex:1;padding:0 14px;display:flex;flex-direction:column;gap:10px">
-          <div style="background:#1b1e24;border-radius:12px;padding:10px 12px;font-size:12px"><div style="color:#9ca3af" class="xs">LA VEZ ANTERIOR · jue 16/10</div><div style="margin-top:3px"><b>3 × 10</b> con <b>120 kg</b></div></div>
-          <div class="xs" style="color:#9ca3af;letter-spacing:.06em">HOY</div>
-          <div style="display:grid;grid-template-columns:30px 1fr 1fr 34px;gap:6px;align-items:center;font-size:12.5px">
-            <span style="color:#9ca3af">1</span><span style="background:#1b1e24;border-radius:8px;padding:8px;text-align:center"><b>125</b> kg</span><span style="background:#1b1e24;border-radius:8px;padding:8px;text-align:center"><b>10</b> reps</span><span style="color:#22c55e;text-align:center">✓</span>
-            <span style="color:#9ca3af">2</span><span style="background:#1b1e24;border-radius:8px;padding:8px;text-align:center"><b>125</b> kg</span><span style="background:#1b1e24;border-radius:8px;padding:8px;text-align:center"><b>9</b> reps</span><span style="color:#22c55e;text-align:center">✓</span>
-            <span style="color:#9ca3af">3</span><span style="background:#2a1a10;border:1px solid #ea580c;border-radius:8px;padding:8px;text-align:center"><b>125</b> kg</span><span style="background:#1b1e24;border-radius:8px;padding:8px;text-align:center"><b>—</b></span><span></span>
-          </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px"><span style="background:#1b1e24;border-radius:10px;padding:12px;text-align:center;font-weight:700">−2,5</span><span style="background:#1b1e24;border-radius:10px;padding:12px;text-align:center;font-weight:700">+2,5</span><span style="background:#1b1e24;border-radius:10px;padding:12px;text-align:center;font-weight:700">+5</span></div>
-          <div class="xs" style="color:#22c55e">▲ +5 kg respecto de la vez anterior</div>
-        </div>
-        <div style="padding:12px 14px 22px"><span class="btn" style="width:100%;padding:12px">Guardar serie</span></div>
-      </div></div>
-      <figcaption><b>Carga entre series.</b> Lo de la vez anterior arriba, ajustes rápidos de peso y la comparación al instante.</figcaption>
-    </figure>
-
-    <figure class="shot w4">
-      <div class="dev dev-phone ui" style="--h:620px;--brand:#ea580c"><div class="screen" style="background:#0f1115;color:#f3f4f6">
-        <div class="sbar"><span>20:05</span></div>
-        <div style="padding:4px 16px 10px"><div style="font-size:18px;font-weight:700">Progreso</div><div class="xs" style="color:#9ca3af">Prensa 45° · últimas 8 sesiones</div></div>
-        <div style="padding:0 14px;display:flex;flex-direction:column;gap:12px">
-          <div style="background:#1b1e24;border-radius:12px;padding:10px 10px 4px">
-            <div class="chart" data-type="line" data-area="1" data-w="260" data-h="130" data-min="90" data-labels="1|2|3|4|5|6|7|8" data-suf=" kg" data-series='[{"values":[100,105,105,110,115,115,120,125],"color":"#ea580c"}]'></div>
-          </div>
-          <div class="g2" style="gap:8px">
-            <div style="background:#1b1e24;border-radius:12px;padding:10px"><div class="xs" style="color:#9ca3af">Mejor serie</div><div style="font-size:18px;font-weight:700">125 × 10</div></div>
-            <div style="background:#1b1e24;border-radius:12px;padding:10px"><div class="xs" style="color:#9ca3af">Volumen hoy</div><div style="font-size:18px;font-weight:700">3.625 kg</div></div>
-          </div>
-          <div class="xs" style="color:#9ca3af;letter-spacing:.06em">RUTINA DE HOY</div>
-          <div style="background:#1b1e24;border-radius:12px;padding:4px 12px;font-size:12.5px">
-            <div class="row" style="padding:8px 0;border-bottom:1px solid #2a2e36"><span class="grow">Prensa 45°</span><span style="color:#22c55e">3/3</span></div>
-            <div class="row" style="padding:8px 0;border-bottom:1px solid #2a2e36"><span class="grow">Sillón de cuádriceps</span><span style="color:#9ca3af">0/3</span></div>
-            <div class="row" style="padding:8px 0"><span class="grow">Cinta · 15 min</span><span style="color:#9ca3af">cardio</span></div>
-          </div>
-        </div>
-      </div></div>
-      <figcaption><b>Progreso por máquina.</b> Evolución de carga, mejores series y la rutina que se arma durante la sesión.</figcaption>
-    </figure>
-
-    <figure class="shot w4">
-      <div class="dev dev-doc" style="--w:360px;padding:26px 28px">
-        <div class="xs mut mono">SPEC.md · modelo de información</div>
-        <div style="font-size:16px;font-weight:700;margin:8px 0 12px">Definición antes de construir</div>
-        <div class="col" style="gap:8px;font-size:12px">
-          <div class="ui-card soft"><b>Máquina</b> · nombre, grupo muscular, foto</div>
-          <div class="ui-card soft"><b>Ejercicio</b> · fuerza (peso × reps) o cardio (minutos)</div>
-          <div class="ui-card soft"><b>Sesión</b> · fecha, rutina, series, estado</div>
-          <div class="ui-card soft"><b>Regla de comparación</b> · contra la última sesión del mismo ejercicio</div>
-          <div class="xs mut">Persistencia offline con IndexedDB y sincronización con Supabase.</div>
-        </div>
-      </div>
-      <figcaption><b>Producto definido.</b> Flujos, reglas y modelo de datos documentados para la etapa de desarrollo.</figcaption>
-    </figure>
-  </div></div>
-
+  <div class="wrap"><div class="demo-mount" data-demo="entrenamiento"></div></div>
   <div class="wrap tool-body">
     <div class="prose">
-      <div class="technical-panel"><h2>Implementación técnica</h2><p>Desarrollé una PWA con React, TypeScript y Vite. Dexie/IndexedDB conserva registros offline; Supabase proporciona autenticación y PostgreSQL con políticas por usuario. Implementé sincronización y validaciones con Vitest y Playwright. La aplicación está en beta.</p></div>
-      <h2>Qué hace</h2>
-      <p>Aplicación web en beta para registrar repeticiones, peso y cardio, organizar rutinas y revisar progreso por ejercicio. El primer acceso requiere conexión; después permite guardar registros offline y sincronizarlos mientras la aplicación está abierta.</p>
-      <p>La beta dispone de cuentas por invitación, catálogo de ejercicios y fotos privadas. Las funciones de IA y una app nativa de iPhone corresponden a etapas posteriores.</p>
+      <div class="technical-panel"><h2>Implementación técnica</h2><p>Desarrollé una PWA en React y TypeScript con reglas de dominio independientes de la interfaz. Dexie conserva los registros por cuenta en IndexedDB; Supabase sincroniza revisiones y guarda fotos privadas.</p></div>
+      <h2>Qué resuelve</h2><p>Registrar una sesión entre series debe ser rápido y funcionar sin señal. La app permite cargar peso y repeticiones, recuperar la sesión anterior y consultar el progreso por ejercicio.</p>
+      <h2>Recorrido y alcance</h2><p>La beta funciona desde el navegador del teléfono con acceso por invitación. Primero guarda localmente y luego sincroniza una cola de cambios. Si hay ediciones concurrentes, conserva un conflicto revisable en vez de sobrescribir silenciosamente.</p>
+      <ul class="points"><li>Sesiones, rutinas y catálogo personal de ejercicios.</li><li>Guardado local por cuenta y fotos privadas.</li><li>Historial y comparaciones por ejercicio.</li></ul>
     </div>
     <aside class="side">
-      <div class="panel">
-        <h3>Recorrido de la información</h3>
-        <div class="flow">
-          <div class="flow-step"><span>Interfaz</span><div class="items"><b>React + TypeScript</b></div></div>
-          <div class="flow-arrow"></div>
-          <div class="flow-step mid"><span>Datos</span><div class="items"><b>Dexie / IndexedDB</b></div></div>
-          <div class="flow-arrow"></div>
-          <div class="flow-step"><span>Sincronización y cuentas</span><div class="items"><b>Supabase / PostgreSQL</b></div></div>
-        </div>
-        <p class="flow-text">La PWA guarda los registros en IndexedDB y sincroniza con Supabase. La base aplica políticas por usuario; las funciones de IA quedan para una etapa posterior.</p>
-      </div>
-      <div class="panel">
-        <h3>Stack tecnológico</h3>
-        <div class="stack"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Vite</span><span class="tag">Supabase</span><span class="tag">PostgreSQL</span><span class="tag">Dexie</span><span class="tag">IndexedDB</span><span class="tag">PWA</span><span class="tag">Vitest</span><span class="tag">Playwright</span></div>
-      </div>
+      <div class="panel"><h3>Recorrido de la información</h3><div class="flow"><div class="flow-step"><span>Registro</span><div class="items"><b>React</b><b>TypeScript</b></div></div><div class="flow-arrow"></div><div class="flow-step"><span>Guardado local</span><div class="items"><b>Dexie</b><b>IndexedDB</b></div></div><div class="flow-arrow"></div><div class="flow-step"><span>Sincronización</span><div class="items"><b>Supabase</b><b>PostgreSQL</b></div></div></div><p class="flow-text">La beta funciona desde el navegador del teléfono con acceso por invitación. Primero guarda localmente y luego sincroniza una cola de cambios. Si hay ediciones concurrentes, conserva un conflicto revisable en vez de sobrescribir silenciosamente.</p></div>
+      <div class="panel"><h3>Stack tecnológico</h3><div class="stack"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Vite</span><span class="tag">Supabase</span><span class="tag">PostgreSQL</span><span class="tag">Dexie</span><span class="tag">IndexedDB</span><span class="tag">PWA</span></div></div>
     </aside>
   </div>
 </section>

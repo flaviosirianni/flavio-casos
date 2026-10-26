@@ -1,0 +1,44 @@
+<section class="tool" id="asistente-negocio" data-cat="bots"
+  data-title="Business queries through a chat assistant"
+  data-sector="Commercial operations · internal queries"
+  data-summary="Sales, receipts and balance queries in Telegram, with read-only SQL and a collections schedule."
+  data-stack="Python,FastAPI,OpenAI,Telegram,BigQuery,Firestore,SQL,Cloud Run,Cloud Scheduler" data-status="">
+  <div class="wrap tool-head">
+    <p class="eyebrow">Commercial operations · internal queries</p>
+    <h1>Business queries through a chat assistant</h1>
+    <p class="kind">Assistant connected to an analytics warehouse</p>
+    <p class="lead">An everyday question becomes a query against prepared data. The answer states the period and can continue with details or an export.</p>
+  </div>
+  <div class="wrap"><div class="demo-mount" data-demo="asistente-negocio"></div></div>
+  <div class="wrap tool-body">
+    <div class="prose">
+      <div class="technical-panel"><h2>Technical implementation</h2><p>I built the Telegram → planning → SQL generation and validation → BigQuery → response flow. It includes conversational context in Firestore, query validation and output file generation.</p></div>
+      <h2>What it solves</h2>
+      <p>It makes sales, receipts, purchases and debt accessible to users who need answers without writing SQL. The collections schedule uses specific rules and tables alongside open-ended queries.</p>
+      <h2>Flow and scope</h2>
+      <p>The assistant interprets the question, consults the catalog and validates SQL before reading BigQuery. It can preserve context for follow-ups and export results; it does not record payments or alter the ERP.</p>
+      <ul class="points">
+        <li>Validation of SELECT/WITH queries, permitted datasets and estimated cost through a dry run.</li>
+        <li>Period comparisons using comparable data coverage.</li>
+        <li>Collections scheduling and XLSX/PDF exports are implemented.</li>
+      </ul>
+    </div>
+    <aside class="side">
+      <div class="panel">
+        <h3>Data flow</h3>
+        <div class="flow">
+          <div class="flow-step"><span>Source</span><div class="items"><b>Telegram question</b></div></div>
+          <div class="flow-arrow"></div>
+<div class="flow-step"><span>Processing</span><div class="items"><b>Validated SQL and BigQuery</b></div></div>
+          <div class="flow-arrow"></div>
+<div class="flow-step"><span>Output</span><div class="items"><b>Answer and file</b></div></div>
+        </div>
+        <p class="flow-text">The model proposes the query; validation and BigQuery determine which data can be returned.</p>
+      </div>
+      <div class="panel">
+        <h3>Technology stack</h3>
+        <div class="stack"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">OpenAI</span><span class="tag">Telegram</span><span class="tag">BigQuery</span><span class="tag">Firestore</span><span class="tag">SQL</span><span class="tag">Cloud Run</span><span class="tag">Cloud Scheduler</span></div>
+      </div>
+    </aside>
+  </div>
+</section>

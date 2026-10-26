@@ -1,72 +1,21 @@
-<section class="tool" id="planificacion-compras" data-cat="datos" data-status="En validación"
-  data-title="Planificación de compras e inventario"
-  data-sector="Retail · cadena de tiendas · EE.UU."
-  data-summary="Un modelo que proyecta el inventario de cierre y calcula cuánto se puede comprar por departamento y ubicación, contra presupuesto y año anterior."
-  data-stack="SQL,Plataforma de BI,ERP,Planificación de inventario,Python,CSV,APIs de plataformas de BI">
+<section class="tool" id="planificacion-compras" data-cat="datos" data-title="Planificación de compras e inventario" data-sector="Retail · cadena de tiendas · EE. UU." data-summary="Modelo mensual que proyecta inventario y calcula margen de compra por categoría y ubicación." data-stack="SQL,Python,CSV,BI APIs" data-status="En validación">
   <div class="wrap tool-head">
-    <p class="eyebrow">Retail · cadena de tiendas · EE.UU.</p>
+    <p class="eyebrow">Retail · cadena de tiendas · EE. UU.</p>
     <h1>Planificación de compras e inventario</h1>
-    <p class="kind">Modelo analítico de planificación de compras dentro de una plataforma BI, en integración y validación</p>
-    <div class="meta-row"></div>
-    <p class="lead">¿Cuánto más podemos comprar este mes sin pasarnos del inventario presupuestado? El modelo cruza existencias, órdenes abiertas, recepciones, ventas y presupuesto para responderlo por departamento, clase y tienda.</p>
+    <p class="kind">Modelo analítico de inventario en validación</p>
+    <p class="lead">Modelo mensual que proyecta inventario y calcula margen de compra por categoría y ubicación.</p>
   </div>
-
-  <div class="stage"><div class="wrap shots">
-    <figure class="shot w12">
-      <div class="dev dev-browser ui" style="--w:1080px;--brand:#0369a1;--brand-soft:#e0f0fa">
-        <div class="bar"><i></i><i></i><i></i><div class="url">BI · Open to Buy · Monthly</div></div>
-        <div class="ui-top"><b>Open to Buy</b><span class="pill">Department: Apparel</span><span class="pill">Location: All stores</span><span class="grow"></span><span class="seg"><span class="on">Units $</span><span>vs Budget</span><span>vs LY</span></span></div>
-        <div class="ui-main">
-          <table class="tbl" style="font-size:11.5px">
-            <tr><th>Class</th><th>Month</th><th class="num">Opening inv.</th><th class="num">On order</th><th class="num">Receipts</th><th class="num">Sales</th><th class="num">Markdowns</th><th class="num">Projected EOM</th><th class="num">Budget EOM</th><th class="num">OTB</th></tr>
-            <tr><td>Boardshorts</td><td>Oct · actual</td><td class="num">$412,300</td><td class="num">$38,900</td><td class="num">$61,200</td><td class="num">$118,400</td><td class="num">$9,800</td><td class="num">$345,300</td><td class="num">$360,000</td><td class="num up b">$14,700</td></tr>
-            <tr><td>Boardshorts</td><td>Nov · plan</td><td class="num">$345,300</td><td class="num">$52,000</td><td class="num">$52,000</td><td class="num">$96,000</td><td class="num">$12,500</td><td class="num">$288,800</td><td class="num">$310,000</td><td class="num up b">$21,200</td></tr>
-            <tr><td>Graphic tees</td><td>Oct · actual</td><td class="num">$228,700</td><td class="num">$71,400</td><td class="num">$44,100</td><td class="num">$69,300</td><td class="num">$4,200</td><td class="num">$270,700</td><td class="num">$245,000</td><td class="num down b">−$25,700</td></tr>
-            <tr><td>Graphic tees</td><td>Nov · plan</td><td class="num">$270,700</td><td class="num">$27,300</td><td class="num">$27,300</td><td class="num">$58,000</td><td class="num">$6,000</td><td class="num">$234,000</td><td class="num">$230,000</td><td class="num down b">−$4,000</td></tr>
-            <tr><td>Rash guards</td><td>Oct · actual</td><td class="num">$96,400</td><td class="num">$8,200</td><td class="num">$12,900</td><td class="num">$21,700</td><td class="num">$1,100</td><td class="num">$86,500</td><td class="num">$95,000</td><td class="num up b">$8,500</td></tr>
-          </table>
-          <div class="xs mut">On order and received merchandise are tracked separately to avoid double counting. Sample figures.</div>
-        </div>
-      </div>
-      <figcaption><b>Capacidad de compra por clase y mes.</b> Separa compromisos abiertos de mercadería ya recibida y acumula el Open to Buy desde el mes en curso. Cifras de ejemplo.</figcaption>
-    </figure>
-
-    <figure class="shot w12">
-      <div class="dev dev-browser ui" style="--w:960px;--brand:#0369a1">
-        <div class="bar"><i></i><i></i><i></i><div class="url">BI · Inventory vs Budget vs Last Year</div></div>
-        <div class="ui-main">
-          <div class="ui-h2">End-of-month inventory · Apparel · all stores</div>
-          <div class="chart" data-type="line" data-locale="en-US" data-w="900" data-h="210" data-fmt="k" data-pre="$" data-min="600000" data-labels="Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec" data-series='[{"values":[820000,860000,910000,980000,1020000,990000,940000,900000,880000,870000],"color":"#0369a1"},{"values":[840000,870000,900000,960000,1000000,1000000,960000,920000,890000,860000,830000,790000],"color":"#94a3b8","dash":1},{"values":[800000,850000,920000,1010000,1060000,1030000,970000,910000,870000,850000,820000,760000],"color":"#f59e0b","width":1.5},{"values":[null,null,null,null,null,null,null,null,null,870000,845000,800000],"color":"#0369a1","dash":1}]'></div>
-          <div class="legend"><span><i style="--c:#0369a1"></i>Actual + projected</span><span><i style="--c:#94a3b8"></i>Budget</span><span><i style="--c:#f59e0b"></i>Last year</span></div>
-        </div>
-      </div>
-      <figcaption><b>Real, presupuesto y año anterior.</b> Las comparaciones muestran cómo cambia la capacidad de compra; donde todavía no hay un real comparable, el valor queda vacío.</figcaption>
-    </figure>
-  </div></div>
-
+  <div class="wrap"><div class="demo-mount" data-demo="planificacion-compras"></div></div>
   <div class="wrap tool-body">
     <div class="prose">
-      <div class="technical-panel"><h2>Implementación técnica</h2><p>Preparé modelos SQL y procesos Python para cruzar inventario, demanda y compras a partir de datos de ERP y BI. El trabajo está en validación y se presenta como modelo analítico implementado.</p></div>
-      <h2>Qué hace</h2>
-      <p>Modelo implementado con integración de fuentes y validación pendientes. Combina existencias, órdenes abiertas, recepciones, ventas y presupuesto para proyectar el inventario de cierre y calcular capacidad de compra. Permite comparar resultados con el presupuesto y con períodos anteriores y revisar cuánto comprar sin alejarse de los objetivos de inventario. El trabajo contempla la transición entre fuentes históricas y nuevos sistemas.</p>
-      <p>El equipo de compras puede revisar compromisos ya abiertos, mercadería recibida y proyecciones por departamento, clase y ubicación. Las comparaciones muestran cómo cambia la capacidad de compra frente al presupuesto y al año anterior. La calidad y cobertura de las fuentes siguen siendo parte de la validación.</p>
+      <div class="technical-panel"><h2>Implementación técnica</h2><p>Implementé consultas SQL que normalizan reportes de presupuesto, inventario, órdenes y ventas al grano departamento, clase, subclase, ubicación y mes. Los scripts Python apoyan la ingesta y revisión de datasets.</p></div>
+      <h2>Qué resuelve</h2><p>Para decidir cuánto comprar hay que anticipar el cierre de inventario y compararlo con presupuesto. El modelo hace explícitas las entradas y la fórmula que determina el margen disponible.</p>
+      <h2>Recorrido y alcance</h2><p>El cálculo combina inventario inicial, órdenes abiertas y recepciones, menos ventas y rebajas. Usa valores reales en meses cerrados y presupuesto para proyectar meses abiertos. La integración y la calidad de datos siguen en validación.</p>
+      <ul class="points"><li>Grano y tipos normalizados antes de unir reportes.</li><li>Margen mensual y acumulado desde el mes actual.</li><li>Demo aritmética con importes ficticios.</li></ul>
     </div>
     <aside class="side">
-      <div class="panel">
-        <h3>Recorrido de la información</h3>
-        <div class="flow">
-          <div class="flow-step"><span>Fuentes</span><div class="items"><b>Históricos legacy</b><b>Planificación de inventario</b><b>ERP</b></div></div>
-          <div class="flow-arrow"></div>
-          <div class="flow-step mid"><span>Modelo</span><div class="items"><b>SQL en la plataforma de BI</b><b>Extractores CSV</b></div></div>
-          <div class="flow-arrow"></div>
-          <div class="flow-step"><span>Consumo</span><div class="items"><b>Reportes de BI</b></div></div>
-        </div>
-        <p class="flow-text">La plataforma de BI permite consultar los modelos; las fuentes combinan históricos legacy, el sistema de planificación de inventario y datos del ERP. Los extractores CSV ayudan a comparar los resultados y revisar diferencias entre sistemas.</p>
-      </div>
-      <div class="panel">
-        <h3>Stack tecnológico</h3>
-        <div class="stack"><span class="tag">SQL</span><span class="tag">Python</span><span class="tag">APIs de plataformas de BI</span><span class="tag">CSV</span></div>
-      </div>
+      <div class="panel"><h3>Recorrido de la información</h3><div class="flow"><div class="flow-step"><span>Entradas</span><div class="items"><b>Inventario, órdenes y presupuesto</b></div></div><div class="flow-arrow"></div><div class="flow-step"><span>Modelo</span><div class="items"><b>SQL</b><b>Python</b></div></div><div class="flow-arrow"></div><div class="flow-step"><span>Salida</span><div class="items"><b>Cierre proyectado y margen</b></div></div></div><p class="flow-text">El cálculo combina inventario inicial, órdenes abiertas y recepciones, menos ventas y rebajas. Usa valores reales en meses cerrados y presupuesto para proyectar meses abiertos. La integración y la calidad de datos siguen en validación.</p></div>
+      <div class="panel"><h3>Stack tecnológico</h3><div class="stack"><span class="tag">SQL</span><span class="tag">Python</span><span class="tag">CSV</span><span class="tag">BI APIs</span></div></div>
     </aside>
   </div>
 </section>

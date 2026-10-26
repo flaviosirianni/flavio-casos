@@ -1,0 +1,232 @@
+{
+  "slug": "turnos-eventos",
+  "kind": "table",
+  "title": {
+    "es": "Coordinación de turnos entre cliente y proveedor",
+    "en": "Shift coordination between client and provider"
+  },
+  "steps": [
+    {
+      "title": {
+        "es": "Publicar la semana",
+        "en": "Publish the week"
+      },
+      "description": {
+        "es": "La planificación ficticia asigna personal a un evento.",
+        "en": "The fictional plan assigns staff to an event."
+      },
+      "action": {
+        "es": "Ver semana",
+        "en": "View week"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Semana del 8 de junio",
+          "columns": [
+            "Evento",
+            "Sector",
+            "Persona",
+            "Horario"
+          ],
+          "rows": [
+            [
+              "Evento A",
+              "Cocina",
+              "Empleado A",
+              "16:00–00:00"
+            ]
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "Week of June 8",
+          "columns": [
+            "Event",
+            "Area",
+            "Person",
+            "Time"
+          ],
+          "rows": [
+            [
+              "Event A",
+              "Kitchen",
+              "Employee A",
+              "16:00–00:00"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Pedir un cambio",
+        "en": "Request a change"
+      },
+      "description": {
+        "es": "El cliente propone adelantar una hora el turno.",
+        "en": "The client proposes starting the shift one hour earlier."
+      },
+      "action": {
+        "es": "Crear solicitud",
+        "en": "Create request"
+      },
+      "view": {
+        "es": {
+          "type": "form",
+          "heading": "Solicitud de horario",
+          "fields": [
+            {
+              "label": "Asignación",
+              "value": "Empleado A · Evento A"
+            },
+            {
+              "label": "Nuevo horario",
+              "value": "15:00–23:00"
+            },
+            {
+              "label": "Motivo",
+              "value": "Preparación previa al evento"
+            }
+          ],
+          "notice": "Pendiente de respuesta del proveedor."
+        },
+        "en": {
+          "type": "form",
+          "heading": "Time-change request",
+          "fields": [
+            {
+              "label": "Assignment",
+              "value": "Employee A · Event A"
+            },
+            {
+              "label": "New time",
+              "value": "15:00–23:00"
+            },
+            {
+              "label": "Reason",
+              "value": "Pre-event preparation"
+            }
+          ],
+          "notice": "Awaiting the provider’s response."
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Aceptar y aplicar",
+        "en": "Accept and apply"
+      },
+      "description": {
+        "es": "La decisión aceptada actualiza la asignación y queda en el historial.",
+        "en": "The accepted decision updates the assignment and remains in history."
+      },
+      "action": {
+        "es": "Aplicar cambio",
+        "en": "Apply change"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Seguimiento de solicitud",
+          "columns": [
+            "Solicitud",
+            "Decisión",
+            "Aplicación",
+            "Horario final"
+          ],
+          "rows": [
+            [
+              "S-001",
+              "Aceptada",
+              "Aplicada",
+              "15:00–23:00"
+            ]
+          ],
+          "highlight": 0
+        },
+        "en": {
+          "type": "table",
+          "heading": "Request tracking",
+          "columns": [
+            "Request",
+            "Decision",
+            "Application",
+            "Final time"
+          ],
+          "rows": [
+            [
+              "S-001",
+              "Accepted",
+              "Applied",
+              "15:00–23:00"
+            ]
+          ],
+          "highlight": 0
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Cerrar versión",
+        "en": "Close the version"
+      },
+      "description": {
+        "es": "Sin solicitudes pendientes, la semana puede completar la conformidad final.",
+        "en": "With no pending requests, the week can complete final agreement."
+      },
+      "action": {
+        "es": "Preparar PDF",
+        "en": "Prepare PDF"
+      },
+      "view": {
+        "es": {
+          "type": "form",
+          "heading": "Semana acordada",
+          "fields": [
+            {
+              "label": "Versión",
+              "value": "2"
+            },
+            {
+              "label": "Solicitudes abiertas",
+              "value": "0"
+            },
+            {
+              "label": "Horario publicado",
+              "value": "15:00–23:00"
+            },
+            {
+              "label": "Salida",
+              "value": "PDF de planificación"
+            }
+          ],
+          "notice": "La demo resume el cierre; los controles se ejecutan en el servidor."
+        },
+        "en": {
+          "type": "form",
+          "heading": "Agreed week",
+          "fields": [
+            {
+              "label": "Version",
+              "value": "2"
+            },
+            {
+              "label": "Open requests",
+              "value": "0"
+            },
+            {
+              "label": "Published time",
+              "value": "15:00–23:00"
+            },
+            {
+              "label": "Output",
+              "value": "Planning PDF"
+            }
+          ],
+          "notice": "The demo summarizes closing; checks run on the server."
+        }
+      }
+    }
+  ]
+}

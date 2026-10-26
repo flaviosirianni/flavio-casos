@@ -1,0 +1,244 @@
+{
+  "slug": "sitios-web",
+  "kind": "table",
+  "title": {
+    "es": "Sitios institucionales y portal de empleos",
+    "en": "Corporate websites and job portal"
+  },
+  "steps": [
+    {
+      "title": {
+        "es": "Encontrar una oportunidad",
+        "en": "Find an opportunity"
+      },
+      "description": {
+        "es": "La búsqueda reduce el listado por ubicación y tipo.",
+        "en": "Search narrows the list by location and type."
+      },
+      "action": {
+        "es": "Filtrar vacantes",
+        "en": "Filter openings"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Vacantes de ejemplo",
+          "columns": [
+            "Puesto",
+            "Ubicación",
+            "Tipo"
+          ],
+          "rows": [
+            [
+              "Puesto A",
+              "Zona Norte",
+              "Tiempo completo"
+            ],
+            [
+              "Puesto B",
+              "Zona Sur",
+              "Temporal"
+            ]
+          ],
+          "highlight": 0
+        },
+        "en": {
+          "type": "table",
+          "heading": "Sample openings",
+          "columns": [
+            "Role",
+            "Location",
+            "Type"
+          ],
+          "rows": [
+            [
+              "Role A",
+              "North Area",
+              "Full time"
+            ],
+            [
+              "Role B",
+              "South Area",
+              "Temporary"
+            ]
+          ],
+          "highlight": 0
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Completar la postulación",
+        "en": "Complete the application"
+      },
+      "description": {
+        "es": "El formulario reúne datos de contacto y un CV.",
+        "en": "The form collects contact details and a résumé."
+      },
+      "action": {
+        "es": "Revisar formulario",
+        "en": "Review form"
+      },
+      "view": {
+        "es": {
+          "type": "form",
+          "heading": "Postulación a Puesto A",
+          "fields": [
+            {
+              "label": "Nombre",
+              "value": "Candidato A"
+            },
+            {
+              "label": "Correo",
+              "value": "candidato.a@example.invalid"
+            },
+            {
+              "label": "CV",
+              "value": "cv-demo.pdf"
+            }
+          ]
+        },
+        "en": {
+          "type": "form",
+          "heading": "Application for Role A",
+          "fields": [
+            {
+              "label": "Name",
+              "value": "Candidate A"
+            },
+            {
+              "label": "Email",
+              "value": "candidate.a@example.invalid"
+            },
+            {
+              "label": "Résumé",
+              "value": "sample-resume.pdf"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Procesar el envío",
+        "en": "Process submission"
+      },
+      "description": {
+        "es": "La API coordina validación, archivo y registro.",
+        "en": "The API coordinates validation, file storage and recording."
+      },
+      "action": {
+        "es": "Procesar postulación",
+        "en": "Process application"
+      },
+      "view": {
+        "es": {
+          "type": "pipeline",
+          "heading": "Postulación estructurada",
+          "nodes": [
+            {
+              "label": "Validar formulario",
+              "status": "done"
+            },
+            {
+              "label": "Guardar CV",
+              "status": "done"
+            },
+            {
+              "label": "Registrar postulación",
+              "status": "done"
+            },
+            {
+              "label": "Preparar aviso",
+              "status": "active"
+            }
+          ],
+          "log": [
+            "Archivo y campos validados",
+            "Registro A creado"
+          ]
+        },
+        "en": {
+          "type": "pipeline",
+          "heading": "Structured application",
+          "nodes": [
+            {
+              "label": "Validate form",
+              "status": "done"
+            },
+            {
+              "label": "Store résumé",
+              "status": "done"
+            },
+            {
+              "label": "Record application",
+              "status": "done"
+            },
+            {
+              "label": "Prepare notification",
+              "status": "active"
+            }
+          ],
+          "log": [
+            "File and fields validated",
+            "Record A created"
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Recibir una confirmación",
+        "en": "Receive confirmation"
+      },
+      "description": {
+        "es": "El registro enlaza la oportunidad con el candidato del ejemplo.",
+        "en": "The record links the opening to the sample candidate."
+      },
+      "action": {
+        "es": "Ver registro",
+        "en": "View record"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Registro de recepción",
+          "columns": [
+            "Referencia",
+            "Puesto",
+            "Candidato",
+            "Estado"
+          ],
+          "rows": [
+            [
+              "Postulación A",
+              "Puesto A",
+              "Candidato A",
+              "Recibida"
+            ]
+          ],
+          "highlight": 0
+        },
+        "en": {
+          "type": "table",
+          "heading": "Submission record",
+          "columns": [
+            "Reference",
+            "Role",
+            "Candidate",
+            "Status"
+          ],
+          "rows": [
+            [
+              "Application A",
+              "Role A",
+              "Candidate A",
+              "Received"
+            ]
+          ],
+          "highlight": 0
+        }
+      }
+    }
+  ]
+}

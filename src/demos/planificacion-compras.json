@@ -1,0 +1,264 @@
+{
+  "slug": "planificacion-compras",
+  "kind": "form",
+  "title": {
+    "es": "Planificación de compras e inventario",
+    "en": "Purchasing and inventory planning"
+  },
+  "steps": [
+    {
+      "title": {
+        "es": "Fijar el grano",
+        "en": "Set the grain"
+      },
+      "description": {
+        "es": "Todos los reportes deben representar la misma combinación de dimensiones.",
+        "en": "All reports must represent the same dimension combination."
+      },
+      "action": {
+        "es": "Seleccionar período",
+        "en": "Select period"
+      },
+      "view": {
+        "es": {
+          "type": "form",
+          "heading": "Plan de compras",
+          "fields": [
+            {
+              "label": "Departamento",
+              "value": "Departamento A"
+            },
+            {
+              "label": "Clase",
+              "value": "Clase A"
+            },
+            {
+              "label": "Ubicación",
+              "value": "Tienda A"
+            },
+            {
+              "label": "Mes",
+              "value": "Noviembre de 2026"
+            }
+          ]
+        },
+        "en": {
+          "type": "form",
+          "heading": "Purchasing plan",
+          "fields": [
+            {
+              "label": "Department",
+              "value": "Department A"
+            },
+            {
+              "label": "Class",
+              "value": "Class A"
+            },
+            {
+              "label": "Location",
+              "value": "Store A"
+            },
+            {
+              "label": "Month",
+              "value": "November 2026"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Reunir las entradas",
+        "en": "Gather inputs"
+      },
+      "description": {
+        "es": "El ejemplo usa importes de venta minorista del mismo mes.",
+        "en": "The example uses retail-value amounts from the same month."
+      },
+      "action": {
+        "es": "Ver entradas",
+        "en": "View inputs"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Entradas de noviembre",
+          "columns": [
+            "Concepto",
+            "USD"
+          ],
+          "rows": [
+            [
+              "Inventario inicial",
+              "100.000"
+            ],
+            [
+              "Órdenes abiertas",
+              "20.000"
+            ],
+            [
+              "Recepciones",
+              "10.000"
+            ],
+            [
+              "Ventas presupuestadas",
+              "40.000"
+            ],
+            [
+              "Rebajas presupuestadas",
+              "10.000"
+            ]
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "November inputs",
+          "columns": [
+            "Item",
+            "USD"
+          ],
+          "rows": [
+            [
+              "Opening inventory",
+              "100,000"
+            ],
+            [
+              "Open orders",
+              "20,000"
+            ],
+            [
+              "Receipts",
+              "10,000"
+            ],
+            [
+              "Budgeted sales",
+              "40,000"
+            ],
+            [
+              "Budgeted markdowns",
+              "10,000"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Proyectar el cierre",
+        "en": "Project closing inventory"
+      },
+      "description": {
+        "es": "Se suman entradas y se restan ventas y rebajas.",
+        "en": "Inflows are added and sales and markdowns subtracted."
+      },
+      "action": {
+        "es": "Calcular cierre",
+        "en": "Calculate close"
+      },
+      "view": {
+        "es": {
+          "type": "pipeline",
+          "heading": "Proyección del mes",
+          "nodes": [
+            {
+              "label": "Grano normalizado",
+              "status": "done"
+            },
+            {
+              "label": "Entradas reunidas",
+              "status": "done"
+            },
+            {
+              "label": "Cierre calculado",
+              "status": "done"
+            }
+          ],
+          "log": [
+            "100.000 + 20.000 + 10.000 − 40.000 − 10.000",
+            "Inventario de cierre proyectado: USD 80.000"
+          ]
+        },
+        "en": {
+          "type": "pipeline",
+          "heading": "Monthly projection",
+          "nodes": [
+            {
+              "label": "Grain normalized",
+              "status": "done"
+            },
+            {
+              "label": "Inputs gathered",
+              "status": "done"
+            },
+            {
+              "label": "Closing inventory calculated",
+              "status": "done"
+            }
+          ],
+          "log": [
+            "100,000 + 20,000 + 10,000 − 40,000 − 10,000",
+            "Projected closing inventory: USD 80,000"
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Comparar con presupuesto",
+        "en": "Compare against budget"
+      },
+      "description": {
+        "es": "El margen es el cierre presupuestado menos el cierre proyectado.",
+        "en": "Purchasing capacity is budgeted close minus projected close."
+      },
+      "action": {
+        "es": "Ver margen de compra",
+        "en": "View purchasing capacity"
+      },
+      "view": {
+        "es": {
+          "type": "chart",
+          "heading": "Comparación de cierre",
+          "bars": [
+            {
+              "label": "Presupuesto",
+              "value": 90000,
+              "display": "USD 90.000"
+            },
+            {
+              "label": "Proyección",
+              "value": 80000,
+              "display": "USD 80.000"
+            },
+            {
+              "label": "Margen de compra",
+              "value": 10000,
+              "display": "USD 10.000"
+            }
+          ]
+        },
+        "en": {
+          "type": "chart",
+          "heading": "Closing inventory comparison",
+          "bars": [
+            {
+              "label": "Budget",
+              "value": 90000,
+              "display": "USD 90,000"
+            },
+            {
+              "label": "Projection",
+              "value": 80000,
+              "display": "USD 80,000"
+            },
+            {
+              "label": "Purchasing capacity",
+              "value": 10000,
+              "display": "USD 10,000"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,238 @@
+{
+  "slug": "stock",
+  "kind": "form",
+  "title": {
+    "es": "Control de stock en varias sedes",
+    "en": "Stock control across multiple sites"
+  },
+  "steps": [
+    {
+      "title": {
+        "es": "Elegir planta",
+        "en": "Choose a plant"
+      },
+      "description": {
+        "es": "El ejemplo usa una planta y dos presentaciones ficticias.",
+        "en": "The example uses one fictional plant and two pack sizes."
+      },
+      "action": {
+        "es": "Abrir conteo",
+        "en": "Open count"
+      },
+      "view": {
+        "es": {
+          "type": "form",
+          "heading": "Conteo de insumos",
+          "fields": [
+            {
+              "label": "Planta",
+              "value": "Planta A"
+            },
+            {
+              "label": "Materia prima",
+              "value": "Harina"
+            }
+          ],
+          "notice": "Acceso limitado a plantas asignadas."
+        },
+        "en": {
+          "type": "form",
+          "heading": "Supply count",
+          "fields": [
+            {
+              "label": "Plant",
+              "value": "Plant A"
+            },
+            {
+              "label": "Raw material",
+              "value": "Flour"
+            }
+          ],
+          "notice": "Access limited to assigned plants."
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Contar presentaciones",
+        "en": "Count packs"
+      },
+      "description": {
+        "es": "Cada cantidad representa bultos de una presentación.",
+        "en": "Each quantity represents packs of one size."
+      },
+      "action": {
+        "es": "Cargar cantidades",
+        "en": "Enter quantities"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Conteo de Planta A",
+          "columns": [
+            "Producto",
+            "Contenido por bulto",
+            "Bultos"
+          ],
+          "rows": [
+            [
+              "Harina · bolsa grande",
+              "25 kg",
+              "4"
+            ],
+            [
+              "Harina · bolsa pequeña",
+              "1 kg",
+              "10"
+            ]
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "Plant A count",
+          "columns": [
+            "Product",
+            "Contents per pack",
+            "Packs"
+          ],
+          "rows": [
+            [
+              "Flour · large bag",
+              "25 kg",
+              "4"
+            ],
+            [
+              "Flour · small bag",
+              "1 kg",
+              "10"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Guardar historial",
+        "en": "Save history"
+      },
+      "description": {
+        "es": "Se registra el nuevo conteo y queda disponible el anterior.",
+        "en": "The new count is recorded and the previous count remains available."
+      },
+      "action": {
+        "es": "Guardar conteo",
+        "en": "Save count"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Último valor y anterior",
+          "columns": [
+            "Producto",
+            "Anterior",
+            "Actual",
+            "Responsable"
+          ],
+          "rows": [
+            [
+              "Bolsa de 25 kg",
+              "3",
+              "4",
+              "Operador A"
+            ],
+            [
+              "Bolsa de 1 kg",
+              "8",
+              "10",
+              "Operador A"
+            ]
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "Latest and previous values",
+          "columns": [
+            "Product",
+            "Previous",
+            "Current",
+            "Recorded by"
+          ],
+          "rows": [
+            [
+              "25 kg bag",
+              "3",
+              "4",
+              "Operator A"
+            ],
+            [
+              "1 kg bag",
+              "8",
+              "10",
+              "Operator A"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Comparar stock útil",
+        "en": "Compare usable stock"
+      },
+      "description": {
+        "es": "Las cantidades por presentación suman 110 kg para la materia prima.",
+        "en": "Pack quantities add up to 110 kg of the raw material."
+      },
+      "action": {
+        "es": "Ver consolidado",
+        "en": "View aggregate"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Stock agrupado por materia prima",
+          "columns": [
+            "Materia prima",
+            "Anterior",
+            "Actual"
+          ],
+          "rows": [
+            [
+              "Harina",
+              "83 kg",
+              "110 kg"
+            ]
+          ],
+          "metrics": [
+            {
+              "label": "Cálculo",
+              "value": "4 × 25 + 10 × 1 = 110 kg"
+            }
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "Stock grouped by raw material",
+          "columns": [
+            "Raw material",
+            "Previous",
+            "Current"
+          ],
+          "rows": [
+            [
+              "Flour",
+              "83 kg",
+              "110 kg"
+            ]
+          ],
+          "metrics": [
+            {
+              "label": "Calculation",
+              "value": "4 × 25 + 10 × 1 = 110 kg"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

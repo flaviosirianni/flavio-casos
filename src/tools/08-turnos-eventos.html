@@ -1,106 +1,43 @@
 <section class="tool" id="turnos-eventos" data-cat="apps"
   data-title="Coordinación de turnos entre cliente y proveedor"
-  data-sector="Estadio de eventos + proveedor gastronómico"
-  data-summary="La planificación semanal de personal por evento, sector y horario en una webapp compartida: propuestas, cambios, aceptación y PDF final."
-  data-stack="Google Apps Script,Google Sheets,Google Drive,HTML,CSS,JavaScript" data-thumb="0">
+  data-sector="Eventos · operación gastronómica"
+  data-summary="Planificación semanal compartida con solicitudes de cambio, versiones y PDF."
+  data-stack="Google Apps Script,Google Sheets,Google Drive,HTML,CSS,JavaScript" data-status="" data-thumb="0">
   <div class="wrap tool-head">
-    <p class="eyebrow">Estadio de eventos + proveedor gastronómico</p>
+    <p class="eyebrow">Eventos · operación gastronómica</p>
     <h1>Coordinación de turnos entre cliente y proveedor</h1>
-    <p class="kind">Webapp de planificación colaborativa con vistas diferenciadas por participante</p>
-    <p class="lead">El proveedor arma la grilla de la semana; el cliente la revisa, pide cambios y da conformidad desde su propia vista. Lo acordado se publica en PDF y queda la historia de cada propuesta, sin cadenas de mails ni planillas paralelas.</p>
+    <p class="kind">Webapp de planificación y negociación operativa</p>
+    <p class="lead">Cliente y proveedor trabajan sobre una misma semana: eventos, sectores y horarios. Los cambios pasan por solicitudes y respuestas hasta llegar a una versión acordada.</p>
   </div>
-
-  <div class="stage"><div class="wrap shots">
-    <figure class="shot w12">
-      <div class="dev dev-browser ui" style="--w:1080px;--brand:#9f1239;--brand-soft:#fde8ee">
-        <div class="bar"><i></i><i></i><i></i><div class="url">script.google.com · Planificación semanal · Vista cliente</div></div>
-        <div class="ui-top"><b>Planificación semanal</b><span class="pill">Vista cliente</span><span class="grow"></span><div class="inp sel" style="width:210px">Semana 20/10 a 26/10</div><span class="btn ghost">Recargar</span><span class="btn ghost">Exportar PDF</span><span class="btn">Marcar conformidad</span></div>
-        <div class="ui-main">
-          <div class="row"><span class="ui-h2">Grilla semanal · cocina y servicio</span><span class="pill y dot">Propuesta v3 enviada por el proveedor · 19/10 18:40</span><span class="grow"></span><span class="btn soft">Crear solicitud de cambio</span></div>
-          <table class="tbl" style="font-size:11.5px">
-            <tr><th style="width:150px">Sector</th><th>Jue 23 · Recital "Noche de Rock"<div class="xs mut" style="font-weight:400">Apertura 19:00 · 14.000 pers.</div></th><th>Sáb 25 · Final de básquet<div class="xs mut" style="font-weight:400">Apertura 18:00 · 11.500 pers.</div></th><th>Dom 26 · Show infantil<div class="xs mut" style="font-weight:400">Apertura 15:00 · 6.000 pers.</div></th></tr>
-            <tr><td class="b">Cocina central</td><td>Lucía Ferreyra · 16 a 01<br>Martín Sosa · 16 a 01<br>Carla Benítez · 17 a 00</td><td>Lucía Ferreyra · 15 a 00<br>Martín Sosa · 15 a 00<br><span class="hl">+1 perfil cocinero · 15 a 00</span></td><td>Carla Benítez · 12 a 20<br>Nicolás Paz · 12 a 20</td></tr>
-            <tr><td class="b">Barras</td><td>Diego Romero · 17 a 01<br>Julieta Quiroga · 17 a 01<br>Tomás Ledesma · 18 a 01</td><td>Diego Romero · 16 a 00<br><s class="mut">Julieta Quiroga</s> → <span class="hl">Sofía Medina</span> · 16 a 00</td><td>Tomás Ledesma · 13 a 20</td></tr>
-            <tr><td class="b">Catering palcos</td><td>Valeria Ibáñez · 17 a 00<br>Ramiro Acosta · 17 a 00</td><td>Valeria Ibáñez · 16 a 23<br>Ramiro Acosta · 16 a 23</td><td class="mut">Sin servicio</td></tr>
-            <tr><td class="b">Bacheros</td><td>Pablo Giménez · 18 a 02</td><td>Pablo Giménez · 17 a 01</td><td>Pablo Giménez · 13 a 21</td></tr>
-            <tr><td class="b mut">Estado del día</td><td><span class="pill g">Aceptado</span></td><td><span class="pill y">2 cambios pendientes</span></td><td><span class="pill g">Aceptado</span></td></tr>
-          </table>
-        </div>
-      </div>
-      <figcaption><b>Grilla por evento y sector.</b> Cada parte ve la misma planificación; los cambios propuestos se resaltan hasta que se aceptan.</figcaption>
-    </figure>
-
-    <figure class="shot w6">
-      <div class="dev dev-browser ui" style="--w:560px;--brand:#9f1239;--brand-soft:#fde8ee">
-        <div class="bar"><i></i><i></i><i></i><div class="url">Planificación semanal · Solicitudes</div></div>
-        <div class="ui-main">
-          <div class="ui-h2">Crear solicitud de cambio</div>
-          <div class="seg"><span>Reemplazar empleado</span><span class="on">Pedir personal adicional</span><span>Modificar horario</span></div>
-          <div class="g2"><div class="fld"><label>Días / eventos</label><div class="inp sel">Sáb 25 · Final de básquet</div></div><div class="fld"><label>Sector</label><div class="inp sel">Cocina central</div></div></div>
-          <div class="g3"><div class="fld"><label>Cantidad adicional</label><div class="inp">1</div></div><div class="fld"><label>Hora inicio</label><div class="inp">15:00</div></div><div class="fld"><label>Hora fin</label><div class="inp">00:00</div></div></div>
-          <div class="fld"><label>Comentario para el proveedor (opcional)</label><div class="inp" style="white-space:normal;min-height:46px;align-items:flex-start">Esperamos más venta de comida que en la semifinal.</div></div>
-          <div class="row"><span class="btn">Enviar solicitud</span><span class="row sm mut">Prioridad <span class="seg"><span>Baja</span><span>Media</span><span class="on">Alta</span></span></span></div>
-          <div class="divider"></div>
-          <div class="ui-h2">Solicitudes enviadas</div>
-          <table class="tbl" style="font-size:11.5px">
-            <tr><th>#</th><th>Pedido</th><th>Estado</th></tr>
-            <tr><td>14</td><td>Reemplazo en barras · sáb 25</td><td><span class="pill g">Aceptada</span></td></tr>
-            <tr><td>15</td><td>+1 cocinero · sáb 25</td><td><span class="pill y">Pendiente</span></td></tr>
-            <tr><td>12</td><td>Adelantar catering · jue 23</td><td><span class="pill r">Rechazada · sin perfil disponible</span></td></tr>
-          </table>
-        </div>
-      </div>
-      <figcaption><b>Cambios estructurados.</b> Reemplazos, personal adicional o cambios de horario con comentario y prioridad. Lo aceptado se aplica solo a la grilla.</figcaption>
-    </figure>
-
-    <figure class="shot w6">
-      <div class="dev dev-doc" style="--w:540px;padding:34px 38px">
-        <div class="row" style="align-items:flex-start"><div><div class="xs mut" style="letter-spacing:.08em;text-transform:uppercase">Plan semanal acordado</div><div style="font-size:19px;font-weight:700;margin-top:4px">Semana 20/10 a 26/10/2026</div></div><span class="grow"></span><span class="pill g">Versión 4 · publicada</span></div>
-        <div class="xs mut" style="margin:8px 0 14px">Conformidad cliente: 21/10 10:12 · Conformidad proveedor: 21/10 10:30</div>
-        <table class="tbl" style="font-size:11px">
-          <tr><th>Evento</th><th>Sector</th><th>Personal</th><th class="num">Horario</th></tr>
-          <tr><td>Jue 23 · Recital</td><td>Cocina central</td><td>3</td><td class="num">16 a 01</td></tr>
-          <tr><td></td><td>Barras</td><td>3</td><td class="num">17 a 01</td></tr>
-          <tr><td></td><td>Catering palcos</td><td>2</td><td class="num">17 a 00</td></tr>
-          <tr><td>Sáb 25 · Básquet</td><td>Cocina central</td><td>3</td><td class="num">15 a 00</td></tr>
-          <tr><td></td><td>Barras</td><td>2</td><td class="num">16 a 00</td></tr>
-          <tr><td>Dom 26 · Infantil</td><td>Cocina central</td><td>2</td><td class="num">12 a 20</td></tr>
-        </table>
-        <div class="row xs mut" style="margin-top:16px;justify-content:space-between"><span>Total de turnos: 19 · 148 horas</span><span>Página 1 de 3</span></div>
-      </div>
-      <figcaption><b>Publicación en PDF.</b> La versión aceptada por ambas partes queda guardada en Drive como referencia, con el historial de versiones anteriores.</figcaption>
-    </figure>
-  </div></div>
-
+  <div class="wrap"><div class="demo-mount" data-demo="turnos-eventos"></div></div>
   <div class="wrap tool-body">
     <div class="prose">
-      <div class="technical-panel"><h2>Implementación técnica</h2><p>Construí un flujo de planificación con Google Apps Script, una interfaz HTML/JavaScript y Sheets como soporte de datos. El circuito coordina disponibilidad y asignaciones, con generación de documentos y notificaciones.</p></div>
-      <h2>Qué hace</h2>
-      <p>Organiza la planificación semanal de personal por evento, día, sector y horario. Cada parte puede enviar una nómina, proponer cambios, comentar y aceptar modificaciones desde su propia vista. Conserva el historial de propuestas y permite cerrar y publicar la versión acordada en PDF. Ayuda a que todas las personas involucradas trabajen sobre el mismo plan.</p>
-      <p>Una semana anterior puede servir de base para la siguiente, reduciendo la recarga de información repetida. Antes de publicar se controlan empleados, duplicados y cambios pendientes; la publicación deja una referencia clara del plan que fue aceptado por ambas partes.</p>
-      <h2>Detalles que importan</h2>
+      <div class="technical-panel"><h2>Implementación técnica</h2><p>Implementé una webapp Apps Script con vistas por rol y persistencia en Sheets. Los servicios separan semanas, asignaciones, solicitudes, auditoría, notificaciones, versiones publicadas y generación de PDF.</p></div>
+      <h2>Qué resuelve</h2>
+      <p>Evita discutir horarios en copias distintas de una planilla. La solicitud conserva la asignación afectada, el motivo y la respuesta, para saber qué se propuso y qué quedó aplicado.</p>
+      <h2>Flujo y alcance</h2>
+      <p>Se prepara y publica la semana, se negocian cambios y se aplican las decisiones aceptadas. El cierre verifica pendientes y conformidad; las versiones y el PDF conservan la salida acordada.</p>
       <ul class="points">
-        <li>Tres vistas con permisos: cliente, proveedor y administración.</li>
-        <li>Validaciones antes de cerrar: empleado activo, duplicados en el mismo horario y solicitudes sin resolver.</li>
-        <li>Copia de la semana anterior como punto de partida, procesada en segundo plano.</li>
-        <li>Avisos por correo cuando hay una propuesta nueva o una solicitud para responder.</li>
+        <li>Solicitudes de horario, reemplazo, sector y personal adicional.</li>
+        <li>Control de duplicados por persona y día.</li>
+        <li>Historial de acciones, comentarios y conformidad final.</li>
       </ul>
     </div>
     <aside class="side">
       <div class="panel">
         <h3>Recorrido de la información</h3>
         <div class="flow">
-          <div class="flow-step"><span>Fuentes</span><div class="items"><b>Nómina en Google Sheets</b></div></div>
+          <div class="flow-step"><span>Origen</span><div class="items"><b>Semana base</b></div></div>
           <div class="flow-arrow"></div>
-          <div class="flow-step mid"><span>Planificación</span><div class="items"><b>Webapp · cliente, proveedor, admin</b><b>Google Apps Script</b></div></div>
+<div class="flow-step"><span>Procesamiento</span><div class="items"><b>Solicitudes y decisiones</b></div></div>
           <div class="flow-arrow"></div>
-          <div class="flow-step"><span>Salidas</span><div class="items"><b>PDF en Google Drive</b><b>Correo</b></div></div>
+<div class="flow-step"><span>Salida</span><div class="items"><b>Versión acordada y PDF</b></div></div>
         </div>
-        <p class="flow-text">Google Sheets conserva la planificación y la nómina fuente; la webapp ofrece las vistas de cliente, proveedor y administración. Google Drive almacena las publicaciones PDF y los servicios de correo de Apps Script envían avisos.</p>
+        <p class="flow-text">Sheets mantiene la planificación común; la webapp ordena la negociación y publica versiones identificables.</p>
       </div>
       <div class="panel">
         <h3>Stack tecnológico</h3>
-        <div class="stack"><span class="tag">Google Apps Script</span><span class="tag">Google Sheets</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Google Drive</span></div>
+        <div class="stack"><span class="tag">Google Apps Script</span><span class="tag">Google Sheets</span><span class="tag">Google Drive</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
       </div>
     </aside>
   </div>

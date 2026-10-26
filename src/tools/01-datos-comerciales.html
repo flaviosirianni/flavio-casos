@@ -1,127 +1,39 @@
 <section class="tool" id="datos-comerciales" data-cat="datos"
   data-title="Centralización de información comercial y contable"
-  data-sector="Negocio gastronómico · +100 puntos de venta"
-  data-summary="Ventas, compras, cobranzas, pagos y maestros del ERP contable sincronizados solos en una base analítica, con histórico, controles y avisos."
-  data-stack="Python,SQL,BigQuery,Cloud Run,Cloud Scheduler,Cloud Monitoring,APIs REST,Xubio">
+  data-sector="Operación gastronómica · múltiples puntos de venta"
+  data-summary="Ventas, compras, cobros y pagos del ERP reunidos en BigQuery, con histórico y actualización incremental."
+  data-stack="Python,SQL,APIs REST,BigQuery,Cloud Run,Cloud Scheduler,Cloud Monitoring" data-status="">
   <div class="wrap tool-head">
-    <p class="eyebrow">Negocio gastronómico · +100 puntos de venta</p>
+    <p class="eyebrow">Operación gastronómica · múltiples puntos de venta</p>
     <h1>Centralización de información comercial y contable</h1>
-    <p class="kind">Integración automática de datos y base analítica centralizada</p>
-    <p class="lead">El sistema contable sigue siendo la fuente; nosotros lo copiamos cada hora a una base analítica ordenada. Ventas, cobros, compras y saldos quedan listos para consultar, armar tableros o responder por chat, sin exportar planillas módulo por módulo.</p>
+    <p class="kind">Integración de datos y base analítica</p>
+    <p class="lead">Una base común para analizar el negocio sin exportar cada módulo del sistema contable. La demo ilustra cómo un cambio de origen llega a una vista de ventas.</p>
   </div>
-
-  <div class="stage"><div class="wrap shots">
-    <figure class="shot w12">
-      <div class="dev dev-browser ui" style="--w:1040px">
-        <div class="bar"><i></i><i></i><i></i><div class="url">console.cloud · BigQuery · datos-comerciales</div></div>
-        <div style="display:grid;grid-template-columns:250px 1fr;min-height:470px">
-          <div style="border-right:1px solid var(--s-line);padding:12px 10px;font-size:12px;background:#fafbfc">
-            <div class="b sm mut" style="padding:0 6px 8px;letter-spacing:.05em;text-transform:uppercase">Explorador</div>
-            <div class="col" style="gap:3px">
-              <div class="b">▾ datos-comerciales</div>
-              <div style="padding-left:14px" class="col">
-                <div style="gap:2px" class="col"><span>▸ xubio_raw <span class="mut xs">· 9 tablas</span></span></div>
-                <span>▸ xubio_staging <span class="mut xs">· 9 tablas</span></span>
-                <span class="b">▾ xubio_analytics</span>
-                <div style="padding-left:14px;gap:3px" class="col mono">
-                  <span>fact_ventas</span><span>fact_ventas_items</span><span>fact_cobranzas</span><span>fact_compras</span><span>fact_pagos</span><span>dim_cliente</span><span>dim_producto</span><span>dim_proveedor</span><span style="background:#e8f0fe;border-radius:4px;padding:1px 4px;margin-left:-4px;color:#174ea6">mart_cuenta_corriente</span><span>mart_ventas_mensuales</span><span>mart_cobros_schedule</span>
-                </div>
-                <span>▸ ops_snapshots</span>
-                <span>▸ ops_sync_log</span>
-              </div>
-            </div>
-          </div>
-          <div style="display:flex;flex-direction:column;min-width:0">
-            <div class="row" style="padding:9px 14px;border-bottom:1px solid var(--s-line)"><span class="b">Consulta sin título</span><span class="grow"></span><span class="btn sm" style="--brand:#1a73e8">▶ Ejecutar</span><span class="btn ghost sm">Guardar</span></div>
-<pre class="mono" style="margin:0;padding:12px 16px;font-size:12px;line-height:1.65;background:#fff;border-bottom:1px solid var(--s-line)"><span style="color:#8a94a3">/* Saldo por cliente al cierre del mes, con antigüedad de deuda */</span>
-<span style="color:#7c3aed">SELECT</span> c.razon_social, cc.facturado, cc.cobrado, cc.saldo, cc.dias_mayor_deuda
-<span style="color:#7c3aed">FROM</span> xubio_analytics.mart_cuenta_corriente cc
-<span style="color:#7c3aed">JOIN</span> xubio_analytics.dim_cliente c <span style="color:#7c3aed">USING</span> (cliente_id)
-<span style="color:#7c3aed">WHERE</span> cc.fecha_corte = <span style="color:#b45309">'2026-09-30'</span> <span style="color:#7c3aed">AND</span> cc.saldo &gt; 0
-<span style="color:#7c3aed">ORDER BY</span> cc.saldo <span style="color:#7c3aed">DESC</span>;</pre>
-            <div class="row sm" style="padding:8px 14px;gap:16px"><span class="b" style="border-bottom:2px solid #1a73e8;padding-bottom:5px">Resultados</span><span class="mut">Detalles del trabajo</span><span class="mut">Gráfico</span><span class="grow"></span><span class="mut">Consulta completada · 1,2 s · 38 MB procesados</span></div>
-            <table class="tbl">
-              <tr><th>#</th><th>razon_social</th><th class="num">facturado</th><th class="num">cobrado</th><th class="num">saldo</th><th class="num">dias_mayor_deuda</th></tr>
-              <tr><td class="mut">1</td><td>Supermercado El Sol</td><td class="num">4.812.600</td><td class="num">3.240.000</td><td class="num b">1.572.600</td><td class="num">41</td></tr>
-              <tr><td class="mut">2</td><td>Autoservicio Los Pinos</td><td class="num">2.918.450</td><td class="num">2.100.000</td><td class="num b">818.450</td><td class="num">27</td></tr>
-              <tr><td class="mut">3</td><td>Confitería Rivadavia</td><td class="num">1.604.300</td><td class="num">1.020.900</td><td class="num b">583.400</td><td class="num">19</td></tr>
-              <tr><td class="mut">4</td><td>Almacén Don Bosco</td><td class="num">982.140</td><td class="num">560.000</td><td class="num b">422.140</td><td class="num">34</td></tr>
-              <tr><td class="mut">5</td><td>Café Central</td><td class="num">1.120.880</td><td class="num">812.000</td><td class="num b">308.880</td><td class="num">12</td></tr>
-              <tr><td class="mut">6</td><td>Despensa Mitre</td><td class="num">640.210</td><td class="num">402.500</td><td class="num b">237.710</td><td class="num">8</td></tr>
-            </table>
-          </div>
-        </div>
-      </div>
-      <figcaption><b>Base analítica en capas.</b> Datos crudos, preparados y listos para el negocio: hechos, dimensiones y vistas como cuenta corriente o ventas mensuales.</figcaption>
-    </figure>
-
-    <figure class="shot w7">
-      <div class="dev dev-term" style="--w:720px">
-        <div class="bar"><i></i><i></i><i></i><span>Cloud Run Job · sync-incremental · ejecución 14:00</span></div>
-<pre><span class="t-m">2026-10-22 14:00:03</span> <span class="t-b">INFO</span>  inicio sync incremental · ventana de revisión <span class="t-w">7 días</span>
-<span class="t-m">2026-10-22 14:00:05</span> <span class="t-b">INFO</span>  comprobantes_venta   <span class="t-g">+312 nuevos</span>  <span class="t-y">18 modificados</span>
-<span class="t-m">2026-10-22 14:00:41</span> <span class="t-b">INFO</span>  items_venta          <span class="t-g">+2.947</span>      particiones por fecha: 7/7
-<span class="t-m">2026-10-22 14:01:02</span> <span class="t-b">INFO</span>  cobranzas            <span class="t-g">+96 nuevos</span>   <span class="t-y">3 modificados</span>
-<span class="t-m">2026-10-22 14:01:10</span> <span class="t-y">WARN</span>  pagos · timeout página 4 → reintento 1/3
-<span class="t-m">2026-10-22 14:01:16</span> <span class="t-b">INFO</span>  pagos                <span class="t-g">+41 nuevos</span>   ok tras reintento
-<span class="t-m">2026-10-22 14:01:22</span> <span class="t-b">INFO</span>  compras · remitos · clientes · productos  ok
-<span class="t-m">2026-10-22 14:01:30</span> <span class="t-b">INFO</span>  conciliación de borrados: <span class="t-y">2 comprobantes anulados</span>
-<span class="t-m">2026-10-22 14:01:31</span> <span class="t-b">INFO</span>  ítems pendientes recuperados: 5
-<span class="t-m">2026-10-22 14:01:44</span> <span class="t-b">INFO</span>  staging deduplicado · promote → <span class="t-p">xubio_analytics</span>
-<span class="t-m">2026-10-22 14:01:58</span> <span class="t-g">OK</span>    9/9 fuentes al día · snapshot <span class="t-w">ops_snapshots.2026_10_22_1400</span></pre>
-      </div>
-      <figcaption><b>Sincronización cada hora.</b> Toma lo nuevo y lo modificado, repite páginas que fallan, refleja anulaciones y deja un punto de recuperación.</figcaption>
-    </figure>
-
-    <figure class="shot w5">
-      <div class="dev dev-browser" style="--w:520px">
-        <div class="bar"><i></i><i></i><i></i><div class="url">mail · Bandeja de entrada</div></div>
-        <div class="mail">
-          <div class="pill r dot" style="margin-bottom:10px">Alerta · Cloud Monitoring</div>
-          <div class="subj">Sync incremental sin completar: 1 fuente pendiente</div>
-          <div class="from"><span class="av" style="--c:#c2410c">!</span><div><div class="b sm">Alertas de datos</div><div class="xs mut">para administración · 22 oct, 15:02</div></div></div>
-          <div class="body">
-            <p>La ejecución de las <b>15:00</b> terminó con errores en <b>cobranzas</b> después de 3 reintentos. El resto de las fuentes se actualizó normalmente.</p>
-            <table class="tbl" style="font-size:11.5px">
-              <tr><th>Fuente</th><th>Última carga OK</th><th>Estado</th></tr>
-              <tr><td>comprobantes_venta</td><td>15:01</td><td><span class="pill g">Al día</span></td></tr>
-              <tr><td>cobranzas</td><td>14:01</td><td><span class="pill y">Pendiente</span></td></tr>
-              <tr><td>pagos</td><td>15:01</td><td><span class="pill g">Al día</span></td></tr>
-            </table>
-            <p class="mut sm">El próximo intento corre a las 16:00. Los tableros muestran la hora de la última actualización de cada fuente.</p>
-          </div>
-        </div>
-      </div>
-      <figcaption><b>Avisos ante fallas.</b> Si una fuente queda atrás, llega un mail con el detalle y el resto sigue funcionando.</figcaption>
-    </figure>
-  </div></div>
-
+  <div class="wrap"><div class="demo-mount" data-demo="datos-comerciales"></div></div>
   <div class="wrap tool-body">
     <div class="prose">
-      <div class="technical-panel"><h2>Implementación técnica</h2><p>Desarrollé un pipeline en Python para extraer datos de una API REST, cargar históricos y sincronizar cambios en BigQuery. Separé datos crudos, staging y vistas SQL, con ejecución programada en Cloud Run, reintentos y snapshots de recuperación.</p></div>
-      <h2>Qué hace</h2>
-      <p>Reúne automáticamente ventas, compras, cobranzas, pagos, productos, clientes y proveedores en una base común para consultar y analizar. Mantiene un histórico, incorpora cambios posteriores y prepara información consistente para reportes y tableros. Permite seguir la evolución del negocio y consultar cuentas corrientes sin reunir exportaciones manuales de cada módulo. Incluye controles de actualización, respaldos y avisos ante fallas.</p>
-      <p>La administración puede revisar lo vendido, lo cobrado, las compras y los saldos desde una fuente organizada. La actualización contempla cambios sobre registros anteriores y permite reconstruir períodos históricos cuando es necesario, con seguimiento de las fuentes que todavía no se actualizaron.</p>
-      <h2>Detalles que importan</h2>
+      <div class="technical-panel"><h2>Implementación técnica</h2><p>Implementé extractores Python para una API REST y transformaciones SQL en capas crudas, staging y analíticas. El código contempla cargas históricas, sincronización incremental, conciliación de bajas y respaldos por snapshots.</p></div>
+      <h2>Qué resuelve</h2>
+      <p>Evita reunir exportaciones aisladas para consultar ventas, compras, cobros y pagos. Conserva la información de origen y prepara tablas comunes para reportes y asistentes.</p>
+      <h2>Flujo y alcance</h2>
+      <p>La extracción vuelve a revisar una ventana de datos, carga nuevas versiones y selecciona la más reciente por registro. Las capas analíticas alimentan otras herramientas; el pipeline no modifica el ERP.</p>
       <ul class="points">
-        <li>Capas separadas: datos crudos, preparados y vistas de negocio (cuenta corriente, ventas mensuales, agenda de cobro).</li>
-        <li>Ventana de revisión para captar cambios tardíos y conciliación de comprobantes anulados.</li>
-        <li>Reintentos, particiones por fecha y cortes de seguridad para convivir con los límites de la API del ERP.</li>
-        <li>Snapshots antes de cada promoción, para volver atrás si algo sale mal.</li>
+        <li>Reintentos y circuit breaker ante fallas de la API.</li>
+        <li>Deduplicación por identificador y fecha de extracción.</li>
+        <li>Conciliación de registros eliminados y respaldo independiente del flujo de carga.</li>
       </ul>
-      <p class="note">Es la base de otras soluciones del mismo cliente: el asistente por Telegram, la agenda de cobranzas y los tableros de gestión leen de acá.</p>
     </div>
     <aside class="side">
       <div class="panel">
         <h3>Recorrido de la información</h3>
         <div class="flow">
-          <div class="flow-step"><span>Fuente</span><div class="items"><b>Xubio</b></div></div>
+          <div class="flow-step"><span>Origen</span><div class="items"><b>ERP contable</b></div></div>
           <div class="flow-arrow"></div>
-          <div class="flow-step mid"><span>Procesamiento y almacenamiento</span><div class="items"><b>Cloud Run</b><b>Cloud Scheduler</b><b>BigQuery</b></div></div>
+<div class="flow-step"><span>Procesamiento</span><div class="items"><b>Extracción y capas SQL</b></div></div>
           <div class="flow-arrow"></div>
-          <div class="flow-step"><span>Consumo</span><div class="items"><b>Tableros</b><b>Telegram</b></div></div>
+<div class="flow-step"><span>Salida</span><div class="items"><b>Consultas y tableros</b></div></div>
         </div>
-        <p class="flow-text">Xubio aporta los comprobantes y maestros; BigQuery concentra el histórico y los datos preparados para consultas. Apache Superset y Telegram son canales de consumo de esa información en las soluciones complementarias.</p>
+        <p class="flow-text">La API aporta comprobantes y maestros; BigQuery conserva versiones y publica datos preparados para análisis.</p>
       </div>
       <div class="panel">
         <h3>Stack tecnológico</h3>

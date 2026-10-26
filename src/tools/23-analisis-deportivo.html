@@ -1,121 +1,30 @@
 <section class="tool" id="analisis-deportivo" data-cat="bots"
   data-title="Asistente de investigación y seguimiento deportivo"
   data-sector="Producto propio · deportes de combate"
-  data-summary="Un bot de Telegram que cruza estadísticas, antecedentes, noticias y cuotas, lleva un registro personal de apuestas y se alimenta de un extractor propio de datos."
-  data-stack="OpenAI,Telegram,Node.js,SQLite,UFCStats,The Odds API,Python,Playwright,APIs de estadísticas y cuotas,BeautifulSoup,JSON">
+  data-summary="Elegir un evento y encuentro, consultar estadísticas y señales recientes, y mantener un registro personal con operaciones revisables."
+  data-stack="OpenAI,Telegram,Node.js,SQLite,UFCStats,The Odds API" data-status="Implementado">
   <div class="wrap tool-head">
     <p class="eyebrow">Producto propio · deportes de combate</p>
     <h1>Asistente de investigación y seguimiento deportivo</h1>
-    <p class="kind">Bot de Telegram de análisis deportivo, con registro personal y un extractor de estadísticas incremental</p>
-    <p class="lead">El usuario manda una pregunta, un audio o una captura de las cuotas y el asistente compara los encuentros con estadísticas por round, antecedentes y noticias. Antes de usar un dato verifica que la pelea sea la correcta y que la información esté actualizada.</p>
+    <p class="kind">Bot de Telegram con investigación y registro personal · Implementado</p>
+    <p class="lead">Elegir un evento y encuentro, consultar estadísticas y señales recientes, y mantener un registro personal con operaciones revisables.</p>
   </div>
-
-  <div class="stage"><div class="wrap shots">
-    <figure class="shot w4">
-      <div class="dev dev-phone" style="--h:650px"><div class="screen">
-        <div class="sbar"><span>21:40</span></div>
-        <div class="tg-head"><span class="back">‹</span><span class="av" style="--c:#b91c1c">FA</span><div><div class="t">Fight Analyst</div><div class="s">bot</div></div></div>
-        <div class="tg">
-          <div class="tg-feed">
-            <div class="msg out"><div class="photo" style="width:200px;aspect-ratio:16/10;margin:-2px -5px 4px;--p:linear-gradient(160deg,#1f2937,#374151 60%,#111827)"></div>¿Qué ves en esta pelea?<span class="tm">21:38 ✓✓</span></div>
-            <div class="msg in" style="max-width:92%">
-              <div class="ttl">R. Álvarez vs K. Moreau</div>
-              <div style="font-size:10.5px;color:#7a8a7a;margin-bottom:4px">Evento del sábado · peso ligero · 3 rounds</div>
-              <div class="ln"><span></span><span><b>Álvarez · Moreau</b></span></div>
-              <div class="ln"><span>Golpes sig./min</span><span>5,1 · 3,8</span></div>
-              <div class="ln"><span>Precisión</span><span>47 % · 41 %</span></div>
-              <div class="ln"><span>Derribos /15 min</span><span>0,6 · 2,4</span></div>
-              <div class="ln"><span>Defensa de derribo</span><span>58 % · 74 %</span></div>
-              <hr>
-              <div>Moreau domina en lucha y Álvarez de pie. En sus últimas 3 peleas, Moreau ganó el round 1 en todas.</div>
-              <div class="ln" style="margin-top:4px"><span>Cuota (captura)</span><span>1,85 · 2,05</span></div>
-              <div style="font-size:10.5px;color:#7a8a7a;margin-top:4px">Estadísticas al 20/10 · cuotas de hace 12 min · pelea verificada en la cartelera</div>
-              <span class="tm">21:39</span>
-            </div>
-            <div class="ikb"><div><span>Guardar cuota</span><span>Registrar apuesta</span></div></div>
-          </div>
-          <div class="tg-input"><div class="box">Mensaje</div><div class="mic"></div></div>
-        </div>
-      </div></div>
-      <figcaption><b>Comparación con contexto.</b> Lee la captura, identifica la pelea y responde con estadísticas, tendencias y el origen temporal de cada dato. Nombres ficticios.</figcaption>
-    </figure>
-
-    <figure class="shot w4">
-      <div class="dev dev-phone" style="--h:650px"><div class="screen">
-        <div class="sbar"><span>10:12</span></div>
-        <div class="tg-head"><span class="back">‹</span><span class="av" style="--c:#b91c1c">FA</span><div><div class="t">Fight Analyst</div><div class="s">bot</div></div></div>
-        <div class="tg">
-          <div class="tg-feed">
-            <div class="msg out">/mis_apuestas<span class="tm">10:11 ✓✓</span></div>
-            <div class="msg in" style="max-width:92%">
-              <div class="ttl">Pendientes · 2</div>
-              <div class="ln"><span>Moreau gana · @2,05</span><span>$ 5.000</span></div>
-              <div class="ln"><span>Más de 1,5 rounds · @1,62</span><span>$ 3.000</span></div>
-              <hr>
-              <div class="ttl">Cerradas en octubre</div>
-              <div class="ln"><span>✅ Silva por decisión · @2,40</span><span style="color:#2f8a3e">+$ 7.000</span></div>
-              <div class="ln"><span>❌ Okafor gana · @1,70</span><span style="color:#b42318">−$ 4.000</span></div>
-              <div class="ln"><span>✅ Kim · @1,55</span><span style="color:#2f8a3e">+$ 2.750</span></div>
-              <hr>
-              <div class="ln"><span><b>Balance del mes</b></span><span><b>+$ 5.750</b></span></div>
-              <span class="tm">10:11</span>
-            </div>
-            <div class="msg in">🔔 Novedad: <b>K. Moreau</b> dio el peso en la balanza oficial. La pelea sigue en pie.<span class="tm">10:12</span></div>
-          </div>
-          <div class="tg-input"><div class="box">Mensaje</div><div class="mic"></div></div>
-        </div>
-      </div></div>
-      <figcaption><b>Registro personal.</b> Apuestas pendientes, resultados e historial dentro del chat, más avisos de novedades de los eventos que sigue el usuario.</figcaption>
-    </figure>
-
-    <figure class="shot w4">
-      <div class="dev dev-term" style="--w:400px">
-        <div class="bar"><i></i><i></i><i></i><span>stats-pipeline</span></div>
-<pre style="font-size:11.4px"><span class="t-g">$</span> python run_ufc.py --incremental
-<span class="t-m">eventos procesados:</span> 718
-<span class="t-m">nuevos en el sitio:</span>  <span class="t-w">1</span>
-<span class="t-b">↳</span> evento 19/10 · 12 peleas
-<span class="t-b">↳</span> estadísticas por round · 31
-<span class="t-y">!</span> 1 pelea sin resultado completo
-  → excluida hasta próxima corrida
-<span class="t-m">próximas carteleras:</span> 3 eventos
-<span class="t-g">$</span> python convert_to_sqlite.py
-<span class="t-m">peleas</span> 8.412 · <span class="t-m">rounds</span> 21.906
-<span class="t-g">✓</span> escritura atómica · base anterior
-  conservada hasta terminar
-<span class="t-g">✓</span> publicado para el bot</pre>
-      </div>
-      <figcaption><b>Extractor de estadísticas.</b> Incorpora solo lo nuevo, separa la cartelera futura y no reemplaza la base si una corrida falla.</figcaption>
-    </figure>
-  </div></div>
-
+  <div class="wrap"><div class="demo-mount" data-demo="analisis-deportivo"></div></div>
   <div class="wrap tool-body">
     <div class="prose">
-      <div class="technical-panel"><h2>Implementación técnica</h2><p>Construí un bot en Node.js que combina OpenAI, datos deportivos y APIs de cuotas. SQLite conserva consultas y registros; Python y Playwright complementan la obtención de información.</p></div>
-      <h2>Qué hace</h2>
-      <p>Combina estadísticas, antecedentes, noticias y cuotas para explorar y comparar encuentros. El usuario puede enviar preguntas, audios o capturas y continuar una conversación con contexto. Incluye un registro personal de apuestas, pendientes y resultados, además de seguimiento de eventos y novedades. Aplica controles sobre la identidad del encuentro y la actualización de las fuentes antes de utilizar sus datos.</p>
-      <p>El usuario puede guardar cuotas, registrar una apuesta y consultar pendientes o historial sin salir del chat. El seguimiento de eventos y los resúmenes permiten recuperar contexto para una conversación posterior y revisar el origen temporal de la información utilizada.</p>
-      <h3>Extracción y actualización de estadísticas</h3>
-      <p>Recopila eventos, encuentros y estadísticas publicadas en la web y los organiza en una base consultable. Incorpora información nueva sin repetir todo el histórico y permite corregir eventos puntuales. Separa los resultados de las próximas carteleras y prepara datos por participante y round para utilizarlos en reportes o asistentes de análisis.</p>
-      <p>El equipo dispone de un conjunto consultable de eventos, peleas y estadísticas por round. Puede incorporar novedades y reprocesar un evento cuando requiere corrección, conservando la base anterior si una actualización no termina correctamente.</p>
-      <p class="note">Herramienta de investigación y registro personal; no promete resultados deportivos.</p>
+      <div class="technical-panel"><h2>Implementación técnica</h2><p>Node.js coordina herramientas de estadísticas, cuotas e información web con OpenAI y SQLite. Un control valida identidad, estado y vigencia del evento antes de habilitar su consumo.</p></div>
+      <h2>Qué resuelve</h2><p>Reduce confusiones entre carteleras y encuentros, y separa la investigación del registro persistente de operaciones.</p>
+      <h2>Flujo y alcance</h2><p>La configuración actual prioriza menús y estados de sesión guiados. El registro personal ofrece vistas previas y confirmaciones para operaciones sensibles; los resultados no se liquidan automáticamente sin evidencia suficiente.</p>
+      <ul class="points"><li>Control de fecha, fuentes y vencimiento de la verificación.</li><li>Historial y cuotas tratados como señales de investigación.</li><li>Persistencia y auditoría de cambios en SQLite.</li></ul>
     </div>
-    <aside class="side">
-      <div class="panel">
-        <h3>Recorrido de la información</h3>
-        <div class="flow">
-          <div class="flow-step"><span>Fuentes</span><div class="items"><b>UFCStats</b><b>The Odds API</b><b>Búsqueda web</b></div></div>
-          <div class="flow-arrow"></div>
-          <div class="flow-step mid"><span>Datos e interpretación</span><div class="items"><b>Extractor (JSON + SQLite)</b><b>OpenAI</b></div></div>
-          <div class="flow-arrow"></div>
-          <div class="flow-step"><span>Canal</span><div class="items"><b>Telegram</b></div></div>
-        </div>
-        <p class="flow-text">Telegram recibe mensajes, audios y capturas; OpenAI interpreta y prepara respuestas. UFCStats aporta la base estadística, The Odds API aporta cuotas y eventos y la búsqueda web complementa noticias y verificación de contexto. Los resultados del extractor se conservan en JSON y SQLite y se transfieren al bot; la ejecución se administra con comandos y tareas programadas.</p>
-      </div>
-      <div class="panel">
-        <h3>Stack tecnológico</h3>
-        <div class="stack"><span class="tag">Node.js</span><span class="tag">OpenAI</span><span class="tag">Telegram</span><span class="tag">SQLite</span><span class="tag">APIs de estadísticas y cuotas</span><span class="tag">Python</span><span class="tag">Playwright</span><span class="tag">BeautifulSoup</span><span class="tag">JSON</span></div>
-      </div>
+    <aside class="side"><div class="panel"><h3>Flujo de datos</h3>
+      <div class="flow-step"><div class="items">Menú + evento + encuentro</div></div>
+      <div class="flow-arrow" aria-hidden="true">↓</div>
+      <div class="flow-step"><div class="items">Verificación + herramientas</div></div>
+      <div class="flow-arrow" aria-hidden="true">↓</div>
+      <div class="flow-step"><div class="items">Respuesta + registro personal</div></div>
+      <p class="flow-text">La configuración actual prioriza menús y estados de sesión guiados. El registro personal ofrece vistas previas y confirmaciones para operaciones sensibles; los resultados no se liquidan automáticamente sin evidencia suficiente.</p></div>
+      <div class="panel"><h3>Stack</h3><div class="stack"><span class="tag">OpenAI</span><span class="tag">Telegram</span><span class="tag">Node.js</span><span class="tag">SQLite</span><span class="tag">UFCStats</span><span class="tag">The Odds API</span></div></div>
     </aside>
   </div>
 </section>

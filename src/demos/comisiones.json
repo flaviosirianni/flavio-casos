@@ -1,0 +1,276 @@
+{
+  "slug": "comisiones",
+  "kind": "form",
+  "title": {
+    "es": "Simulación de metas y comisiones",
+    "en": "Goal and commission simulation"
+  },
+  "steps": [
+    {
+      "title": {
+        "es": "Definir el escenario",
+        "en": "Define the scenario"
+      },
+      "description": {
+        "es": "El ejemplo ficticio usa una producción de $15.000 y tres umbrales.",
+        "en": "The fictional example uses $15,000 of production and three thresholds."
+      },
+      "action": {
+        "es": "Abrir simulación",
+        "en": "Open simulation"
+      },
+      "view": {
+        "es": {
+          "type": "form",
+          "heading": "Técnico A · junio",
+          "fields": [
+            {
+              "label": "Producción",
+              "value": "$15.000"
+            },
+            {
+              "label": "Umbral inicial",
+              "value": "$8.000"
+            },
+            {
+              "label": "Meta",
+              "value": "$10.000"
+            },
+            {
+              "label": "Meta extendida",
+              "value": "$12.000"
+            }
+          ],
+          "notice": "Datos y tasas ilustrativos."
+        },
+        "en": {
+          "type": "form",
+          "heading": "Technician A · June",
+          "fields": [
+            {
+              "label": "Production",
+              "value": "$15,000"
+            },
+            {
+              "label": "Initial threshold",
+              "value": "$8,000"
+            },
+            {
+              "label": "Goal",
+              "value": "$10,000"
+            },
+            {
+              "label": "Stretch goal",
+              "value": "$12,000"
+            }
+          ],
+          "notice": "Illustrative data and rates."
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Cambiar porcentajes",
+        "en": "Change rates"
+      },
+      "description": {
+        "es": "Los nuevos porcentajes se aplican solo a la producción dentro de cada tramo.",
+        "en": "New rates apply only to production within each tier."
+      },
+      "action": {
+        "es": "Recalcular",
+        "en": "Recalculate"
+      },
+      "view": {
+        "es": {
+          "type": "form",
+          "heading": "Porcentajes del escenario",
+          "fields": [
+            {
+              "label": "Entre umbral inicial y meta",
+              "value": "4 %"
+            },
+            {
+              "label": "Entre meta y meta extendida",
+              "value": "6 %"
+            },
+            {
+              "label": "Sobre meta extendida",
+              "value": "8 %"
+            }
+          ],
+          "notice": "No hay comisión por los primeros $8.000."
+        },
+        "en": {
+          "type": "form",
+          "heading": "Scenario rates",
+          "fields": [
+            {
+              "label": "Between initial threshold and goal",
+              "value": "4 %"
+            },
+            {
+              "label": "Between goal and stretch goal",
+              "value": "6 %"
+            },
+            {
+              "label": "Above stretch goal",
+              "value": "8 %"
+            }
+          ],
+          "notice": "No commission on the first $8,000."
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Revisar el cálculo",
+        "en": "Review the calculation"
+      },
+      "description": {
+        "es": "Los tres tramos suman una comisión de $440.",
+        "en": "The three tiers add up to a $440 commission."
+      },
+      "action": {
+        "es": "Ver desglose",
+        "en": "View breakdown"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Comisión por tramo",
+          "columns": [
+            "Tramo",
+            "Base del tramo",
+            "Tasa",
+            "Comisión"
+          ],
+          "rows": [
+            [
+              "Inicial → meta",
+              "$2.000",
+              "4 %",
+              "$80"
+            ],
+            [
+              "Meta → extendida",
+              "$2.000",
+              "6 %",
+              "$120"
+            ],
+            [
+              "Sobre extendida",
+              "$3.000",
+              "8 %",
+              "$240"
+            ]
+          ],
+          "metrics": [
+            {
+              "label": "Total del escenario",
+              "value": "$440"
+            }
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "Commission by tier",
+          "columns": [
+            "Tier",
+            "Tier base",
+            "Rate",
+            "Commission"
+          ],
+          "rows": [
+            [
+              "Initial → goal",
+              "$2,000",
+              "4 %",
+              "$80"
+            ],
+            [
+              "Goal → stretch",
+              "$2,000",
+              "6 %",
+              "$120"
+            ],
+            [
+              "Above stretch",
+              "$3,000",
+              "8 %",
+              "$240"
+            ]
+          ],
+          "metrics": [
+            {
+              "label": "Scenario total",
+              "value": "$440"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Comparar y guardar",
+        "en": "Compare and save"
+      },
+      "description": {
+        "es": "La base con tasas 3 %, 5 % y 7 % da $370; el escenario aumenta $70.",
+        "en": "The baseline at 3%, 5% and 7% yields $370; the scenario increases it by $70."
+      },
+      "action": {
+        "es": "Guardar preset",
+        "en": "Save preset"
+      },
+      "view": {
+        "es": {
+          "type": "form",
+          "heading": "Comparación de políticas",
+          "fields": [
+            {
+              "label": "Comisión base",
+              "value": "$370"
+            },
+            {
+              "label": "Comisión del escenario",
+              "value": "$440"
+            },
+            {
+              "label": "Diferencia",
+              "value": "+$70"
+            },
+            {
+              "label": "Preset",
+              "value": "Escenario A"
+            }
+          ],
+          "notice": "Configuración guardada para volver a simular."
+        },
+        "en": {
+          "type": "form",
+          "heading": "Policy comparison",
+          "fields": [
+            {
+              "label": "Baseline commission",
+              "value": "$370"
+            },
+            {
+              "label": "Scenario commission",
+              "value": "$440"
+            },
+            {
+              "label": "Difference",
+              "value": "+$70"
+            },
+            {
+              "label": "Preset",
+              "value": "Scenario A"
+            }
+          ],
+          "notice": "Configuration saved for future simulations."
+        }
+      }
+    }
+  ]
+}

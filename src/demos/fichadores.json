@@ -1,0 +1,262 @@
+{
+  "slug": "fichadores",
+  "kind": "pipeline",
+  "title": {
+    "es": "Lectura de fichadores y conciliación de asistencia",
+    "en": "Time-clock ingestion and attendance reconciliation"
+  },
+  "steps": [
+    {
+      "title": {
+        "es": "Leer el día",
+        "en": "Read the day"
+      },
+      "description": {
+        "es": "La API del ejemplo devuelve tres marcaciones ficticias.",
+        "en": "The example API returns three fictional clock events."
+      },
+      "action": {
+        "es": "Consultar fecha",
+        "en": "Query date"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Marcaciones · 8 de junio",
+          "columns": [
+            "Persona",
+            "Hora",
+            "Dispositivo"
+          ],
+          "rows": [
+            [
+              "Empleado A",
+              "08:00",
+              "Reloj A"
+            ],
+            [
+              "Empleado A",
+              "16:00",
+              "Reloj A"
+            ],
+            [
+              "Empleado B",
+              "09:00",
+              "Reloj A"
+            ]
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "Clock events · June 8",
+          "columns": [
+            "Person",
+            "Time",
+            "Device"
+          ],
+          "rows": [
+            [
+              "Employee A",
+              "08:00",
+              "Clock A"
+            ],
+            [
+              "Employee A",
+              "16:00",
+              "Clock A"
+            ],
+            [
+              "Employee B",
+              "09:00",
+              "Clock A"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Actualizar partición",
+        "en": "Update partition"
+      },
+      "description": {
+        "es": "La fecha se carga como una unidad reemplazable, no como un agregado repetido.",
+        "en": "The date is loaded as a replaceable unit rather than repeatedly appended."
+      },
+      "action": {
+        "es": "Cargar partición",
+        "en": "Load partition"
+      },
+      "view": {
+        "es": {
+          "type": "pipeline",
+          "heading": "Ingesta diaria",
+          "nodes": [
+            {
+              "label": "API por fecha",
+              "status": "done"
+            },
+            {
+              "label": "Normalización",
+              "status": "done"
+            },
+            {
+              "label": "Partición diaria",
+              "status": "active"
+            }
+          ],
+          "log": [
+            "3 marcaciones transformadas",
+            "Carga de la partición del 8 de junio"
+          ]
+        },
+        "en": {
+          "type": "pipeline",
+          "heading": "Daily ingestion",
+          "nodes": [
+            {
+              "label": "API by date",
+              "status": "done"
+            },
+            {
+              "label": "Normalization",
+              "status": "done"
+            },
+            {
+              "label": "Daily partition",
+              "status": "active"
+            }
+          ],
+          "log": [
+            "3 clock events transformed",
+            "Loading the June 8 partition"
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Preparar turnos",
+        "en": "Prepare shifts"
+      },
+      "description": {
+        "es": "Las marcaciones se interpretan por persona y turno.",
+        "en": "Clock events are interpreted by person and shift."
+      },
+      "action": {
+        "es": "Generar vista diaria",
+        "en": "Generate daily view"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Resumen de fichadas",
+          "columns": [
+            "Persona",
+            "Entrada",
+            "Salida",
+            "Lecturas"
+          ],
+          "rows": [
+            [
+              "Empleado A",
+              "08:00",
+              "16:00",
+              "2"
+            ],
+            [
+              "Empleado B",
+              "09:00",
+              "—",
+              "1"
+            ]
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "Clock-event summary",
+          "columns": [
+            "Person",
+            "Entry",
+            "Exit",
+            "Events"
+          ],
+          "rows": [
+            [
+              "Employee A",
+              "08:00",
+              "16:00",
+              "2"
+            ],
+            [
+              "Employee B",
+              "09:00",
+              "—",
+              "1"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Cruzar con el parte",
+        "en": "Cross-check the report"
+      },
+      "description": {
+        "es": "La salida distingue coincidencias de casos que requieren revisión.",
+        "en": "The output distinguishes matches from cases requiring review."
+      },
+      "action": {
+        "es": "Conciliar",
+        "en": "Reconcile"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Parte versus fichadas",
+          "columns": [
+            "Persona",
+            "Parte",
+            "Resultado"
+          ],
+          "rows": [
+            [
+              "Empleado A",
+              "Presente",
+              "Coincide"
+            ],
+            [
+              "Empleado B",
+              "Sin parte",
+              "Fichada sin parte"
+            ]
+          ],
+          "highlight": 1
+        },
+        "en": {
+          "type": "table",
+          "heading": "Report versus clock events",
+          "columns": [
+            "Person",
+            "Report",
+            "Result"
+          ],
+          "rows": [
+            [
+              "Employee A",
+              "Present",
+              "Match"
+            ],
+            [
+              "Employee B",
+              "No report",
+              "Clock event without report"
+            ]
+          ],
+          "highlight": 1
+        }
+      }
+    }
+  ]
+}

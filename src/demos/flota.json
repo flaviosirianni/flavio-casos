@@ -1,0 +1,286 @@
+{
+  "slug": "flota",
+  "kind": "form",
+  "title": {
+    "es": "Análisis de recorridos y actividad de flota",
+    "en": "Fleet route and activity analysis"
+  },
+  "steps": [
+    {
+      "title": {
+        "es": "Elegir día UTC",
+        "en": "Choose UTC day"
+      },
+      "description": {
+        "es": "Una ventana diaria acota las consultas y el resumen.",
+        "en": "A daily window scopes both queries and the summary."
+      },
+      "action": {
+        "es": "Recuperar segmentos",
+        "en": "Retrieve segments"
+      },
+      "view": {
+        "es": {
+          "type": "form",
+          "heading": "Ventana de proceso",
+          "fields": [
+            {
+              "label": "Día UTC",
+              "value": "20/10/2026"
+            },
+            {
+              "label": "Conductor",
+              "value": "Conductor A"
+            },
+            {
+              "label": "Vehículo",
+              "value": "Unidad A"
+            }
+          ]
+        },
+        "en": {
+          "type": "form",
+          "heading": "Processing window",
+          "fields": [
+            {
+              "label": "UTC day",
+              "value": "Oct 20, 2026"
+            },
+            {
+              "label": "Driver",
+              "value": "Driver A"
+            },
+            {
+              "label": "Vehicle",
+              "value": "Vehicle A"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Leer recorridos",
+        "en": "Read route segments"
+      },
+      "description": {
+        "es": "Tres segmentos ficticios suman 42 km y tres destinos distintos.",
+        "en": "Three fictional segments total 42 km and three distinct destinations."
+      },
+      "action": {
+        "es": "Construir anclas",
+        "en": "Build anchors"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Segmentos GPS · UTC",
+          "columns": [
+            "Salida",
+            "Llegada",
+            "Destino",
+            "Distancia"
+          ],
+          "rows": [
+            [
+              "12:00",
+              "12:20",
+              "Sitio A",
+              "12 km"
+            ],
+            [
+              "14:00",
+              "14:15",
+              "Sitio B",
+              "10 km"
+            ],
+            [
+              "18:00",
+              "18:30",
+              "Oficina",
+              "20 km"
+            ]
+          ],
+          "metrics": [
+            {
+              "label": "Distancia total",
+              "value": "42 km"
+            }
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "GPS segments · UTC",
+          "columns": [
+            "Departure",
+            "Arrival",
+            "Destination",
+            "Distance"
+          ],
+          "rows": [
+            [
+              "12:00",
+              "12:20",
+              "Site A",
+              "12 km"
+            ],
+            [
+              "14:00",
+              "14:15",
+              "Site B",
+              "10 km"
+            ],
+            [
+              "18:00",
+              "18:30",
+              "Office",
+              "20 km"
+            ]
+          ],
+          "metrics": [
+            {
+              "label": "Total distance",
+              "value": "42 km"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Reconocer jornada",
+        "en": "Identify workday"
+      },
+      "description": {
+        "es": "Los segmentos y geocercas permiten ubicar inicio, primera parada y oficina.",
+        "en": "Segments and geofences identify departure, first stop and office."
+      },
+      "action": {
+        "es": "Guardar resumen",
+        "en": "Save summary"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Anclas de jornada · UTC",
+          "columns": [
+            "Hito",
+            "Hora",
+            "Referencia"
+          ],
+          "rows": [
+            [
+              "Inicio",
+              "12:00",
+              "Origen del primer movimiento"
+            ],
+            [
+              "Primera parada",
+              "12:20",
+              "Sitio A"
+            ],
+            [
+              "Última llegada a oficina",
+              "18:30",
+              "Geocerca de oficina"
+            ]
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "Workday anchors · UTC",
+          "columns": [
+            "Milestone",
+            "Time",
+            "Reference"
+          ],
+          "rows": [
+            [
+              "Start",
+              "12:00",
+              "First movement origin"
+            ],
+            [
+              "First stop",
+              "12:20",
+              "Site A"
+            ],
+            [
+              "Last office arrival",
+              "18:30",
+              "Office geofence"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Consultar fila diaria",
+        "en": "Review daily row"
+      },
+      "description": {
+        "es": "El día se reconstruye sobre sus datos de origen.",
+        "en": "The day is rebuilt from its source data."
+      },
+      "action": {
+        "es": "Ver resumen final",
+        "en": "View final summary"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Resumen diario",
+          "columns": [
+            "Conductor",
+            "Segmentos",
+            "Destinos distintos",
+            "Distancia",
+            "Primera parada UTC"
+          ],
+          "rows": [
+            [
+              "Conductor A",
+              "3",
+              "3",
+              "42 km",
+              "12:20"
+            ]
+          ],
+          "metrics": [
+            {
+              "label": "Reproceso",
+              "value": "Reemplaza el día"
+            }
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "Daily summary",
+          "columns": [
+            "Driver",
+            "Segments",
+            "Distinct destinations",
+            "Distance",
+            "First stop UTC"
+          ],
+          "rows": [
+            [
+              "Driver A",
+              "3",
+              "3",
+              "42 km",
+              "12:20"
+            ]
+          ],
+          "metrics": [
+            {
+              "label": "Reprocessing",
+              "value": "Replaces the day"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

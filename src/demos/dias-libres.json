@@ -1,0 +1,262 @@
+{
+  "slug": "dias-libres",
+  "kind": "form",
+  "title": {
+    "es": "Registro de días libres y recordatorios",
+    "en": "Time off tracking and reminders"
+  },
+  "steps": [
+    {
+      "title": {
+        "es": "Cargar rango aprobado",
+        "en": "Enter approved range"
+      },
+      "description": {
+        "es": "El país de la persona determina sus feriados.",
+        "en": "The person’s country determines their holidays."
+      },
+      "action": {
+        "es": "Revisar días",
+        "en": "Review days"
+      },
+      "view": {
+        "es": {
+          "type": "form",
+          "heading": "Nueva solicitud",
+          "fields": [
+            {
+              "label": "Persona",
+              "value": "Empleado A"
+            },
+            {
+              "label": "País",
+              "value": "Argentina"
+            },
+            {
+              "label": "Desde",
+              "value": "11/12/2026"
+            },
+            {
+              "label": "Hasta",
+              "value": "14/12/2026"
+            }
+          ]
+        },
+        "en": {
+          "type": "form",
+          "heading": "New request",
+          "fields": [
+            {
+              "label": "Person",
+              "value": "Employee A"
+            },
+            {
+              "label": "Country",
+              "value": "Argentina"
+            },
+            {
+              "label": "From",
+              "value": "Dec 11, 2026"
+            },
+            {
+              "label": "To",
+              "value": "Dec 14, 2026"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Contar días aplicables",
+        "en": "Count applicable days"
+      },
+      "description": {
+        "es": "El rango incluye cuatro fechas, pero solo dos días hábiles.",
+        "en": "The range includes four dates, but only two working days."
+      },
+      "action": {
+        "es": "Guardar solicitud",
+        "en": "Save request"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Calendario del rango",
+          "columns": [
+            "Fecha",
+            "Tipo",
+            "PTO"
+          ],
+          "rows": [
+            [
+              "11/12/2026",
+              "Viernes",
+              "1"
+            ],
+            [
+              "12/12/2026",
+              "Sábado",
+              "0"
+            ],
+            [
+              "13/12/2026",
+              "Domingo",
+              "0"
+            ],
+            [
+              "14/12/2026",
+              "Lunes",
+              "1"
+            ]
+          ],
+          "metrics": [
+            {
+              "label": "Días PTO",
+              "value": "2"
+            }
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "Range calendar",
+          "columns": [
+            "Date",
+            "Type",
+            "PTO"
+          ],
+          "rows": [
+            [
+              "Dec 11, 2026",
+              "Friday",
+              "1"
+            ],
+            [
+              "Dec 12, 2026",
+              "Saturday",
+              "0"
+            ],
+            [
+              "Dec 13, 2026",
+              "Sunday",
+              "0"
+            ],
+            [
+              "Dec 14, 2026",
+              "Monday",
+              "1"
+            ]
+          ],
+          "metrics": [
+            {
+              "label": "PTO days",
+              "value": "2"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Publicar salida diaria",
+        "en": "Publish daily output"
+      },
+      "description": {
+        "es": "La solicitud activa alimenta BI y genera un aviso en Slack.",
+        "en": "The active request feeds BI and generates a Slack notification."
+      },
+      "action": {
+        "es": "Ver aviso",
+        "en": "View notification"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Salida para BI",
+          "columns": [
+            "Persona",
+            "Fecha",
+            "Origen"
+          ],
+          "rows": [
+            [
+              "Empleado A",
+              "11/12/2026",
+              "Solicitud activa"
+            ],
+            [
+              "Empleado A",
+              "14/12/2026",
+              "Solicitud activa"
+            ]
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "BI output",
+          "columns": [
+            "Person",
+            "Date",
+            "Source"
+          ],
+          "rows": [
+            [
+              "Employee A",
+              "Dec 11, 2026",
+              "Active request"
+            ],
+            [
+              "Employee A",
+              "Dec 14, 2026",
+              "Active request"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Notificar y recordar",
+        "en": "Notify and remind"
+      },
+      "description": {
+        "es": "Los avisos de alta y los recordatorios usan el mismo registro.",
+        "en": "Creation notices and reminders use the same request record."
+      },
+      "action": {
+        "es": "Ver solicitud activa",
+        "en": "View active request"
+      },
+      "view": {
+        "es": {
+          "type": "chat",
+          "heading": "Avisos del equipo",
+          "messages": [
+            {
+              "side": "bot",
+              "text": "Empleado A registró PTO aprobado del 11 al 14 de diciembre: 2 días."
+            },
+            {
+              "side": "bot",
+              "text": "Recordatorio de salida: Empleado A comienza su PTO próximamente. El aviso queda registrado para evitar duplicados."
+            }
+          ]
+        },
+        "en": {
+          "type": "chat",
+          "heading": "Team notifications",
+          "messages": [
+            {
+              "side": "bot",
+              "text": "Employee A recorded approved PTO for December 11–14: 2 days."
+            },
+            {
+              "side": "bot",
+              "text": "Departure reminder: Employee A’s PTO starts soon. The notice is logged to prevent duplicates."
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

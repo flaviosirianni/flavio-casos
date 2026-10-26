@@ -1,0 +1,314 @@
+{
+  "slug": "sync-rrhh",
+  "kind": "table",
+  "title": {
+    "es": "Sincronización de horas con recursos humanos",
+    "en": "Time entry synchronization with HR"
+  },
+  "steps": [
+    {
+      "title": {
+        "es": "Leer origen",
+        "en": "Read source"
+      },
+      "description": {
+        "es": "Tres fichadas ficticias llegan a la planilla de trabajo.",
+        "en": "Three fictional time entries arrive in the working sheet."
+      },
+      "action": {
+        "es": "Comparar estado",
+        "en": "Compare state"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Horas del origen",
+          "columns": [
+            "ID",
+            "Persona",
+            "Horas",
+            "Último envío"
+          ],
+          "rows": [
+            [
+              "T-101",
+              "Empleado A",
+              "8",
+              "Sin cambios"
+            ],
+            [
+              "T-102",
+              "Empleado B",
+              "7,5",
+              "Antes: 7 h"
+            ],
+            [
+              "T-103",
+              "Empleado C",
+              "6",
+              "Nunca enviado"
+            ]
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "Source hours",
+          "columns": [
+            "ID",
+            "Person",
+            "Hours",
+            "Last send"
+          ],
+          "rows": [
+            [
+              "T-101",
+              "Employee A",
+              "8",
+              "Unchanged"
+            ],
+            [
+              "T-102",
+              "Employee B",
+              "7.5",
+              "Previously: 7 h"
+            ],
+            [
+              "T-103",
+              "Employee C",
+              "6",
+              "Never sent"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Clasificar diferencias",
+        "en": "Classify differences"
+      },
+      "description": {
+        "es": "El ID identifica la fichada; el hash distingue cambios.",
+        "en": "The ID identifies the entry; the hash distinguishes changes."
+      },
+      "action": {
+        "es": "Enviar pendientes",
+        "en": "Send pending entries"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Plan de sincronización",
+          "columns": [
+            "ID",
+            "Clasificación",
+            "Acción"
+          ],
+          "rows": [
+            [
+              "T-101",
+              "Hash idéntico",
+              "Omitir"
+            ],
+            [
+              "T-102",
+              "Contenido modificado",
+              "Upsert"
+            ],
+            [
+              "T-103",
+              "Nuevo",
+              "Upsert"
+            ]
+          ],
+          "metrics": [
+            {
+              "label": "Pendientes",
+              "value": "2"
+            },
+            {
+              "label": "Omitidos",
+              "value": "1"
+            }
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "Synchronization plan",
+          "columns": [
+            "ID",
+            "Classification",
+            "Action"
+          ],
+          "rows": [
+            [
+              "T-101",
+              "Identical hash",
+              "Skip"
+            ],
+            [
+              "T-102",
+              "Changed content",
+              "Upsert"
+            ],
+            [
+              "T-103",
+              "New",
+              "Upsert"
+            ]
+          ],
+          "metrics": [
+            {
+              "label": "Pending",
+              "value": "2"
+            },
+            {
+              "label": "Skipped",
+              "value": "1"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Registrar respuesta",
+        "en": "Record response"
+      },
+      "description": {
+        "es": "Solo los envíos exitosos actualizan el estado de sincronización.",
+        "en": "Only successful sends update synchronization state."
+      },
+      "action": {
+        "es": "Revisar log",
+        "en": "Review log"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Resultado por registro",
+          "columns": [
+            "ID",
+            "Acción",
+            "Resultado"
+          ],
+          "rows": [
+            [
+              "T-102",
+              "Actualizar 7,5 h",
+              "Correcto"
+            ],
+            [
+              "T-103",
+              "Crear 6 h",
+              "Correcto"
+            ]
+          ],
+          "metrics": [
+            {
+              "label": "Correctos",
+              "value": "2"
+            },
+            {
+              "label": "Errores",
+              "value": "0"
+            }
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "Per-entry result",
+          "columns": [
+            "ID",
+            "Action",
+            "Result"
+          ],
+          "rows": [
+            [
+              "T-102",
+              "Update 7.5 h",
+              "Success"
+            ],
+            [
+              "T-103",
+              "Create 6 h",
+              "Success"
+            ]
+          ],
+          "metrics": [
+            {
+              "label": "Successful",
+              "value": "2"
+            },
+            {
+              "label": "Errors",
+              "value": "0"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Repetir sin duplicar",
+        "en": "Repeat without duplicates"
+      },
+      "description": {
+        "es": "La misma fuente no vuelve a generar envíos pendientes.",
+        "en": "The same source produces no new pending sends."
+      },
+      "action": {
+        "es": "Ver estado final",
+        "en": "View final state"
+      },
+      "view": {
+        "es": {
+          "type": "pipeline",
+          "heading": "Segunda ejecución",
+          "nodes": [
+            {
+              "label": "Fuente",
+              "status": "done"
+            },
+            {
+              "label": "Comparación",
+              "status": "done"
+            },
+            {
+              "label": "Sin pendientes",
+              "status": "done"
+            }
+          ],
+          "log": [
+            "3 registros sin cambios.",
+            "0 enviados; estado exitoso conservado.",
+            "Si dos filas comparten ID con distinto contenido, se apartan como conflicto."
+          ]
+        },
+        "en": {
+          "type": "pipeline",
+          "heading": "Second run",
+          "nodes": [
+            {
+              "label": "Source",
+              "status": "done"
+            },
+            {
+              "label": "Comparison",
+              "status": "done"
+            },
+            {
+              "label": "Nothing pending",
+              "status": "done"
+            }
+          ],
+          "log": [
+            "3 unchanged entries.",
+            "0 sent; successful state retained.",
+            "Two source rows sharing an ID with different content are separated as a conflict."
+          ]
+        }
+      }
+    }
+  ]
+}

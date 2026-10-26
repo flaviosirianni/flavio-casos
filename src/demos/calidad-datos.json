@@ -1,0 +1,300 @@
+{
+  "slug": "calidad-datos",
+  "kind": "table",
+  "title": {
+    "es": "Detección de información faltante e inconsistencias",
+    "en": "Detecting missing data and inconsistencies"
+  },
+  "steps": [
+    {
+      "title": {
+        "es": "Reunir evidencia",
+        "en": "Gather evidence"
+      },
+      "description": {
+        "es": "El ejemplo prepara registros ficticios de tres sedes para una fecha.",
+        "en": "The example prepares fictional records from three sites for one date."
+      },
+      "action": {
+        "es": "Leer fuentes",
+        "en": "Read sources"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Carga del 8 de junio",
+          "columns": [
+            "Sede",
+            "Persona",
+            "Estado",
+            "Horario real"
+          ],
+          "rows": [
+            [
+              "Sede A",
+              "Empleado A",
+              "Presente",
+              "08:00–16:00"
+            ],
+            [
+              "Sede A",
+              "Empleado A",
+              "Presente",
+              "08:00–16:00"
+            ],
+            [
+              "Sede B",
+              "Empleado B",
+              "Presente",
+              "08:00–—"
+            ]
+          ],
+          "metrics": [
+            {
+              "label": "Sede C",
+              "value": "Sin filas"
+            }
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "June 8 entries",
+          "columns": [
+            "Site",
+            "Person",
+            "Status",
+            "Actual time"
+          ],
+          "rows": [
+            [
+              "Site A",
+              "Employee A",
+              "Present",
+              "08:00–16:00"
+            ],
+            [
+              "Site A",
+              "Employee A",
+              "Present",
+              "08:00–16:00"
+            ],
+            [
+              "Site B",
+              "Employee B",
+              "Present",
+              "08:00–—"
+            ]
+          ],
+          "metrics": [
+            {
+              "label": "Site C",
+              "value": "No rows"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Aplicar reglas",
+        "en": "Apply rules"
+      },
+      "description": {
+        "es": "Cada control compara los registros con condiciones explícitas.",
+        "en": "Each check compares records with explicit conditions."
+      },
+      "action": {
+        "es": "Evaluar calidad",
+        "en": "Evaluate quality"
+      },
+      "view": {
+        "es": {
+          "type": "pipeline",
+          "heading": "Reglas del ejemplo",
+          "nodes": [
+            {
+              "label": "Cobertura diaria",
+              "status": "done"
+            },
+            {
+              "label": "Claves duplicadas",
+              "status": "done"
+            },
+            {
+              "label": "Horarios completos",
+              "status": "active"
+            }
+          ],
+          "log": [
+            "Sede C: día esperado sin registros",
+            "Sede A: persona repetida en el mismo turno",
+            "Sede B: presente sin hora de salida"
+          ]
+        },
+        "en": {
+          "type": "pipeline",
+          "heading": "Example rules",
+          "nodes": [
+            {
+              "label": "Daily coverage",
+              "status": "done"
+            },
+            {
+              "label": "Duplicate keys",
+              "status": "done"
+            },
+            {
+              "label": "Complete times",
+              "status": "active"
+            }
+          ],
+          "log": [
+            "Site C: expected day without records",
+            "Site A: repeated person in the same shift",
+            "Site B: present without an exit time"
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Publicar hallazgos",
+        "en": "Publish findings"
+      },
+      "description": {
+        "es": "Las diferencias se guardan con una estructura común.",
+        "en": "Differences are stored in a shared structure."
+      },
+      "action": {
+        "es": "Ver hallazgos",
+        "en": "View findings"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Hallazgos del ejemplo",
+          "columns": [
+            "Sede",
+            "Regla",
+            "Severidad"
+          ],
+          "rows": [
+            [
+              "Sede C",
+              "Día sin parte",
+              "Alta"
+            ],
+            [
+              "Sede A",
+              "Duplicado",
+              "Alta"
+            ],
+            [
+              "Sede B",
+              "Presente sin horario",
+              "Media"
+            ]
+          ],
+          "metrics": [
+            {
+              "label": "Hallazgos",
+              "value": "3"
+            }
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "Example findings",
+          "columns": [
+            "Site",
+            "Rule",
+            "Severity"
+          ],
+          "rows": [
+            [
+              "Site C",
+              "Day without report",
+              "High"
+            ],
+            [
+              "Site A",
+              "Duplicate",
+              "High"
+            ],
+            [
+              "Site B",
+              "Present without times",
+              "Medium"
+            ]
+          ],
+          "metrics": [
+            {
+              "label": "Findings",
+              "value": "3"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Priorizar la revisión",
+        "en": "Prioritize review"
+      },
+      "description": {
+        "es": "La vista agrupa por severidad para ordenar la revisión humana.",
+        "en": "The view groups by severity to organize human review."
+      },
+      "action": {
+        "es": "Abrir resumen",
+        "en": "Open summary"
+      },
+      "view": {
+        "es": {
+          "type": "chart",
+          "heading": "Hallazgos por severidad",
+          "bars": [
+            {
+              "label": "Alta",
+              "value": 2,
+              "display": "2"
+            },
+            {
+              "label": "Media",
+              "value": 1,
+              "display": "1"
+            }
+          ],
+          "metrics": [
+            {
+              "label": "Corrección automática",
+              "value": "No aplicada"
+            }
+          ]
+        },
+        "en": {
+          "type": "chart",
+          "heading": "Findings by severity",
+          "bars": [
+            {
+              "label": "High",
+              "value": 2,
+              "display": "2"
+            },
+            {
+              "label": "Medium",
+              "value": 1,
+              "display": "1"
+            }
+          ],
+          "metrics": [
+            {
+              "label": "Automatic correction",
+              "value": "Not applied"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

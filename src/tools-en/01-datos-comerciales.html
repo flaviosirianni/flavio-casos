@@ -1,0 +1,44 @@
+<section class="tool" id="datos-comerciales" data-cat="datos"
+  data-title="Centralized commercial and accounting data"
+  data-sector="Food service operations · multiple outlets"
+  data-summary="ERP sales, purchases, receipts and payments brought together in BigQuery, with history and incremental updates."
+  data-stack="Python,SQL,REST APIs,BigQuery,Cloud Run,Cloud Scheduler,Cloud Monitoring" data-status="">
+  <div class="wrap tool-head">
+    <p class="eyebrow">Food service operations · multiple outlets</p>
+    <h1>Centralized commercial and accounting data</h1>
+    <p class="kind">Data integration and analytics warehouse</p>
+    <p class="lead">A shared data foundation for analyzing the business without exporting every accounting module. The demo illustrates how a source change reaches a sales view.</p>
+  </div>
+  <div class="wrap"><div class="demo-mount" data-demo="datos-comerciales"></div></div>
+  <div class="wrap tool-body">
+    <div class="prose">
+      <div class="technical-panel"><h2>Technical implementation</h2><p>I implemented Python extractors for a REST API and SQL transformations across raw, staging and analytical layers. The code supports historical loads, incremental synchronization, deletion reconciliation and snapshot backups.</p></div>
+      <h2>What it solves</h2>
+      <p>It removes the need to combine separate exports to query sales, purchases, receipts and payments. It preserves source information and prepares shared tables for reports and assistants.</p>
+      <h2>Flow and scope</h2>
+      <p>Extraction revisits a data window, loads new versions and selects the latest version of each record. Analytical layers feed other tools; the pipeline does not modify the ERP.</p>
+      <ul class="points">
+        <li>Retries and a circuit breaker for API failures.</li>
+        <li>Deduplication by identifier and extraction timestamp.</li>
+        <li>Reconciliation of deleted records and backups independent of the load flow.</li>
+      </ul>
+    </div>
+    <aside class="side">
+      <div class="panel">
+        <h3>Data flow</h3>
+        <div class="flow">
+          <div class="flow-step"><span>Source</span><div class="items"><b>Accounting ERP</b></div></div>
+          <div class="flow-arrow"></div>
+<div class="flow-step"><span>Processing</span><div class="items"><b>Extraction and SQL layers</b></div></div>
+          <div class="flow-arrow"></div>
+<div class="flow-step"><span>Output</span><div class="items"><b>Queries and dashboards</b></div></div>
+        </div>
+        <p class="flow-text">The API supplies documents and reference data; BigQuery preserves versions and publishes data prepared for analysis.</p>
+      </div>
+      <div class="panel">
+        <h3>Technology stack</h3>
+        <div class="stack"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">REST APIs</span><span class="tag">BigQuery</span><span class="tag">Cloud Run</span><span class="tag">Cloud Scheduler</span><span class="tag">Cloud Monitoring</span></div>
+      </div>
+    </aside>
+  </div>
+</section>

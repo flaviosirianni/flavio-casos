@@ -1,0 +1,344 @@
+{
+  "slug": "actividad-comercial",
+  "kind": "table",
+  "title": {
+    "es": "Seguimiento diario de actividad comercial",
+    "en": "Daily sales activity tracking"
+  },
+  "steps": [
+    {
+      "title": {
+        "es": "Leer actividad",
+        "en": "Read activity"
+      },
+      "description": {
+        "es": "Los valores ficticios muestran tres rutas distintas de evaluación.",
+        "en": "Fictional values show three different evaluation paths."
+      },
+      "action": {
+        "es": "Calcular salientes",
+        "en": "Calculate outbound activity"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Actividad del día",
+          "columns": [
+            "Agente",
+            "Conversaciones",
+            "Llamadas",
+            "Correos",
+            "Mensajes",
+            "Puertas abiertas",
+            "Limpieza"
+          ],
+          "rows": [
+            [
+              "Agente A",
+              "0",
+              "2",
+              "2",
+              "1",
+              "0",
+              "0"
+            ],
+            [
+              "Agente B",
+              "1",
+              "0",
+              "0",
+              "0",
+              "0",
+              "2"
+            ],
+            [
+              "Agente C",
+              "0",
+              "0",
+              "0",
+              "0",
+              "1",
+              "3"
+            ]
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "Daily activity",
+          "columns": [
+            "Agent",
+            "Conversations",
+            "Calls",
+            "Emails",
+            "Texts",
+            "Open houses",
+            "Cleanup"
+          ],
+          "rows": [
+            [
+              "Agent A",
+              "0",
+              "2",
+              "2",
+              "1",
+              "0",
+              "0"
+            ],
+            [
+              "Agent B",
+              "1",
+              "0",
+              "0",
+              "0",
+              "0",
+              "2"
+            ],
+            [
+              "Agent C",
+              "0",
+              "0",
+              "0",
+              "0",
+              "1",
+              "3"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Aplicar reglas",
+        "en": "Apply rules"
+      },
+      "description": {
+        "es": "La limpieza bloquea la vía de actividad, pero no la de puertas abiertas.",
+        "en": "Cleanup blocks the activity path, but not the open-house path."
+      },
+      "action": {
+        "es": "Guardar evaluación",
+        "en": "Save evaluation"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Resultado explicado",
+          "columns": [
+            "Agente",
+            "Salientes",
+            "Cumple",
+            "Motivo"
+          ],
+          "rows": [
+            [
+              "Agente A",
+              "5",
+              "Sí",
+              "5 salientes y limpieza en cero"
+            ],
+            [
+              "Agente B",
+              "0",
+              "No",
+              "Limpieza pendiente"
+            ],
+            [
+              "Agente C",
+              "0",
+              "Sí",
+              "Una jornada de puertas abiertas"
+            ]
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "Explained result",
+          "columns": [
+            "Agent",
+            "Outbound",
+            "Qualifies",
+            "Reason"
+          ],
+          "rows": [
+            [
+              "Agent A",
+              "5",
+              "Yes",
+              "5 outbound and zero cleanup"
+            ],
+            [
+              "Agent B",
+              "0",
+              "No",
+              "Cleanup pending"
+            ],
+            [
+              "Agent C",
+              "0",
+              "Yes",
+              "One open house"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Archivar por fecha",
+        "en": "Archive by date"
+      },
+      "description": {
+        "es": "Repetir la corrida reemplaza el día actual y mantiene su clave.",
+        "en": "Repeating a run replaces the current day and preserves its key."
+      },
+      "action": {
+        "es": "Revisar archivo",
+        "en": "Review archive"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Archivo diario",
+          "columns": [
+            "Clave",
+            "Resultado",
+            "Motivo"
+          ],
+          "rows": [
+            [
+              "A · 20/10/2026",
+              "Cumple",
+              "Actividad y limpieza"
+            ],
+            [
+              "B · 20/10/2026",
+              "No cumple",
+              "Limpieza pendiente"
+            ],
+            [
+              "C · 20/10/2026",
+              "Cumple",
+              "Puertas abiertas"
+            ]
+          ],
+          "metrics": [
+            {
+              "label": "Filas del día",
+              "value": "3"
+            }
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "Daily archive",
+          "columns": [
+            "Key",
+            "Result",
+            "Reason"
+          ],
+          "rows": [
+            [
+              "A · Oct 20, 2026",
+              "Qualifies",
+              "Activity and cleanup"
+            ],
+            [
+              "B · Oct 20, 2026",
+              "Does not qualify",
+              "Cleanup pending"
+            ],
+            [
+              "C · Oct 20, 2026",
+              "Qualifies",
+              "Open house"
+            ]
+          ],
+          "metrics": [
+            {
+              "label": "Daily rows",
+              "value": "3"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Corregir ayer",
+        "en": "Correct yesterday"
+      },
+      "description": {
+        "es": "Una subida tardía de correos puede mejorar la evaluación de ayer; el valor previo no se reduce.",
+        "en": "A late email increase can improve yesterday’s evaluation; the previous value is never reduced."
+      },
+      "action": {
+        "es": "Ver corrección",
+        "en": "View correction"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Corrección controlada · Agente A",
+          "columns": [
+            "Concepto",
+            "Antes",
+            "Después"
+          ],
+          "rows": [
+            [
+              "Correos de ayer",
+              "1",
+              "2"
+            ],
+            [
+              "Salientes de ayer",
+              "4",
+              "5"
+            ],
+            [
+              "Limpieza",
+              "0",
+              "0"
+            ],
+            [
+              "Resultado",
+              "No cumple",
+              "Cumple"
+            ]
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "Controlled correction · Agent A",
+          "columns": [
+            "Item",
+            "Before",
+            "After"
+          ],
+          "rows": [
+            [
+              "Yesterday’s emails",
+              "1",
+              "2"
+            ],
+            [
+              "Yesterday’s outbound",
+              "4",
+              "5"
+            ],
+            [
+              "Cleanup",
+              "0",
+              "0"
+            ],
+            [
+              "Result",
+              "Does not qualify",
+              "Qualifies"
+            ]
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,83 +1,21 @@
-<section class="tool" id="personal-multiempresa" data-cat="apps" data-status="Prototipo"
-  data-title="Gestión de personal para varias organizaciones"
-  data-sector="Servicios de facility · evolución del parte diario"
-  data-summary="Un prototipo web que lleva el proceso de planillas a una aplicación propia: empleados, turnos, licencias y partes separados por organización."
-  data-stack="Next.js,PostgreSQL,Prisma,React,TypeScript">
+<section class="tool" id="personal-multiempresa" data-cat="apps" data-title="Gestión de personal para varias organizaciones" data-sector="Servicios de facility · evolución del parte diario" data-summary="Prototipo web con empleados, turnos, ausencias y partes separados por organización." data-stack="Next.js,React,TypeScript,Prisma,PostgreSQL" data-status="Prototipo">
   <div class="wrap tool-head">
     <p class="eyebrow">Servicios de facility · evolución del parte diario</p>
     <h1>Gestión de personal para varias organizaciones</h1>
-    <p class="kind">Prototipo de webapp multiempresa de gestión de personal</p>
-    <div class="meta-row"></div>
-    <p class="lead">El siguiente paso del parte diario: una aplicación con base de datos propia donde cada organización tiene su configuración, sus empleados y sus novedades, con las mismas reglas que ya funcionan en planillas.</p>
+    <p class="kind">Prototipo de webapp multiempresa</p>
+    <p class="lead">Prototipo web con empleados, turnos, ausencias y partes separados por organización.</p>
   </div>
-
-  <div class="stage"><div class="wrap shots">
-    <figure class="shot w12">
-      <div class="dev dev-browser ui" style="--w:1060px;--brand:#4338ca;--brand-soft:#eceafd">
-        <div class="bar"><i></i><i></i><i></i><div class="url">localhost:3000/parte-diario</div></div>
-        <div class="ui-app" style="--mh:440px">
-          <div class="ui-side"><div class="inp sel" style="margin-bottom:12px"><span><span class="xs mut">Organización</span><br><b class="sm">Servicios del Sur</b></span></div><span class="ui-nav on">Parte diario</span><span class="ui-nav">Parte mensual</span><span class="ui-nav">Empleados</span><span class="ui-nav">Licencias</span><span class="ui-nav">Histórico</span><div class="ui-sep">Configuración</div><span class="ui-nav">Estados y turnos</span><span class="ui-nav">Columnas</span><span class="ui-nav">Importar CSV</span></div>
-          <div class="ui-main">
-            <div class="row"><div class="ui-h1">Parte diario · mié 22/10</div><span class="pill y">Borrador · 12 de 15 cargados</span><span class="grow"></span><span class="btn ghost">Postear</span><span class="btn">Cerrar día</span></div>
-            <div class="row"><div class="inp" style="width:220px"><span class="ph">Filtrar empleados</span></div><div class="inp sel" style="width:150px">Turno: todos</div></div>
-            <table class="tbl">
-              <tr><th>Empleado</th><th>Turno</th><th>Estado</th><th>Entrada</th><th>Salida</th><th class="num">H. extra</th><th>Observación</th></tr>
-              <tr><td>Lucía Ferreyra</td><td>Mañana</td><td><span class="pill g">Presente</span></td><td>06:02</td><td>14:05</td><td class="num">0</td><td class="mut"></td></tr>
-              <tr><td>Martín Sosa</td><td>Mañana</td><td><span class="pill g">Presente</span></td><td>06:00</td><td>16:00</td><td class="num">2</td><td>Cubre a N. Paz</td></tr>
-              <tr><td>Nicolás Paz</td><td>Mañana</td><td><span class="pill b">Licencia</span></td><td></td><td></td><td class="num">0</td><td>hasta 24/10</td></tr>
-              <tr class="sel"><td>Carla Benítez</td><td>Tarde</td><td><div class="inp sel focus" style="min-height:26px;padding:3px 8px;width:130px">Presente</div></td><td><div class="inp" style="min-height:26px;padding:3px 8px;width:70px">14:20</div></td><td></td><td class="num">0</td><td class="mut"></td></tr>
-              <tr><td>Julieta Quiroga</td><td>Tarde</td><td><span class="pill r">Ausente</span></td><td></td><td></td><td class="num">0</td><td>Con aviso</td></tr>
-            </table>
-            <div class="xs mut">Los días cerrados solo se editan con habilitación temporal y quedan en auditoría.</div>
-          </div>
-        </div>
-      </div>
-      <figcaption><b>Parte diario por organización.</b> Registro, posteo y cierre con las reglas del proceso actual: bajas, licencias y edición controlada de días confirmados.</figcaption>
-    </figure>
-
-    <figure class="shot w12">
-      <div class="dev dev-browser ui" style="--w:960px;--brand:#4338ca;--brand-soft:#eceafd">
-        <div class="bar"><i></i><i></i><i></i><div class="url">localhost:3000/configuracion/importar</div></div>
-        <div class="ui-main">
-          <div class="row"><div class="ui-h1">Importar padrón inicial</div><span class="grow"></span><span class="pill">empleados_servicios_del_sur.csv · 64 filas</span></div>
-          <div class="g3"><div class="ui-card kpi"><div class="k">Listas para importar</div><div class="v up">61</div></div><div class="ui-card kpi"><div class="k">Con advertencia</div><div class="v" style="color:#8a5a00">2</div></div><div class="ui-card kpi"><div class="k">Con error</div><div class="v down">1</div></div></div>
-          <table class="tbl">
-            <tr><th>Fila</th><th>Legajo</th><th>Nombre</th><th>Turno</th><th>Resultado</th></tr>
-            <tr><td>12</td><td>1146</td><td>Agustina Ríos</td><td>Noche</td><td><span class="pill y">Turno nuevo: se creará en el catálogo</span></td></tr>
-            <tr><td>27</td><td>1077</td><td>Martín Sosa</td><td>Mañana</td><td><span class="pill r">Legajo repetido en la fila 9</span></td></tr>
-            <tr><td>40</td><td>1180</td><td>Ramiro Acosta</td><td>Tarde</td><td><span class="pill y">Sin fecha de ingreso</span></td></tr>
-          </table>
-          <div class="row"><span class="btn">Importar 61 empleados</span><span class="btn ghost">Descargar errores</span></div>
-        </div>
-      </div>
-      <figcaption><b>Importación inicial.</b> El padrón entra por CSV con validación previa y detalle de cada problema.</figcaption>
-    </figure>
-  </div></div>
-
+  <div class="wrap"><div class="demo-mount" data-demo="personal-multiempresa"></div></div>
   <div class="wrap tool-body">
     <div class="prose">
-      <div class="technical-panel"><h2>Implementación técnica</h2><p>Desarrollé un prototipo web con Next.js, React, TypeScript, Prisma y PostgreSQL. El modelo organiza personal y operaciones por organización como evolución de los flujos existentes en planillas.</p></div>
-      <h2>Qué hace</h2>
-      <p>Prototipo web que permite separar empleados, turnos, licencias y partes por organización. Incluye registro diario, resúmenes mensuales, importación inicial y consulta histórica con controles de edición. Explora la evolución de un proceso basado en planillas hacia una aplicación con datos propios y configuraciones independientes. La autenticación y los permisos productivos completos quedan como etapas pendientes.</p>
-      <p>Cada organización puede mantener su configuración, empleados y novedades dentro del modelo. El prototipo traslada reglas del proceso de planillas a una interfaz web; completar accesos y permisos productivos forma parte de su evolución pendiente.</p>
-      <p class="note">Es la evolución del <a href="#parte-diario">registro digital de asistencia</a> que hoy funciona sobre Google Sheets.</p>
+      <div class="technical-panel"><h2>Implementación técnica</h2><p>Implementé módulos de dominio en Next.js y un esquema Prisma sobre PostgreSQL. Empleados, catálogos, ausencias, partes y auditoría incluyen la organización; los servicios aplican reglas de carga, posteo y confirmación.</p></div>
+      <h2>Qué resuelve</h2><p>El proceso de parte diario necesita consistencia cuando varias organizaciones comparten una aplicación. El prototipo modela datos y configuración propios para cada una.</p>
+      <h2>Recorrido y alcance</h2><p>Se elige organización y fecha, se registran estados y horarios, se postean filas y se confirma el día cuando cumple las reglas. Incluye servicios para ausencias, consulta histórica y parte mensual. Su estado es de prototipo.</p>
+      <ul class="points"><li>Configuración y catálogos por organización.</li><li>Reglas de ausencia y validación de horarios.</li><li>Auditoría de cambios y confirmación transaccional.</li></ul>
     </div>
     <aside class="side">
-      <div class="panel">
-        <h3>Recorrido de la información</h3>
-        <div class="flow">
-          <div class="flow-step"><span>Entradas</span><div class="items"><b>Importación de planillas</b><b>Carga diaria</b></div></div>
-          <div class="flow-arrow"></div>
-          <div class="flow-step mid"><span>Aplicación</span><div class="items"><b>Next.js</b><b>Prisma</b><b>PostgreSQL</b></div></div>
-          <div class="flow-arrow"></div>
-          <div class="flow-step"><span>Salidas</span><div class="items"><b>Parte diario</b><b>Parte mensual</b></div></div>
-        </div>
-        <p class="flow-text">Una aplicación Next.js permite registrar y consultar información por organización; PostgreSQL conserva los datos mediante Prisma. La importación CSV incorpora el padrón inicial y los módulos de parte diario y mensual ofrecen la salida operativa.</p>
-      </div>
-      <div class="panel">
-        <h3>Stack tecnológico</h3>
-        <div class="stack"><span class="tag">Next.js</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Prisma</span><span class="tag">PostgreSQL</span></div>
-      </div>
+      <div class="panel"><h3>Recorrido de la información</h3><div class="flow"><div class="flow-step"><span>Operación</span><div class="items"><b>Next.js</b><b>React</b></div></div><div class="flow-arrow"></div><div class="flow-step"><span>Reglas</span><div class="items"><b>TypeScript</b></div></div><div class="flow-arrow"></div><div class="flow-step"><span>Persistencia</span><div class="items"><b>Prisma</b><b>PostgreSQL</b></div></div></div><p class="flow-text">Se elige organización y fecha, se registran estados y horarios, se postean filas y se confirma el día cuando cumple las reglas. Incluye servicios para ausencias, consulta histórica y parte mensual. Su estado es de prototipo.</p></div>
+      <div class="panel"><h3>Stack tecnológico</h3><div class="stack"><span class="tag">Next.js</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Prisma</span><span class="tag">PostgreSQL</span></div></div>
     </aside>
   </div>
 </section>

@@ -1,0 +1,292 @@
+{
+  "slug": "analisis-deportivo",
+  "kind": "chat",
+  "title": {
+    "es": "Asistente de investigación y seguimiento deportivo",
+    "en": "Sports research and tracking assistant"
+  },
+  "steps": [
+    {
+      "title": {
+        "es": "Seleccionar contexto",
+        "en": "Select context"
+      },
+      "description": {
+        "es": "La demostración usa un evento y participantes completamente ficticios.",
+        "en": "The demo uses a fully fictional event and participants."
+      },
+      "action": {
+        "es": "Verificar evento",
+        "en": "Verify event"
+      },
+      "view": {
+        "es": {
+          "type": "chat",
+          "heading": "Selección guiada",
+          "messages": [
+            {
+              "side": "bot",
+              "text": "Menú: investigar evento · consultar registro personal."
+            },
+            {
+              "side": "user",
+              "text": "Investigar evento → Evento de demostración → Atleta A vs. Atleta B"
+            },
+            {
+              "side": "bot",
+              "text": "Contexto seleccionado. Verificaré identidad, cartelera y vigencia de las fuentes."
+            }
+          ]
+        },
+        "en": {
+          "type": "chat",
+          "heading": "Guided selection",
+          "messages": [
+            {
+              "side": "bot",
+              "text": "Menu: research event · view personal ledger."
+            },
+            {
+              "side": "user",
+              "text": "Research event → Demo event → Athlete A vs. Athlete B"
+            },
+            {
+              "side": "bot",
+              "text": "Context selected. I will check identity, card and source freshness."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Comprobar evidencia",
+        "en": "Check evidence"
+      },
+      "description": {
+        "es": "Un dato vencido requiere una nueva verificación antes de usarse.",
+        "en": "Expired data requires a fresh check before it can be used."
+      },
+      "action": {
+        "es": "Actualizar verificación",
+        "en": "Refresh verification"
+      },
+      "view": {
+        "es": {
+          "type": "pipeline",
+          "heading": "Control de evento",
+          "nodes": [
+            {
+              "label": "Identidad",
+              "status": "done"
+            },
+            {
+              "label": "Cartelera estructurada",
+              "status": "done"
+            },
+            {
+              "label": "Vigencia",
+              "status": "active"
+            },
+            {
+              "label": "Consumo habilitado",
+              "status": "pending"
+            }
+          ],
+          "log": [
+            "Evento ficticio identificado.",
+            "La verificación anterior venció.",
+            "Se requiere actualizar fuentes antes de continuar."
+          ]
+        },
+        "en": {
+          "type": "pipeline",
+          "heading": "Event gate",
+          "nodes": [
+            {
+              "label": "Identity",
+              "status": "done"
+            },
+            {
+              "label": "Structured card",
+              "status": "done"
+            },
+            {
+              "label": "Freshness",
+              "status": "active"
+            },
+            {
+              "label": "Consumption enabled",
+              "status": "pending"
+            }
+          ],
+          "log": [
+            "Fictional event identified.",
+            "Previous verification expired.",
+            "Sources must be refreshed before continuing."
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Comparar señales",
+        "en": "Compare signals"
+      },
+      "description": {
+        "es": "Una vez verificado el contexto, las señales se presentan con alcance explícito.",
+        "en": "Once context is verified, signals are presented with explicit scope."
+      },
+      "action": {
+        "es": "Consultar registro personal",
+        "en": "View personal ledger"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Ejemplo de comparación",
+          "columns": [
+            "Señal ficticia",
+            "Atleta A",
+            "Atleta B"
+          ],
+          "rows": [
+            [
+              "Golpes significativos por minuto",
+              "4,2",
+              "3,8"
+            ],
+            [
+              "Defensa de derribos",
+              "70 %",
+              "65 %"
+            ],
+            [
+              "Cuota decimal observada",
+              "1,80",
+              "2,10"
+            ]
+          ],
+          "metrics": [
+            {
+              "label": "Contexto",
+              "value": "Verificado en esta escena"
+            },
+            {
+              "label": "Uso",
+              "value": "Investigación"
+            }
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "Comparison example",
+          "columns": [
+            "Fictional signal",
+            "Athlete A",
+            "Athlete B"
+          ],
+          "rows": [
+            [
+              "Significant strikes per minute",
+              "4.2",
+              "3.8"
+            ],
+            [
+              "Takedown defense",
+              "70%",
+              "65%"
+            ],
+            [
+              "Observed decimal odds",
+              "1.80",
+              "2.10"
+            ]
+          ],
+          "metrics": [
+            {
+              "label": "Context",
+              "value": "Verified in this scene"
+            },
+            {
+              "label": "Use",
+              "value": "Research"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Revisar una operación",
+        "en": "Review an operation"
+      },
+      "description": {
+        "es": "La modificación del registro muestra los afectados y pide confirmación cuando corresponde.",
+        "en": "A ledger change shows affected entries and requests confirmation when required."
+      },
+      "action": {
+        "es": "Ver vista previa",
+        "en": "View preview"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Vista previa de archivo",
+          "columns": [
+            "Registro",
+            "Encuentro",
+            "Estado actual",
+            "Acción propuesta"
+          ],
+          "rows": [
+            [
+              "AP-601",
+              "Atleta A vs. Atleta B",
+              "Pendiente",
+              "Archivar"
+            ]
+          ],
+          "metrics": [
+            {
+              "label": "Filas afectadas",
+              "value": "1"
+            },
+            {
+              "label": "Estado",
+              "value": "Esperando confirmación"
+            }
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "Archive preview",
+          "columns": [
+            "Entry",
+            "Matchup",
+            "Current status",
+            "Proposed action"
+          ],
+          "rows": [
+            [
+              "BET-601",
+              "Athlete A vs. Athlete B",
+              "Pending",
+              "Archive"
+            ]
+          ],
+          "metrics": [
+            {
+              "label": "Affected rows",
+              "value": "1"
+            },
+            {
+              "label": "State",
+              "value": "Awaiting confirmation"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

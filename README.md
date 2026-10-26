@@ -1,56 +1,48 @@
-# Flavio Sirianni · Portfolio técnico
+# Flavio Sirianni · Project portfolio
 
-Portfolio personal con 37 casos de desarrollo web, datos, integraciones y asistentes con IA. Cada proyecto reúne el problema, las pantallas, la implementación y el stack completo. Incluye búsqueda, filtros combinados, modo oscuro y CV técnico imprimible.
+**Live website:** https://flaviosirianni.github.io/flavio-sirianni-projects/
 
-**Repositorio:** https://github.com/flaviosirianni/flavio-casos
+Personal portfolio with **36 cases, Spanish and English, and 144 project-specific demo scenes**. Every project includes its technical implementation, complete stack and a guided interactive simulation. The catalog supports search, combined filters, animated previews, dark mode and mobile layouts. The technical CV is available in both languages and can be printed or saved as PDF.
 
-**Sitio:** https://flaviosirianni.github.io/flavio-casos/
+## Local preview
 
-Portfolio personal publicado con autorización de su titular.
-
-## Desarrollo local
-
-Requisitos: Python 3.10 o superior. Node.js solo para comprobar sintaxis JavaScript.
+Requires Python 3.10+; Node.js is used only for JavaScript syntax checks. No production dependencies or API keys.
 
 ```sh
 ./build.sh
-python3 -m http.server 4173 --directory dist
+python3 -m http.server 4174 --directory dist
 ```
 
-Abrir http://localhost:4173. También se puede abrir `dist/index.html` directamente: los recursos son relativos y no requieren backend.
+Open http://localhost:4174 for Spanish or http://localhost:4174/en/ for English. The entire `dist/` folder is portable and can also be opened through `index.html` directly.
 
 ```sh
-python3 -m unittest discover -s tests -v
-node --check src/app.js
-node --check src/cv.js
+bash scripts/quality-gate.sh
 ```
 
-## Organización
+## Structure
 
-- `src/tools/`: un caso por archivo, con metadatos `data-title`, `data-cat`, `data-stack`, `data-summary` y `data-status` cuando corresponde.
-- `src/shell-head.html`: presentación personal y catálogo.
-- `src/shell-foot.html`: cierre del documento y pie.
-- `src/styles.css`: componentes visuales y pantallas recreadas.
-- `src/personal.css`: identidad personal, accesibilidad y estilos adaptables.
-- `src/app.js`: gráficos, navegación, búsqueda, filtros y tema.
-- `src/img/`: imágenes del demo público de reservas.
-- `src/cv.css`, `src/cv.js`: estilo de impresión y botón del CV.
-- `build.py`: compilación y generación del CV desde los casos.
-- `tests/test_site.py`: validación de catálogo, anonimización, documentos y recursos portables.
-- `qa/`: evidencia de la validación en navegador.
+- `src/tools/`: 36 Spanish case fragments, verified against the source projects.
+- `src/tools-en/`: matching English fragments with the same case IDs.
+- `src/demos/`: one bilingual JSON walkthrough per case. Each scene defines localized text, a view type and fictional records.
+- `src/demos.js`: scene renderer and player: play/pause, previous/next, restart, speed and direct step selection. It pauses outside the viewport and respects reduced motion.
+- `src/app.js`: search, category and technology filters, shared-link handling and player mounting.
+- `src/theme.js`: optional theme preference, loaded before paint.
+- `src/styles.css`: responsive catalog, case pages and six simulation view types.
+- `src/cv.css`, `src/cv.js`: printable CV layout and print control.
+- `build.py`: dependency-free compiler for both catalogs, 72 case pages and two CVs.
+- `tests/test_site.py`: release contracts for localization, content coverage, relative paths, stacks and portable output.
+- `qa/`: runtime evidence and validation scope.
 
-`dist/` se genera y no se versiona. Para compartir una copia offline, copiar toda la carpeta `dist/`.
+## Content and demos
 
-## Actualizar contenido
+All customer identities and operational records are replaced with fictional examples. The demonstrations illustrate implemented functions; they do not connect to live customer systems. Validation, prototype and beta states remain explicit. Inspect source code before changing a capability claim. Private source paths, customer names and source-audit records must remain outside this public repository.
 
-Editar el fragmento del proyecto en `src/tools/` y ejecutar el build. El índice, el stack y los filtros se recalculan automáticamente. Para cambiar la selección del CV, editar `selected` en `render_cv`, en `build.py`.
+A demo contains `slug`, `kind`, bilingual `title`, and a `steps` array. Each step has bilingual `title`, `description`, `action` and `view`. The renderer supports `chat`, `table`, `form`, `pipeline`, `chart` and `terminal`. Every screen label and sample record needs both languages.
 
-Categorías: `datos`, `bots`, `apps`, `integ`, `sheets`, `prod`, `int`. Conservar los estados de beta, validación o prototipo. Las pantallas son ilustrativas, salvo las imágenes del demo público que se identifican como tales. Mantener clientes anónimos y no subir secretos, datos reales ni código de proyectos de clientes.
+When changing a case, update its Spanish fragment, English fragment and demo together. The build requires 36 unique matching case IDs. All visible technologies must also appear in `data-stack` so filters and the CV remain complete.
 
-## Publicación
+## Deployment
 
-El workflow `.github/workflows/pages.yml` prueba y compila cada cambio en `main`. En un repositorio público, publica únicamente `dist/` en GitHub Pages. Mientras el repositorio sea privado, la publicación se omite. La configuración del repositorio usa **Settings → Pages → Source → GitHub Actions**. No se necesita dominio propio, servidor de pago ni servicios adicionales para este portfolio.
+GitHub Actions validates the build and publishes only `dist/` to GitHub Pages from `main`. The portfolio repository is intentionally public. Other application repositories remain private. GitHub Pages is configured with **Source → GitHub Actions**.
 
-## Alcance del CV
-
-El CV es una selección técnica de proyectos, sin cronología laboral, certificaciones o títulos inferidos. Se puede imprimir o guardar como PDF desde el navegador. El contacto público es el perfil de GitHub; otros datos personales se incorporan cuando el titular los indique.
+Language routes: `index.html`, `en/index.html`; cases: `projects/<slug>.html`, `en/projects/<slug>.html`; CVs: `cv.html`, `en/cv.html`. Language switching preserves the case and selected demo scene. Older links with a case hash resolve to the standalone case page.

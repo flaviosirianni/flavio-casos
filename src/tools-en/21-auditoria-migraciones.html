@@ -1,0 +1,30 @@
+<section class="tool" id="auditoria-migraciones" data-cat="datos"
+  data-title="Data migration audit and preparation"
+  data-sector="Data consulting · healthcare and real estate"
+  data-summary="Separate missing records, definition changes and formatting differences before deciding on a migration."
+  data-stack="SQL,Amazon Redshift,Google Sheets,CSV,JSON" data-status="Audit deliverable">
+  <div class="wrap tool-head">
+    <p class="eyebrow">Data consulting · healthcare and real estate</p>
+    <h1>Data migration audit and preparation</h1>
+    <p class="kind">SQL diagnostics and field mapping reports · Audit deliverable</p>
+    <p class="lead">Separate missing records, definition changes and formatting differences before deciding on a migration.</p>
+  </div>
+  <div class="wrap"><div class="demo-mount" data-demo="auditoria-migraciones"></div></div>
+  <div class="wrap tool-body">
+    <div class="prose">
+      <div class="technical-panel"><h2>Technical implementation</h2><p>The work combines read-only diagnostic queries with schema and value-domain comparisons. For historical data it checks versions and filters; across platforms it documents equivalents, transformations and open decisions.</p></div>
+      <h2>Problem solved</h2><p>Avoids treating scope differences as data loss, or copying same-named fields that represent different concepts.</p>
+      <h2>Flow and scope</h2><p>This is an analysis service with deliverables. The real estate comparison examines columns and values: it does not assume internal IDs in two systems identify the same transaction.</p>
+      <ul class="points"><li>Diagnostics for filters, joins and historical version selection.</li><li>Fields classified as direct, transformable or awaiting a definition.</li><li>Conclusions bounded by evidence; this does not imply an executed migration.</li></ul>
+    </div>
+    <aside class="side"><div class="panel"><h3>Data flow</h3>
+      <div class="flow-step"><div class="items">Schemas + queries + exports</div></div>
+      <div class="flow-arrow" aria-hidden="true">↓</div>
+      <div class="flow-step"><div class="items">Technical and semantic comparison</div></div>
+      <div class="flow-arrow" aria-hidden="true">↓</div>
+      <div class="flow-step"><div class="items">Field map + decisions</div></div>
+      <p class="flow-text">This is an analysis service with deliverables. The real estate comparison examines columns and values: it does not assume internal IDs in two systems identify the same transaction.</p></div>
+      <div class="panel"><h3>Stack</h3><div class="stack"><span class="tag">SQL</span><span class="tag">Amazon Redshift</span><span class="tag">Google Sheets</span><span class="tag">CSV</span><span class="tag">JSON</span></div></div>
+    </aside>
+  </div>
+</section>

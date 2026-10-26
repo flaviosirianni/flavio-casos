@@ -1,0 +1,21 @@
+<section class="tool" id="fotos-eventos" data-cat="prod" data-title="Private event photos and videos" data-sector="Personal product · weddings and events" data-summary="Browser uploads, a private gallery and moderation and export tools for the organizer." data-stack="React,TypeScript,Vite,Cloudflare Workers,D1,R2,Images,Stream,Turnstile" data-status="Advanced development">
+  <div class="wrap tool-head">
+    <p class="eyebrow">Personal product · weddings and events</p>
+    <h1>Private event photos and videos</h1>
+    <p class="kind">Event web app in advanced development</p>
+    <p class="lead">Browser uploads, a private gallery and moderation and export tools for the organizer.</p>
+  </div>
+  <div class="wrap"><div class="demo-mount" data-demo="fotos-eventos"></div></div>
+  <div class="wrap tool-body">
+    <div class="prose">
+      <div class="technical-panel"><h2>Technical implementation</h2><p>I implemented a React interface and Cloudflare Workers services with D1 and R2. The code includes guest access, multipart uploads with local persistence, media processing, moderation and batch exports.</p></div>
+      <h2>What it solves</h2><p>After an event, photos are often scattered. An event gallery gathers guest contributions and lets the organizer manage files in one place.</p>
+      <h2>Flow and scope</h2><p>Guests open the event link and select files. An interrupted upload retains confirmed progress and can resume after selecting the file again. The organizer reviews media and requests exports. The platform remains in advanced development.</p>
+      <ul class="points"><li>Guest access without creating an individual account.</li><li>File validation and processing states.</li><li>Moderation and batch export of originals.</li></ul>
+    </div>
+    <aside class="side">
+      <div class="panel"><h3>Data flow</h3><div class="flow"><div class="flow-step"><span>Guests</span><div class="items"><b>React</b><b>Turnstile</b></div></div><div class="flow-arrow"></div><div class="flow-step"><span>Processing</span><div class="items"><b>Cloudflare Workers</b><b>D1</b><b>R2</b></div></div><div class="flow-arrow"></div><div class="flow-step"><span>Organizer</span><div class="items"><b>Gallery, moderation and export</b></div></div></div><p class="flow-text">Guests open the event link and select files. An interrupted upload retains confirmed progress and can resume after selecting the file again. The organizer reviews media and requests exports. The platform remains in advanced development.</p></div>
+      <div class="panel"><h3>Technology stack</h3><div class="stack"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Vite</span><span class="tag">Cloudflare Workers</span><span class="tag">D1</span><span class="tag">R2</span><span class="tag">Images</span><span class="tag">Stream</span><span class="tag">Turnstile</span></div></div>
+    </aside>
+  </div>
+</section>

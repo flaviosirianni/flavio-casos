@@ -1,0 +1,44 @@
+<section class="tool" id="calidad-datos" data-cat="datos"
+  data-title="Detecting missing data and inconsistencies"
+  data-sector="Operational services · attendance and staff lists"
+  data-summary="SQL rules detect missing daily entries, duplicates and differences between reports and clock events."
+  data-stack="SQL,BigQuery,Python,Apache Superset,Google Sheets" data-status="">
+  <div class="wrap tool-head">
+    <p class="eyebrow">Operational services · attendance and staff lists</p>
+    <h1>Detecting missing data and inconsistencies</h1>
+    <p class="kind">Data auditing for operational review</p>
+    <p class="lead">A dashboard brings findings from different sources into the same structure: rule, severity, date and location. The team can prioritize review before interpreting metrics.</p>
+  </div>
+  <div class="wrap"><div class="demo-mount" data-demo="calidad-datos"></div></div>
+  <div class="wrap tool-body">
+    <div class="prose">
+      <div class="technical-panel"><h2>Technical implementation</h2><p>I versioned SQL queries that build a rule catalog, daily coverage and a unified findings table in BigQuery. Superset consumes that output; Python tools complement inventory and review.</p></div>
+      <h2>What it solves</h2>
+      <p>It exposes omissions and contradictions that aggregate totals can hide: sites without reports, repeated people, incomplete times or clock events without administrative records.</p>
+      <h2>Flow and scope</h2>
+      <p>Rules compare expected calendars, recent volume and person-and-shift data. They generate findings for review; they do not automatically correct sources or guarantee that unflagged data is correct.</p>
+      <ul class="points">
+        <li>Explicit rules and shared severity levels across sources.</li>
+        <li>Checks for coverage, volume, identifiers and shift duration.</li>
+        <li>Internal view with sensitive information restricted by access.</li>
+      </ul>
+    </div>
+    <aside class="side">
+      <div class="panel">
+        <h3>Data flow</h3>
+        <div class="flow">
+          <div class="flow-step"><span>Source</span><div class="items"><b>Reports, staff lists and clock events</b></div></div>
+          <div class="flow-arrow"></div>
+<div class="flow-step"><span>Processing</span><div class="items"><b>SQL auditing rules</b></div></div>
+          <div class="flow-arrow"></div>
+<div class="flow-step"><span>Output</span><div class="items"><b>Findings for review</b></div></div>
+        </div>
+        <p class="flow-text">The audit reads source data and publishes evidence of differences. An authorized person makes corrections in the source system.</p>
+      </div>
+      <div class="panel">
+        <h3>Technology stack</h3>
+        <div class="stack"><span class="tag">SQL</span><span class="tag">BigQuery</span><span class="tag">Python</span><span class="tag">Apache Superset</span><span class="tag">Google Sheets</span></div>
+      </div>
+    </aside>
+  </div>
+</section>

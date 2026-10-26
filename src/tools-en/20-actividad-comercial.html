@@ -1,0 +1,30 @@
+<section class="tool" id="actividad-comercial" data-cat="sheets"
+  data-title="Daily sales activity tracking"
+  data-sector="Real estate team · USA"
+  data-summary="Evaluate daily activity by agent, store the reason for each result and retain history with controlled corrections."
+  data-stack="Google Apps Script,Google Sheets,JavaScript,CSV,REST APIs" data-status="Implemented">
+  <div class="wrap tool-head">
+    <p class="eyebrow">Real estate team · USA</p>
+    <h1>Daily sales activity tracking</h1>
+    <p class="kind">Sales rules and an explainable daily archive · Implemented</p>
+    <p class="lead">Evaluate daily activity by agent, store the reason for each result and retain history with controlled corrections.</p>
+  </div>
+  <div class="wrap"><div class="demo-mount" data-demo="actividad-comercial"></div></div>
+  <div class="wrap tool-body">
+    <div class="prose">
+      <div class="technical-panel"><h2>Technical implementation</h2><p>Apps Script imports a BI CSV and evaluates conversations, calls, emails, messages and open houses. The archive uses an agent and operational date key.</p></div>
+      <h2>Problem solved</h2><p>Shows why a daily goal was or was not met without relying on an isolated figure that later changes.</p>
+      <h2>Flow and scope</h2><p>An open house qualifies directly. Otherwise, one conversation or five outbound activities is required, together with an empty cleanup list. The current day is replaced; yesterday allows upward email and text corrections.</p>
+      <ul class="points"><li>Calls + emails + texts make up outbound activity.</li><li>The result and reasons are stored alongside evaluation values.</li><li>Operational date calculated in America/Phoenix.</li></ul>
+    </div>
+    <aside class="side"><div class="panel"><h3>Data flow</h3>
+      <div class="flow-step"><div class="items">Activity CSV</div></div>
+      <div class="flow-arrow" aria-hidden="true">↓</div>
+      <div class="flow-step"><div class="items">Rules + reason</div></div>
+      <div class="flow-arrow" aria-hidden="true">↓</div>
+      <div class="flow-step"><div class="items">Archive by agent and day</div></div>
+      <p class="flow-text">An open house qualifies directly. Otherwise, one conversation or five outbound activities is required, together with an empty cleanup list. The current day is replaced; yesterday allows upward email and text corrections.</p></div>
+      <div class="panel"><h3>Stack</h3><div class="stack"><span class="tag">Google Apps Script</span><span class="tag">Google Sheets</span><span class="tag">JavaScript</span><span class="tag">CSV</span><span class="tag">REST APIs</span></div></div>
+    </aside>
+  </div>
+</section>

@@ -1,0 +1,300 @@
+{
+  "slug": "nutricion",
+  "kind": "chat",
+  "title": {
+    "es": "Registro alimentario por conversación",
+    "en": "Conversational food logging"
+  },
+  "steps": [
+    {
+      "title": {
+        "es": "Describir comida",
+        "en": "Describe a meal"
+      },
+      "description": {
+        "es": "Los alimentos y números de la demostración son ficticios.",
+        "en": "The demo foods and values are fictional."
+      },
+      "action": {
+        "es": "Interpretar registro",
+        "en": "Interpret entry"
+      },
+      "view": {
+        "es": {
+          "type": "chat",
+          "heading": "Registrar ingesta",
+          "messages": [
+            {
+              "side": "user",
+              "text": "Hoy a las 8:00 comí 2 porciones de tostadas y tomé un café con leche."
+            },
+            {
+              "side": "bot",
+              "text": "Identifico dos alimentos y la fecha local. Revisaré cantidades y fuente nutricional."
+            }
+          ]
+        },
+        "en": {
+          "type": "chat",
+          "heading": "Log intake",
+          "messages": [
+            {
+              "side": "user",
+              "text": "Today at 8:00 I had 2 portions of toast and coffee with milk."
+            },
+            {
+              "side": "bot",
+              "text": "I identify two foods and the local date. I will check quantities and nutritional sources."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Ver fuente y estimación",
+        "en": "Review source and estimate"
+      },
+      "description": {
+        "es": "Cada alimento conserva la cantidad y cómo se obtuvo su valor.",
+        "en": "Each food retains its quantity and how its value was obtained."
+      },
+      "action": {
+        "es": "Guardar ingesta",
+        "en": "Save intake"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Interpretación de ejemplo",
+          "columns": [
+            "Alimento",
+            "Cantidad",
+            "Energía",
+            "Proteína",
+            "Fuente"
+          ],
+          "rows": [
+            [
+              "Tostadas",
+              "2 porciones",
+              "160 kcal",
+              "6 g",
+              "Catálogo ficticio"
+            ],
+            [
+              "Café con leche",
+              "1 taza",
+              "80 kcal",
+              "4 g",
+              "Estimado"
+            ]
+          ],
+          "metrics": [
+            {
+              "label": "Total estimado",
+              "value": "240 kcal"
+            }
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "Example interpretation",
+          "columns": [
+            "Food",
+            "Quantity",
+            "Energy",
+            "Protein",
+            "Source"
+          ],
+          "rows": [
+            [
+              "Toast",
+              "2 portions",
+              "160 kcal",
+              "6 g",
+              "Fictional catalog"
+            ],
+            [
+              "Coffee with milk",
+              "1 cup",
+              "80 kcal",
+              "4 g",
+              "Estimated"
+            ]
+          ],
+          "metrics": [
+            {
+              "label": "Estimated total",
+              "value": "240 kcal"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Revisar lo guardado",
+        "en": "Review saved records"
+      },
+      "description": {
+        "es": "La consulta usa identificadores persistidos y permite corregir la hora del café.",
+        "en": "The query uses persisted IDs and allows the coffee time to be corrected."
+      },
+      "action": {
+        "es": "Corregir horario",
+        "en": "Correct time"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Registros del día",
+          "columns": [
+            "ID",
+            "Alimento",
+            "Hora local",
+            "Energía"
+          ],
+          "rows": [
+            [
+              "IN-701",
+              "Tostadas",
+              "08:00",
+              "160 kcal"
+            ],
+            [
+              "IN-702",
+              "Café con leche",
+              "08:30",
+              "80 kcal"
+            ]
+          ],
+          "metrics": [
+            {
+              "label": "Cambio de horario",
+              "value": "IN-702: 08:00 → 08:30"
+            }
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "Daily records",
+          "columns": [
+            "ID",
+            "Food",
+            "Local time",
+            "Energy"
+          ],
+          "rows": [
+            [
+              "IN-701",
+              "Toast",
+              "08:00",
+              "160 kcal"
+            ],
+            [
+              "IN-702",
+              "Coffee with milk",
+              "08:30",
+              "80 kcal"
+            ]
+          ],
+          "metrics": [
+            {
+              "label": "Time correction",
+              "value": "IN-702: 08:00 → 08:30"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Consultar resumen",
+        "en": "Query summary"
+      },
+      "description": {
+        "es": "Cambiar una hora no cambia el total del día; el resumen suma la base guardada.",
+        "en": "Changing a time does not alter the daily total; the summary sums stored records."
+      },
+      "action": {
+        "es": "Ver resumen diario",
+        "en": "View daily summary"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Resumen diario ficticio",
+          "columns": [
+            "Concepto",
+            "Valor"
+          ],
+          "rows": [
+            [
+              "Alimentos registrados",
+              "2"
+            ],
+            [
+              "Energía",
+              "240 kcal"
+            ],
+            [
+              "Proteína",
+              "10 g"
+            ],
+            [
+              "Carbohidratos",
+              "32 g"
+            ],
+            [
+              "Grasas",
+              "8 g"
+            ]
+          ],
+          "metrics": [
+            {
+              "label": "Fuente",
+              "value": "Registros en SQLite"
+            }
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "Fictional daily summary",
+          "columns": [
+            "Item",
+            "Value"
+          ],
+          "rows": [
+            [
+              "Foods logged",
+              "2"
+            ],
+            [
+              "Energy",
+              "240 kcal"
+            ],
+            [
+              "Protein",
+              "10 g"
+            ],
+            [
+              "Carbohydrates",
+              "32 g"
+            ],
+            [
+              "Fat",
+              "8 g"
+            ]
+          ],
+          "metrics": [
+            {
+              "label": "Source",
+              "value": "SQLite records"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,280 @@
+{
+  "slug": "inmobiliaria",
+  "kind": "table",
+  "title": {
+    "es": "Centralización de operaciones inmobiliarias",
+    "en": "Real estate operations data hub"
+  },
+  "steps": [
+    {
+      "title": {
+        "es": "Seleccionar recursos",
+        "en": "Select resources"
+      },
+      "description": {
+        "es": "El estado distingue carga inicial y sincronización de cambios.",
+        "en": "State distinguishes the initial load from change synchronization."
+      },
+      "action": {
+        "es": "Ejecutar sincronización",
+        "en": "Run synchronization"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Estado de recursos",
+          "columns": [
+            "Recurso",
+            "Modo",
+            "Estado"
+          ],
+          "rows": [
+            [
+              "Contactos",
+              "Incremental",
+              "Listo"
+            ],
+            [
+              "Usuarios",
+              "Incremental",
+              "Listo"
+            ],
+            [
+              "Transacciones",
+              "Carga inicial",
+              "Continuar cursor"
+            ]
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "Resource state",
+          "columns": [
+            "Resource",
+            "Mode",
+            "Status"
+          ],
+          "rows": [
+            [
+              "Contacts",
+              "Incremental",
+              "Ready"
+            ],
+            [
+              "Users",
+              "Incremental",
+              "Ready"
+            ],
+            [
+              "Transactions",
+              "Initial load",
+              "Resume cursor"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Recuperar y enriquecer",
+        "en": "Retrieve and enrich"
+      },
+      "description": {
+        "es": "La identidad de origen conserva la fila y las comisiones se desglosan.",
+        "en": "Source identity preserves the row and commissions are broken down."
+      },
+      "action": {
+        "es": "Ver transacciones",
+        "en": "View transactions"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Transacciones ficticias",
+          "columns": [
+            "ID",
+            "Estado",
+            "Comisión bruta",
+            "Neto agente",
+            "Neto oficina"
+          ],
+          "rows": [
+            [
+              "TX-301",
+              "Cerrada",
+              "USD 6.000",
+              "USD 4.200",
+              "USD 1.800"
+            ],
+            [
+              "TX-302",
+              "Pendiente",
+              "USD 4.000",
+              "USD 2.800",
+              "USD 1.200"
+            ]
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "Fictional transactions",
+          "columns": [
+            "ID",
+            "Status",
+            "Gross commission",
+            "Agent net",
+            "Office net"
+          ],
+          "rows": [
+            [
+              "TX-301",
+              "Closed",
+              "USD 6,000",
+              "USD 4,200",
+              "USD 1,800"
+            ],
+            [
+              "TX-302",
+              "Pending",
+              "USD 4,000",
+              "USD 2,800",
+              "USD 1,200"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Revisar contactos",
+        "en": "Review contacts"
+      },
+      "description": {
+        "es": "La normalización detecta dos nombres equivalentes sin modificar el CRM.",
+        "en": "Normalization detects two equivalent names without changing the CRM."
+      },
+      "action": {
+        "es": "Abrir reporte de calidad",
+        "en": "Open quality report"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Candidatos a duplicado",
+          "columns": [
+            "Contacto",
+            "Nombre",
+            "Motivo"
+          ],
+          "rows": [
+            [
+              "C-401",
+              "Cliente A",
+              "Coincidencia normalizada"
+            ],
+            [
+              "C-402",
+              "CLIENTE A",
+              "Coincidencia normalizada"
+            ]
+          ],
+          "metrics": [
+            {
+              "label": "Acción",
+              "value": "Revisión humana"
+            }
+          ]
+        },
+        "en": {
+          "type": "table",
+          "heading": "Duplicate candidates",
+          "columns": [
+            "Contact",
+            "Name",
+            "Reason"
+          ],
+          "rows": [
+            [
+              "C-401",
+              "Client A",
+              "Normalized match"
+            ],
+            [
+              "C-402",
+              "CLIENT A",
+              "Normalized match"
+            ]
+          ],
+          "metrics": [
+            {
+              "label": "Action",
+              "value": "Human review"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Conservar avance",
+        "en": "Retain progress"
+      },
+      "description": {
+        "es": "Cada recurso conserva su estado y su cursor para la próxima corrida.",
+        "en": "Each resource retains its state and cursor for the next run."
+      },
+      "action": {
+        "es": "Ver estado final",
+        "en": "View final state"
+      },
+      "view": {
+        "es": {
+          "type": "pipeline",
+          "heading": "Cierre de corrida",
+          "nodes": [
+            {
+              "label": "API",
+              "status": "done"
+            },
+            {
+              "label": "Tablas actualizadas",
+              "status": "done"
+            },
+            {
+              "label": "Cursores guardados",
+              "status": "done"
+            }
+          ],
+          "log": [
+            "Filas existentes actualizadas por ID.",
+            "Reporte de contactos preparado.",
+            "Próxima ejecución: consultar cambios desde el cursor."
+          ]
+        },
+        "en": {
+          "type": "pipeline",
+          "heading": "Run completion",
+          "nodes": [
+            {
+              "label": "API",
+              "status": "done"
+            },
+            {
+              "label": "Tables updated",
+              "status": "done"
+            },
+            {
+              "label": "Cursors saved",
+              "status": "done"
+            }
+          ],
+          "log": [
+            "Existing rows updated by ID.",
+            "Contact report prepared.",
+            "Next run: query changes from the cursor."
+          ]
+        }
+      }
+    }
+  ]
+}

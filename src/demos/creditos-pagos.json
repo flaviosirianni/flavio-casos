@@ -1,0 +1,234 @@
+{
+  "slug": "creditos-pagos",
+  "kind": "form",
+  "title": {
+    "es": "Créditos y pagos para servicios con IA",
+    "en": "Credits and payments for AI services"
+  },
+  "steps": [
+    {
+      "title": {
+        "es": "Consultar saldo",
+        "en": "Check balance"
+      },
+      "description": {
+        "es": "La billetera devuelve el saldo del usuario del ejemplo.",
+        "en": "The wallet returns the sample user’s balance."
+      },
+      "action": {
+        "es": "Ver billetera",
+        "en": "View wallet"
+      },
+      "view": {
+        "es": {
+          "type": "form",
+          "heading": "Billetera de Usuario A",
+          "fields": [
+            {
+              "label": "Saldo inicial",
+              "value": "100 créditos"
+            },
+            {
+              "label": "Último movimiento",
+              "value": "Recarga anterior"
+            }
+          ]
+        },
+        "en": {
+          "type": "form",
+          "heading": "User A wallet",
+          "fields": [
+            {
+              "label": "Opening balance",
+              "value": "100 credits"
+            },
+            {
+              "label": "Last transaction",
+              "value": "Previous top-up"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Registrar consumo",
+        "en": "Record usage"
+      },
+      "description": {
+        "es": "Un evento de uso descuenta créditos y conserva su referencia.",
+        "en": "A usage event deducts credits and retains its reference."
+      },
+      "action": {
+        "es": "Aplicar consumo",
+        "en": "Apply usage"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Historial de movimientos",
+          "columns": [
+            "Operación",
+            "Cambio",
+            "Saldo"
+          ],
+          "rows": [
+            [
+              "Saldo inicial",
+              "+100",
+              "100"
+            ],
+            [
+              "Consulta A",
+              "−12",
+              "88"
+            ]
+          ],
+          "highlight": 1
+        },
+        "en": {
+          "type": "table",
+          "heading": "Transaction history",
+          "columns": [
+            "Operation",
+            "Change",
+            "Balance"
+          ],
+          "rows": [
+            [
+              "Opening balance",
+              "+100",
+              "100"
+            ],
+            [
+              "Query A",
+              "−12",
+              "88"
+            ]
+          ],
+          "highlight": 1
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Acreditar una recarga",
+        "en": "Credit a top-up"
+      },
+      "description": {
+        "es": "La acreditación sigue a la verificación del proveedor.",
+        "en": "Crediting follows provider verification."
+      },
+      "action": {
+        "es": "Verificar pago",
+        "en": "Verify payment"
+      },
+      "view": {
+        "es": {
+          "type": "pipeline",
+          "heading": "Recarga de 50 créditos",
+          "nodes": [
+            {
+              "label": "Pago aprobado",
+              "status": "done"
+            },
+            {
+              "label": "Verificación del proveedor",
+              "status": "done"
+            },
+            {
+              "label": "Movimiento registrado",
+              "status": "done"
+            }
+          ],
+          "log": [
+            "Pago de ejemplo A verificado",
+            "Saldo: 88 + 50 = 138 créditos"
+          ]
+        },
+        "en": {
+          "type": "pipeline",
+          "heading": "50-credit top-up",
+          "nodes": [
+            {
+              "label": "Payment approved",
+              "status": "done"
+            },
+            {
+              "label": "Provider verification",
+              "status": "done"
+            },
+            {
+              "label": "Transaction recorded",
+              "status": "done"
+            }
+          ],
+          "log": [
+            "Sample payment A verified",
+            "Balance: 88 + 50 = 138 credits"
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Reconocer un reintento",
+        "en": "Recognize a retry"
+      },
+      "description": {
+        "es": "El mismo pago no genera una segunda acreditación.",
+        "en": "The same payment does not create a second credit."
+      },
+      "action": {
+        "es": "Revisar idempotencia",
+        "en": "Review idempotency"
+      },
+      "view": {
+        "es": {
+          "type": "table",
+          "heading": "Pago repetido",
+          "columns": [
+            "Referencia",
+            "Resultado",
+            "Saldo"
+          ],
+          "rows": [
+            [
+              "Pago A · primer aviso",
+              "Acreditado",
+              "138"
+            ],
+            [
+              "Pago A · segundo aviso",
+              "Ya procesado",
+              "138"
+            ]
+          ],
+          "highlight": 1
+        },
+        "en": {
+          "type": "table",
+          "heading": "Repeated payment",
+          "columns": [
+            "Reference",
+            "Result",
+            "Balance"
+          ],
+          "rows": [
+            [
+              "Payment A · first notice",
+              "Credited",
+              "138"
+            ],
+            [
+              "Payment A · second notice",
+              "Already processed",
+              "138"
+            ]
+          ],
+          "highlight": 1
+        }
+      }
+    }
+  ]
+}

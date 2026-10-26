@@ -1,0 +1,30 @@
+<section class="tool" id="servicios-campo" data-cat="integ"
+  data-title="Field service task synchronization"
+  data-sector="Field services · USA"
+  data-summary="Review tasks, statuses and owners in a spreadsheet updated by identifier."
+  data-stack="FieldRoutes,Google Apps Script,Google Sheets,REST APIs,JavaScript" data-status="Implemented">
+  <div class="wrap tool-head">
+    <p class="eyebrow">Field services · USA</p>
+    <h1>Field service task synchronization</h1>
+    <p class="kind">Historical and incremental task data in Google Sheets · Implemented</p>
+    <p class="lead">Review tasks, statuses and owners in a spreadsheet updated by identifier.</p>
+  </div>
+  <div class="wrap"><div class="demo-mount" data-demo="servicios-campo"></div></div>
+  <div class="wrap tool-body">
+    <div class="prose">
+      <div class="technical-panel"><h2>Technical implementation</h2><p>Apps Script searches IDs, retrieves details in batches and resolves owners through the employee directory. It inserts new tasks and updates existing rows by ID.</p></div>
+      <h2>Problem solved</h2><p>Replaces repeated exports with an operational table containing history and status changes.</p>
+      <h2>Flow and scope</h2><p>Includes historical loading, incremental synchronization and a setup check that does not write task rows. Feedback records are excluded from the operational table.</p>
+      <ul class="points"><li>Readable owners, creation, due and completion dates.</li><li>Updates the same row for an existing ID.</li><li>The incremental marker advances after a run without failed rows.</li></ul>
+    </div>
+    <aside class="side"><div class="panel"><h3>Data flow</h3>
+      <div class="flow-step"><div class="items">FieldRoutes: IDs + details</div></div>
+      <div class="flow-arrow" aria-hidden="true">↓</div>
+      <div class="flow-step"><div class="items">Directory + transformation</div></div>
+      <div class="flow-arrow" aria-hidden="true">↓</div>
+      <div class="flow-step"><div class="items">Tasks in Sheets</div></div>
+      <p class="flow-text">Includes historical loading, incremental synchronization and a setup check that does not write task rows. Feedback records are excluded from the operational table.</p></div>
+      <div class="panel"><h3>Stack</h3><div class="stack"><span class="tag">FieldRoutes</span><span class="tag">Google Apps Script</span><span class="tag">Google Sheets</span><span class="tag">REST APIs</span><span class="tag">JavaScript</span></div></div>
+    </aside>
+  </div>
+</section>

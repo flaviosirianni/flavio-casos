@@ -1,0 +1,21 @@
+<section class="tool" id="compensacion" data-cat="sheets" data-title="Weekly compensation review" data-sector="Field services · USA" data-summary="Employee-by-week model combining hours, commissions and rates to review differences." data-stack="Google Apps Script,Google Sheets,JavaScript" data-status="Under validation">
+  <div class="wrap tool-head">
+    <p class="eyebrow">Field services · USA</p>
+    <h1>Weekly compensation review</h1>
+    <p class="kind">Implemented compensation model under validation</p>
+    <p class="lead">Employee-by-week model combining hours, commissions and rates to review differences.</p>
+  </div>
+  <div class="wrap"><div class="demo-mount" data-demo="compensacion"></div></div>
+  <div class="wrap tool-body">
+    <div class="prose">
+      <div class="technical-panel"><h2>Technical implementation</h2><p>I built an employee-by-week fact table with source normalization and deduplication, weekly allocation of monthly commissions and historical rates. A worksheet records business decisions awaiting validation.</p></div>
+      <h2>What it solves</h2><p>Weekly review requires combining sources with different grains. The model makes it possible to inspect the hours, commission and rate behind a result.</p>
+      <h2>Flow and scope</h2><p>Closed-month commissions are allocated by calendar day. A week crossing two months waits until both are closed. The calculation separates base pay, regular rate and overtime premium; rules remain under validation.</p>
+      <ul class="points"><li>Sources preserved in mirror worksheets.</li><li>Rates resolved by effective date.</li><li>Rules and decisions log; no guarantee of legal compliance.</li></ul>
+    </div>
+    <aside class="side">
+      <div class="panel"><h3>Data flow</h3><div class="flow"><div class="flow-step"><span>Sources</span><div class="items"><b>Hours and commissions</b></div></div><div class="flow-arrow"></div><div class="flow-step"><span>Weekly model</span><div class="items"><b>Google Apps Script</b></div></div><div class="flow-arrow"></div><div class="flow-step"><span>Review</span><div class="items"><b>Google Sheets</b></div></div></div><p class="flow-text">Closed-month commissions are allocated by calendar day. A week crossing two months waits until both are closed. The calculation separates base pay, regular rate and overtime premium; rules remain under validation.</p></div>
+      <div class="panel"><h3>Technology stack</h3><div class="stack"><span class="tag">Google Apps Script</span><span class="tag">Google Sheets</span><span class="tag">JavaScript</span></div></div>
+    </aside>
+  </div>
+</section>

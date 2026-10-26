@@ -1,0 +1,30 @@
+<section class="tool" id="nutricion" data-cat="bots"
+  data-title="Conversational food logging"
+  data-sector="Personal product · wellbeing"
+  data-summary="Turn meal and weigh-in messages into reviewable records, distinguish estimates and query totals from stored data."
+  data-stack="OpenAI,Telegram,Node.js,SQLite" data-status="Implemented">
+  <div class="wrap tool-head">
+    <p class="eyebrow">Personal product · wellbeing</p>
+    <h1>Conversational food logging</h1>
+    <p class="kind">Telegram bot with catalog and persistent summaries · Implemented</p>
+    <p class="lead">Turn meal and weigh-in messages into reviewable records, distinguish estimates and query totals from stored data.</p>
+  </div>
+  <div class="wrap"><div class="demo-mount" data-demo="nutricion"></div></div>
+  <div class="wrap tool-body">
+    <div class="prose">
+      <div class="technical-panel"><h2>Technical implementation</h2><p>The bot resolves quantities, units and dates in the user’s time zone. It combines catalog, preferences and OpenAI interpretation; intakes and weigh-ins are stored in SQLite with operation receipts.</p></div>
+      <h2>Problem solved</h2><p>Makes everyday logging possible without filling in a spreadsheet while retaining the source of nutritional values.</p>
+      <h2>Flow and scope</h2><p>Includes a catalog, label reading, record corrections, weigh-ins and daily summaries. Totals are calculated from persisted data by person and date.</p>
+      <ul class="points"><li>Labels estimated values and catalog or label sources.</li><li>Supports record review and temporal corrections.</li><li>Meals, profile and weigh-ins are kept separate.</li></ul>
+    </div>
+    <aside class="side"><div class="panel"><h3>Data flow</h3>
+      <div class="flow-step"><div class="items">Message or label image</div></div>
+      <div class="flow-arrow" aria-hidden="true">↓</div>
+      <div class="flow-step"><div class="items">Interpretation + catalog</div></div>
+      <div class="flow-arrow" aria-hidden="true">↓</div>
+      <div class="flow-step"><div class="items">SQLite + daily summary</div></div>
+      <p class="flow-text">Includes a catalog, label reading, record corrections, weigh-ins and daily summaries. Totals are calculated from persisted data by person and date.</p></div>
+      <div class="panel"><h3>Stack</h3><div class="stack"><span class="tag">OpenAI</span><span class="tag">Telegram</span><span class="tag">Node.js</span><span class="tag">SQLite</span></div></div>
+    </aside>
+  </div>
+</section>

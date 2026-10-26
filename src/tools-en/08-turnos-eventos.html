@@ -1,0 +1,44 @@
+<section class="tool" id="turnos-eventos" data-cat="apps"
+  data-title="Shift coordination between client and provider"
+  data-sector="Events · food service operations"
+  data-summary="Shared weekly planning with change requests, versions and PDF output."
+  data-stack="Google Apps Script,Google Sheets,Google Drive,HTML,CSS,JavaScript" data-status="" data-thumb="0">
+  <div class="wrap tool-head">
+    <p class="eyebrow">Events · food service operations</p>
+    <h1>Shift coordination between client and provider</h1>
+    <p class="kind">Operational planning and negotiation web app</p>
+    <p class="lead">Client and provider work on the same week: events, areas and schedules. Changes pass through requests and responses until an agreed version is reached.</p>
+  </div>
+  <div class="wrap"><div class="demo-mount" data-demo="turnos-eventos"></div></div>
+  <div class="wrap tool-body">
+    <div class="prose">
+      <div class="technical-panel"><h2>Technical implementation</h2><p>I implemented an Apps Script web app with role-based views and Sheets storage. Services separate weeks, assignments, requests, auditing, notifications, published versions and PDF generation.</p></div>
+      <h2>What it solves</h2>
+      <p>It avoids discussing schedules across different copies of a spreadsheet. Each request retains the affected assignment, reason and response, showing what was proposed and what was applied.</p>
+      <h2>Flow and scope</h2>
+      <p>The week is prepared and published, changes are negotiated and accepted decisions are applied. Closing checks pending items and agreement; versions and the PDF preserve the agreed output.</p>
+      <ul class="points">
+        <li>Requests for time changes, replacements, areas and additional staff.</li>
+        <li>Duplicate checks by person and day.</li>
+        <li>Action history, comments and final agreement.</li>
+      </ul>
+    </div>
+    <aside class="side">
+      <div class="panel">
+        <h3>Data flow</h3>
+        <div class="flow">
+          <div class="flow-step"><span>Source</span><div class="items"><b>Base week</b></div></div>
+          <div class="flow-arrow"></div>
+<div class="flow-step"><span>Processing</span><div class="items"><b>Requests and decisions</b></div></div>
+          <div class="flow-arrow"></div>
+<div class="flow-step"><span>Output</span><div class="items"><b>Agreed version and PDF</b></div></div>
+        </div>
+        <p class="flow-text">Sheets maintains the shared plan; the web app structures negotiations and publishes identifiable versions.</p>
+      </div>
+      <div class="panel">
+        <h3>Technology stack</h3>
+        <div class="stack"><span class="tag">Google Apps Script</span><span class="tag">Google Sheets</span><span class="tag">Google Drive</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+      </div>
+    </aside>
+  </div>
+</section>

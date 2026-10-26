@@ -1,0 +1,210 @@
+{
+  "slug": "reclamos-whatsapp",
+  "kind": "chat",
+  "title": {
+    "es": "Gestión de reclamos por WhatsApp",
+    "en": "Service issue management through WhatsApp"
+  },
+  "steps": [
+    {
+      "title": {
+        "es": "Ubicar el problema",
+        "en": "Locate the problem"
+      },
+      "description": {
+        "es": "La demo usa un edificio y una incidencia ficticios.",
+        "en": "The demo uses a fictional building and issue."
+      },
+      "action": {
+        "es": "Iniciar reclamo",
+        "en": "Start report"
+      },
+      "view": {
+        "es": {
+          "type": "chat",
+          "heading": "Nuevo reclamo",
+          "messages": [
+            {
+              "side": "bot",
+              "text": "¿Dónde ocurre el problema?"
+            },
+            {
+              "side": "user",
+              "text": "Edificio A · piso 2 · pasillo."
+            },
+            {
+              "side": "bot",
+              "text": "Describí el problema y adjuntá evidencia."
+            }
+          ]
+        },
+        "en": {
+          "type": "chat",
+          "heading": "New issue",
+          "messages": [
+            {
+              "side": "bot",
+              "text": "Where is the problem?"
+            },
+            {
+              "side": "user",
+              "text": "Building A · floor 2 · corridor."
+            },
+            {
+              "side": "bot",
+              "text": "Describe the problem and attach evidence."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Crear el caso",
+        "en": "Create the case"
+      },
+      "description": {
+        "es": "La descripción y el archivo quedan asociados al reclamo.",
+        "en": "The description and file are linked to the issue."
+      },
+      "action": {
+        "es": "Enviar evidencia",
+        "en": "Send evidence"
+      },
+      "view": {
+        "es": {
+          "type": "chat",
+          "heading": "Reclamo registrado",
+          "messages": [
+            {
+              "side": "user",
+              "text": "Hay agua en el pasillo. Adjunto foto de ejemplo."
+            },
+            {
+              "side": "bot",
+              "text": "Reclamo R-001 registrado. Ubicación: Edificio A, piso 2, pasillo."
+            }
+          ]
+        },
+        "en": {
+          "type": "chat",
+          "heading": "Issue recorded",
+          "messages": [
+            {
+              "side": "user",
+              "text": "There is water in the corridor. Attaching an example photo."
+            },
+            {
+              "side": "bot",
+              "text": "Issue R-001 recorded. Location: Building A, floor 2, corridor."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Resolver con evidencia",
+        "en": "Resolve with evidence"
+      },
+      "description": {
+        "es": "El coordinador recibe el caso y documenta la resolución.",
+        "en": "The coordinator receives the case and documents the resolution."
+      },
+      "action": {
+        "es": "Registrar resolución",
+        "en": "Record resolution"
+      },
+      "view": {
+        "es": {
+          "type": "chat",
+          "heading": "Seguimiento del coordinador",
+          "messages": [
+            {
+              "side": "user",
+              "text": "Recibido. Se asignó Equipo Norte."
+            },
+            {
+              "side": "bot",
+              "text": "R-001 recepcionado. Al resolver, adjuntá la evidencia."
+            },
+            {
+              "side": "user",
+              "text": "Pasillo seco y señalización retirada. Foto final adjunta."
+            }
+          ]
+        },
+        "en": {
+          "type": "chat",
+          "heading": "Coordinator follow-up",
+          "messages": [
+            {
+              "side": "user",
+              "text": "Received. Assigned to North Team."
+            },
+            {
+              "side": "bot",
+              "text": "R-001 received. Attach evidence when resolving it."
+            },
+            {
+              "side": "user",
+              "text": "Corridor dry and signage removed. Final photo attached."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "title": {
+        "es": "Confirmar conformidad",
+        "en": "Confirm acceptance"
+      },
+      "description": {
+        "es": "El reportante confirma si el problema quedó resuelto.",
+        "en": "The reporter confirms whether the problem was resolved."
+      },
+      "action": {
+        "es": "Cerrar seguimiento",
+        "en": "Close follow-up"
+      },
+      "view": {
+        "es": {
+          "type": "chat",
+          "heading": "Conformidad del reportante",
+          "messages": [
+            {
+              "side": "bot",
+              "text": "R-001 resuelto. ¿Estás conforme con la solución?"
+            },
+            {
+              "side": "user",
+              "text": "Sí, conforme."
+            },
+            {
+              "side": "bot",
+              "text": "R-001 cerrado con conformidad."
+            }
+          ]
+        },
+        "en": {
+          "type": "chat",
+          "heading": "Reporter acceptance",
+          "messages": [
+            {
+              "side": "bot",
+              "text": "R-001 resolved. Are you satisfied with the solution?"
+            },
+            {
+              "side": "user",
+              "text": "Yes, satisfied."
+            },
+            {
+              "side": "bot",
+              "text": "R-001 closed with acceptance."
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

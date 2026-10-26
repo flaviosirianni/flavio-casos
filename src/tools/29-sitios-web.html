@@ -1,97 +1,21 @@
-<section class="tool" id="sitios-web" data-cat="prod"
-  data-title="Sitios institucionales con portal de oportunidades"
-  data-sector="Servicios de personal y consultoría de RR.HH."
-  data-summary="Sitios bilingües con recorridos para empresas y candidatos, búsqueda de empleos, postulación con CV y formularios que llegan ordenados al equipo."
-  data-stack="Astro,Cloudflare Workers,Google Sheets,Resend,React,TypeScript,Tailwind,Hono,R2,KV,Workers AI">
+<section class="tool" id="sitios-web" data-cat="prod" data-title="Sitios institucionales y portal de empleos" data-sector="Servicios de personal y consultoría de RR. HH." data-summary="Sitios bilingües con búsqueda de vacantes, envío de CV y formularios conectados al equipo." data-stack="Astro,React,TypeScript,Tailwind,Cloudflare Workers,Hono,Google Sheets,R2,Resend,KV,Workers AI" data-status="Implementado">
   <div class="wrap tool-head">
-    <p class="eyebrow">Servicios de personal y consultoría de RR.HH.</p>
-    <h1>Sitios institucionales con portal de oportunidades</h1>
-    <p class="kind">Sitios web adaptables a distintos tamaños de pantalla, con portal de empleos y formularios</p>
-    <p class="lead">Una empresa entra a pedir personal; un candidato busca una vacante y deja su CV. Los dos recorridos conviven en el mismo sitio, en español e inglés, y cada envío llega organizado al equipo en lugar de perderse en un mail.</p>
+    <p class="eyebrow">Servicios de personal y consultoría de RR. HH.</p>
+    <h1>Sitios institucionales y portal de empleos</h1>
+    <p class="kind">Sitios web con portal de oportunidades y API</p>
+    <p class="lead">Sitios bilingües con búsqueda de vacantes, envío de CV y formularios conectados al equipo.</p>
   </div>
-
-  <div class="stage"><div class="wrap shots">
-    <figure class="shot w12">
-      <div class="dev dev-browser" style="--w:1080px">
-        <div class="bar"><i></i><i></i><i></i><div class="url">www.ejemplo-personal.com.ar · marca de ejemplo</div></div>
-        <div style="background:#fff">
-          <div class="row" style="padding:14px 34px;border-bottom:1px solid #eef0f3;font-size:13px"><b style="font-size:17px;color:#0b3b5c">Nexo<span style="color:#e76f51">.</span>Personal</b><span class="grow"></span><span>Empresas</span><span>Talento</span><span>Oportunidades</span><span>Contacto</span><span class="seg" style="margin-left:8px"><span class="on" style="background:#0b3b5c">ES</span><span>EN</span></span></div>
-          <div style="display:grid;grid-template-columns:1.1fr 1fr;gap:30px;padding:46px 34px 40px;background:linear-gradient(180deg,#f3f7fa,#fff)">
-            <div>
-              <div class="xs b" style="color:#e76f51;letter-spacing:.08em;text-transform:uppercase">Servicios de personal</div>
-              <div style="font-size:36px;line-height:1.08;font-weight:800;color:#0b3b5c;margin-top:10px;letter-spacing:-.02em">Personas correctas,<br>en el momento justo.</div>
-              <div style="font-size:14px;color:#4b5563;margin-top:14px;max-width:420px;line-height:1.55">Gastronomía, limpieza y eventos. Armamos equipos para tu operación y acompañamos a cada persona que trabaja con nosotros.</div>
-              <div class="row" style="margin-top:22px"><span class="btn" style="--brand:#0b3b5c;padding:11px 18px;font-size:13px">Necesito personal</span><span class="btn ghost" style="padding:11px 18px;font-size:13px">Busco trabajo</span></div>
-            </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-              <div class="photo" style="--p:linear-gradient(150deg,#f4a261,#e76f51);aspect-ratio:3/4"></div>
-              <div style="display:grid;gap:10px"><div class="photo" style="--p:linear-gradient(150deg,#8ecae6,#219ebc)"></div><div class="ui-card" style="display:grid;place-items:center;text-align:center"><div><div style="font-size:24px;font-weight:800;color:#0b3b5c">+30</div><div class="xs mut">empresas clientes (ejemplo)</div></div></div></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <figcaption><b>Dos recorridos desde el inicio.</b> Empresas y candidatos tienen su camino propio, con contenidos en español e inglés. Marca y textos de ejemplo.</figcaption>
-    </figure>
-
-    <figure class="shot w8">
-      <div class="dev dev-browser ui" style="--w:760px;--brand:#0b3b5c;--brand-soft:#e6eef4">
-        <div class="bar"><i></i><i></i><i></i><div class="url">www.ejemplo-personal.com.ar/oportunidades</div></div>
-        <div class="ui-main">
-          <div class="ui-h1">Oportunidades</div>
-          <div class="row"><div class="inp" style="flex:1"><span class="ph">Buscar por puesto o palabra clave</span></div><div class="inp sel" style="width:150px">Zona: CABA</div><div class="inp sel" style="width:150px">Rubro: Gastronomía</div></div>
-          <div class="col" style="gap:8px">
-            <div class="ui-card"><div class="row"><b>Cocinero/a para eventos</b><span class="grow"></span><span class="pill b">Eventual</span></div><div class="sm mut" style="margin-top:4px">CABA · Fines de semana · Publicada hace 2 días</div></div>
-            <div class="ui-card" style="border-color:var(--brand)"><div class="row"><b>Bachero/a · turno noche</b><span class="grow"></span><span class="pill g">Efectivo</span></div><div class="sm mut" style="margin-top:4px">CABA · Lun a vie 22 a 06 · Publicada hoy</div><div class="sm" style="margin-top:8px">Experiencia en cocinas de alto volumen. Incorporación inmediata.</div><div class="row" style="margin-top:10px"><span class="btn">Postularme</span><span class="btn ghost">Ver detalle</span></div></div>
-            <div class="ui-card"><div class="row"><b>Auxiliar de limpieza · clínica</b><span class="grow"></span><span class="pill g">Efectivo</span></div><div class="sm mut" style="margin-top:4px">Zona Norte · Rotativo · Publicada hace 5 días</div></div>
-          </div>
-          <div class="row sm mut" style="justify-content:center">‹ 1 <b style="color:var(--s-fg)">2</b> 3 ›</div>
-        </div>
-      </div>
-      <figcaption><b>Portal de empleos.</b> Búsqueda, filtros y paginación sobre ofertas que el equipo administra desde una planilla. Las ofertas se traducen solas al inglés.</figcaption>
-    </figure>
-
-    <figure class="shot w4">
-      <div class="dev dev-phone ui" style="--h:600px;--brand:#0b3b5c;--brand-soft:#e6eef4"><div class="screen">
-        <div class="sbar"><span>18:24</span></div>
-        <div style="padding:4px 16px 10px;border-bottom:1px solid var(--s-line)"><div class="xs mut">Postulación</div><div class="ui-h1" style="font-size:15px">Bachero/a · turno noche</div></div>
-        <div style="padding:14px 16px;display:flex;flex-direction:column;gap:10px">
-          <div class="fld"><label>Nombre y apellido</label><div class="inp">Pablo Giménez</div></div>
-          <div class="fld"><label>Email</label><div class="inp">pablo.gimenez@mail.com</div></div>
-          <div class="fld"><label>Teléfono</label><div class="inp">11 •••• 4471</div></div>
-          <div class="fld"><label>CV (PDF, hasta 5 MB)</label><div class="inp" style="border-style:dashed;justify-content:flex-start;gap:8px"><span style="width:22px;height:26px;border-radius:3px;background:#fde2dc;color:#c2410c;font-size:8px;font-weight:700;display:grid;place-items:center">PDF</span>cv_pablo_gimenez.pdf</div></div>
-          <div class="row sm"><span class="chk on"></span>Acepto la política de privacidad</div>
-          <span class="btn" style="padding:11px">Enviar postulación</span>
-          <div class="ui-card soft xs" style="padding:8px 10px">✓ Recibimos tu CV. Te escribimos por mail si tu perfil avanza.</div>
-        </div>
-      </div></div>
-      <figcaption><b>Postulación con CV.</b> El archivo se guarda en almacenamiento privado y el equipo recibe un aviso por correo.</figcaption>
-    </figure>
-  </div></div>
-
+  <div class="wrap"><div class="demo-mount" data-demo="sitios-web"></div></div>
   <div class="wrap tool-body">
     <div class="prose">
-      <div class="technical-panel"><h2>Implementación técnica</h2><p>Construí sitios con Astro, React, TypeScript y Tailwind, conectados a APIs en Cloudflare Workers con Hono. Integré Google Sheets, almacenamiento R2/KV y Resend para oportunidades, postulaciones y formularios.</p></div>
-      <h2>Qué hace</h2>
-      <p>Presentan servicios y contenidos para empresas y personas, y conectan la comunicación de una organización con sus procesos de captación. Permiten publicar oportunidades laborales, buscar vacantes, consultar requisitos y enviar postulaciones o CV espontáneos. Los formularios alimentan una fuente administrable por el equipo y generan avisos por correo. Incluyen contenidos en más de un idioma y almacenamiento de archivos.</p>
-      <p>Una empresa puede presentar sus servicios y recibir solicitudes; un candidato puede buscar una oportunidad y enviar sus datos y CV en el mismo recorrido. El equipo recibe la información organizada para continuar la atención, sin que cada envío quede aislado en un correo.</p>
-      <p class="note">Dos implementaciones sobre la misma arquitectura: una empresa de servicios de personal y una consultora de recursos humanos.</p>
+      <div class="technical-panel"><h2>Implementación técnica</h2><p>Implementé interfaces Astro con componentes React y APIs Hono sobre Cloudflare Workers. Los adaptadores separan vacantes y postulaciones en Google Sheets, CV en R2 y notificaciones con Resend.</p></div>
+      <h2>Qué resuelve</h2><p>Empresas y candidatos necesitan recorridos distintos en el mismo sitio. Los formularios estructurados permiten recibir consultas y postulaciones con los datos necesarios para continuar.</p>
+      <h2>Recorrido y alcance</h2><p>El candidato filtra vacantes, consulta el detalle y adjunta su CV. La API valida el envío, conserva el archivo y registra la postulación. La interfaz ofrece contenido en español e inglés.</p>
+      <ul class="points"><li>Listado de vacantes con filtros y paginación.</li><li>Validación de formularios y archivos adjuntos.</li><li>Registro de postulaciones y aviso al equipo.</li></ul>
     </div>
     <aside class="side">
-      <div class="panel">
-        <h3>Recorrido de la información</h3>
-        <div class="flow">
-          <div class="flow-step"><span>Visitantes</span><div class="items"><b>Empresas</b><b>Candidatos</b></div></div>
-          <div class="flow-arrow"></div>
-          <div class="flow-step mid"><span>Sitio y API</span><div class="items"><b>Cloudflare Workers</b><b>R2</b><b>KV</b><b>Workers AI</b></div></div>
-          <div class="flow-arrow"></div>
-          <div class="flow-step"><span>Equipo</span><div class="items"><b>Google Sheets</b><b>Mail</b></div></div>
-        </div>
-        <p class="flow-text">Google Sheets permite administrar ofertas y recibir formularios y postulaciones. Cloudflare R2 guarda CV, Resend envía avisos y Workers AI traduce ofertas. El sitio ofrece recorridos para empresas y candidatos en español e inglés.</p>
-      </div>
-      <div class="panel">
-        <h3>Stack tecnológico</h3>
-        <div class="stack"><span class="tag">Astro</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Tailwind</span><span class="tag">Hono</span><span class="tag">Cloudflare Workers</span><span class="tag">R2</span><span class="tag">KV</span><span class="tag">Workers AI</span><span class="tag">Google Sheets</span><span class="tag">Resend</span></div>
-      </div>
+      <div class="panel"><h3>Recorrido de la información</h3><div class="flow"><div class="flow-step"><span>Interfaz</span><div class="items"><b>Astro</b><b>React</b></div></div><div class="flow-arrow"></div><div class="flow-step"><span>Validación</span><div class="items"><b>Hono</b><b>Cloudflare Workers</b></div></div><div class="flow-arrow"></div><div class="flow-step"><span>Entrega</span><div class="items"><b>Google Sheets</b><b>R2</b><b>Resend</b></div></div></div><p class="flow-text">El candidato filtra vacantes, consulta el detalle y adjunta su CV. La API valida el envío, conserva el archivo y registra la postulación. La interfaz ofrece contenido en español e inglés.</p></div>
+      <div class="panel"><h3>Stack tecnológico</h3><div class="stack"><span class="tag">Astro</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Tailwind</span><span class="tag">Cloudflare Workers</span><span class="tag">Hono</span><span class="tag">Google Sheets</span><span class="tag">R2</span><span class="tag">Resend</span><span class="tag">KV</span><span class="tag">Workers AI</span></div></div>
     </aside>
   </div>
 </section>

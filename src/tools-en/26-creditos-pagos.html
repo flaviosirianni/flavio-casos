@@ -1,0 +1,21 @@
+<section class="tool" id="creditos-pagos" data-cat="prod" data-title="Credits and payments for AI services" data-sector="Personal product · shared infrastructure" data-summary="Shared wallet for checking balances, recording usage and crediting top-ups with duplicate checks." data-stack="Node.js,SQLite,Mercado Pago,REST APIs,Webhooks" data-status="Implemented">
+  <div class="wrap tool-head">
+    <p class="eyebrow">Personal product · shared infrastructure</p>
+    <h1>Credits and payments for AI services</h1>
+    <p class="kind">Wallet and payment backend service</p>
+    <p class="lead">Shared wallet for checking balances, recording usage and crediting top-ups with duplicate checks.</p>
+  </div>
+  <div class="wrap"><div class="demo-mount" data-demo="creditos-pagos"></div></div>
+  <div class="wrap tool-body">
+    <div class="prose">
+      <div class="technical-panel"><h2>Technical implementation</h2><p>I implemented an HTTP service and SQLite database containing wallets, transactions, usage events and processed payments. The Mercado Pago integration verifies payments and uses idempotency identifiers.</p></div>
+      <h2>What it solves</h2><p>Several assistants need to share balances and trace usage. A central service keeps each bot from implementing separate billing logic.</p>
+      <h2>Flow and scope</h2><p>The user checks their balance, spends credits and tops up through the payment provider. Retries are recognized to avoid repeating a transaction, and the history makes events reviewable.</p>
+      <ul class="points"><li>Credit and debit transactions per user.</li><li>Payment confirmation before crediting.</li><li>Operation identifiers to detect retries.</li></ul>
+    </div>
+    <aside class="side">
+      <div class="panel"><h3>Data flow</h3><div class="flow"><div class="flow-step"><span>Request</span><div class="items"><b>REST APIs</b></div></div><div class="flow-arrow"></div><div class="flow-step"><span>Verification</span><div class="items"><b>Mercado Pago</b><b>Webhooks</b></div></div><div class="flow-arrow"></div><div class="flow-step"><span>Ledger</span><div class="items"><b>SQLite</b></div></div></div><p class="flow-text">The user checks their balance, spends credits and tops up through the payment provider. Retries are recognized to avoid repeating a transaction, and the history makes events reviewable.</p></div>
+      <div class="panel"><h3>Technology stack</h3><div class="stack"><span class="tag">Node.js</span><span class="tag">SQLite</span><span class="tag">Mercado Pago</span><span class="tag">REST APIs</span><span class="tag">Webhooks</span></div></div>
+    </aside>
+  </div>
+</section>

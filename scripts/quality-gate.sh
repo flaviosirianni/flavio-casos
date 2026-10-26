@@ -5,4 +5,6 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 python3 -m unittest discover -s tests -v
 node --check src/app.js
+node --check src/demos.js
+node --check src/theme.js
 node --check src/cv.js

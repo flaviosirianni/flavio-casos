@@ -1,23 +1,17 @@
-# Validación del portfolio
+# Interactive bilingual portfolio validation
 
-26 de octubre de 2026. Resultado local: aprobado.
+26 October 2026. Local validation.
 
-Build y seis pruebas de contrato aprobados: 37 casos únicos con implementación y stack; ausencia de identidad corporativa; recursos y enlaces relativos válidos; estructura de documentos y CV.
+The build contains 36 unique cases in Spanish and English, 72 individual case pages, two catalogs and two CVs. All 36 walkthroughs contain four project-specific scenes with localized interface labels, sample records and descriptions: 144 scenes, rendered in both languages.
 
-Playwright MCP: filtros combinados, búsqueda sin acentos, vacío y recuperación, todos los casos por ancla, navegación anterior/siguiente y atrás del navegador, recuperación de ancla desconocida y apertura del CV. La etiqueta accesible del selector de tecnología se corrigió durante la validación y se volvió a comprobar.
+Nine release contracts pass: catalog/page coverage, bilingual demo schema, safe public-output structure, portable relative resources, contextual language links, both printable CVs, minimal introduction with two KPI, and agreement between displayed and searchable technology stacks.
 
-Verificados escritorio de 1440px, móvil de 390px y tema oscuro. Sin desborde horizontal en catálogo y detalle. Sin errores de JavaScript durante los recorridos. El botón del CV invoca la impresión nativa; guardar el PDF depende del diálogo del navegador del visitante.
+Playwright MCP opened all 72 localized case pages at a 390px viewport and selected every scene: 288 scene interactions, zero mismatched headings, zero horizontal overflow and zero JavaScript errors. Desktop catalog and representative demo screens were visually inspected at 1440px.
 
-La validación cubre el portfolio. No prueba las aplicaciones de clientes ni sus servicios externos.
+The source review corrected claims about synchronization, audit scope, billing consolidation, guided bot routing, analytic deliverables, provider coverage, development states and pending calculations. Private source evidence is kept outside the public repository; no original application or production data was modified.
 
-Publicación pública autorizada explícitamente por el titular el 26 de octubre de 2026. Repositorio público y GitHub Pages activados.
+Further controls, publication and final review evidence are recorded in runtime-evidence.tsv as they are completed.
 
-Revisión adicional: reconciliados los stacks de las fichas con los metadatos usados en los filtros, y corregidas las rutas del CV para navegar también desde una copia file://. Dos pruebas de regresión reprodujeron ambos fallos antes de la corrección y pasan después.
+Control validation: exact technology and category filters, accent-insensitive search, empty/recovery, language switch retaining scene, speed 2× and automatic advance, pause stable beyond its interval, reduced-motion stop, global catalog pause/resume, paused CSS motion and both CVs passed. At 320px, catalog and case remain within viewport. Dark theme persists across language switches.
 
-Revisión independiente posterior a las correcciones: seis pruebas y ambas comprobaciones de sintaxis aprobadas; sin bloqueos críticos o importantes para la entrega. GitHub Actions también valida la rama de entrega.
-
-## Publicación verificada
-
-URL: https://flaviosirianni.github.io/flavio-casos/
-
-GitHub Actions: https://github.com/flaviosirianni/flavio-casos/actions/runs/40327243400, build y deploy aprobados. Playwright MCP sobre la URL pública: HTTP 200, 37 tarjetas, filtro TypeScript con 9 resultados, recuperación del catálogo, apertura de Velozia con sus cinco imágenes cargadas, CV con seis proyectos y regreso al portfolio. Vista móvil de 390px sin desborde y sin errores JavaScript.
+Independent specification/privacy/localization and code-quality reviews passed after fixes. Catalog animation now has a global pause control; private identity checks remain outside the public repository.
