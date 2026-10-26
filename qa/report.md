@@ -10,8 +10,14 @@ Verificados escritorio de 1440px, móvil de 390px y tema oscuro. Sin desborde ho
 
 La validación cubre el portfolio. No prueba las aplicaciones de clientes ni sus servicios externos.
 
-Publicación pública pendiente de autorización. El repositorio se conserva privado y el workflow omite despliegues mientras mantenga esa visibilidad.
+Publicación pública autorizada explícitamente por el titular el 26 de octubre de 2026. Repositorio público y GitHub Pages activados.
 
 Revisión adicional: reconciliados los stacks de las fichas con los metadatos usados en los filtros, y corregidas las rutas del CV para navegar también desde una copia file://. Dos pruebas de regresión reprodujeron ambos fallos antes de la corrección y pasan después.
 
-Revisión independiente posterior a las correcciones: seis pruebas y ambas comprobaciones de sintaxis aprobadas; sin bloqueos críticos o importantes para la entrega privada. GitHub Actions también valida la rama de entrega.
+Revisión independiente posterior a las correcciones: seis pruebas y ambas comprobaciones de sintaxis aprobadas; sin bloqueos críticos o importantes para la entrega. GitHub Actions también valida la rama de entrega.
+
+## Publicación verificada
+
+URL: https://flaviosirianni.github.io/flavio-casos/
+
+GitHub Actions: https://github.com/flaviosirianni/flavio-casos/actions/runs/40327243400, build y deploy aprobados. Playwright MCP sobre la URL pública: HTTP 200, 37 tarjetas, filtro TypeScript con 9 resultados, recuperación del catálogo, apertura de Velozia con sus cinco imágenes cargadas, CV con seis proyectos y regreso al portfolio. Vista móvil de 390px sin desborde y sin errores JavaScript.

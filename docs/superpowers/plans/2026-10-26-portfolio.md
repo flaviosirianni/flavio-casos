@@ -9,5 +9,6 @@
 - [x] Completar implementación y stack de los 37 casos; conservar los estados de validación y prototipo.
 - [x] Generar CV técnico imprimible y build portable sin dependencias.
 - [x] Validar estructura, recursos, ausencia de marca, filtros y recorridos en navegador de escritorio y móvil.
-- [x] Crear repositorio privado y subir versión verificada.
-- [ ] Autorizar publicación pública, activar Pages y verificar URL pública.
+- [x] Crear repositorio y subir versión verificada.
+- [x] Obtener autorización pública y activar Pages.
+- [x] Verificar URL pública: HTTP 200, catálogo, filtros, imágenes, CV y móvil.

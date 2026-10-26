@@ -2,11 +2,11 @@
 
 Portfolio personal con 37 casos de desarrollo web, datos, integraciones y asistentes con IA. Cada proyecto reúne el problema, las pantallas, la implementación y el stack completo. Incluye búsqueda, filtros combinados, modo oscuro y CV técnico imprimible.
 
-**Repositorio privado de revisión:** https://github.com/flaviosirianni/flavio-casos
+**Repositorio:** https://github.com/flaviosirianni/flavio-casos
 
-**URL prevista al publicar:** https://flaviosirianni.github.io/flavio-casos/
+**Sitio:** https://flaviosirianni.github.io/flavio-casos/
 
-El portfolio está construido y validado localmente. La publicación pública espera autorización del titular.
+Portfolio personal publicado con autorización de su titular.
 
 ## Desarrollo local
 
@@ -49,7 +49,7 @@ Categorías: `datos`, `bots`, `apps`, `integ`, `sheets`, `prod`, `int`. Conserva
 
 ## Publicación
 
-El workflow `.github/workflows/pages.yml` prueba y compila cada cambio en `main`. En un repositorio público, publica únicamente `dist/` en GitHub Pages. Mientras el repositorio sea privado, la publicación se omite. La configuración del repositorio usa **Settings → Pages → Source → GitHub Actions**. No se necesita dominio propio, servidor de pago ni servicios de terceros para este portfolio.
+El workflow `.github/workflows/pages.yml` prueba y compila cada cambio en `main`. En un repositorio público, publica únicamente `dist/` en GitHub Pages. Mientras el repositorio sea privado, la publicación se omite. La configuración del repositorio usa **Settings → Pages → Source → GitHub Actions**. No se necesita dominio propio, servidor de pago ni servicios adicionales para este portfolio.
 
 ## Alcance del CV
 

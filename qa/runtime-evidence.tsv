@@ -12,3 +12,4 @@ cv	http://127.0.0.1:4173/cv.html	pass	Playwright MCP	6 proyectos, título person
 console	http://127.0.0.1:4173/	pass	Playwright MCP	Sin errores JavaScript durante recorridos
 stack-reconciliation	http://127.0.0.1:4173/	pass	Playwright MCP	SQL devuelve 8 e incluye el asistente; BeautifulSoup devuelve 1
 cv-case-link	http://127.0.0.1:4173/cv.html	pass	Playwright MCP	Enlace index.html#reservas-velozia abre el caso correcto; rutas portables verificadas
+public-site	https://flaviosirianni.github.io/flavio-casos/	pass	Playwright MCP	HTTP 200; 37 casos; TypeScript 9; cinco imágenes Velozia cargadas; CV y retorno; móvil 390px; sin errores JS
