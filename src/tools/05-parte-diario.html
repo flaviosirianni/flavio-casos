@@ -1,0 +1,125 @@
+<section class="tool" id="parte-diario" data-cat="apps"
+  data-title="Registro digital de asistencia y novedades"
+  data-sector="Servicios de limpieza · equipos en varias sedes"
+  data-summary="El parte diario de cada sede en una webapp: asistencia, horarios, ausencias y horas extra, con posteo por etapas, cierre del día e histórico controlado."
+  data-stack="Google Apps Script,Google Sheets,BigQuery,HTML,CSS,JavaScript">
+  <div class="wrap tool-head">
+    <p class="eyebrow">Servicios de limpieza · equipos en varias sedes</p>
+    <h1>Registro digital de asistencia y novedades</h1>
+    <p class="kind">Webapp operativa sobre Google Sheets, con funciones administrativas en la planilla</p>
+    <p class="lead">Cada supervisor carga el día de su equipo desde una pantalla clara, lo guarda por partes y lo confirma al final. La planilla sigue siendo la base, pero ya nadie edita celdas a mano y el histórico queda protegido.</p>
+  </div>
+
+  <div class="stage"><div class="wrap shots">
+    <figure class="shot w12">
+      <div class="dev dev-browser ui" style="--w:1080px;--brand:#0f766e;--brand-soft:#e0f2ef">
+        <div class="bar"><i></i><i></i><i></i><div class="url">script.google.com · Parte Diario</div></div>
+        <div class="ui-top" style="background:#0f766e;color:#fff;border:0"><b style="font-size:15px">Parte Diario</b><span style="opacity:.6">|</span><span>Sede Norte</span><span class="grow"></span><span class="sm" style="opacity:.85">Supervisora: Valeria Ibáñez</span></div>
+        <div class="ui-main" style="background:#f6f8f8">
+          <div class="row">
+            <div class="fld"><label>Fecha</label><div class="inp" style="width:170px">mié 22/10/2026</div></div>
+            <div class="fld"><label>Turno</label><div class="inp sel" style="width:150px">Todos los turnos</div></div>
+            <div class="fld"><label>Estado de posteo</label><div class="inp sel" style="width:170px">Todos</div></div>
+            <span class="grow"></span>
+            <div class="col" style="gap:6px;align-items:flex-end"><div class="row" style="gap:6px"><span class="btn ghost">Agregar/Quitar empleados</span><span class="btn soft">Postear todo</span><span class="btn">Confirmar día</span></div><span class="xs mut">14 de 18 posteados · falta confirmar el día</span></div>
+          </div>
+          <div class="g3">
+            <div class="ui-card" style="border-left:3px solid var(--s-g)">
+              <div class="row"><span class="av" style="--c:#0f766e">LF</span><div class="grow"><div class="b">Lucía Ferreyra</div><div class="xs mut">Leg. 1042 · Mañana 06 a 14</div></div><span class="pill g">Posteado</span></div>
+              <div class="g2" style="margin-top:10px;gap:8px"><div class="fld"><label>Estado</label><div class="inp sel">Presente</div></div><div class="fld"><label>Horario real</label><div class="inp">06:02 a 14:05</div></div></div>
+              <div class="g2" style="margin-top:8px;gap:8px"><div class="fld"><label>Horas extra</label><div class="inp">0</div></div><div class="fld"><label>Observación</label><div class="inp"><span class="ph">Opcional</span></div></div></div>
+            </div>
+            <div class="ui-card" style="border-left:3px solid var(--s-y)">
+              <div class="row"><span class="av" style="--c:#b45309">MS</span><div class="grow"><div class="b">Martín Sosa</div><div class="xs mut">Leg. 1077 · Mañana 06 a 14</div></div><span class="pill y">Sin postear</span></div>
+              <div class="g2" style="margin-top:10px;gap:8px"><div class="fld"><label>Estado</label><div class="inp sel focus">Presente</div></div><div class="fld"><label>Horario real</label><div class="inp">06:00 a 16:00</div></div></div>
+              <div class="g2" style="margin-top:8px;gap:8px"><div class="fld"><label>Horas extra</label><div class="inp"><b>2</b></div></div><div class="fld"><label>Observación</label><div class="inp">Cubre a Paz</div></div></div>
+            </div>
+            <div class="ui-card" style="border-left:3px solid var(--s-b)">
+              <div class="row"><span class="av" style="--c:#1f5fbf">NP</span><div class="grow"><div class="b">Nicolás Paz</div><div class="xs mut">Leg. 1103 · Mañana 06 a 14</div></div><span class="pill g">Posteado</span></div>
+              <div class="g2" style="margin-top:10px;gap:8px"><div class="fld"><label>Estado</label><div class="inp sel">Licencia médica</div></div><div class="fld"><label>Hasta</label><div class="inp">24/10/2026</div></div></div>
+              <div class="g2" style="margin-top:8px;gap:8px"><div class="fld"><label>Horas extra</label><div class="inp">0</div></div><div class="fld"><label>Observación</label><div class="inp">Certificado recibido</div></div></div>
+            </div>
+            <div class="ui-card" style="border-left:3px solid var(--s-g)">
+              <div class="row"><span class="av" style="--c:#7c3aed">CB</span><div class="grow"><div class="b">Carla Benítez</div><div class="xs mut">Leg. 1121 · Tarde 14 a 22</div></div><span class="pill g">Posteado</span></div>
+              <div class="g2" style="margin-top:10px;gap:8px"><div class="fld"><label>Estado</label><div class="inp sel">Presente</div></div><div class="fld"><label>Horario real</label><div class="inp">14:20 a 22:00</div></div></div>
+              <div class="row xs" style="margin-top:8px"><span class="pill r">Llegada tarde · 20 min</span></div>
+            </div>
+            <div class="ui-card" style="border-left:3px solid var(--s-y)">
+              <div class="row"><span class="av" style="--c:#be185d">JQ</span><div class="grow"><div class="b">Julieta Quiroga</div><div class="xs mut">Leg. 1130 · Tarde 14 a 22</div></div><span class="pill y">Sin postear</span></div>
+              <div class="g2" style="margin-top:10px;gap:8px"><div class="fld"><label>Estado</label><div class="inp sel">Ausente con aviso</div></div><div class="fld"><label>Motivo</label><div class="inp sel">Trámite personal</div></div></div>
+            </div>
+            <div class="ui-card" style="border-left:3px solid #9ca3af;background:#fafafa">
+              <div class="row"><span class="av" style="--c:#6b7280">DR</span><div class="grow"><div class="b">Diego Romero</div><div class="xs mut">Leg. 0988 · Noche 22 a 06</div></div><span class="pill">Franco</span></div>
+              <div class="xs mut" style="margin-top:12px">Franco programado. Vuelve el jue 23/10.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <figcaption><b>Parte del día por empleado.</b> Estado, horario real, horas extra y observaciones. Se postea por partes y se confirma la jornada cuando está completa.</figcaption>
+    </figure>
+
+    <figure class="shot w12">
+      <div class="dev dev-browser" style="--w:1060px">
+        <div class="bar"><i></i><i></i><i></i><div class="url">docs.google.com/spreadsheets · Parte Diario · Sede Norte</div></div>
+        <div class="gs" style="position:relative">
+          <div class="gs-title"><span class="ic"></span><span class="nm">Parte Diario · Sede Norte</span></div>
+          <div class="gs-menu"><span>Archivo</span><span>Editar</span><span>Ver</span><span>Insertar</span><span>Formato</span><span>Datos</span><span>Herramientas</span><b>Parte Diario</b><span>Ayuda</span></div>
+          <div class="gs-drop" style="left:452px;top:58px"><div>Cargar día nuevo</div><div class="on">Generar parte mensual</div><div>Modificar posteados (con permiso)</div><hr><div>Alta de empleado</div><div>Baja con fecha efectiva</div><div>Registrar licencia</div><hr><div>Abrir webapp</div></div>
+          <div class="gs-tool"></div>
+          <div class="gs-fx"><span class="ref">C4</span><span class="fx">fx</span><span>P</span></div>
+          <div class="gs-grid">
+            <table>
+              <thead><tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th><th>G</th><th>H</th><th>I</th><th>J</th><th>K</th><th>L</th><th>M</th><th>N</th><th>O</th><th>P</th><th>Q</th><th>R</th><th>S</th></tr></thead>
+              <tbody>
+                <tr class="h" style="--hdr:#0f766e"><th>1</th><td>Empleado</td><td>Leg.</td><td>1</td><td>2</td><td>3</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>Pres.</td><td>Aus.</td><td>Lic.</td><td>H. extra</td></tr>
+                <tr><th>2</th><td>Lucía Ferreyra</td><td class="n">1042</td><td class="c cg">P</td><td class="c cg">P</td><td class="c cg">P</td><td class="c cg">P</td><td class="c cg">P</td><td class="c cg">P</td><td class="c cg">P</td><td class="c cg">P</td><td class="c cg">P</td><td class="c cg">P</td><td class="c cn">F</td><td class="c cg">P</td><td class="c cg">P</td><td class="n">14</td><td class="n">0</td><td class="n">0</td><td class="n">4</td></tr>
+                <tr><th>3</th><td>Martín Sosa</td><td class="n">1077</td><td class="c cg">P</td><td class="c cg">P</td><td class="c cr">A</td><td class="c cg">P</td><td class="c cg">P</td><td class="c cg">P</td><td class="c cn">F</td><td class="c cg">P</td><td class="c cg">P</td><td class="c cg">P</td><td class="c cg">P</td><td class="c cg">P</td><td class="c cg">P</td><td class="n">13</td><td class="n">1</td><td class="n">0</td><td class="n">11</td></tr>
+                <tr><th>4</th><td>Nicolás Paz</td><td class="n">1103</td><td class="c cg sel">P</td><td class="c cg">P</td><td class="c cg">P</td><td class="c cg">P</td><td class="c cb">L</td><td class="c cb">L</td><td class="c cb">L</td><td class="c cb">L</td><td class="c cg">P</td><td class="c cg">P</td><td class="c cg">P</td><td class="c cn">F</td><td class="c cg">P</td><td class="n">11</td><td class="n">0</td><td class="n">4</td><td class="n">0</td></tr>
+                <tr><th>5</th><td>Carla Benítez</td><td class="n">1121</td><td class="c cg">P</td><td class="c cy">T</td><td class="c cg">P</td><td class="c cg">P</td><td class="c cg">P</td><td class="c cy">T</td><td class="c cg">P</td><td class="c cg">P</td><td class="c cn">F</td><td class="c cg">P</td><td class="c cg">P</td><td class="c cg">P</td><td class="c cg">P</td><td class="n">14</td><td class="n">0</td><td class="n">0</td><td class="n">2</td></tr>
+                <tr><th>6</th><td>Julieta Quiroga</td><td class="n">1130</td><td class="c cg">P</td><td class="c cg">P</td><td class="c cg">P</td><td class="c cn">F</td><td class="c cg">P</td><td class="c cg">P</td><td class="c cg">P</td><td class="c cr">A</td><td class="c cg">P</td><td class="c cg">P</td><td class="c cg">P</td><td class="c cg">P</td><td class="c cr">A</td><td class="n">12</td><td class="n">2</td><td class="n">0</td><td class="n">0</td></tr>
+                <tr><th>7</th><td>Diego Romero</td><td class="n">0988</td><td class="c cg">P</td><td class="c cg">P</td><td class="c cn">F</td><td class="c cg">P</td><td class="c cg">P</td><td class="c cg">P</td><td class="c cg">P</td><td class="c cg">P</td><td class="c cg">P</td><td class="c cn">F</td><td class="c cg">P</td><td class="c cg">P</td><td class="c cg">P</td><td class="n">14</td><td class="n">0</td><td class="n">0</td><td class="n">6</td></tr>
+                <tr><th>8</th><td>Agustina Ríos</td><td class="n">1146</td><td class="c cp">B</td><td class="c cn"></td><td class="c cn"></td><td class="c cn"></td><td class="c cn"></td><td class="c cn"></td><td class="c cn"></td><td class="c cn"></td><td class="c cn"></td><td class="c cn"></td><td class="c cn"></td><td class="c cn"></td><td class="c cn"></td><td class="n">1</td><td class="n">0</td><td class="n">0</td><td class="n">0</td></tr>
+                <tr><th>9</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="gs-tabs"><span>Parte Diario</span><span>Empleados</span><span>Ausencias</span><span class="on">Parte Mensual · Oct</span><span>Histórico</span><span>Log</span></div>
+        </div>
+      </div>
+      <figcaption><b>Parte mensual y menú administrativo.</b> La planilla arma el resumen del mes (presente, ausente, licencia, franco, tardanza, baja) y concentra altas, bajas y licencias.</figcaption>
+    </figure>
+  </div></div>
+
+  <div class="wrap tool-body">
+    <div class="prose">
+      <div class="technical-panel"><h2>Implementación técnica</h2><p>Desarrollé interfaces HTML, CSS y JavaScript sobre Google Apps Script y Sheets. Implementé reglas de edición, confirmación y consolidación para registrar asistencia y novedades sin perder los controles operativos de las planillas.</p></div>
+      <h2>Qué hace</h2>
+      <p>Centraliza el parte diario de equipos que trabajan en diferentes sedes. Los responsables registran asistencia, horarios, ausencias, horas extra y observaciones, y administran altas, bajas y licencias. Permite guardar avances, confirmar la jornada y consultar el histórico. Los controles de cierre y edición ayudan a conservar lo informado y ordenar las correcciones posteriores, con información preparada para el resumen mensual.</p>
+      <p>Cada supervisor trabaja con su equipo y puede cargar el día por etapas antes de confirmarlo. La administración conserva una vía controlada para consultar y corregir históricos, y puede incorporar nuevas sedes manteniendo el mismo proceso de registro.</p>
+      <h2>Detalles que importan</h2>
+      <ul class="points">
+        <li>Filas posteadas bloqueadas: corregir el pasado requiere un permiso explícito y queda registrado.</li>
+        <li>Bloqueos de concurrencia para que dos personas no pisen el mismo día.</li>
+        <li>Bajas con fecha efectiva y licencias que se proyectan solas sobre los días siguientes.</li>
+        <li>Alta de una sede nueva con un procedimiento documentado, sin rehacer la herramienta.</li>
+      </ul>
+    </div>
+    <aside class="side">
+      <div class="panel">
+        <h3>Recorrido de la información</h3>
+        <div class="flow">
+          <div class="flow-step"><span>Carga</span><div class="items"><b>App de parte diario</b></div></div>
+          <div class="flow-arrow"></div>
+          <div class="flow-step mid"><span>Reglas y almacenamiento</span><div class="items"><b>Google Apps Script</b><b>Google Sheets</b></div></div>
+          <div class="flow-arrow"></div>
+          <div class="flow-step"><span>Análisis</span><div class="items"><b>Tableros</b></div></div>
+        </div>
+        <p class="flow-text">La interfaz web permite cargar y consultar partes; Google Sheets conserva empleados, novedades e históricos. Google Apps Script aplica las reglas y los cierres. BigQuery y Apache Superset permiten analizar la información consolidada.</p>
+      </div>
+      <div class="panel">
+        <h3>Stack tecnológico</h3>
+        <div class="stack"><span class="tag">Google Apps Script</span><span class="tag">Google Sheets</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">BigQuery</span></div>
+      </div>
+    </aside>
+  </div>
+</section>

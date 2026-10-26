@@ -1,0 +1,120 @@
+<section class="tool" id="horas-consultoria" data-cat="apps"
+  data-title="Registro de horas de servicios profesionales"
+  data-sector="Consultora de BI y finanzas · EE.UU."
+  data-summary="Formularios y carga masiva de horas por cliente y proyecto, consumo visible, avisos en Slack y un conversor de agenda semanal a timesheet."
+  data-stack="Google Apps Script,Google Sheets,Slack,Salesforce,HTML,CSS,JavaScript">
+  <div class="wrap tool-head">
+    <p class="eyebrow">Consultora de BI y finanzas · EE.UU.</p>
+    <h1>Registro de horas de servicios profesionales</h1>
+    <p class="kind">Webapp de carga de horas con formularios, carga masiva y conversor de agenda en Google Sheets</p>
+    <p class="lead">Los consultores cargan su trabajo por cliente y proyecto, de a una fila o pegando la semana entera. Los coordinadores ven cuántas horas quedan en cada proyecto y se enteran por Slack de cada carga, antes de pasarlas al sistema administrativo.</p>
+  </div>
+
+  <div class="stage"><div class="wrap shots">
+    <figure class="shot w7">
+      <div class="dev dev-browser ui" style="--w:740px;--brand:#0f766e;--brand-soft:#e0f2ef">
+        <div class="bar"><i></i><i></i><i></i><div class="url">script.google.com · Time Entry · FP&amp;A</div></div>
+        <div class="ui-main">
+          <div><div class="ui-h1">Time Entry</div><div class="ui-sub sm">Complete your identity once, then add one or multiple work rows.</div></div>
+          <div class="g2"><div class="fld"><label>Consultant</label><div class="inp sel">Megan Price</div></div><div class="fld"><label>Email</label><div class="inp">megan.price@consultora.com</div></div></div>
+          <div class="ui-card soft" style="display:flex;flex-direction:column;gap:8px">
+            <div style="display:grid;grid-template-columns:110px 1.1fr 1.4fr 80px;gap:8px"><div class="fld"><label>Activity Date</label><div class="inp">10/21/2026</div></div><div class="fld"><label>Customer</label><div class="inp sel">Northwind Foods</div></div><div class="fld"><label>Project Name</label><div class="inp sel focus">Budget 2027 · FP&amp;A</div></div><div class="fld"><label>Worked Hours</label><div class="inp">3.5</div></div></div>
+            <div class="row xs"><span class="pill g">87.5 of 120 h used · 32.5 h remaining</span></div>
+            <div class="fld"><label>Work Description</label><div class="inp" style="white-space:normal">Revenue driver model by region; review with CFO</div></div>
+          </div>
+          <div class="ui-card soft" style="display:grid;grid-template-columns:110px 1.1fr 1.4fr 80px;gap:8px"><div class="inp">10/21/2026</div><div class="inp sel">Acme Holdings</div><div class="inp sel">Monthly Close Support</div><div class="inp">2</div></div>
+          <div class="row"><span class="btn ghost">+ Add More Work</span><span class="grow"></span><span class="sm mut">2 rows · 5.5 h</span><span class="btn">Submit Hours</span></div>
+        </div>
+      </div>
+      <figcaption><b>Carga por formulario.</b> Solo proyectos activos del cliente elegido, con las horas restantes a la vista y validación de cada fila.</figcaption>
+    </figure>
+
+    <figure class="shot w5">
+      <div class="dev dev-browser" style="--w:500px">
+        <div class="bar"><i></i><i></i><i></i><div class="url">Slack · #hours-fpa</div></div>
+        <div class="slack">
+          <div class="slack-head"># hours-fpa</div>
+          <div class="slack-msg"><span class="ic" style="--c:#0f766e"></span><div><div class="who">Hours Bot<em>APP</em><span>4:12 PM</span></div><div class="txt"><b>New hours uploaded</b> · FP&amp;A · Megan Price · 2 entries · 5.5 h</div>
+            <div class="slack-att" style="--c:#0f766e"><span><b>Northwind Foods · Budget 2027</b> · 3.5 h</span><div class="bar-track" style="height:8px;max-width:300px"><i style="width:73%;--c:#0f766e"></i></div><span style="color:#616061">87.5 of 120 h used · 32.5 h remaining</span></div>
+            <div class="slack-att" style="--c:#e01e5a"><span><b>Acme Holdings · Monthly Close Support</b> · 2 h</span><div class="bar-track" style="height:8px;max-width:300px"><i style="width:96%;--c:#e01e5a"></i></div><span style="color:#616061">38.5 of 40 h used · ⚠ 1.5 h remaining</span></div>
+          </div></div>
+        </div>
+      </div>
+      <figcaption><b>Consumo comunicado.</b> Cada carga llega agrupada con el contexto de horas del proyecto, para anticipar cuándo se agota.</figcaption>
+    </figure>
+
+    <figure class="shot w12">
+      <div class="dev dev-browser" style="--w:1060px">
+        <div class="bar"><i></i><i></i><i></i><div class="url">docs.google.com/spreadsheets · Weekly Hours</div></div>
+        <div class="gs">
+          <div class="gs-title"><span class="ic"></span><span class="nm">Weekly Hours · Oct 19 to 23</span></div>
+          <div class="gs-menu"><span>File</span><span>Edit</span><span>View</span><span>Insert</span><span>Format</span><span>Data</span><span>Tools</span><b>Hours Converter</b><span>Help</span></div>
+          <div class="gs-tool"></div>
+          <div style="display:grid;grid-template-columns:1fr 1.25fr;gap:0">
+            <div class="gs-grid" style="border-right:2px solid #dadce0">
+              <table>
+                <thead><tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th></tr></thead>
+                <tbody>
+                  <tr class="h" style="--hdr:#3c4043"><th>1</th><td>Time</td><td>Mon 19</td><td>Tue 20</td><td>Wed 21</td></tr>
+                  <tr><th>2</th><td>09:00</td><td class="cb">BILL-NWF</td><td class="cg">MS</td><td class="cb">BILL-NWF</td></tr>
+                  <tr><th>3</th><td>09:15</td><td class="cb">BILL-NWF</td><td class="cg">MS</td><td class="cb">BILL-NWF</td></tr>
+                  <tr><th>4</th><td>09:30</td><td class="cb">BILL-NWF</td><td class="cp">BILL-ACME</td><td class="cb">BILL-NWF</td></tr>
+                  <tr><th>5</th><td>09:45</td><td class="cy">NOBILL-ADM</td><td class="cp">BILL-ACME</td><td class="cb">BILL-NWF</td></tr>
+                  <tr><th>6</th><td>10:00</td><td class="cy">NOBILL-ADM</td><td class="cp">BILL-ACME</td><td class="cn">FREE</td></tr>
+                  <tr><th>7</th><td>10:15</td><td class="cb">BILL-NWF</td><td class="cp">BILL-ACME</td><td class="cn">FREE</td></tr>
+                  <tr><th>8</th><td>10:30</td><td class="cb">BILL-NWF</td><td class="cr">BILL-XYZ ?</td><td class="cg">VA</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="gs-grid">
+              <table>
+                <thead><tr><th></th><th>F</th><th>G</th><th>H</th><th>I</th><th>J</th></tr></thead>
+                <tbody>
+                  <tr class="h" style="--hdr:#3c4043"><th>1</th><td>Date</td><td>Category</td><td>Customer</td><td>SF Account ID</td><td>Hours</td></tr>
+                  <tr><th>2</th><td>2026-10-19</td><td>Billable</td><td>Northwind Foods</td><td class="mono">001Ab00000NWF</td><td class="n">0.75</td></tr>
+                  <tr><th>3</th><td>2026-10-19</td><td>Non-billable</td><td>Admin</td><td></td><td class="n">0.50</td></tr>
+                  <tr><th>4</th><td>2026-10-19</td><td>Billable</td><td>Northwind Foods</td><td class="mono">001Ab00000NWF</td><td class="n">0.50</td></tr>
+                  <tr><th>5</th><td>2026-10-20</td><td>Meetings</td><td>Internal</td><td></td><td class="n">0.50</td></tr>
+                  <tr><th>6</th><td>2026-10-20</td><td>Billable</td><td>Acme Holdings</td><td class="mono">001Ab00000ACM</td><td class="n">1.00</td></tr>
+                  <tr><th>7</th><td colspan="5" class="cr">✕ Not converted: C8 "BILL-XYZ" is not in the customer table. Fix the cell and run again.</td></tr>
+                  <tr><th>8</th><td colspan="5" class="cg">✓ Reconciliation: 38.75 h in grid = 38.75 h in output</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="gs-tabs"><span class="on">Week Grid</span><span>Output</span><span>Customer Map</span><span>Task Rules</span><span>Guide</span></div>
+        </div>
+      </div>
+      <figcaption><b>Conversor de agenda a timesheet.</b> La semana en bloques de 15 minutos se convierte en filas agrupadas por actividad, con referencia de cliente. Si algo no cierra, no escribe nada y señala la celda.</figcaption>
+    </figure>
+  </div></div>
+
+  <div class="wrap tool-body">
+    <div class="prose">
+      <div class="technical-panel"><h2>Implementación técnica</h2><p>Desarrollé una interfaz HTML/CSS/JavaScript conectada a Apps Script para registrar horas por proyecto. El sistema consolida datos en Sheets y se integra con Slack y referencias de proyectos de Salesforce.</p></div>
+      <h2>Qué hace</h2>
+      <p>Ofrece formularios y carga masiva para registrar trabajo por cliente y proyecto. Permite consultar horas disponibles y consumidas, controlar posibles duplicados y preparar resúmenes por semana, proyecto y coordinador. Comunica nuevas cargas por los canales del equipo y deja visible qué información está lista para continuar el proceso administrativo.</p>
+      <p>Los consultores eligen proyectos activos y pueden pegar varias filas cuando necesitan cargar períodos completos. Los coordinadores reciben información agrupada y pueden controlar consumo, horas restantes y estado del registro antes de continuar la gestión administrativa.</p>
+      <h3>Conversión de agenda semanal a detalle de horas</h3>
+      <p>Transforma una agenda organizada en bloques de tiempo en un listado de actividades listo para su carga administrativa. Agrupa tareas consecutivas, diferencia trabajo facturable y no facturable y completa referencias de clientes. Verifica que las horas de origen coincidan con el resultado y señala las celdas que necesitan corrección antes de guardar la conversión.</p>
+      <p>La persona puede seguir registrando su semana de manera visual, por bloques, y convertirla cuando necesita entregar el timesheet. El detalle resultante conserva fechas y categorías y permite comprobar los totales diarios antes de continuar con la carga administrativa.</p>
+    </div>
+    <aside class="side">
+      <div class="panel">
+        <h3>Recorrido de la información</h3>
+        <div class="flow">
+          <div class="flow-step"><span>Carga</span><div class="items"><b>Formularios web</b><b>Carga masiva</b><b>Agenda semanal en Sheets</b></div></div>
+          <div class="flow-arrow"></div>
+          <div class="flow-step mid"><span>Registro y control</span><div class="items"><b>Google Sheets</b><b>Snapshots de Salesforce</b></div></div>
+          <div class="flow-arrow"></div>
+          <div class="flow-step"><span>Salidas</span><div class="items"><b>Slack</b><b>Salesforce FinancialForce (carga del coordinador)</b></div></div>
+        </div>
+        <p class="flow-text">Google Sheets conserva las horas y snapshots de clientes y proyectos Salesforce. Slack informa nuevas cargas y consumo de horas. La herramienta prepara la información que los coordinadores luego registran en Salesforce FinancialForce. En el conversor, las referencias de clientes se leen desde una tabla de correspondencias dentro de la planilla, sin consultar el CRM en cada conversión.</p>
+      </div>
+      <div class="panel">
+        <h3>Stack tecnológico</h3>
+        <div class="stack"><span class="tag">Google Apps Script</span><span class="tag">Google Sheets</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Slack</span></div>
+      </div>
+    </aside>
+  </div>
+</section>

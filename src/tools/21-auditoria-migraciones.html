@@ -1,0 +1,108 @@
+<section class="tool" id="auditoria-migraciones" data-cat="datos"
+  data-title="Auditoría y preparación de migraciones de datos"
+  data-sector="Consultoría de datos · salud e inmobiliaria · EE.UU."
+  data-summary="Comparamos sistemas antes de migrar: registros faltantes, cambios de categoría y equivalencias de campos, con informes que ordenan las decisiones."
+  data-stack="SQL,Amazon Redshift,Google Sheets,CSV,APIs de sistemas de gestión,SISU,BoldTrail BackOffice">
+  <div class="wrap tool-head">
+    <p class="eyebrow">Consultoría de datos · salud e inmobiliaria · EE.UU.</p>
+    <h1>Auditoría y preparación de migraciones de datos</h1>
+    <p class="kind">Servicio de auditoría de datos con consultas, conciliaciones e informes de decisión</p>
+    <p class="lead">Cuando un reporte cambia de sistema, los números casi nunca coinciden a la primera. Separamos lo que realmente se perdió de lo que cambió de definición, de formato o de fecha de actualización, y lo entregamos como decisiones concretas.</p>
+  </div>
+
+  <div class="stage"><div class="wrap shots">
+    <figure class="shot w6">
+      <div class="dev dev-doc" style="--w:560px;padding:36px 40px">
+        <div class="xs mut" style="letter-spacing:.08em;text-transform:uppercase">Informe ejecutivo · migración de reporting</div>
+        <div style="font-size:20px;font-weight:700;margin:6px 0 4px;line-height:1.25">Conciliación planillas → data warehouse</div>
+        <div class="xs mut" style="margin-bottom:16px">Período analizado: ene a jun 2026 · 4.812 episodios en origen</div>
+        <div class="b sm" style="margin-bottom:6px">Resumen de diferencias</div>
+        <table class="tbl" style="font-size:11px">
+          <tr><th>Causa</th><th class="num">Registros</th><th>Tipo</th></tr>
+          <tr><td>Cambio de estado posterior al snapshot</td><td class="num">142</td><td><span class="pill b">Actualización</span></td></tr>
+          <tr><td>Categoría de programa renombrada</td><td class="num">96</td><td><span class="pill y">Definición</span></td></tr>
+          <tr><td>Versión histórica del pagador</td><td class="num">61</td><td><span class="pill y">Regla</span></td></tr>
+          <tr><td>Pérdida por join en la consulta</td><td class="num">18</td><td><span class="pill r">Error</span></td></tr>
+          <tr><td>Formato de fecha de egreso</td><td class="num">7</td><td><span class="pill">Formato</span></td></tr>
+        </table>
+        <div class="b sm" style="margin:14px 0 6px">Decisiones pendientes</div>
+        <div class="col" style="gap:6px;font-size:12px">
+          <div class="row" style="flex-wrap:nowrap;align-items:flex-start"><span class="chk"></span><span>¿El reporte usa el pagador vigente o el del momento del ingreso?</span></div>
+          <div class="row" style="flex-wrap:nowrap;align-items:flex-start"><span class="chk"></span><span>Unificar la taxonomía de programas en una tabla compartida.</span></div>
+          <div class="row" style="flex-wrap:nowrap;align-items:flex-start"><span class="chk on"></span><span>Corregir el join por ubicación (aprobado).</span></div>
+        </div>
+      </div>
+      <figcaption><b>Informe de decisión.</b> Las diferencias se clasifican por causa, para que el equipo sepa qué es error y qué es criterio a definir.</figcaption>
+    </figure>
+
+    <figure class="shot w6">
+      <div class="dev dev-browser" style="--w:600px">
+        <div class="bar"><i></i><i></i><i></i><div class="url">SQL workbench · warehouse</div></div>
+<pre class="mono" style="margin:0;padding:14px 16px;font-size:11.5px;line-height:1.65;background:#fbfbfd;border-bottom:1px solid var(--s-line)"><span style="color:#8a94a3">/* ¿Qué versión del pagador toma cada episodio? */</span>
+<span style="color:#7c3aed">WITH</span> versiones <span style="color:#7c3aed">AS</span> (
+  <span style="color:#7c3aed">SELECT</span> episodio_id, pagador, vigente_desde,
+         <span style="color:#0e7490">ROW_NUMBER</span>() <span style="color:#7c3aed">OVER</span> (
+           <span style="color:#7c3aed">PARTITION BY</span> episodio_id
+           <span style="color:#7c3aed">ORDER BY</span> vigente_desde <span style="color:#7c3aed">DESC</span>) <span style="color:#7c3aed">AS</span> rn
+  <span style="color:#7c3aed">FROM</span> stg.pagador_historial )
+<span style="color:#7c3aed">SELECT</span> e.episodio_id, e.pagador_planilla,
+       v.pagador <span style="color:#7c3aed">AS</span> pagador_actual
+<span style="color:#7c3aed">FROM</span> qa.episodios_origen e
+<span style="color:#7c3aed">JOIN</span> versiones v <span style="color:#7c3aed">USING</span> (episodio_id)
+<span style="color:#7c3aed">WHERE</span> v.rn = 1 <span style="color:#7c3aed">AND</span> e.pagador_planilla &lt;&gt; v.pagador;</pre>
+        <div class="ui"><table class="tbl" style="font-size:11.5px">
+          <tr><th>episodio_id</th><th>pagador_planilla</th><th>pagador_actual</th></tr>
+          <tr><td class="mono">E-20311</td><td>Plan A (muestra)</td><td>Plan C (muestra)</td></tr>
+          <tr><td class="mono">E-20348</td><td>Particular</td><td>Plan A (muestra)</td></tr>
+          <tr><td class="mono">E-20402</td><td>Plan B (muestra)</td><td>Plan B · Plus (muestra)</td></tr>
+        </table><div class="xs mut" style="padding:8px 10px">61 filas · datos ficticios</div></div>
+      </div>
+      <figcaption><b>Consultas diagnósticas.</b> Cardinalidad, selección de versiones históricas y ventanas de tiempo, revisadas una por una.</figcaption>
+    </figure>
+
+    <figure class="shot w12">
+      <div class="dev dev-browser ui" style="--w:1000px">
+        <div class="bar"><i></i><i></i><i></i><div class="url">Mapeo de campos · CRM inmobiliario anterior → backoffice nuevo</div></div>
+        <div class="ui-main">
+          <div class="row"><div class="ui-h1">Equivalencias de transacciones y comisiones</div><span class="grow"></span><span class="pill g">38 directos</span><span class="pill y">14 con transformación</span><span class="pill r">6 sin contraparte</span></div>
+          <table class="tbl">
+            <tr><th>Campo en sistema anterior</th><th>Campo en sistema nuevo</th><th>Tipo</th><th>Regla / nota</th></tr>
+            <tr><td class="mono">closed_date</td><td class="mono">closing_date</td><td><span class="pill g">Directo</span></td><td>Renombrado, mismo significado</td></tr>
+            <tr><td class="mono">gross_commission</td><td class="mono">total_gci</td><td><span class="pill y">Transformación</span></td><td>En el nuevo incluye referidos: restar <span class="mono">referral_fee</span></td></tr>
+            <tr><td class="mono">agent_name</td><td class="mono">users.full_name</td><td><span class="pill y">Transformación</span></td><td>Requiere join por <span class="mono">agent_id</span> histórico</td></tr>
+            <tr><td class="mono">status = "Closed"</td><td class="mono">status = "closed" | "paid"</td><td><span class="pill y">Transformación</span></td><td>Homónimo con distinto alcance</td></tr>
+            <tr><td class="mono">lead_source_detail</td><td class="mut"></td><td><span class="pill r">Sin contraparte</span></td><td>Decidir si se migra a nota o se descarta</td></tr>
+          </table>
+        </div>
+      </div>
+      <figcaption><b>Mapeo semántico entre plataformas.</b> Qué campos son equivalentes, cuáles necesitan una regla y cuáles no tienen destino, antes de validar el nuevo reporting.</figcaption>
+    </figure>
+  </div></div>
+
+  <div class="wrap tool-body">
+    <div class="prose">
+      <div class="technical-panel"><h2>Implementación técnica</h2><p>Trabajé con SQL, Amazon Redshift y archivos CSV para comparar fuentes, mapear campos y detectar diferencias antes de migraciones. El entregable combina reglas de conciliación, controles de calidad y documentación de los hallazgos.</p></div>
+      <h2>Qué hace</h2>
+      <p>Compara información entre sistemas para detectar registros faltantes, cambios de categorías y conceptos que requieren una transformación antes de migrar. Revisa cómo se relacionan las fuentes y cómo se reconstruye el histórico. Entrega equivalencias, diferencias explicadas y decisiones pendientes para que el equipo pueda validar el nuevo reporting con criterios claros. Incluye casos de migración de reportes y de información comercial entre plataformas.</p>
+      <p>Los entregables permiten distinguir datos realmente perdidos de cambios de definición, actualización o formato. El equipo recibe una explicación de qué campos son equivalentes, cuáles requieren reglas de transformación y qué decisiones deben resolverse antes de validar el resultado.</p>
+      <p class="note">Las capturas usan datos ficticios. Los entregables reales incluyen informe técnico, informe ejecutivo y consultas reutilizables.</p>
+    </div>
+    <aside class="side">
+      <div class="panel">
+        <h3>Recorrido de la información</h3>
+        <div class="flow">
+          <div class="flow-step"><span>Sistemas comparados</span><div class="items"><b>Google Sheets</b><b>Base de datos</b><b>SISU</b><b>BoldTrail BackOffice</b></div></div>
+          <div class="flow-arrow"></div>
+          <div class="flow-step mid"><span>Análisis</span><div class="items"><b>SQL</b><b>CSV</b></div></div>
+          <div class="flow-arrow"></div>
+          <div class="flow-step"><span>Entregables</span><div class="items"><b>Informes de decisión</b><b>Documentos de mapeo</b></div></div>
+        </div>
+        <p class="flow-text">En migraciones de reporting se comparan Google Sheets y Amazon Redshift. En migraciones inmobiliarias se analizan SISU y BoldTrail BackOffice. CSV, SQL y documentos de mapeo permiten revisar diferencias y comunicar hallazgos.</p>
+      </div>
+      <div class="panel">
+        <h3>Stack tecnológico</h3>
+        <div class="stack"><span class="tag">SQL</span><span class="tag">Amazon Redshift</span><span class="tag">Google Sheets</span><span class="tag">CSV</span><span class="tag">APIs de sistemas de gestión</span></div>
+      </div>
+    </aside>
+  </div>
+</section>

@@ -1,0 +1,110 @@
+<section class="tool" id="inmobiliaria" data-cat="integ"
+  data-title="Centralización de operaciones inmobiliarias"
+  data-sector="Equipo inmobiliario · EE.UU."
+  data-summary="Contactos, agentes, transacciones y comisiones del backoffice inmobiliario en una base compartida, con control de contactos duplicados."
+  data-stack="BoldTrail BackOffice,Google Apps Script,Google Sheets,APIs REST,JavaScript">
+  <div class="wrap tool-head">
+    <p class="eyebrow">Equipo inmobiliario · EE.UU.</p>
+    <h1>Centralización de operaciones inmobiliarias</h1>
+    <p class="kind">Integración de backoffice inmobiliario con una base operativa en Google Sheets, más control de contactos duplicados</p>
+    <p class="lead">Las operaciones, comisiones y contactos del sistema inmobiliario llegan a una planilla común cada 30 minutos. Al lado, un reporte detecta posibles contactos duplicados para que el equipo los revise antes de corregir el CRM.</p>
+  </div>
+
+  <div class="stage"><div class="wrap shots">
+    <figure class="shot w12">
+      <div class="dev dev-browser" style="--w:1080px">
+        <div class="bar"><i></i><i></i><i></i><div class="url">docs.google.com/spreadsheets · Back Office Data</div></div>
+        <div class="gs">
+          <div class="gs-title"><span class="ic"></span><span class="nm">Back Office · Data Hub</span></div>
+          <div class="gs-menu"><span>File</span><span>Edit</span><span>View</span><span>Insert</span><span>Format</span><span>Data</span><span>Tools</span><b>Back Office Sync</b><span>Help</span></div>
+          <div class="gs-tool"></div>
+          <div class="gs-fx"><span class="ref">G4</span><span class="fx">fx</span><span>18450</span></div>
+          <div class="gs-wrap">
+            <div class="gs-grid">
+              <table>
+                <thead><tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th><th>G</th><th>H</th></tr></thead>
+                <tbody>
+                  <tr class="h" style="--hdr:#7f1d1d"><th>1</th><td>Transaction</td><td>Property</td><td>Agent</td><td>Status</td><td>Close date</td><td>Price</td><td>GCI</td><td>Agent net</td></tr>
+                  <tr><th>2</th><td class="n">30418</td><td>1420 Palm Ave (sample)</td><td>Olivia Grant</td><td class="cg">Closed</td><td>10/14/26</td><td class="n">$615,000</td><td class="n">$18,450</td><td class="n">$12,915</td></tr>
+                  <tr><th>3</th><td class="n">30422</td><td>88 Harbor Ln (sample)</td><td>Brandon Hughes</td><td class="cy">Pending</td><td>11/03/26</td><td class="n">$489,900</td><td class="n">$14,697</td><td class="n">$10,288</td></tr>
+                  <tr><th>4</th><td class="n">30425</td><td>317 Cedar Ct (sample)</td><td>Kayla Foster</td><td class="cg">Closed</td><td>10/18/26</td><td class="n">$352,500</td><td class="n sel">$10,575</td><td class="n">$7,403</td></tr>
+                  <tr><th>5</th><td class="n">30431</td><td>9 Ocean View Dr (sample)</td><td>Olivia Grant</td><td class="cy">Pending</td><td>11/12/26</td><td class="n">$1,120,000</td><td class="n">$33,600</td><td class="n">$23,520</td></tr>
+                  <tr><th>6</th><td class="n">30436</td><td>205 Elm St (sample)</td><td>Tyler Reed</td><td class="cb">Listing</td><td></td><td class="n">$299,000</td><td class="n"></td><td class="n"></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="gs-side">
+              <div class="hd">Sync health</div>
+              <div class="xs mut">Last incremental run: 10:30 · next 11:00</div>
+              <div class="col" style="gap:7px;font-size:12px">
+                <div class="row" style="justify-content:space-between"><span>Accounts</span><span class="pill g">OK</span></div>
+                <div class="row" style="justify-content:space-between"><span>Users</span><span class="pill g">OK</span></div>
+                <div class="row" style="justify-content:space-between"><span>Contacts</span><span class="pill g">+42 · 118 updated</span></div>
+                <div class="row" style="justify-content:space-between"><span>Transactions</span><span class="pill y">2 deleted at source · removed</span></div>
+                <div class="row" style="justify-content:space-between"><span>Ledger</span><span class="pill g">OK</span></div>
+                <div class="row" style="justify-content:space-between"><span>Commission plans</span><span class="pill g">OK</span></div>
+              </div>
+              <div class="divider"></div>
+              <div class="xs mut">Weekly rebuild uses a staging copy and a backup before replacing Transactions.</div>
+            </div>
+          </div>
+          <div class="gs-tabs"><span>Accounts</span><span>Users</span><span>Contacts</span><span class="on">Transactions</span><span>Ledger</span><span>Commission Plans</span><span>Health</span></div>
+        </div>
+      </div>
+      <figcaption><b>Base operativa compartida.</b> Operaciones con comisiones ya aplanadas y legibles. La sincronización refleja altas, cambios y eliminaciones en el origen.</figcaption>
+    </figure>
+
+    <figure class="shot w12">
+      <div class="dev dev-browser" style="--w:1000px">
+        <div class="bar"><i></i><i></i><i></i><div class="url">docs.google.com/spreadsheets · Back Office Data · Contact Quality</div></div>
+        <div class="gs">
+          <div class="gs-fx"><span class="ref">A1</span><span class="fx">fx</span><span>Group</span></div>
+          <div class="gs-grid">
+            <table>
+              <thead><tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th></tr></thead>
+              <tbody>
+                <tr class="h" style="--hdr:#7f1d1d"><th>1</th><td>Group</td><td>Contact A</td><td>Contact B</td><td>Match</td><td>Evidence</td><td>Reviewed</td></tr>
+                <tr><th>2</th><td class="n">1</td><td>Michael O'Neil</td><td>Michael ONeil</td><td class="cr">Exact (normalized)</td><td>Same name after removing punctuation</td><td class="c">☐</td></tr>
+                <tr><th>3</th><td class="n">2</td><td>Jennifer A. Lopez-Ward</td><td>Jennifer Lopez Ward</td><td class="cy">Fuzzy · 0.91</td><td>Middle initial · hyphen</td><td class="c">☑</td></tr>
+                <tr><th>4</th><td class="n">3</td><td>Chris Bennett</td><td>Christopher Bennett</td><td class="cy">Fuzzy · 0.84</td><td>Same phone area · different emails</td><td class="c">☐</td></tr>
+                <tr><th>5</th><td class="n">4</td><td>Rachel Kim</td><td>(user) Rachel Kim</td><td class="cb">Email matches a user</td><td>Contact should be an agent record</td><td class="c">☐</td></tr>
+                <tr><th>6</th><td class="n">5</td><td>Daniel Ortiz 2</td><td>Daniel Ortiz</td><td class="cr">Exact (normalized)</td><td>Digits kept: review manually</td><td class="c">☐</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="gs-tabs"><span>Transactions</span><span class="on">Contact Quality</span><span>User Candidates</span><span>Health</span></div>
+        </div>
+      </div>
+      <figcaption><b>Revisión de contactos duplicados.</b> Coincidencias exactas, similitudes de nombre y cruces por correo con el padrón de usuarios. Nada se fusiona solo: decide el responsable.</figcaption>
+    </figure>
+  </div></div>
+
+  <div class="wrap tool-body">
+    <div class="prose">
+      <div class="technical-panel"><h2>Implementación técnica</h2><p>Integré los recursos de BoldTrail BackOffice con Google Apps Script y Sheets. Implementé paginación, transformaciones y controles sobre contactos y operaciones para producir una base de trabajo consolidada.</p></div>
+      <h2>Qué hace</h2>
+      <p>Reúne contactos, agentes, transacciones y comisiones de un sistema inmobiliario en una fuente de consulta compartida. Actualiza registros, incorpora modificaciones y refleja eliminaciones detectadas en el origen. Permite analizar actividad y resultados con información preparada para reportes, con diagnósticos y avisos cuando una carga queda incompleta.</p>
+      <p>La administración puede consultar información comercial y financiera relacionada sin combinar exportaciones de distintos recursos. Los procesos de actualización incorporan cambios y revisan eliminaciones, y permiten reconstruir tablas conservando una referencia de recuperación ante problemas.</p>
+      <h3>Revisión de contactos duplicados</h3>
+      <p>Identifica contactos que podrían representar a la misma persona aunque tengan diferencias de escritura, y cruza información de nombres y correos con el padrón de usuarios. Presenta candidatos para revisión y vuelve a evaluar los datos después de corregir el sistema de origen. Ayuda a ordenar la base comercial manteniendo la decisión de unificar registros en manos del responsable.</p>
+      <p>El equipo recibe una lista de candidatos y puede revisar la evidencia antes de corregir el CRM. Esto permite tratar variaciones de nombres y registros mal clasificados sin que una coincidencia aproximada produzca una fusión automática de personas.</p>
+    </div>
+    <aside class="side">
+      <div class="panel">
+        <h3>Recorrido de la información</h3>
+        <div class="flow">
+          <div class="flow-step"><span>Fuente</span><div class="items"><b>BoldTrail BackOffice</b></div></div>
+          <div class="flow-arrow"></div>
+          <div class="flow-step mid"><span>Sincronización y controles</span><div class="items"><b>Google Apps Script</b></div></div>
+          <div class="flow-arrow"></div>
+          <div class="flow-step"><span>Destino</span><div class="items"><b>Google Sheets</b><b>Reportes de revisión</b></div></div>
+        </div>
+        <p class="flow-text">BoldTrail BackOffice, anteriormente Brokermint, es la fuente de cuentas, usuarios, contactos, transacciones y comisiones. Google Sheets centraliza los recursos y sus relaciones para consulta y reporting, y presenta coincidencias exactas, similitudes de nombre y cruces por correo; Apps Script regenera los reportes a partir del estado actual del origen.</p>
+      </div>
+      <div class="panel">
+        <h3>Stack tecnológico</h3>
+        <div class="stack"><span class="tag">Google Apps Script</span><span class="tag">Google Sheets</span><span class="tag">APIs REST</span><span class="tag">JavaScript</span></div>
+      </div>
+    </aside>
+  </div>
+</section>

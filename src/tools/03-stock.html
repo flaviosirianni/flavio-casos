@@ -1,0 +1,147 @@
+<section class="tool" id="stock" data-cat="apps"
+  data-title="Control de stock en varias sedes"
+  data-sector="Negocio gastronómico · varias plantas"
+  data-summary="Conteo de insumos desde el celular, con historial de quién cargó qué, unidades comparables entre presentaciones y tableros embebidos."
+  data-stack="Next.js,Supabase,OpenAI,Apache Superset,React,TypeScript,PostgreSQL,BigQuery,Cloud Run">
+  <div class="wrap tool-head">
+    <p class="eyebrow">Negocio gastronómico · varias plantas</p>
+    <h1>Control de stock en varias sedes</h1>
+    <p class="kind">Webapp privada optimizada para teléfonos, también accesible desde computadora</p>
+    <p class="lead">El encargado abre la app en el celular, elige su planta, busca el insumo y carga la cantidad. Ve el conteo anterior, quién lo hizo y cuándo. La administración mantiene el catálogo y mira la evolución del stock en tableros dentro de la misma app.</p>
+  </div>
+
+  <div class="stage"><div class="wrap shots">
+    <figure class="shot w4">
+      <div class="dev dev-phone ui" style="--h:650px;--brand:#b45309;--brand-soft:#fdf0e1"><div class="screen">
+        <div class="sbar"><span>7:12</span></div>
+        <div style="padding:4px 16px 10px;border-bottom:1px solid var(--s-line)">
+          <div class="row"><div class="ui-h1">Conteo de Stock</div><span class="grow"></span><span class="av" style="--c:#b45309">CB</span></div>
+          <div class="inp sel" style="margin-top:8px"><span><span class="mut xs">Planta</span>&nbsp; <b>Planta Centro</b></span></div>
+          <div class="row" style="margin-top:8px;gap:6px;flex-wrap:nowrap"><div class="inp" style="flex:1"><span class="ph">Buscar insumo…</span></div><div class="inp sel" style="width:118px"><span class="sm">Harinas</span></div></div>
+        </div>
+        <div style="flex:1;overflow:hidden;background:var(--s-soft);padding:10px 12px;display:flex;flex-direction:column;gap:8px">
+          <div class="ui-card" style="padding:10px 12px">
+            <div class="row" style="flex-wrap:nowrap"><div class="grow"><div class="b">Harina 000</div><div class="xs mut">Bolsa 25 kg · Harinas</div></div><div class="inp focus" style="width:74px;justify-content:flex-end"><b>38</b></div></div>
+            <div class="row xs" style="margin-top:7px;justify-content:space-between"><span class="mut">Anterior: 42 bolsas · 1.050 kg</span><span class="pill r">−4</span></div>
+            <div class="xs mut" style="margin-top:3px">Carla B. · lun 20/10 06:48 → hoy 950 kg</div>
+          </div>
+          <div class="ui-card" style="padding:10px 12px">
+            <div class="row" style="flex-wrap:nowrap"><div class="grow"><div class="b">Harina 0000</div><div class="xs mut">Bolsa 25 kg · Harinas</div></div><div class="inp" style="width:74px;justify-content:flex-end"><b>21</b></div></div>
+            <div class="row xs" style="margin-top:7px;justify-content:space-between"><span class="mut">Anterior: 19 bolsas · 475 kg</span><span class="pill g">+2</span></div>
+          </div>
+          <div class="ui-card" style="padding:10px 12px">
+            <div class="row" style="flex-wrap:nowrap"><div class="grow"><div class="b">Harina integral</div><div class="xs mut">Bolsa 50 kg · Harinas</div></div><div class="inp" style="width:74px;justify-content:flex-end"><span class="ph">Cant.</span></div></div>
+            <div class="row xs" style="margin-top:7px;justify-content:space-between"><span class="mut">Anterior: 6 bolsas · 300 kg</span><span class="pill y">Sin conteo hace 9 días</span></div>
+          </div>
+          <div class="ui-card" style="padding:10px 12px">
+            <div class="row" style="flex-wrap:nowrap"><div class="grow"><div class="b">Premezcla pan de molde</div><div class="xs mut">Bolsa 10 kg · Harinas</div></div><div class="inp" style="width:74px;justify-content:flex-end"><b>14</b></div></div>
+            <div class="row xs" style="margin-top:7px;justify-content:space-between"><span class="mut">Anterior: 14 bolsas · 140 kg</span><span class="pill">=</span></div>
+          </div>
+        </div>
+        <div style="padding:10px 14px 22px;border-top:1px solid var(--s-line)"><div class="btn" style="width:100%;padding:11px">Guardar 3 conteos</div></div>
+      </div></div>
+      <figcaption><b>Carga en el piso de la planta.</b> Cada insumo muestra el conteo anterior, la diferencia y quién registró el último dato.</figcaption>
+    </figure>
+
+    <figure class="shot w4">
+      <div class="dev dev-phone ui" style="--h:650px;--brand:#b45309;--brand-soft:#fdf0e1"><div class="screen">
+        <div class="sbar"><span>7:14</span></div>
+        <div style="padding:4px 16px 10px;border-bottom:1px solid var(--s-line)"><div class="row"><span style="color:var(--brand);font-size:18px">‹</span><div><div class="ui-h1" style="font-size:16px">Harina 000</div><div class="xs mut">Planta Centro · Bolsa 25 kg = 25 kg</div></div></div></div>
+        <div style="padding:12px 14px;display:flex;flex-direction:column;gap:10px;flex:1;overflow:hidden">
+          <div class="g2"><div class="ui-card kpi" style="padding:9px 11px"><div class="k">Hoy</div><div class="v" style="font-size:19px">950 kg</div><div class="d down">−100 kg vs anterior</div></div><div class="ui-card kpi" style="padding:9px 11px"><div class="k">Consumo / día</div><div class="v" style="font-size:19px">48 kg</div><div class="d mut">prom. 30 días</div></div></div>
+          <div class="ui-card" style="padding:10px 10px 6px"><div class="ui-h2 sm" style="margin-bottom:4px">Existencia · últimos conteos</div>
+            <div class="chart" data-type="line" data-area="1" data-w="270" data-h="120" data-labels="22/9|29/9|6/10|13/10|20/10|22/10" data-series='[{"values":[1400,1225,1500,1175,1050,950],"color":"#b45309"}]' data-suf=" kg" data-every="1"></div></div>
+          <div class="ui-h2 sm">Historial</div>
+          <table class="tbl" style="font-size:11.5px">
+            <tr><th>Fecha</th><th>Quién</th><th class="num">Cant.</th><th class="num">kg</th></tr>
+            <tr><td>22/10 07:12</td><td>Carla B.</td><td class="num">38</td><td class="num b">950</td></tr>
+            <tr><td>20/10 06:48</td><td>Carla B.</td><td class="num">42</td><td class="num">1.050</td></tr>
+            <tr><td>13/10 07:02</td><td>Ramiro A.</td><td class="num">47</td><td class="num">1.175</td></tr>
+            <tr><td>06/10 06:55</td><td>Ramiro A.</td><td class="num">60</td><td class="num">1.500</td></tr>
+          </table>
+        </div>
+      </div></div>
+      <figcaption><b>Historial por insumo.</b> Las presentaciones se convierten a una unidad comparable (kg o litros) para ver tendencia y consumo.</figcaption>
+    </figure>
+
+    <figure class="shot w4">
+      <div class="dev dev-phone ui" style="--h:650px;--brand:#b45309;--brand-soft:#fdf0e1"><div class="screen">
+        <div class="sbar"><span>9:30</span></div>
+        <div style="padding:4px 16px 8px;border-bottom:1px solid var(--s-line)"><div class="ui-h1" style="font-size:16px">Tablero de stock</div><div class="tabs" style="margin-top:6px;border:0"><span class="on">Existencias</span><span>Variaciones</span><span>Pendientes</span></div></div>
+        <div style="padding:12px 14px;display:flex;flex-direction:column;gap:10px;flex:1;overflow:hidden;background:#f5f6f8">
+          <div class="bi-card"><div class="ct">Stock por materia prima · todas las plantas</div>
+            <div class="hbars" style="--lw:84px">
+              <div><span>Harinas</span><span class="bar-track"><i style="width:92%;--c:#b45309"></i></span><span class="num">4.120 kg</span></div>
+              <div><span>Azúcares</span><span class="bar-track"><i style="width:44%;--c:#d97706"></i></span><span class="num">1.980 kg</span></div>
+              <div><span>Grasas</span><span class="bar-track"><i style="width:30%;--c:#f59e0b"></i></span><span class="num">1.340 kg</span></div>
+              <div><span>Lácteos</span><span class="bar-track"><i style="width:21%;--c:#fbbf24"></i></span><span class="num">940 L</span></div>
+              <div><span>Levaduras</span><span class="bar-track"><i style="width:6%;--c:#fcd34d"></i></span><span class="num">260 kg</span></div>
+            </div></div>
+          <div class="bi-card"><div class="ct">Cobertura estimada (días)</div>
+            <div class="chart" data-type="bar" data-w="270" data-h="110" data-vals="1" data-labels="Centro|Norte|Sur|Oeste" data-values="19,11,6,14" data-color="#b45309"></div></div>
+          <div class="bi-card"><div class="ct">Sin conteo reciente</div>
+            <div class="row sm" style="justify-content:space-between"><span>Harina integral · Centro</span><span class="pill y">9 días</span></div>
+            <div class="row sm" style="justify-content:space-between;margin-top:6px"><span>Manteca · Sur</span><span class="pill r">15 días</span></div>
+          </div>
+        </div>
+      </div></div>
+      <figcaption><b>Tableros embebidos.</b> Versión para celular de los indicadores de stock, con permisos según la planta de cada usuario.</figcaption>
+    </figure>
+
+    <figure class="shot w12">
+      <div class="dev dev-browser ui" style="--w:1060px;--brand:#b45309;--brand-soft:#fdf0e1">
+        <div class="bar"><i></i><i></i><i></i><div class="url">app de stock · /admin/catalogo</div></div>
+        <div class="ui-app" style="--mh:470px">
+          <div class="ui-side"><div class="ui-logo"><i></i>Stock</div><span class="ui-nav">Conteo</span><span class="ui-nav">Tableros</span><div class="ui-sep">Administración</div><span class="ui-nav on">Catálogo</span><span class="ui-nav">Plantas</span><span class="ui-nav">Usuarios y accesos</span><span class="ui-nav">Importar de Xubio</span></div>
+          <div class="ui-main">
+            <div class="row"><div><div class="ui-h1">Catálogo de insumos</div><div class="ui-sub sm">186 insumos · 7 importados hoy desde Xubio, 3 sin materia prima asignada</div></div><span class="grow"></span><span class="btn ghost">Importar de Xubio</span><span class="btn">+ Nuevo insumo</span></div>
+            <div class="row"><div class="inp" style="width:260px"><span class="ph">Buscar…</span></div><div class="seg"><span>Todos</span><span class="on">Sin materia prima (3)</span><span>Inactivos</span></div></div>
+            <table class="tbl">
+              <tr><th>Insumo (Xubio)</th><th>Presentación</th><th class="num">Equivale a</th><th>Materia prima</th><th>Plantas</th><th></th></tr>
+              <tr class="sel"><td><b>MANTECA PASTELERA X 10KG</b><div class="xs mut">cód. 40218 · empresa principal</div></td><td>Caja</td><td class="num">10 kg</td><td><span class="pill b">✦ Sugerido: Grasas · 96 %</span></td><td class="sm">Centro, Sur</td><td><span class="btn sm">Aceptar</span> <span class="btn ghost sm">Elegir</span></td></tr>
+              <tr><td><b>LECHE ENTERA SACHET 1LT</b><div class="xs mut">cód. 51007 · empresa principal</div></td><td>Pack 12 u.</td><td class="num">12 L</td><td><span class="pill b">✦ Sugerido: Lácteos · 94 %</span></td><td class="sm">Todas</td><td><span class="btn sm">Aceptar</span> <span class="btn ghost sm">Elegir</span></td></tr>
+              <tr><td><b>ESENCIA VAINILLA 1L</b><div class="xs mut">cód. 33190 · segunda empresa</div></td><td>Botella</td><td class="num">1 L</td><td><span class="pill b">✦ Sugerido: Aditivos · 71 %</span></td><td class="sm">Centro</td><td><span class="btn sm">Aceptar</span> <span class="btn ghost sm">Elegir</span></td></tr>
+              <tr><td>Harina 000</td><td>Bolsa</td><td class="num">25 kg</td><td><span class="pill">Harinas</span></td><td class="sm">Todas</td><td class="mut sm">Editar</td></tr>
+              <tr><td>Azúcar común</td><td>Bolsa</td><td class="num">50 kg</td><td><span class="pill">Azúcares</span></td><td class="sm">Todas</td><td class="mut sm">Editar</td></tr>
+              <tr><td>Levadura fresca</td><td>Paquete</td><td class="num">0,5 kg</td><td><span class="pill">Levaduras</span></td><td class="sm">Centro, Norte, Oeste</td><td class="mut sm">Editar</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      <figcaption><b>Catálogo y accesos.</b> Los insumos llegan del ERP; la IA sugiere la materia prima y una persona confirma. Desde acá se gestionan plantas y usuarios.</figcaption>
+    </figure>
+  </div></div>
+
+  <div class="wrap tool-body">
+    <div class="prose">
+      <div class="technical-panel"><h2>Implementación técnica</h2><p>Construí una aplicación con Next.js, React y TypeScript, respaldada por Supabase/PostgreSQL. El circuito conecta conteos por planta, revisión de diferencias y datos analíticos en BigQuery para su consumo en tableros.</p></div>
+      <h2>Qué hace</h2>
+      <p>Permite registrar existencias desde el celular, consultar el conteo anterior y saber quién actualizó cada producto y cuándo. Organiza insumos por sede y materia prima y convierte distintas presentaciones a una unidad comparable. Cada persona accede a las sedes que le corresponden. La administración puede mantener el catálogo, gestionar usuarios y consultar evolución, variaciones y productos pendientes de conteo.</p>
+      <p>El personal abre la aplicación en el navegador, elige su planta, busca el insumo y carga la cantidad. La comparación con el conteo previo y el historial permiten revisar diferencias. Los responsables disponen de vistas de stock y consumo adaptadas al teléfono, además del catálogo y la administración de accesos.</p>
+      <h2>Detalles que importan</h2>
+      <ul class="points">
+        <li>Accesos por planta con seguridad a nivel de fila en la base de datos: cada usuario solo ve y carga lo suyo.</li>
+        <li>Unidades comparables: bolsas, cajas o packs se traducen a kilos o litros.</li>
+        <li>Catálogo que integra insumos de distintas empresas del ERP, con clasificación sugerida por IA y confirmación manual.</li>
+        <li>Tableros de existencias, variaciones entre conteos, cobertura y productos sin conteo reciente, embebidos con permisos.</li>
+      </ul>
+    </div>
+    <aside class="side">
+      <div class="panel">
+        <h3>Recorrido de la información</h3>
+        <div class="flow">
+          <div class="flow-step"><span>Fuentes</span><div class="items"><b>Conteos en la app</b><b>Xubio</b></div></div>
+          <div class="flow-arrow"></div>
+          <div class="flow-step mid"><span>Procesamiento y almacenamiento</span><div class="items"><b>Supabase</b><b>OpenAI</b><b>BigQuery</b></div></div>
+          <div class="flow-arrow"></div>
+          <div class="flow-step"><span>Consumo</span><div class="items"><b>App en el celular</b><b>Tableros</b></div></div>
+        </div>
+        <p class="flow-text">La webapp utiliza Supabase para conservar los conteos y gestionar el acceso. El catálogo incorpora productos importados de Xubio; OpenAI sugiere clasificaciones; BigQuery alimenta los dashboards de Apache Superset embebidos en la aplicación.</p>
+      </div>
+      <div class="panel">
+        <h3>Stack tecnológico</h3>
+        <div class="stack"><span class="tag">Next.js</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Supabase</span><span class="tag">PostgreSQL</span><span class="tag">OpenAI</span><span class="tag">BigQuery</span><span class="tag">Apache Superset</span><span class="tag">Cloud Run</span></div>
+      </div>
+    </aside>
+  </div>
+</section>

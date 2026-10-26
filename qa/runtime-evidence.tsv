@@ -1,0 +1,12 @@
+flow_id	url	status	channel	notes
+catalog	http://127.0.0.1:4173/	pass	Playwright MCP	37 tarjetas y stack completo; escritorio 1440px
+category	http://127.0.0.1:4173/	pass	Playwright MCP	Datos y tableros: 5; combinado con Python: 4
+search	http://127.0.0.1:4173/	pass	Playwright MCP	centralizacion encuentra 1 caso sin necesitar acento
+empty-recovery	http://127.0.0.1:4173/	pass	Playwright MCP	Búsqueda inexistente muestra vacío; limpiar devuelve 37
+routes	http://127.0.0.1:4173/#datos-comerciales	pass	Playwright MCP	37 anclas verificadas contra data-slug activo; implementación y stack visibles
+navigation	http://127.0.0.1:4173/#asistente-negocio	pass	Playwright MCP	Volver al índice recupera 37; siguiente y atrás del navegador funcionan
+unknown	http://127.0.0.1:4173/#no-existe	pass	Playwright MCP	Recuperación al índice con mensaje explicativo
+mobile	http://127.0.0.1:4173/	pass	Playwright MCP	390px; documento mide 390px en catálogo y detalle
+appearance	http://127.0.0.1:4173/	pass	Playwright MCP	Cambio a tema oscuro verificado en DOM y captura
+cv	http://127.0.0.1:4173/cv.html	pass	Playwright MCP	6 proyectos, título personal y control de impresión
+console	http://127.0.0.1:4173/	pass	Playwright MCP	Sin errores JavaScript durante recorridos

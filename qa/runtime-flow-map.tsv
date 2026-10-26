@@ -1,0 +1,11 @@
+flow_id	url	action	expected
+catalog	http://127.0.0.1:4173/	Abrir catálogo	37 tarjetas
+category	http://127.0.0.1:4173/	Datos y tableros + Python	4 casos
+search	http://127.0.0.1:4173/	Buscar centralizacion	1 caso
+empty-recovery	http://127.0.0.1:4173/	Buscar inexistente y limpiar	Vacío y recuperación a 37
+routes	http://127.0.0.1:4173/#datos-comerciales	Abrir las 37 anclas	Caso solicitado visible
+navigation	http://127.0.0.1:4173/	Abrir, volver, siguiente, atrás	Historial y catálogo coherentes
+unknown	http://127.0.0.1:4173/#no-existe	Abrir ancla inexistente	Índice con aviso
+mobile	http://127.0.0.1:4173/	Viewport 390px	Sin desborde horizontal
+appearance	http://127.0.0.1:4173/	Cambiar tema	Tema oscuro
+cv	http://127.0.0.1:4173/cv.html	Abrir CV	6 proyectos y control de impresión

@@ -1,0 +1,100 @@
+<section class="tool" id="fotos-eventos" data-cat="prod" data-status="Desarrollo avanzado"
+  data-title="Plataforma privada de fotos y videos para eventos"
+  data-sector="Producto propio · bodas y eventos"
+  data-summary="Los invitados suben fotos y videos desde el celular con un QR, sin crear cuenta; el organizador modera y descarga los originales."
+  data-stack="Cloudflare Workers,React,TypeScript,Vite,D1,R2,Images,Stream,Turnstile">
+  <div class="wrap tool-head">
+    <p class="eyebrow">Producto propio · bodas y eventos</p>
+    <h1>Plataforma privada de fotos y videos para eventos</h1>
+    <p class="kind">Webapp privada orientada al uso desde el teléfono, con administración de eventos</p>
+    <div class="meta-row"></div>
+    <p class="lead">En la mesa hay un QR. Los invitados lo escanean, suben sus fotos y videos desde el navegador y ven la galería del evento. Si se corta la conexión, la carga sigue donde quedó. El organizador modera y se lleva los originales.</p>
+  </div>
+
+  <div class="stage"><div class="wrap shots">
+    <figure class="shot w4">
+      <div class="dev dev-phone ui" style="--h:640px;--brand:#9d174d;--brand-soft:#fce7f0"><div class="screen">
+        <div class="sbar"><span>23:41</span></div>
+        <div style="padding:4px 16px 10px;text-align:center"><div class="xs mut" style="letter-spacing:.1em;text-transform:uppercase">Boda</div><div style="font-family:Georgia,serif;font-size:21px;color:#9d174d">Ana &amp; Leo</div><div class="xs mut">sábado 18 de octubre (ejemplo)</div></div>
+        <div style="flex:1;overflow:hidden;padding:0 14px;display:flex;flex-direction:column;gap:10px">
+          <div class="fld"><label>Tu nombre (opcional)</label><div class="inp">Prima Julieta</div></div>
+          <span class="btn" style="padding:11px">+ Subir fotos y videos</span>
+          <div class="lbl">EN CURSO · 4 de 9</div>
+          <div class="ui-card" style="padding:8px 10px"><div class="row sm"><span class="photo" style="width:34px;--p:linear-gradient(135deg,#fbcfe8,#be185d)"></span><span class="grow">IMG_4412.HEIC<div class="bar-track" style="margin-top:4px"><i style="width:100%;--c:#16a34a"></i></div></span><span class="pill g">Listo</span></div></div>
+          <div class="ui-card" style="padding:8px 10px"><div class="row sm"><span class="photo" style="width:34px;--p:linear-gradient(135deg,#1e293b,#64748b)"></span><span class="grow">VID_0098.MOV · 412 MB<div class="bar-track" style="margin-top:4px"><i style="width:58%"></i></div></span><span class="pill b">58 %</span></div><div class="xs mut" style="margin-top:4px">Se cortó la conexión · retomada en la parte 27 de 47</div></div>
+          <div class="ui-card" style="padding:8px 10px"><div class="row sm"><span class="photo" style="width:34px;--p:linear-gradient(135deg,#fde68a,#f59e0b)"></span><span class="grow">IMG_4415.JPG<div class="bar-track" style="margin-top:4px"><i style="width:12%"></i></div></span><span class="pill">En cola</span></div></div>
+          <div class="lbl">GALERÍA DEL EVENTO · 1.284</div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:4px">
+            <span class="photo" style="--p:linear-gradient(135deg,#fecdd3,#fb7185)"></span><span class="photo" style="--p:linear-gradient(135deg,#bae6fd,#0284c7)"></span><span class="photo" style="--p:linear-gradient(135deg,#d9f99d,#65a30d)"></span>
+          </div>
+        </div>
+      </div></div>
+      <figcaption><b>Invitados sin cuenta.</b> Entran por enlace o QR, suben archivos grandes con cargas reanudables y ven la galería privada.</figcaption>
+    </figure>
+
+    <figure class="shot w8">
+      <div class="dev dev-browser ui" style="--w:820px;--brand:#9d174d;--brand-soft:#fce7f0">
+        <div class="bar"><i></i><i></i><i></i><div class="url">plataforma de eventos · /admin/eventos/ana-y-leo</div></div>
+        <div class="ui-main">
+          <div class="row"><div><div class="ui-h1">Ana &amp; Leo · boda</div><div class="ui-sub sm">Evento activo · cargas abiertas hasta el 25/10</div></div><span class="grow"></span><span class="btn ghost">Editar evento</span><span class="btn">Exportar originales</span></div>
+          <div style="display:grid;grid-template-columns:150px 1fr;gap:16px">
+            <div class="ui-card" style="text-align:center"><canvas class="qr" width="120" height="120" style="width:118px;height:118px;display:block;margin:0 auto"></canvas><div class="xs mut" style="margin-top:6px">QR del evento</div><span class="btn ghost sm" style="margin-top:6px">Descargar QR</span></div>
+            <div class="col">
+              <div class="g4"><div class="ui-card kpi"><div class="k">Fotos</div><div class="v">1.284</div></div><div class="ui-card kpi"><div class="k">Videos</div><div class="v">46</div></div><div class="ui-card kpi"><div class="k">Invitados</div><div class="v">87</div></div><div class="ui-card kpi"><div class="k">Espacio</div><div class="v">7,8 GB</div></div></div>
+              <div class="ui-card" style="padding:10px 12px"><div class="row sm"><b>Exportación por lotes</b><span class="grow"></span><span class="pill g">Lote 1 de 3 listo</span><span class="pill b">Lote 2 · 64 %</span><span class="pill">Lote 3 en cola</span></div></div>
+            </div>
+          </div>
+          <div class="row"><span class="ui-h2">Moderación</span><div class="tabs" style="border:0"><span class="on">Todos</span><span>Ocultos (3)</span><span>Videos</span></div></div>
+          <div style="display:grid;grid-template-columns:repeat(8,1fr);gap:6px">
+            <span class="photo" style="--p:linear-gradient(135deg,#fecdd3,#fb7185)"></span><span class="photo" style="--p:linear-gradient(135deg,#bae6fd,#0284c7)"></span><span class="photo" style="--p:linear-gradient(135deg,#d9f99d,#65a30d)"></span><span class="photo" style="--p:linear-gradient(135deg,#fde68a,#d97706)"></span><span class="photo" style="--p:linear-gradient(135deg,#1e293b,#64748b)"><span style="position:absolute;inset:auto 4px 4px auto;font-size:9px;color:#fff">▶ 0:42</span></span><span class="photo" style="--p:linear-gradient(135deg,#e9d5ff,#9333ea);opacity:.35"><span style="position:absolute;inset:0;display:grid;place-items:center;font-size:9px;font-weight:700;color:#4c1d95">Oculta · restaurar</span></span><span class="photo" style="--p:linear-gradient(135deg,#ccfbf1,#0d9488)"></span><span class="photo" style="--p:linear-gradient(135deg,#ffe4e6,#e11d48)"></span>
+          </div>
+        </div>
+      </div>
+      <figcaption><b>Administración del evento.</b> QR para compartir, uso del espacio, moderación con posibilidad de restaurar y exportación de originales en lotes.</figcaption>
+    </figure>
+  </div></div>
+
+  <div class="wrap tool-body">
+    <div class="prose">
+      <div class="technical-panel"><h2>Implementación técnica</h2><p>Desarrollé una plataforma con React, TypeScript y Vite sobre Cloudflare Workers. La arquitectura integra D1 para datos, R2 para archivos y servicios de imágenes y video, con controles de acceso y Turnstile.</p></div>
+      <h2>Qué hace</h2>
+      <p>Desarrollo avanzado que permite crear un evento y compartir acceso por enlace o QR. Los invitados aportan fotos y videos desde el navegador sin crear una cuenta. Incluye cargas reanudables, galería privada, reproducción de videos, moderación y exportación administrativa de originales en lotes. Su diseño permite recuperar cargas interrumpidas y administrar colecciones de archivos. El despliegue público queda como etapa posterior.</p>
+      <p>El invitado puede aportar archivos y consultar la galería desde el celular. El organizador puede moderar contenidos, revisar el estado de las cargas y preparar descargas de originales. Las cargas interrumpidas pueden retomarse para no perder el avance de archivos grandes.</p>
+    </div>
+    <aside class="side">
+      <div class="panel">
+        <h3>Recorrido de la información</h3>
+        <div class="flow">
+          <div class="flow-step"><span>Acceso</span><div class="items"><b>Enlace o QR</b></div></div>
+          <div class="flow-arrow"></div>
+          <div class="flow-step mid"><span>Plataforma</span><div class="items"><b>Cloudflare Workers</b><b>D1</b></div></div>
+          <div class="flow-arrow"></div>
+          <div class="flow-step"><span>Medios</span><div class="items"><b>Fotos y videos originales</b><b>Vistas previas</b><b>Video</b></div></div>
+        </div>
+        <p class="flow-text">Un enlace o QR abre el acceso en el navegador. Cloudflare R2 conserva originales, Images prepara previews y Stream permite reproducir video. D1 guarda los registros y Turnstile participa en la protección de las cargas.</p>
+      </div>
+      <div class="panel">
+        <h3>Stack tecnológico</h3>
+        <div class="stack"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Vite</span><span class="tag">Cloudflare Workers</span><span class="tag">D1</span><span class="tag">R2</span><span class="tag">Images</span><span class="tag">Stream</span><span class="tag">Turnstile</span></div>
+      </div>
+    </aside>
+  </div>
+  <script>
+  (function () {
+    var seed = 7;
+    function rnd() { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; }
+    Array.prototype.forEach.call(document.querySelectorAll("canvas.qr"), function (cv) {
+      var ctx = cv.getContext("2d"), n = 25, s = cv.width / n;
+      ctx.fillStyle = "#fff"; ctx.fillRect(0, 0, cv.width, cv.height);
+      ctx.fillStyle = "#111";
+      for (var y = 0; y < n; y++) for (var x = 0; x < n; x++) if (rnd() > 0.52) ctx.fillRect(x * s, y * s, s, s);
+      [[0, 0], [n - 7, 0], [0, n - 7]].forEach(function (p) {
+        ctx.fillStyle = "#fff"; ctx.fillRect((p[0] - 0) * s, p[1] * s, 8 * s, 8 * s);
+        ctx.fillStyle = "#111"; ctx.fillRect(p[0] * s, p[1] * s, 7 * s, 7 * s);
+        ctx.fillStyle = "#fff"; ctx.fillRect((p[0] + 1) * s, (p[1] + 1) * s, 5 * s, 5 * s);
+        ctx.fillStyle = "#111"; ctx.fillRect((p[0] + 2) * s, (p[1] + 2) * s, 3 * s, 3 * s);
+      });
+    });
+  })();
+  </script>
+</section>

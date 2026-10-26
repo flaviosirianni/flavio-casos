@@ -1,0 +1,130 @@
+<section class="tool" id="reclamos-whatsapp" data-cat="bots"
+  data-title="Gestión de reclamos por WhatsApp"
+  data-sector="Servicios de limpieza · campus universitario"
+  data-summary="Un bot de WhatsApp que toma el reclamo con ubicación y fotos, lo deriva al equipo, pide evidencia del arreglo y la conformidad de quien reportó."
+  data-stack="WhatsApp Cloud API,Python,FastAPI,Firestore,Google Sheets,Google Drive,BigQuery,Google OAuth,Cloud Run">
+  <div class="wrap tool-head">
+    <p class="eyebrow">Servicios de limpieza · campus universitario</p>
+    <h1>Gestión de reclamos por WhatsApp</h1>
+    <p class="kind">Bot transaccional de WhatsApp con circuito de atención, panel de usuarios y tableros de seguimiento</p>
+    <p class="lead">Quien detecta un problema lo reporta por WhatsApp en pocos pasos: edificio, piso, tipo y foto. El equipo responsable recibe el aviso, marca la recepción, sube la foto del arreglo y el reportante confirma si quedó bien. Todo queda registrado.</p>
+  </div>
+
+  <div class="stage"><div class="wrap shots">
+    <figure class="shot w4">
+      <div class="dev dev-phone" style="--h:640px"><div class="screen">
+        <div class="sbar"><span>10:21</span></div>
+        <div class="wa-head"><span class="back">‹</span><span class="av" style="--c:#128c7e">RL</span><div><div class="t">Reclamos Limpieza</div><div class="s">cuenta de empresa</div></div></div>
+        <div class="wa">
+          <div class="tg-feed">
+            <div class="msg in">¿En qué edificio está el problema?<div class="wa-list">Elegir edificio</div><span class="tm">10:19</span></div>
+            <div class="msg out">Edificio B · Aulas<span class="tm">10:19 ✓✓</span></div>
+            <div class="msg in">¿Piso y sector?<span class="tm">10:19</span></div>
+            <div class="msg out">Piso 2 · Baño de mujeres junto a la escalera<span class="tm">10:20 ✓✓</span></div>
+            <div class="msg in">¿Qué tipo de reclamo es?<div class="wa-list">Elegir tipo</div><span class="tm">10:20</span></div>
+            <div class="msg out">Baños · Falta de insumos<span class="tm">10:20 ✓✓</span></div>
+            <div class="msg out"><div class="photo" style="--p:linear-gradient(140deg,#e7e2d8,#c8c2b6 45%,#9eb0bf)"></div>No hay papel ni jabón en ningún dispenser<span class="tm">10:21 ✓✓</span></div>
+            <div class="msg in"><b>Reclamo #R-1042 registrado.</b> Ya lo avisamos al equipo del Edificio B. Te escribimos cuando lo reciban.<span class="tm">10:21</span></div>
+          </div>
+          <div class="tg-input"><div class="box">Mensaje</div><div class="mic"></div></div>
+        </div>
+      </div></div>
+      <figcaption><b>Alta guiada.</b> Ubicación, tipo y foto desde el primer mensaje. El reportante no necesita descargar nada.</figcaption>
+    </figure>
+
+    <figure class="shot w4">
+      <div class="dev dev-phone" style="--h:640px"><div class="screen">
+        <div class="sbar"><span>10:58</span></div>
+        <div class="wa-head"><span class="back">‹</span><span class="av" style="--c:#128c7e">RL</span><div><div class="t">Reclamos Limpieza</div><div class="s">Coordinación Edificio B</div></div></div>
+        <div class="wa">
+          <div class="tg-feed">
+            <div class="msg in"><b>Nuevo reclamo #R-1042</b><br>Edificio B · Piso 2 · Baño mujeres<br>Tipo: Falta de insumos<br><span style="color:#667781">Reportado 10:21 por Docente</span><span class="tm">10:21</span></div>
+            <div class="wa-btns"><span>Recibir reclamo</span><span>Ver foto</span></div>
+            <div class="msg out">Recibir reclamo<span class="tm">10:24 ✓✓</span></div>
+            <div class="msg in">Listo, quedó a tu nombre. Cuando esté resuelto, mandá una foto del trabajo terminado.<span class="tm">10:24</span></div>
+            <div class="msg out"><div class="photo" style="--p:linear-gradient(140deg,#f3efe7,#d7e1e5 50%,#a9c2cf)"></div>Repuesto papel y jabón en los 4 dispensers<span class="tm">10:57 ✓✓</span></div>
+            <div class="msg in">✅ #R-1042 marcado como <b>resuelto</b> en 36 min. Le pedimos conformidad al reportante.<span class="tm">10:58</span></div>
+          </div>
+          <div class="tg-input"><div class="box">Mensaje</div><div class="mic"></div></div>
+        </div>
+      </div></div>
+      <figcaption><b>Circuito del equipo.</b> El coordinador recibe acciones según su rol: recibir, ver la foto y cerrar con evidencia.</figcaption>
+    </figure>
+
+    <figure class="shot w4">
+      <div class="dev dev-phone" style="--h:640px"><div class="screen">
+        <div class="sbar"><span>11:02</span></div>
+        <div class="wa-head"><span class="back">‹</span><span class="av" style="--c:#128c7e">RL</span><div><div class="t">Reclamos Limpieza</div><div class="s">cuenta de empresa</div></div></div>
+        <div class="wa">
+          <div class="tg-feed">
+            <div class="wa-sys">HOY</div>
+            <div class="msg in">Tu reclamo <b>#R-1042</b> fue recibido por el equipo a las 10:24.<span class="tm">10:24</span></div>
+            <div class="msg in"><div class="photo" style="--p:linear-gradient(140deg,#f3efe7,#d7e1e5 50%,#a9c2cf)"></div>El equipo marcó resuelto <b>#R-1042</b>: "Repuesto papel y jabón en los 4 dispensers". ¿Quedó bien?<span class="tm">10:58</span></div>
+            <div class="wa-btns"><span>Sí, conforme</span><span>No, reabrir</span></div>
+            <div class="msg out">Sí, conforme<span class="tm">11:02 ✓✓</span></div>
+            <div class="msg in">¡Gracias! Cerramos el reclamo. Podés ver tus reclamos anteriores escribiendo <b>Menú</b>.<span class="tm">11:02</span></div>
+          </div>
+          <div class="tg-input"><div class="box">Mensaje</div><div class="mic"></div></div>
+        </div>
+      </div></div>
+      <figcaption><b>Conformidad del reportante.</b> Quien reclamó confirma o reabre. Si no hay respuesta o el reclamo se demora, salen alertas.</figcaption>
+    </figure>
+
+    <figure class="shot w12">
+      <div class="dev dev-browser ui" style="--w:1040px;--brand:#128c7e;--brand-soft:#e0f4f1">
+        <div class="bar"><i></i><i></i><i></i><div class="url">reclamos.empresa.com.ar/admin/usuarios</div></div>
+        <div class="ui-app" style="--mh:420px">
+          <div class="ui-side"><div class="ui-logo"><i></i>Reclamos · Admin</div><span class="ui-nav on">Usuarios</span><span class="ui-nav">Guía para clientes</span><span class="ui-nav">Guía del equipo</span><span class="ui-nav">Estadísticas</span><div class="grow"></div><div class="row xs mut" style="padding:8px"><span class="av" style="--c:#4285f4;width:20px;height:20px;font-size:9px">G</span>admin@empresa.com</div></div>
+          <div class="ui-main">
+            <div class="row"><div><div class="ui-h1">Usuarios del bot</div><div class="ui-sub sm">84 personas habilitadas · los cambios se aplican al instante</div></div><span class="grow"></span><span class="btn">+ Agregar usuario</span></div>
+            <div class="row"><div class="inp" style="width:240px"><span class="ph">Buscar por nombre o teléfono</span></div><div class="seg"><span class="on">Todos</span><span>Reportantes</span><span>Coordinadores</span><span>Supervisores</span><span>Admins</span></div></div>
+            <table class="tbl">
+              <tr><th>Nombre</th><th>Teléfono</th><th>Rol</th><th>Edificios</th><th>Estadísticas</th><th>Estado</th><th></th></tr>
+              <tr><td><b>Sofía Medina</b></td><td class="mono">+54 9 11 •••• 2210</td><td><span class="pill b">Coordinadora</span></td><td>B, C</td><td><span class="chk on"></span></td><td><span class="pill g">Activo</span></td><td class="mut sm">Editar</td></tr>
+              <tr><td><b>Tomás Ledesma</b></td><td class="mono">+54 9 11 •••• 8834</td><td><span class="pill">Reportante</span></td><td>B</td><td><span class="chk"></span></td><td><span class="pill g">Activo</span></td><td class="mut sm">Editar</td></tr>
+              <tr><td><b>Valeria Ibáñez</b></td><td class="mono">+54 9 11 •••• 1907</td><td><span class="pill y">Supervisora</span></td><td>Todos</td><td><span class="chk on"></span></td><td><span class="pill g">Activo</span></td><td class="mut sm">Editar</td></tr>
+              <tr class="sel"><td><b>Pablo Giménez</b></td><td class="mono">+54 9 11 •••• 4471</td><td><div class="inp sel focus" style="min-height:26px;padding:3px 8px;width:140px">Coordinador</div></td><td>A</td><td><span class="chk"></span></td><td><span class="pill g">Activo</span></td><td><span class="btn sm">Guardar</span></td></tr>
+              <tr><td><b>Agustina Ríos</b></td><td class="mono">+54 9 11 •••• 3092</td><td><span class="pill">Reportante</span></td><td>C</td><td><span class="chk"></span></td><td><span class="pill">Inactivo</span></td><td class="mut sm">Editar</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      <figcaption><b>Panel de usuarios y permisos.</b> Ingreso con cuenta de Google para dar de alta personas, asignar rol y edificios, y habilitar el acceso a estadísticas, sin tocar la planilla interna.</figcaption>
+    </figure>
+  </div></div>
+
+  <div class="wrap tool-body">
+    <div class="prose">
+      <div class="technical-panel"><h2>Implementación técnica</h2><p>Implementé un flujo operacional determinista con WhatsApp Cloud API y FastAPI. El backend registra reclamos, evidencias y estados en servicios de Google Cloud y los conecta con Sheets y BigQuery para seguimiento.</p></div>
+      <h2>Qué hace</h2>
+      <p>Guía al usuario para informar un problema, indicar su ubicación y adjuntar fotos. Deriva el reclamo al equipo responsable y registra recepción, avance y resolución. Solicita evidencia del trabajo realizado y permite al reportante confirmar conformidad o reabrir el caso. Incluye historial, alertas por demora y tableros para seguir tiempos de atención y asuntos pendientes.</p>
+      <p>El reportante usa WhatsApp, mientras los coordinadores reciben acciones acordes a su función. Los pasos guiados ayudan a capturar ubicación y evidencia desde el inicio, y el circuito de conformidad permite dejar registrado si la solución fue aceptada o requiere intervención adicional.</p>
+      <h3>Administración de usuarios y permisos</h3>
+      <p>Un panel web complementario permite dar de alta personas, actualizar sus datos y asignarles el acceso que corresponde a su función. Los administradores gestionan permisos sin editar directamente las fuentes internas y los usuarios disponen de guías acordes a su rol. El ingreso con cuenta de Google simplifica el acceso a las herramientas autorizadas.</p>
+      <p>Permite mantener los accesos del servicio a medida que cambian las personas o sus responsabilidades. Las validaciones y las guías por perfil ayudan a que un administrador pueda sostener la operación sin depender de la edición técnica del padrón.</p>
+      <h2>Por qué es confiable</h2>
+      <ul class="points">
+        <li>Flujo determinístico: el bot sigue pasos definidos por el negocio, no improvisa respuestas.</li>
+        <li>Mensajes firmados, deduplicación de reentregas y transiciones atómicas para no procesar dos veces el mismo reclamo.</li>
+        <li>Navegación por rol con Menú y Atrás, consultas paginadas de historial y monitoreo con respaldo.</li>
+      </ul>
+    </div>
+    <aside class="side">
+      <div class="panel">
+        <h3>Recorrido de la información</h3>
+        <div class="flow">
+          <div class="flow-step"><span>Canal</span><div class="items"><b>WhatsApp</b></div></div>
+          <div class="flow-arrow"></div>
+          <div class="flow-step mid"><span>Operación</span><div class="items"><b>FastAPI en Cloud Run</b><b>Firestore</b><b>Google Sheets</b><b>Google Drive</b></div></div>
+          <div class="flow-arrow"></div>
+          <div class="flow-step"><span>Administración y análisis</span><div class="items"><b>Panel de administración</b><b>Tableros</b></div></div>
+        </div>
+        <p class="flow-text">WhatsApp Cloud API de Meta recibe mensajes y envía notificaciones. Google Sheets organiza datos operativos y usuarios; Google Drive gestiona evidencias. Firestore mantiene estados de conversación y BigQuery/Apache Superset permiten el análisis. Google OAuth permite iniciar sesión en el panel, que administra el padrón y los roles usados por el bot.</p>
+      </div>
+      <div class="panel">
+        <h3>Stack tecnológico</h3>
+        <div class="stack"><span class="tag">WhatsApp Cloud API</span><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Firestore</span><span class="tag">Google Sheets</span><span class="tag">Google Drive</span><span class="tag">BigQuery</span><span class="tag">Google OAuth</span><span class="tag">HTML</span><span class="tag">JavaScript</span><span class="tag">Cloud Run</span></div>
+      </div>
+    </aside>
+  </div>
+</section>

@@ -1,0 +1,113 @@
+<section class="tool" id="facturacion-servicios" data-cat="sheets"
+  data-title="Consolidación de facturación de servicios"
+  data-sector="Gastronomía en sanatorios · varias sedes"
+  data-summary="La facturación de comidas repartida en planillas por sanatorio y categoría se une en un maestro validado, listo para comparar con dotación y actividad."
+  data-stack="Google Apps Script,Google Sheets,SQL,BigQuery,Apache Superset">
+  <div class="wrap tool-head">
+    <p class="eyebrow">Gastronomía en sanatorios · varias sedes</p>
+    <h1>Consolidación de facturación de servicios</h1>
+    <p class="kind">Automatización de planillas con maestro de facturación y salida analítica</p>
+    <p class="lead">Cada sanatorio lleva su planilla de comidas para pacientes, acompañantes y autorizados. La automatización las junta en un maestro común, verifica que no falten datos esenciales y recién ahí las pasa a los reportes.</p>
+  </div>
+
+  <div class="stage"><div class="wrap shots">
+    <figure class="shot w12">
+      <div class="dev dev-browser" style="--w:1040px">
+        <div class="bar"><i></i><i></i><i></i><div class="url">docs.google.com/spreadsheets · Facturación de comidas · Maestro</div></div>
+        <div class="gs">
+          <div class="gs-title"><span class="ic"></span><span class="nm">Facturación de comidas · Maestro</span></div>
+          <div class="gs-menu"><span>Archivo</span><span>Editar</span><span>Ver</span><span>Insertar</span><span>Formato</span><span>Datos</span><span>Herramientas</span><b>Facturación</b><span>Ayuda</span></div>
+          <div class="gs-tool"></div>
+          <div class="gs-fx"><span class="ref">G2</span><span class="fx">fx</span><span>=E2*F2</span></div>
+          <div class="gs-wrap">
+            <div class="gs-grid">
+              <table>
+                <thead><tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th><th>G</th></tr></thead>
+                <tbody>
+                  <tr class="h" style="--hdr:#14532d"><th>1</th><td>Fecha</td><td>Sanatorio</td><td>Categoría</td><td>Servicio</td><td>Cantidad</td><td>Precio unit.</td><td>Importe</td></tr>
+                  <tr><th>2</th><td>21/10/2026</td><td>Sanatorio Norte</td><td class="cb">Pacientes</td><td>Almuerzo</td><td class="n">212</td><td class="n">5.800</td><td class="n sel">1.229.600</td></tr>
+                  <tr><th>3</th><td>21/10/2026</td><td>Sanatorio Norte</td><td class="cb">Pacientes</td><td>Cena</td><td class="n">205</td><td class="n">5.800</td><td class="n">1.189.000</td></tr>
+                  <tr><th>4</th><td>21/10/2026</td><td>Sanatorio Norte</td><td class="cy">Acompañantes</td><td>Almuerzo</td><td class="n">48</td><td class="n">4.900</td><td class="n">235.200</td></tr>
+                  <tr><th>5</th><td>21/10/2026</td><td>Sanatorio Norte</td><td class="cp">Autorizados</td><td>Merienda</td><td class="n">17</td><td class="n">2.400</td><td class="n">40.800</td></tr>
+                  <tr><th>6</th><td>21/10/2026</td><td>Sanatorio Sur</td><td class="cb">Pacientes</td><td>Almuerzo</td><td class="n">158</td><td class="n">5.800</td><td class="n">916.400</td></tr>
+                  <tr><th>7</th><td>21/10/2026</td><td>Sanatorio Sur</td><td class="cy">Acompañantes</td><td>Cena</td><td class="n">31</td><td class="n">4.900</td><td class="n">151.900</td></tr>
+                  <tr><th>8</th><td>21/10/2026</td><td>Sanatorio Este</td><td class="cb">Pacientes</td><td>Desayuno</td><td class="n">96</td><td class="n">2.400</td><td class="n">230.400</td></tr>
+                  <tr><th>9</th><td>21/10/2026</td><td>Sanatorio Este</td><td class="cp">Autorizados</td><td>Almuerzo</td><td class="n">9</td><td class="n">5.800</td><td class="n">52.200</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="gs-side">
+              <div class="hd">Registro de ejecución</div>
+              <div class="xs mut">Corrida 22/10 06:00 · 3 min 42 s</div>
+              <table class="tbl" style="font-size:11px">
+                <tr><th>Fuente</th><th class="num">Filas</th><th>Estado</th></tr>
+                <tr><td>Norte</td><td class="num">1.284</td><td><span class="pill g">OK</span></td></tr>
+                <tr><td>Sur</td><td class="num">962</td><td><span class="pill g">OK</span></td></tr>
+                <tr><td>Este</td><td class="num">711</td><td><span class="pill y">3 retenidas</span></td></tr>
+                <tr><td>Oeste</td><td class="num"></td><td><span class="pill r">Fuente no lista</span></td></tr>
+              </table>
+              <div class="ui-card soft" style="font-size:11.5px;padding:9px 10px"><b>Control de calidad:</b> 3 filas de Sanatorio Este sin fecha no se publicaron. El maestro anterior se mantiene para esa sede.</div>
+            </div>
+          </div>
+          <div class="gs-tabs"><span class="on">MAESTRO</span><span>Norte</span><span>Sur</span><span>Este</span><span>Oeste</span><span>Log</span></div>
+        </div>
+      </div>
+      <figcaption><b>Maestro con validación.</b> Las filas sin datos esenciales se retienen y quedan registradas, para que los reportes no se nutran de información incompleta.</figcaption>
+    </figure>
+
+    <figure class="shot w12">
+      <div class="dev dev-browser" style="--w:1000px">
+        <div class="bar"><i></i><i></i><i></i><div class="url">indicadores.empresa.com.ar/dashboard/sanatorios</div></div>
+        <div class="bi ui">
+          <div class="bi-title"><span class="t">Gastronomía en sanatorios</span><span class="grow"></span><span class="pill">Últimas 6 semanas</span></div>
+          <div class="bi-grid">
+            <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:12px">
+              <div class="bi-card"><div class="ct">Comidas facturadas por categoría</div>
+                <div class="chart" data-type="bar" data-mode="stack" data-w="520" data-h="180" data-fmt="k" data-labels="S38|S39|S40|S41|S42|S43" data-series='[{"values":[9800,10150,9920,10480,10760,10610],"color":"#15803d"},{"values":[2150,2240,2190,2380,2420,2300],"color":"#facc15"},{"values":[610,640,590,700,720,690],"color":"#a855f7"}]'></div>
+                <div class="legend"><span><i style="--c:#15803d"></i>Pacientes</span><span><i style="--c:#facc15"></i>Acompañantes</span><span><i style="--c:#a855f7"></i>Autorizados</span></div>
+              </div>
+              <div class="bi-card"><div class="ct">Comidas por empleado presente</div>
+                <table class="tbl">
+                  <tr><th>Sanatorio</th><th class="num">Comidas/día</th><th class="num">Dotación</th><th class="num">Ratio</th></tr>
+                  <tr><td>Norte</td><td class="num">612</td><td class="num">21</td><td class="num b">29,1</td></tr>
+                  <tr><td>Sur</td><td class="num">418</td><td class="num">16</td><td class="num b">26,1</td></tr>
+                  <tr><td>Este</td><td class="num">305</td><td class="num">13</td><td class="num b">23,5</td></tr>
+                  <tr><td>Central</td><td class="num">744</td><td class="num">24</td><td class="num b">31,0</td></tr>
+                </table>
+                <div class="xs mut" style="margin-top:8px">Comparación con días equivalentes de la semana.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <figcaption><b>Facturación contra dotación.</b> El maestro alimenta los tableros que comparan sanatorios y períodos con un mismo criterio.</figcaption>
+    </figure>
+  </div></div>
+
+  <div class="wrap tool-body">
+    <div class="prose">
+      <div class="technical-panel"><h2>Implementación técnica</h2><p>Automaticé la consolidación de información de servicios desde Google Sheets con Apps Script. Preparé transformaciones SQL y salidas en BigQuery para analizar facturación; el alcance es consolidación analítica, sin emisión fiscal.</p></div>
+      <h2>Qué hace</h2>
+      <p>Reúne información de facturación distribuida en distintas planillas y categorías de servicio. Normaliza los registros y prepara una vista común para comparar períodos, sedes y tipos de prestación. Verifica la presencia de datos esenciales antes de incorporarlos a los reportes y registra problemas de actualización para facilitar su corrección.</p>
+      <p>Una de las aplicaciones consolida facturación de comidas por categorías como pacientes, acompañantes y autorizados. El resultado facilita comparar establecimientos y períodos desde un criterio común y revisar cuándo una fuente no está lista para incorporarse al análisis.</p>
+      <p class="note">Es consolidación analítica de la facturación, no emisión de comprobantes fiscales.</p>
+    </div>
+    <aside class="side">
+      <div class="panel">
+        <h3>Recorrido de la información</h3>
+        <div class="flow">
+          <div class="flow-step"><span>Fuentes</span><div class="items"><b>Google Sheets por establecimiento</b></div></div>
+          <div class="flow-arrow"></div>
+          <div class="flow-step mid"><span>Unión y validación</span><div class="items"><b>Google Apps Script</b><b>BigQuery</b></div></div>
+          <div class="flow-arrow"></div>
+          <div class="flow-step"><span>Análisis</span><div class="items"><b>Tableros</b></div></div>
+        </div>
+        <p class="flow-text">Google Sheets contiene las fuentes por establecimiento y categoría. Google Apps Script reúne y valida los registros; BigQuery prepara los datos y Apache Superset permite compararlos con actividad y dotación.</p>
+      </div>
+      <div class="panel">
+        <h3>Stack tecnológico</h3>
+        <div class="stack"><span class="tag">Google Apps Script</span><span class="tag">Google Sheets</span><span class="tag">SQL</span><span class="tag">BigQuery</span></div>
+      </div>
+    </aside>
+  </div>
+</section>

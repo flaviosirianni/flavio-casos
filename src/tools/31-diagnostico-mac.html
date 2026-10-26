@@ -1,0 +1,79 @@
+<section class="tool" id="diagnostico-mac" data-cat="int"
+  data-title="Diagnóstico guiado de computadoras"
+  data-sector="Herramienta interna · mantenimiento de equipos"
+  data-summary="Un chequeo de solo lectura de memoria, disco, respaldos y señales del sistema, pensado para que un asistente de IA ayude a interpretarlo."
+  data-stack="Bash,Python,Herramientas de macOS,Asistentes de IA">
+  <div class="wrap tool-head">
+    <p class="eyebrow">Herramienta interna · mantenimiento de equipos</p>
+    <h1>Diagnóstico guiado de computadoras</h1>
+    <p class="kind">Herramienta local de diagnóstico por terminal, adaptada para uso guiado por un asistente</p>
+    <p class="lead">Cuando una computadora anda lenta, primero hay que medir. Este chequeo reúne memoria, disco, respaldos y reportes del sistema, separa advertencias de mediciones incompletas y no borra ni limpia nada por su cuenta.</p>
+  </div>
+
+  <div class="stage"><div class="wrap shots">
+    <figure class="shot w7">
+      <div class="dev dev-term" style="--w:720px">
+        <div class="bar"><i></i><i></i><i></i><span>zsh · chequeo</span></div>
+<pre><span class="t-g">$</span> ./chequeo.sh
+<span class="t-w">Chequeo de la Mac · 22/10/2026 09:14</span>  <span class="t-m">(solo lectura)</span>
+
+<span class="t-b">MEMORIA</span>
+  presión de memoria ........ <span class="t-y">⚠ amarilla (68 %)</span>
+  swap usado ................ <span class="t-y">⚠ 6,2 GB</span>  umbral 4 GB
+  procesos que más usan ..... navegador 4,1 GB · editor 2,3 GB
+<span class="t-b">DISCO</span>
+  espacio libre ............. <span class="t-g">✓ 182 GB (36 %)</span>
+  snapshots locales ......... <span class="t-g">✓ 2</span>
+<span class="t-b">RESPALDOS</span>
+  último backup ............. <span class="t-g">✓ hace 3 h</span>
+<span class="t-b">REPORTES DEL SISTEMA</span>
+  cierres inesperados 7 días  <span class="t-m">? sin permiso de lectura</span>
+                              <span class="t-m">  (medición incompleta, no es un error)</span>
+
+<span class="t-g">→</span> resumen guardado en <span class="t-w">diagnosticos/2026-10-22.md</span></pre>
+      </div>
+      <figcaption><b>Mediciones en lenguaje claro.</b> Umbrales configurables y aviso explícito cuando algo no se pudo medir por permisos.</figcaption>
+    </figure>
+
+    <figure class="shot w5">
+      <div class="dev dev-doc" style="--w:500px;padding:30px 34px">
+        <div class="xs mut mono">diagnosticos/2026-10-22.md</div>
+        <div style="font-size:18px;font-weight:700;margin:8px 0 12px">Lectura del diagnóstico</div>
+        <div class="col" style="gap:10px;font-size:12.5px;line-height:1.5">
+          <div><b>Síntoma observado</b><br>Lentitud al cambiar entre aplicaciones por la tarde.</div>
+          <div><b>Lo que muestran las mediciones</b><br>Presión de memoria amarilla y 6,2 GB de swap. El disco y los respaldos están bien.</div>
+          <div><b>Hipótesis, no conclusión</b><br>La memoria se satura con muchas pestañas abiertas. Conviene repetir el chequeo al final del día para confirmarlo.</div>
+          <div class="ui-card soft"><b>Comparado con el 08/10:</b> swap 2,1 GB → 6,2 GB · espacio libre sin cambios.</div>
+        </div>
+      </div>
+      <figcaption><b>Seguimiento con contexto.</b> Cada diagnóstico se guarda para comparar con los anteriores y separar síntomas de conclusiones.</figcaption>
+    </figure>
+  </div></div>
+
+  <div class="wrap tool-body">
+    <div class="prose">
+      <div class="technical-panel"><h2>Implementación técnica</h2><p>Desarrollé scripts Bash y Python para reunir señales de diagnóstico de macOS y guiar su interpretación. El flujo separa inspección y acciones correctivas para revisar el equipo de forma controlada.</p></div>
+      <h2>Qué hace</h2>
+      <p>Reúne mediciones de memoria, almacenamiento, respaldos y señales del sistema para facilitar una revisión de la computadora. Distingue advertencias de mediciones incompletas y conserva el seguimiento de los diagnósticos. La adaptación prioriza consultas de lectura y mantiene privados los datos de la máquina, como apoyo a decisiones de mantenimiento.</p>
+      <p>La persona obtiene una revisión ordenada y puede conservar el contexto para comparar diagnósticos posteriores. La lectura distingue síntomas de conclusiones y permite decidir qué aspecto merece una investigación adicional, sin ejecutar limpiezas automáticas durante el chequeo.</p>
+      <p class="note">Adaptación de una plantilla abierta de diagnóstico, con un wrapper de solo lectura, umbrales configurables y pruebas con datos simulados.</p>
+    </div>
+    <aside class="side">
+      <div class="panel">
+        <h3>Recorrido de la información</h3>
+        <div class="flow">
+          <div class="flow-step"><span>Mediciones</span><div class="items"><b>Utilidades de macOS</b></div></div>
+          <div class="flow-arrow"></div>
+          <div class="flow-step mid"><span>Reunión de señales</span><div class="items"><b>Wrapper local</b></div></div>
+          <div class="flow-arrow"></div>
+          <div class="flow-step"><span>Interpretación</span><div class="items"><b>Asistentes de IA</b><b>Historial de diagnósticos</b></div></div>
+        </div>
+        <p class="flow-text">Las utilidades de macOS aportan mediciones de memoria, disco, respaldos y reportes. Un wrapper local reúne las señales y los asistentes de IA pueden ayudar a interpretarlas siguiendo una metodología documentada.</p>
+      </div>
+      <div class="panel">
+        <h3>Stack tecnológico</h3>
+        <div class="stack"><span class="tag">Bash</span><span class="tag">Python</span><span class="tag">Herramientas de macOS</span><span class="tag">Asistentes de IA</span></div>
+      </div>
+    </aside>
+  </div>
+</section>

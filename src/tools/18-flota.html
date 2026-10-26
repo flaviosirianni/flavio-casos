@@ -1,0 +1,107 @@
+<section class="tool" id="flota" data-cat="integ"
+  data-title="Análisis de recorridos y actividad de flota"
+  data-sector="Servicios de campo · EE.UU."
+  data-summary="Los registros GPS de la flota se convierten en un resumen diario por conductor: inicio de jornada, paradas, distancia y visitas a la oficina."
+  data-stack="Verizon Reveal,Google Apps Script,Google Sheets,APIs de telemetría,JavaScript" data-thumb="1">
+  <div class="wrap tool-head">
+    <p class="eyebrow">Servicios de campo · EE.UU.</p>
+    <h1>Análisis de recorridos y actividad de flota</h1>
+    <p class="kind">Integración de telemetría con reportes diarios en Google Sheets</p>
+    <p class="lead">En lugar de interpretar cientos de puntos GPS, el responsable abre una fila por conductor y por día: a qué hora arrancó, cuándo llegó a la primera parada, cuántas hizo, cuánto recorrió y si pasó por la oficina.</p>
+  </div>
+
+  <div class="stage"><div class="wrap shots">
+    <figure class="shot w12">
+      <div class="dev dev-browser" style="--w:1080px">
+        <div class="bar"><i></i><i></i><i></i><div class="url">docs.google.com/spreadsheets · Fleet Daily Summary</div></div>
+        <div class="gs">
+          <div class="gs-title"><span class="ic"></span><span class="nm">Fleet · Daily Summary</span></div>
+          <div class="gs-menu"><span>File</span><span>Edit</span><span>View</span><span>Insert</span><span>Format</span><span>Data</span><span>Tools</span><b>GPS Pipeline</b><span>Help</span></div>
+          <div class="gs-tool"></div>
+          <div class="gs-fx"><span class="ref">H3</span><span class="fx">fx</span><span>14</span></div>
+          <div class="gs-grid">
+            <table>
+              <thead><tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th><th>G</th><th>H</th><th>I</th></tr></thead>
+              <tbody>
+                <tr class="h" style="--hdr:#1e40af"><th>1</th><td>Date</td><td>Driver</td><td>Day start</td><td>First stop arrival</td><td>Last stop departure</td><td>Final destination</td><td>Distance (mi)</td><td>Stops</td><td>Office visits</td></tr>
+                <tr><th>2</th><td>10/21</td><td>Jake Miller</td><td>06:48</td><td>07:31</td><td>15:52</td><td class="cn">Home zone</td><td class="n">118.4</td><td class="n">11</td><td class="c">1 · 06:55 a 07:12</td></tr>
+                <tr><th>3</th><td>10/21</td><td>Ashley Brooks</td><td>07:05</td><td>07:40</td><td>16:20</td><td class="cb">Office</td><td class="n">96.2</td><td class="n sel">14</td><td class="c">2</td></tr>
+                <tr><th>4</th><td>10/21</td><td>Ryan Cooper</td><td>06:59</td><td>08:14</td><td>15:05</td><td class="cn">Home zone</td><td class="n">142.7</td><td class="n">8</td><td class="c">0</td></tr>
+                <tr><th>5</th><td>10/21</td><td>Tyler Reed</td><td>07:20</td><td>07:58</td><td>14:47</td><td class="cn">Home zone</td><td class="n">74.9</td><td class="n">12</td><td class="c">1</td></tr>
+                <tr><th>6</th><td>10/21</td><td>Brandon Hughes</td><td>06:41</td><td>07:22</td><td>16:41</td><td class="cb">Office</td><td class="n">131.0</td><td class="n">13</td><td class="c">1</td></tr>
+                <tr><th>7</th><td>10/20</td><td>Jake Miller</td><td>06:52</td><td>07:35</td><td>15:40</td><td class="cn">Home zone</td><td class="n">109.8</td><td class="n">10</td><td class="c">1</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="gs-tabs"><span>Drivers</span><span>Segments (raw)</span><span class="on">Daily Summary</span><span>Geofences</span><span>Run Log</span></div>
+        </div>
+      </div>
+      <figcaption><b>Resumen diario por conductor.</b> Hitos de la jornada, distancia y paradas, con visitas a oficina detectadas por zonas geográficas. Se puede reconstruir cualquier rango de fechas sin duplicar.</figcaption>
+    </figure>
+
+    <figure class="shot w12">
+      <div class="dev dev-browser ui" style="--w:1000px;--brand:#1e40af;--brand-soft:#e6edfb">
+        <div class="bar"><i></i><i></i><i></i><div class="url">Daily Summary · Ashley Brooks · Oct 21</div></div>
+        <div style="display:grid;grid-template-columns:1.35fr 1fr">
+          <div style="position:relative;background:#eef2f0;min-height:380px;overflow:hidden">
+            <svg viewBox="0 0 560 380" style="position:absolute;inset:0;width:100%;height:100%" aria-hidden="true">
+              <g style="stroke:#fff;stroke-width:9;fill:none">
+                <path d="M0 80 H560"/><path d="M0 210 H560"/><path d="M0 320 H560"/><path d="M90 0 V380"/><path d="M250 0 V380"/><path d="M420 0 V380"/><path d="M0 0 L560 380"/>
+              </g>
+              <g style="stroke:#fde68a;stroke-width:6;fill:none"><path d="M0 150 C 160 120, 300 260, 560 230"/></g>
+              <rect x="40" y="40" width="96" height="70" rx="10" style="fill:#1e40af22;stroke:#1e40af;stroke-dasharray:5 4"/>
+              <text x="88" y="62" text-anchor="middle" style="fill:#1e40af;font:600 11px Inter,sans-serif">Office</text>
+              <path d="M70 92 L150 170 L250 140 L330 210 L420 180 L470 290 L380 330 L250 300 L160 250 L95 95" style="fill:none;stroke:#1e40af;stroke-width:3;stroke-linejoin:round"/>
+              <g style="fill:#fff;stroke:#1e40af;stroke-width:2.5">
+                <circle cx="150" cy="170" r="7"/><circle cx="250" cy="140" r="7"/><circle cx="330" cy="210" r="7"/><circle cx="420" cy="180" r="7"/><circle cx="470" cy="290" r="7"/><circle cx="380" cy="330" r="7"/><circle cx="250" cy="300" r="7"/><circle cx="160" cy="250" r="7"/>
+              </g>
+              <circle cx="70" cy="92" r="8" style="fill:#16a34a"/>
+              <text x="150" y="194" text-anchor="middle" style="fill:#1d2733;font:600 10px Inter,sans-serif">1st stop 07:40</text>
+              <text x="250" y="322" text-anchor="middle" style="fill:#1d2733;font:600 10px Inter,sans-serif">Last stop · left 16:05</text>
+            </svg>
+            <div class="xs" style="position:absolute;left:10px;bottom:8px;background:#fff;padding:4px 8px;border-radius:6px;color:var(--s-muted)">Schematic view · sample data</div>
+          </div>
+          <div class="ui-main">
+            <div class="ui-h2">Timeline of the day</div>
+            <div class="col" style="gap:0;font-size:12px">
+              <div class="row" style="padding:7px 0;border-bottom:1px solid var(--s-line)"><span class="mono">07:05</span><span>Day start · leaves office geofence</span></div>
+              <div class="row" style="padding:7px 0;border-bottom:1px solid var(--s-line)"><span class="mono">07:40</span><span><b>First stop</b> arrival</span><span class="grow"></span><span class="pill">18 min</span></div>
+              <div class="row" style="padding:7px 0;border-bottom:1px solid var(--s-line)"><span class="mono">09:12</span><span>Short stop ignored</span><span class="grow"></span><span class="pill y">GPS jitter &lt; 150 ft</span></div>
+              <div class="row" style="padding:7px 0;border-bottom:1px solid var(--s-line)"><span class="mono">12:30</span><span>Office visit</span><span class="grow"></span><span class="pill b">25 min</span></div>
+              <div class="row" style="padding:7px 0;border-bottom:1px solid var(--s-line)"><span class="mono">16:05</span><span><b>Last stop</b> departure</span></div>
+              <div class="row" style="padding:7px 0"><span class="mono">16:20</span><span>Final destination · Office</span></div>
+            </div>
+            <div class="g3"><div class="ui-card kpi"><div class="k">Distance</div><div class="v" style="font-size:18px">96.2 mi</div></div><div class="ui-card kpi"><div class="k">Stops</div><div class="v" style="font-size:18px">14</div></div><div class="ui-card kpi"><div class="k">On route</div><div class="v" style="font-size:18px">9 h 15</div></div></div>
+          </div>
+        </div>
+      </div>
+      <figcaption><b>Cómo se leen los hitos.</b> Vista esquemática con datos de ejemplo: los hitos se infieren de las trazas GPS, y las pequeñas variaciones de señal no cuentan como movimiento.</figcaption>
+    </figure>
+  </div></div>
+
+  <div class="wrap tool-body">
+    <div class="prose">
+      <div class="technical-panel"><h2>Implementación técnica</h2><p>Integré la API de Verizon Reveal mediante Apps Script y preparé agregaciones diarias en Sheets. Transformé segmentos de telemetría en indicadores de actividad, conservando la distinción entre inferencias y registros de asistencia.</p></div>
+      <h2>Qué hace</h2>
+      <p>Convierte registros GPS en un resumen diario por conductor, con distancias, paradas y horarios de referencia. Utiliza zonas geográficas para identificar visitas a oficinas y reglas para distinguir desplazamientos de pequeñas variaciones de señal. Permite revisar recorridos y reconstruir períodos históricos como apoyo al seguimiento de la operación de campo.</p>
+      <p>Los responsables consultan una vista diaria en lugar de interpretar cada punto del recorrido. Las referencias de primera y última parada y las visitas a oficina ayudan a revisar la actividad, manteniendo claro que esos hitos se infieren de las trazas GPS.</p>
+    </div>
+    <aside class="side">
+      <div class="panel">
+        <h3>Recorrido de la información</h3>
+        <div class="flow">
+          <div class="flow-step"><span>Fuente</span><div class="items"><b>Verizon Reveal</b></div></div>
+          <div class="flow-arrow"></div>
+          <div class="flow-step mid"><span>Procesamiento</span><div class="items"><b>Google Apps Script</b></div></div>
+          <div class="flow-arrow"></div>
+          <div class="flow-step"><span>Destino</span><div class="items"><b>Google Sheets</b></div></div>
+        </div>
+        <p class="flow-text">Verizon Reveal aporta conductores, segmentos GPS y geocercas. Google Sheets almacena los registros y los resúmenes diarios; Apps Script procesa rangos de fechas y reconstrucciones históricas.</p>
+      </div>
+      <div class="panel">
+        <h3>Stack tecnológico</h3>
+        <div class="stack"><span class="tag">Google Apps Script</span><span class="tag">Google Sheets</span><span class="tag">APIs de telemetría</span><span class="tag">JavaScript</span></div>
+      </div>
+    </aside>
+  </div>
+</section>

@@ -1,0 +1,120 @@
+<section class="tool" id="intranet" data-cat="int"
+  data-title="Intranet de proyectos, costos y esfuerzo"
+  data-sector="Uso interno · desarrollo de software"
+  data-summary="Intranet de gestión: proyectos y costos de proveedores conciliados, una bitácora automática del trabajo de desarrollo y un estimador de presupuestos."
+  data-stack="Next.js,Supabase,OpenAI Admin API,BigQuery,Claude Code,React,TypeScript,PostgreSQL,Vercel">
+  <div class="wrap tool-head">
+    <p class="eyebrow">Uso interno · desarrollo de software</p>
+    <h1>Intranet de proyectos, costos y esfuerzo</h1>
+    <p class="kind">Intranet web privada con tres módulos: costos por proyecto, bitácora automática y estimación de presupuestos</p>
+    <p class="lead">Es la herramienta con la que nos organizamos. Cada cliente tiene sus proyectos y costos de IA y nube conciliados; cada sesión de desarrollo se registra sola; y con ese historial estimamos cuánto lleva un proyecto nuevo.</p>
+  </div>
+
+  <div class="stage"><div class="wrap shots">
+    <figure class="shot w12">
+      <div class="dev dev-browser ui" style="--w:1080px;--brand:#14735a;--brand-soft:#e1f1eb">
+        <div class="bar"><i></i><i></i><i></i><div class="url">admin.example · Proyectos</div></div>
+        <div class="ui-app" style="--mh:360px">
+          <div class="ui-side dark"><div class="ui-logo" style="color:#fff"><i></i>Gestión de proyectos</div><span class="ui-nav on">Proyectos</span><span class="ui-nav">Costos</span><span class="ui-nav">Bitácora</span><span class="ui-nav">Proyecciones</span><span class="ui-nav">Integraciones</span></div>
+          <div class="ui-main" style="background:#f3f5f2">
+            <div class="row"><div><div class="xs b" style="color:#14735a;letter-spacing:.06em;text-transform:uppercase">Negocio gastronómico · cliente</div><div class="ui-h1">Asistente de negocio</div></div><span class="grow"></span><span class="btn ghost">Registrar movimiento</span><span class="btn">Sincronizar costos</span></div>
+            <div class="g4">
+              <div class="ui-card kpi"><div class="k">Consumo OpenAI · oct</div><div class="v">USD 48,20</div><div class="d mut">sincronizado 09:00</div></div>
+              <div class="ui-card kpi"><div class="k">Google Cloud · oct</div><div class="v">USD 31,75</div><div class="d mut">export de facturación</div></div>
+              <div class="ui-card kpi"><div class="k">Recargas registradas</div><div class="v">USD 100,00</div><div class="d mut">2 movimientos</div></div>
+              <div class="ui-card kpi"><div class="k">Saldo OpenAI</div><div class="v" style="font-size:16px;padding-top:6px"><span class="pill y">No verificable</span></div><div class="d mut">la API no lo expone</div></div>
+            </div>
+            <div class="ui-card" style="padding:0;overflow:hidden">
+              <table class="tbl">
+                <tr><th>Fecha</th><th>Proveedor</th><th>Concepto</th><th>Tipo</th><th class="num">USD</th></tr>
+                <tr><td>21/10</td><td>OpenAI</td><td>Uso del modelo · proyecto asistente</td><td><span class="pill b">Consumo observado</span></td><td class="num">−3,12</td></tr>
+                <tr><td>21/10</td><td>Google Cloud</td><td>Cloud Run + BigQuery</td><td><span class="pill b">Consumo observado</span></td><td class="num">−1,04</td></tr>
+                <tr><td>15/10</td><td>OpenAI</td><td>Recarga de créditos</td><td><span class="pill g">Recarga</span></td><td class="num">+50,00</td></tr>
+                <tr><td>01/10</td><td>OpenAI</td><td>Saldo visto en el panel del proveedor</td><td><span class="pill">Verificación histórica</span></td><td class="num">62,40</td></tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <figcaption><b>Costos por cliente y subproyecto.</b> Consumos sincronizados de OpenAI y Google Cloud, recargas y verificaciones, sin presentar como vigente un saldo que no se puede confirmar.</figcaption>
+    </figure>
+
+    <figure class="shot w7">
+      <div class="dev dev-browser ui" style="--w:720px;--brand:#14735a;--brand-soft:#e1f1eb">
+        <div class="bar"><i></i><i></i><i></i><div class="url">admin.example · Bitácora</div></div>
+        <div class="ui-main" style="background:#f3f5f2">
+          <div class="row"><div class="ui-h1">Bitácora</div><span class="grow"></span><div class="inp sel" style="width:120px">Todos</div><div class="inp sel" style="width:140px">Últimos 7 días</div></div>
+          <div class="ui-card">
+            <div class="row"><span class="av" style="--c:#14735a">FS</span><div class="grow"><b>Tableros de gestión</b> <span class="xs mut">· rama feature/vista-movil</span><div class="xs mut">hoy 10:05 a 12:20 · 1 h 55 activas · Claude Code</div></div><span class="pill">PR #214</span></div>
+            <div class="sm" style="margin-top:8px"><b>Qué se hizo:</b> vista para celular del tablero de reclamos y prueba de acceso por rol.</div>
+            <div class="sm mut" style="margin-top:4px"><b>Quedó pendiente:</b> revisar el filtro de sede en la vista cliente.</div>
+          </div>
+          <div class="ui-card">
+            <div class="row"><span class="av" style="--c:#2f6097">S</span><div class="grow"><b>Asistente de negocio</b> <span class="xs mut">· rama fix/timeout-export</span><div class="xs mut">hoy 09:10 a 10:40 · 1 h 20 activas · Claude Code</div></div><span class="pill g">PR #87 mergeado</span></div>
+            <div class="sm" style="margin-top:8px"><b>Qué se hizo:</b> exportación a Excel sin cortes en consultas largas.</div>
+          </div>
+          <div class="ui-card">
+            <div class="row"><span class="av" style="--c:#14735a">FS</span><div class="grow"><b>Reunión de seguimiento</b> <div class="xs mut">ayer 16:00 · 45 min · cargada a mano</div></div><span class="pill">Manual</span></div>
+          </div>
+        </div>
+      </div>
+      <figcaption><b>Bitácora automática.</b> Las sesiones de desarrollo se registran solas con resumen, pendientes y PRs. Las horas simultáneas no se duplican y los secretos se filtran.</figcaption>
+    </figure>
+
+    <figure class="shot w5">
+      <div class="dev dev-browser ui" style="--w:500px;--brand:#14735a;--brand-soft:#e1f1eb">
+        <div class="bar"><i></i><i></i><i></i><div class="url">admin.example · Proyecciones</div></div>
+        <div class="ui-main" style="background:#f3f5f2">
+          <div class="ui-h1" style="font-size:16px">Nuevo proyecto</div>
+          <div class="lbl">Proyectos de referencia</div>
+          <div class="col" style="gap:5px;font-size:12px">
+            <div class="row"><span class="chk on"></span>Reclamos por WhatsApp · 142 h</div>
+            <div class="row"><span class="chk on"></span>Asistente de negocio · 168 h</div>
+            <div class="row"><span class="chk"></span>Control de stock · 121 h</div>
+          </div>
+          <div class="g3" style="gap:6px"><div class="fld"><label>Tarifa USD/h</label><div class="inp">45</div></div><div class="fld"><label>Margen %</label><div class="inp">20</div></div><div class="fld"><label>Complejidad</label><div class="inp sel">Media</div></div></div>
+          <div class="ui-card" style="border:2px solid #14735a">
+            <div class="xs mut">Comparado con las referencias</div>
+            <div style="font-size:22px;font-weight:700;margin-top:2px">130 a 175 h</div>
+            <div class="sm">USD 7.000 a 9.450 · soporte ≈ 6 h/mes</div>
+            <div class="xs mut" style="margin-top:4px">Infraestructura promedio: USD 35/mes</div>
+          </div>
+          <div class="pill y" style="width:fit-content">Pocas referencias: tomalo como banda orientativa</div>
+        </div>
+      </div>
+      <figcaption><b>Estimación de presupuestos.</b> Rangos de horas y precio basados en proyectos parecidos, con aviso cuando hay pocos datos.</figcaption>
+    </figure>
+  </div></div>
+
+  <div class="wrap tool-body">
+    <div class="prose">
+      <div class="technical-panel"><h2>Implementación técnica</h2><p>Desarrollé una aplicación con Next.js, React, TypeScript y Supabase para gestionar proyectos, costos y esfuerzo. Integré fuentes de consumo de IA y datos analíticos para revisar costos y estimaciones desde un panel común.</p></div>
+      <h2>Administración de proyectos y costos de proveedores</h2>
+      <p>Centraliza clientes, proyectos y subproyectos junto con sus movimientos y gastos de servicios externos. Permite comparar costos por período, registrar recargas y conciliar consumos con información de los proveedores. Facilita identificar qué proyecto genera cada gasto y mantener un historial para presupuestar y revisar el costo de operación de las soluciones.</p>
+      <p>Los responsables pueden organizar el trabajo por cliente y subproyecto y revisar qué costos corresponden a cada solución. La presentación distingue consumos observados, recargas registradas y verificaciones históricas para no confundir una estimación con un saldo vigente confirmado.</p>
+      <h2>Bitácora automática del trabajo de desarrollo</h2>
+      <p>Registra bloques de actividad y genera resúmenes de lo realizado, avances, pendientes y referencias a entregas. Permite consultar horas por persona y proyecto y conocer el trabajo reciente del equipo. Contempla sesiones simultáneas para evitar duplicar tiempo y permite elegir qué proyectos participan del registro, con filtros para no trasladar información sensible a la bitácora.</p>
+      <p>El equipo puede revisar avances y pendientes del otro integrante y consultar el esfuerzo por proyecto sin cargar cada bloque a mano. Las reuniones u otras actividades se agregan por separado, y los resúmenes mantienen una vista compartida del trabajo.</p>
+      <h2>Estimación de esfuerzo y presupuestos</h2>
+      <p>Utiliza proyectos anteriores como referencia para estimar un rango de horas y precio de un trabajo nuevo. Permite ajustar complejidad, tarifa, margen, soporte e infraestructura. Ayuda al equipo a preparar propuestas basadas en su experiencia registrada y muestra cuándo hay pocas referencias para sostener la estimación.</p>
+      <p>Los responsables seleccionan proyectos comparables y obtienen una banda de esfuerzo y precio, junto con una referencia de soporte mensual. Esto facilita explicar los supuestos de una propuesta y ajustar el presupuesto según la experiencia disponible.</p>
+    </div>
+    <aside class="side">
+      <div class="panel">
+        <h3>Recorrido de la información</h3>
+        <div class="flow">
+          <div class="flow-step"><span>Fuentes</span><div class="items"><b>Consumo de IA</b><b>Costos de la nube</b><b>Registro del trabajo</b></div></div>
+          <div class="flow-arrow"></div>
+          <div class="flow-step mid"><span>Intranet</span><div class="items"><b>Next.js</b><b>Supabase</b></div></div>
+          <div class="flow-arrow"></div>
+          <div class="flow-step"><span>Usos</span><div class="items"><b>Costos por proyecto</b><b>Feed y horas</b><b>Presupuestos</b></div></div>
+        </div>
+        <p class="flow-text">OpenAI Organization Admin API aporta uso y costos; Google Cloud Billing exporta facturación a BigQuery. La intranet concentra esa información y los movimientos manuales; Supabase gestiona acceso y almacenamiento. Claude Code aporta los eventos de las sesiones habilitadas: un colector local resume y envía bloques de trabajo, y GitHub aparece como referencia de PRs. La bitácora aporta horas históricas y el registro de costos, referencias de infraestructura para estimar.</p>
+      </div>
+      <div class="panel">
+        <h3>Stack tecnológico</h3>
+        <div class="stack"><span class="tag">Next.js</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Supabase</span><span class="tag">PostgreSQL</span><span class="tag">OpenAI Admin API</span><span class="tag">BigQuery</span><span class="tag">Node.js</span><span class="tag">Claude Code</span><span class="tag">Vercel</span></div>
+      </div>
+    </aside>
+  </div>
+</section>

@@ -1,0 +1,92 @@
+<section class="tool" id="compensacion" data-cat="sheets" data-status="En validación"
+  data-title="Revisión semanal de compensación"
+  data-sector="Servicios de campo · EE.UU."
+  data-summary="Un modelo empleado por semana que combina horas, comisiones y tarifas históricas, con registro de decisiones y cambios."
+  data-stack="Google Apps Script,Google Sheets,Plataforma de BI,JavaScript">
+  <div class="wrap tool-head">
+    <p class="eyebrow">Servicios de campo · EE.UU.</p>
+    <h1>Revisión semanal de compensación</h1>
+    <p class="kind">Modelo de compensación en Google Sheets, implementado y en validación</p>
+    <div class="meta-row"></div>
+    <p class="lead">Para revisar compensaciones hace falta ver todo junto: horas, comisiones repartidas por semana y la tarifa vigente en cada momento. El modelo lo arma por empleado y semana, y deja registradas las decisiones que se toman.</p>
+  </div>
+
+  <div class="stage"><div class="wrap shots">
+    <figure class="shot w12">
+      <div class="dev dev-browser" style="--w:1080px">
+        <div class="bar"><i></i><i></i><i></i><div class="url">docs.google.com/spreadsheets · Weekly Compensation Review</div></div>
+        <div class="gs">
+          <div class="gs-title"><span class="ic"></span><span class="nm">Weekly Compensation Review</span></div>
+          <div class="gs-menu"><span>File</span><span>Edit</span><span>View</span><span>Insert</span><span>Format</span><span>Data</span><span>Tools</span><b>Compensation</b><span>Help</span></div>
+          <div class="gs-tool"></div>
+          <div class="gs-fx"><span class="ref">H4</span><span class="fx">fx</span><span>=G4/C4</span></div>
+          <div class="gs-grid">
+            <table>
+              <thead><tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th><th>G</th><th>H</th><th>I</th></tr></thead>
+              <tbody>
+                <tr class="h" style="--hdr:#334155"><th>1</th><td>Employee</td><td>Week</td><td>Hours</td><td>OT hours</td><td>Base rate (as of week)</td><td>Commission allocated</td><td>Total pay</td><td>Regular rate</td><td>Flag</td></tr>
+                <tr><th>2</th><td>Jake Miller</td><td>2026-W40</td><td class="n">46.5</td><td class="n">6.5</td><td class="n">$21.00</td><td class="n">$182.40</td><td class="n">$1,158.90</td><td class="n">$24.92</td><td></td></tr>
+                <tr><th>3</th><td>Jake Miller</td><td>2026-W41</td><td class="n">42.0</td><td class="n">2.0</td><td class="n">$22.00</td><td class="n">$176.10</td><td class="n">$1,124.10</td><td class="n">$26.76</td><td class="cb">Rate change 10/05</td></tr>
+                <tr><th>4</th><td>Ashley Brooks</td><td>2026-W41</td><td class="n">38.0</td><td class="n">0</td><td class="n">$20.00</td><td class="n">$141.30</td><td class="n">$901.30</td><td class="n sel">$23.72</td><td class="cy">Guarantee applied</td></tr>
+                <tr><th>5</th><td>Ryan Cooper</td><td>2026-W41</td><td class="n">44.5</td><td class="n">4.5</td><td class="n">$19.50</td><td class="n">$98.70</td><td class="n">$1,010.70</td><td class="n">$22.71</td><td></td></tr>
+                <tr><th>6</th><td>Tyler Reed</td><td>2026-W42</td><td class="n">40.0</td><td class="n">0</td><td class="n">$19.00</td><td class="n mut">pending</td><td class="n"></td><td class="n"></td><td class="cn">Month not closed</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="gs-tabs"><span class="on">FACT_Employee_Week</span><span>Rate History</span><span>Employee Changes</span><span>Decisions Log</span><span>Mirrors</span></div>
+        </div>
+      </div>
+      <figcaption><b>Tabla empleado por semana.</b> Las comisiones mensuales se reparten en las semanas que corresponden y cada semana usa la tarifa vigente en ese momento. Datos de ejemplo.</figcaption>
+    </figure>
+
+    <figure class="shot w12">
+      <div class="dev dev-browser" style="--w:980px">
+        <div class="bar"><i></i><i></i><i></i><div class="url">docs.google.com/spreadsheets · Weekly Compensation Review · Decisions Log</div></div>
+        <div class="gs">
+          <div class="gs-fx"><span class="ref">A1</span><span class="fx">fx</span><span>Date</span></div>
+          <div class="gs-grid">
+            <table>
+              <thead><tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th></tr></thead>
+              <tbody>
+                <tr class="h" style="--hdr:#334155"><th>1</th><td>Date</td><td>Topic</td><td>Decision / assumption</td><td>Owner</td></tr>
+                <tr><th>2</th><td>09/18</td><td>Commission allocation</td><td>Spread monthly commission by calendar days worked in each week</td><td>Ops director</td></tr>
+                <tr><th>3</th><td>09/25</td><td>Open months</td><td>Exclude weeks that touch a month not yet closed</td><td>Ops director</td></tr>
+                <tr><th>4</th><td>10/02</td><td>Duplicated punches</td><td>Exact duplicates removed and reported; partial overlaps reviewed by hand</td><td>Payroll</td></tr>
+                <tr><th>5</th><td>10/09</td><td>Guarantees</td><td class="cy">Pending: confirm with external advisor before applying to W38 to W41</td><td>Ops director</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="gs-tabs"><span>FACT_Employee_Week</span><span>Rate History</span><span>Employee Changes</span><span class="on">Decisions Log</span><span>Mirrors</span></div>
+        </div>
+      </div>
+      <figcaption><b>Registro de decisiones.</b> Cada supuesto queda escrito con fecha y responsable, para seguir los criterios usados en cada revisión.</figcaption>
+    </figure>
+  </div></div>
+
+  <div class="wrap tool-body">
+    <div class="prose">
+      <div class="technical-panel"><h2>Implementación técnica</h2><p>Implementé módulos de cálculo en Apps Script y Sheets para revisar compensación semanal y reglas históricas. El modelo separa datos base, tasas y resúmenes; continúa en validación.</p></div>
+      <h2>Qué hace</h2>
+      <p>Herramienta implementada en validación que combina horas, comisiones y tarifas históricas por empleado y semana. Permite revisar cómo se distribuyen las comisiones entre períodos y qué diferencias de compensación requieren análisis. Conserva cambios y decisiones para que los responsables puedan seguir los criterios utilizados en cada revisión.</p>
+      <p>El responsable puede rastrear qué datos y qué tarifa se utilizaron en una semana y revisar supuestos y excepciones. La herramienta organiza el análisis y conserva decisiones; los criterios de compensación se revisan con los responsables correspondientes.</p>
+      <p class="note">Calcula e informa para la revisión; las decisiones de compensación quedan en manos de los responsables y su asesoramiento.</p>
+    </div>
+    <aside class="side">
+      <div class="panel">
+        <h3>Recorrido de la información</h3>
+        <div class="flow">
+          <div class="flow-step"><span>Fuentes</span><div class="items"><b>Plataforma de BI</b><b>Planillas operativas</b></div></div>
+          <div class="flow-arrow"></div>
+          <div class="flow-step mid"><span>Modelo</span><div class="items"><b>Google Apps Script</b></div></div>
+          <div class="flow-arrow"></div>
+          <div class="flow-step"><span>Revisión</span><div class="items"><b>Google Sheets</b></div></div>
+        </div>
+        <p class="flow-text">La plataforma de BI y las planillas operativas aportan empleados, asistencia, comisiones, días libres y feriados. Google Sheets presenta la tabla empleado-semana, las tarifas históricas y los resúmenes de revisión.</p>
+      </div>
+      <div class="panel">
+        <h3>Stack tecnológico</h3>
+        <div class="stack"><span class="tag">Google Apps Script</span><span class="tag">Google Sheets</span><span class="tag">JavaScript</span></div>
+      </div>
+    </aside>
+  </div>
+</section>

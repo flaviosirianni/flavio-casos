@@ -1,0 +1,108 @@
+<section class="tool" id="calidad-datos" data-cat="datos"
+  data-title="Detección de información faltante e inconsistencias"
+  data-sector="Servicios de facility · limpieza y gastronomía"
+  data-summary="Controles automáticos que marcan partes sin cargar, duplicados, identificadores inválidos y diferencias con las fichadas, antes de que lleguen a los indicadores."
+  data-stack="SQL,BigQuery,Python,Apache Superset,Google Sheets,JPH Lions / Cronos">
+  <div class="wrap tool-head">
+    <p class="eyebrow">Servicios de facility · limpieza y gastronomía</p>
+    <h1>Detección de información faltante e inconsistencias</h1>
+    <p class="kind">Controles automáticos de calidad de datos con tablero web de revisión</p>
+    <p class="lead">Antes de mirar un indicador o cerrar el mes, conviene saber si los datos están completos. Este tablero muestra qué sede no cargó, qué registros se contradicen y dónde corregir, separando la falta de carga del error de información.</p>
+  </div>
+
+  <div class="stage"><div class="wrap shots">
+    <figure class="shot w12">
+      <div class="dev dev-browser" style="--w:1060px">
+        <div class="bar"><i></i><i></i><i></i><div class="url">indicadores.empresa.com.ar/dashboard/auditoria</div></div>
+        <div class="bi ui">
+          <div class="bi-title"><span class="t">Auditoría de datos</span><span class="grow"></span><span class="pill">Octubre 2026</span><span class="pill">Todas las fuentes</span></div>
+          <div class="bi-grid">
+            <div class="g4">
+              <div class="bi-card"><div class="ct">Cobertura de carga</div><div class="bi-big">96,4 %</div><div class="sm mut">días-sede con parte cargado</div></div>
+              <div class="bi-card"><div class="ct">Hallazgos abiertos</div><div class="bi-big">38</div><div class="sm up">▼ 21 vs semana anterior</div></div>
+              <div class="bi-card"><div class="ct">Severidad alta</div><div class="bi-big" style="color:#dc2626">6</div><div class="sm mut">requieren corrección en origen</div></div>
+              <div class="bi-card"><div class="ct">Reglas activas</div><div class="bi-big">14</div><div class="sm mut">catálogo versionado</div></div>
+            </div>
+            <div class="bi-card"><div class="ct">Cobertura diaria del parte por sede · octubre</div>
+              <div class="heat" id="heat-cal" style="grid-template-columns:110px repeat(22,1fr)"></div>
+              <div class="legend" style="margin-top:8px"><span><i style="--c:#16a34a"></i>Cargado completo</span><span><i style="--c:#86efac"></i>Cargado parcial</span><span><i style="--c:#fbbf24"></i>Cargado tarde</span><span><i style="--c:#ef4444"></i>Sin parte</span><span><i style="--c:#e5e7eb"></i>Sin actividad</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <figcaption><b>Cobertura de carga.</b> Un vistazo muestra qué sede y qué día faltan, y si el problema es puntual o se repite.</figcaption>
+    </figure>
+
+    <figure class="shot w12">
+      <div class="dev dev-browser" style="--w:1000px">
+        <div class="bar"><i></i><i></i><i></i><div class="url">indicadores.empresa.com.ar/dashboard/auditoria · Hallazgos</div></div>
+        <div class="bi ui">
+          <div class="bi-grid">
+            <div style="display:grid;grid-template-columns:1.6fr 1fr;gap:12px">
+              <div class="bi-card"><div class="ct">Hallazgos por revisar</div>
+                <table class="tbl">
+                  <tr><th>Fuente</th><th>Sede</th><th>Período</th><th>Regla</th><th>Severidad</th><th class="num">Registros</th></tr>
+                  <tr><td>Parte diario</td><td>Clínica Oeste</td><td>14 a 16/10</td><td>Parte sin cargar</td><td><span class="pill r">Alta</span></td><td class="num">3 días</td></tr>
+                  <tr><td>Padrón</td><td>Sede Centro</td><td>Oct</td><td>Legajo duplicado</td><td><span class="pill r">Alta</span></td><td class="num">2</td></tr>
+                  <tr><td>Padrón</td><td>Sanatorio Sur</td><td>Oct</td><td>DNI con formato inválido</td><td><span class="pill y">Media</span></td><td class="num">5</td></tr>
+                  <tr><td>Fichadas</td><td>Sanatorio Norte</td><td>20/10</td><td>Fichada sin empleado en parte</td><td><span class="pill y">Media</span></td><td class="num">4</td></tr>
+                  <tr><td>Fichadas</td><td>Sanatorio Este</td><td>Semana 42</td><td>Fichada única en el día</td><td><span class="pill">Baja</span></td><td class="num">11</td></tr>
+                  <tr><td>Parte diario</td><td>Sede Norte</td><td>21/10</td><td>Carga muy por debajo de lo habitual</td><td><span class="pill y">Media</span></td><td class="num">−38 %</td></tr>
+                </table>
+              </div>
+              <div class="bi-card"><div class="ct">Hallazgos por tipo de regla</div>
+                <div class="chart" data-type="donut" data-w="240" data-h="160" data-values="9,7,6,11,5" data-colors="#ef4444,#f97316,#f59e0b,#3b82f6,#94a3b8" data-center="38" data-sub="abiertos"></div>
+                <div class="legend" style="justify-content:center;margin-top:6px"><span><i style="--c:#ef4444"></i>Falta de carga</span><span><i style="--c:#f97316"></i>Duplicados</span><span><i style="--c:#f59e0b"></i>Identificadores</span><span><i style="--c:#3b82f6"></i>Fichada vs parte</span><span><i style="--c:#94a3b8"></i>Volumen atípico</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <figcaption><b>Hallazgos por fuente y período.</b> Cada regla dice qué está mal y dónde, para volver a la fuente y corregirlo.</figcaption>
+    </figure>
+  </div></div>
+
+  <div class="wrap tool-body">
+    <div class="prose">
+      <div class="technical-panel"><h2>Implementación técnica</h2><p>Desarrollé validaciones SQL en BigQuery para detectar faltantes, inconsistencias y diferencias entre fuentes. Los controles producen salidas revisables y alimentan tableros para orientar la corrección en origen.</p></div>
+      <h2>Qué hace</h2>
+      <p>Revisa los registros operativos y señala partes sin cargar, datos duplicados, identificadores inválidos o diferencias entre marcaciones y personal registrado. Presenta los hallazgos por fuente y período para facilitar su revisión. Permite detectar problemas antes de utilizar la información en indicadores o cierres administrativos y seguir la cobertura de carga de cada sede.</p>
+      <p>Los responsables pueden identificar la sede y el período afectados y volver a la fuente para corregirlos. Los controles permiten diferenciar una falta de carga de una inconsistencia en la información y seguir cómo cambia la cobertura a lo largo del tiempo.</p>
+      <p class="note">Los controles señalan dónde mirar; la decisión sobre cada caso la toma una persona.</p>
+    </div>
+    <aside class="side">
+      <div class="panel">
+        <h3>Recorrido de la información</h3>
+        <div class="flow">
+          <div class="flow-step"><span>Fuentes</span><div class="items"><b>Google Sheets</b><b>Relojes de fichada</b><b>Referencias de Tango</b></div></div>
+          <div class="flow-arrow"></div>
+          <div class="flow-step mid"><span>Reglas y comparación</span><div class="items"><b>BigQuery</b></div></div>
+          <div class="flow-arrow"></div>
+          <div class="flow-step"><span>Revisión</span><div class="items"><b>Tableros</b></div></div>
+        </div>
+        <p class="flow-text">BigQuery compara los registros; Google Sheets aporta partes y padrones; JPH Lions/Cronos aporta fichadas y las fuentes administrativas aportan referencias de Tango. Apache Superset presenta cobertura, hallazgos y prioridades de revisión.</p>
+      </div>
+      <div class="panel">
+        <h3>Stack tecnológico</h3>
+        <div class="stack"><span class="tag">SQL</span><span class="tag">BigQuery</span><span class="tag">Python</span><span class="tag">Apache Superset</span></div>
+      </div>
+    </aside>
+  </div>
+  <script>
+  (function () {
+    var box = document.getElementById("heat-cal"); if (!box) return;
+    var sedes = ["Sede Norte", "Sede Centro", "Sede Sur", "Clínica Oeste", "Sanatorio Norte", "Sanatorio Sur", "Campus"];
+    var C = { k: "#16a34a", p: "#86efac", t: "#fbbf24", x: "#ef4444", n: "#e5e7eb" };
+    var rows = [
+      "kkkkknnkkkkknnkkkkkknn", "kkkkknnkkkkknnkkpkkknn", "kkpkknnkkkkknntkkkkknn",
+      "kkkkknnkkkkknnkxxxkknn", "kkkkkkkkkkkkkkkkkkkpkk", "kkkkkkktkkkkkkkkkkkkkk", "kkkkknnkkpkknnkkkkkknn"];
+    var h = "<span></span>";
+    for (var d = 1; d <= 22; d++) h += '<span class="mut" style="text-align:center">' + (d % 2 ? d : "") + "</span>";
+    sedes.forEach(function (s, i) {
+      h += '<span class="mut" style="white-space:nowrap">' + s + "</span>";
+      rows[i].split("").forEach(function (c) { h += '<i style="--c:' + C[c] + '"></i>'; });
+    });
+    box.innerHTML = h;
+  })();
+  </script>
+</section>

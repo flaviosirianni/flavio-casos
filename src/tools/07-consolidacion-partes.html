@@ -1,0 +1,116 @@
+<section class="tool" id="consolidacion-partes" data-cat="sheets"
+  data-title="Consolidación de partes de distintas planillas"
+  data-sector="Gastronomía en sanatorios · administración central"
+  data-summary="Partes mensuales que llegan en archivos y formatos distintos se convierten solos en un registro común por empleado y día, sin duplicar."
+  data-stack="Google Apps Script,Google Sheets,BigQuery,JavaScript">
+  <div class="wrap tool-head">
+    <p class="eyebrow">Gastronomía en sanatorios · administración central</p>
+    <h1>Consolidación de partes de distintas planillas</h1>
+    <p class="kind">Automatización de consolidación dentro de Google Sheets</p>
+    <p class="lead">Cada sede manda su parte como siempre lo hizo, con sus pestañas y su formato. La automatización reconoce qué pestaña es qué mes, interpreta la estructura y arma un maestro único listo para reportes.</p>
+  </div>
+
+  <div class="stage"><div class="wrap shots">
+    <figure class="shot w12">
+      <div class="dev dev-browser" style="--w:1040px">
+        <div class="bar"><i></i><i></i><i></i><div class="url">docs.google.com/spreadsheets · Maestro de partes</div></div>
+        <div class="gs">
+          <div class="gs-title"><span class="ic"></span><span class="nm">Maestro de partes de empleados</span></div>
+          <div class="gs-menu"><span>Archivo</span><span>Editar</span><span>Ver</span><span>Insertar</span><span>Formato</span><span>Datos</span><span>Herramientas</span><b>Consolidación</b><span>Ayuda</span></div>
+          <div class="gs-tool"></div>
+          <div class="gs-fx"><span class="ref">F5</span><span class="fx">fx</span><span>Revisar: no se encontró la fila de encabezado</span></div>
+          <div class="gs-grid">
+            <table>
+              <thead><tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th><th>G</th></tr></thead>
+              <tbody>
+                <tr class="h" style="--hdr:#334155"><th>1</th><td>Archivo fuente</td><td>Sede</td><td>Pestañas detectadas como mes</td><td>Formato</td><td>Última lectura</td><td>Estado</td><td>Filas</td></tr>
+                <tr><th>2</th><td>Parte Sanatorio Norte 2026</td><td>Norte</td><td>Ene-26 … Oct-26 (10)</td><td>Días en columnas</td><td>22/10 08:00</td><td class="cg">OK</td><td class="n">12.418</td></tr>
+                <tr><th>3</th><td>PARTES SUR (cocina)</td><td>Sur</td><td>Enero … Octubre (10) · ignora "Copia de Sept"</td><td>Días en columnas</td><td>22/10 08:00</td><td class="cg">OK</td><td class="n">9.870</td></tr>
+                <tr><th>4</th><td>Asistencia Este v2</td><td>Este</td><td>01-2026 … 10-2026 (10)</td><td>Una fila por día</td><td>22/10 08:01</td><td class="cg">OK</td><td class="n">8.112</td></tr>
+                <tr><th>5</th><td>Parte Oeste (nuevo formato)</td><td>Oeste</td><td>OCT (1)</td><td>No reconocido</td><td>22/10 08:01</td><td class="cr sel">Revisar: no se encontró la fila de encabezado</td><td class="n">0</td></tr>
+                <tr><th>6</th><td>Central partes</td><td>Central</td><td>Ene-26 … Oct-26 (10)</td><td>Días en columnas</td><td>22/10 08:02</td><td class="cy">OK con avisos · 4 legajos vacíos</td><td class="n">18.520</td></tr>
+                <tr><th>7</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="gs-tabs"><span class="on">Fuentes</span><span>MASTER</span><span>Diagnóstico</span><span>Log</span></div>
+        </div>
+      </div>
+      <figcaption><b>Configuración de fuentes.</b> Cada archivo se lee con su formato. Si una sede cambia la estructura, la fila queda marcada para revisar y el resto sigue.</figcaption>
+    </figure>
+
+    <figure class="shot w12">
+      <div class="dev dev-browser" style="--w:1040px">
+        <div class="bar"><i></i><i></i><i></i><div class="url">docs.google.com/spreadsheets · Maestro de partes</div></div>
+        <div class="gs">
+          <div class="gs-fx"><span class="ref">A1</span><span class="fx">fx</span><span>clave</span></div>
+          <div class="gs-wrap">
+            <div class="gs-grid">
+              <table>
+                <thead><tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th><th>G</th></tr></thead>
+                <tbody>
+                  <tr class="h" style="--hdr:#334155"><th>1</th><td>clave</td><td>fecha</td><td>sede</td><td>legajo</td><td>empleado</td><td>estado</td><td>fuente</td></tr>
+                  <tr><th>2</th><td class="mono">N-2031-20261021</td><td>2026-10-21</td><td>Norte</td><td class="n">2031</td><td>Sofía Medina</td><td>PRESENTE</td><td>Oct-26</td></tr>
+                  <tr><th>3</th><td class="mono">N-2044-20261021</td><td>2026-10-21</td><td>Norte</td><td class="n">2044</td><td>Tomás Ledesma</td><td>PRESENTE</td><td>Oct-26</td></tr>
+                  <tr><th>4</th><td class="mono">S-3107-20261021</td><td>2026-10-21</td><td>Sur</td><td class="n">3107</td><td>Pablo Giménez</td><td>FRANCO</td><td>Octubre</td></tr>
+                  <tr><th>5</th><td class="mono">S-3112-20261021</td><td>2026-10-21</td><td>Sur</td><td class="n">3112</td><td>Agustina Ríos</td><td>AUSENTE</td><td>Octubre</td></tr>
+                  <tr><th>6</th><td class="mono">E-4020-20261021</td><td>2026-10-21</td><td>Este</td><td class="n">4020</td><td>Ramiro Acosta</td><td>LICENCIA</td><td>10-2026</td></tr>
+                  <tr><th>7</th><td class="mono">C-5003-20261021</td><td>2026-10-21</td><td>Central</td><td class="n">5003</td><td>Diego Romero</td><td>PRESENTE</td><td>Oct-26</td></tr>
+                  <tr><th>8</th><td class="mono">C-5019-20261021</td><td>2026-10-21</td><td>Central</td><td class="n">5019</td><td>Valeria Ibáñez</td><td>PRESENTE</td><td>Oct-26</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="gs-side">
+              <div class="hd">Diagnóstico de la corrida</div>
+              <div class="xs mut">Hoy 08:02 · ventana incremental: últimos 45 días</div>
+              <div class="col" style="gap:7px;font-size:12px">
+                <div class="row" style="justify-content:space-between"><span>Archivos leídos</span><b>5</b></div>
+                <div class="row" style="justify-content:space-between"><span>Pestañas reconocidas</span><b>41</b></div>
+                <div class="row" style="justify-content:space-between"><span>Filas en el maestro</span><b>48.920</b></div>
+                <div class="row" style="justify-content:space-between"><span>Duplicados descartados</span><b>0</b></div>
+                <div class="row" style="justify-content:space-between"><span>Fuentes a revisar</span><span class="pill r">1</span></div>
+              </div>
+              <div class="divider"></div>
+              <span class="btn sm" style="--brand:#334155">Reconstruir maestro completo</span>
+              <span class="btn ghost sm">Reprocesar una fuente…</span>
+            </div>
+          </div>
+          <div class="gs-tabs"><span>Fuentes</span><span class="on">MASTER</span><span>Diagnóstico</span><span>Log</span></div>
+        </div>
+      </div>
+      <figcaption><b>Maestro común.</b> Una fila por empleado y día, con clave única para no duplicar. Se puede reconstruir todo o reprocesar solo la fuente que cambió.</figcaption>
+    </figure>
+  </div></div>
+
+  <div class="wrap tool-body">
+    <div class="prose">
+      <div class="technical-panel"><h2>Implementación técnica</h2><p>Automaticé la lectura de planillas heterogéneas con Google Apps Script. Implementé clasificación, parsing y consolidación en un maestro compartido que puede consumirse desde BigQuery.</p></div>
+      <h2>Qué hace</h2>
+      <p>Reúne partes mensuales que llegan desde archivos y formatos diferentes y los convierte en un registro común por empleado y día. Reconoce períodos, interpreta estructuras y actualiza la información sin duplicarla. Permite consultar el conjunto de la operación y preparar reportes sin copiar y acomodar cada archivo manualmente, con avisos cuando una fuente requiere revisión.</p>
+      <p>La administración mantiene las fuentes en su formato de trabajo y obtiene una salida común. Puede revisar qué archivos se procesaron y reconstruir el consolidado cuando una fuente cambia o requiere corrección, en lugar de rehacer manualmente todas las uniones.</p>
+      <h2>Detalles que importan</h2>
+      <ul class="points">
+        <li>Distingue pestañas que son meses de copias, borradores o resúmenes.</li>
+        <li>Actualiza por ventana incremental y corre sola cada hora.</li>
+        <li>Reintentos y bloqueos para que dos corridas no se pisen.</li>
+      </ul>
+    </div>
+    <aside class="side">
+      <div class="panel">
+        <h3>Recorrido de la información</h3>
+        <div class="flow">
+          <div class="flow-step"><span>Fuentes</span><div class="items"><b>Google Sheets por sede</b></div></div>
+          <div class="flow-arrow"></div>
+          <div class="flow-step mid"><span>Extracción y normalización</span><div class="items"><b>Google Apps Script</b></div></div>
+          <div class="flow-arrow"></div>
+          <div class="flow-step"><span>Destinos</span><div class="items"><b>Maestro en Google Sheets</b></div></div>
+        </div>
+        <p class="flow-text">Google Sheets es el origen de los archivos y el destino del maestro consolidado. Google Apps Script realiza la extracción y normalización; BigQuery consume la tabla resultante para reporting y dashboards.</p>
+      </div>
+      <div class="panel">
+        <h3>Stack tecnológico</h3>
+        <div class="stack"><span class="tag">Google Apps Script</span><span class="tag">Google Sheets</span><span class="tag">JavaScript</span><span class="tag">BigQuery</span></div>
+      </div>
+    </aside>
+  </div>
+</section>
