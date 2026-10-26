@@ -9,3 +9,4 @@ cv	http://127.0.0.1:4174/en/cv.html	pass	Playwright MCP	Language switch; six pro
 catalog-motion	http://127.0.0.1:4174/en/	pass	Playwright MCP	Global pause stable beyond interval; resume true; full player pause has no typing animation
 theme-mobile	http://127.0.0.1:4174/en/	pass	Playwright MCP	320px catalog and case without overflow; dark theme preserved across language switch
 public-release	https://flaviosirianni.github.io/flavio-sirianni-projects/	pass	Playwright MCP	HTTP200; 36 cards; two KPI; EN catalog; case and scene preserved EN→ES; both CVs; mobile390; no JS errors
+project-palettes	http://127.0.0.1:4175/	pass	Playwright MCP	36 previews; 8 distinct palettes; Telegram blue, WhatsApp green; themes retained across scenes/locales

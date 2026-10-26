@@ -24,6 +24,7 @@ bash scripts/quality-gate.sh
 - `src/tools/`: 36 Spanish case fragments, verified against the source projects.
 - `src/tools-en/`: matching English fragments with the same case IDs.
 - `src/demos/`: one bilingual JSON walkthrough per case. Each scene defines localized text, a view type and fictional records.
+- `src/demo-themes.css`: eight application palettes, including messaging channels and three web-app templates.
 - `src/demos.js`: scene renderer and player: play/pause, previous/next, restart, speed and direct step selection. It pauses outside the viewport and respects reduced motion.
 - `src/app.js`: search, category and technology filters, shared-link handling and player mounting.
 - `src/theme.js`: optional theme preference, loaded before paint.

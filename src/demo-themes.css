@@ -1,0 +1,73 @@
+/* Each project keeps one application palette across previews, scenes and languages. */
+[data-demo-theme]{--app-accent:#5b4acb;--app-accent-bright:#bcb0ff;--app-ink:#29314b;--app-muted:#667085;--app-header:#5140a0;--app-header-ink:#fff;--app-soft:#f0edfc;--app-line:#ddd8ec;--app-stage:#eeeaf7;--app-stage-dark:#252134;--app-selected:#ece7fc;--app-bubble:#ece6ff;--app-chat-bg:#f0ecf8;--app-secondary:#8974dc}
+[data-demo-theme="telegram"]{--app-accent:#2577ae;--app-accent-bright:#8ecdf6;--app-ink:#21394b;--app-header:#4c789d;--app-soft:#eef5fb;--app-line:#d0dfeb;--app-stage:#dce9f3;--app-stage-dark:#1b2c3b;--app-selected:#e1f0fc;--app-bubble:#e3ffc9;--app-chat-bg:#d8e5ee;--app-secondary:#5b9fce}
+[data-demo-theme="whatsapp"]{--app-accent:#087c6e;--app-accent-bright:#78dac3;--app-ink:#243b35;--app-header:#075e54;--app-soft:#edf7f0;--app-line:#d2e1d6;--app-stage:#e3eee3;--app-stage-dark:#1a3029;--app-selected:#daf5e3;--app-bubble:#d9fdd3;--app-chat-bg:#efeae2;--app-secondary:#25a87a}
+[data-demo-theme="indigo"]{--app-accent:#5b4acb;--app-accent-bright:#bcb0ff;--app-ink:#30314c;--app-header:#49398e;--app-soft:#f1eefc;--app-line:#ded9f0;--app-stage:#e9e5f7;--app-stage-dark:#292338;--app-selected:#e9e1ff;--app-bubble:#e9e2ff;--app-chat-bg:#efecfa;--app-secondary:#9a7bdd}
+[data-demo-theme="coral"]{--app-accent:#b64732;--app-accent-bright:#ffb59c;--app-ink:#4b342c;--app-header:#9e4938;--app-soft:#fff3eb;--app-line:#ead8ce;--app-stage:#f4e7d9;--app-stage-dark:#35251f;--app-selected:#fce3d5;--app-bubble:#fbe0cf;--app-chat-bg:#f8ede4;--app-secondary:#df9b58}
+[data-demo-theme="slate"]{--app-accent:#28567d;--app-accent-bright:#9fc9f2;--app-ink:#283c4d;--app-header:#273f58;--app-soft:#eef3f9;--app-line:#d5dfea;--app-stage:#e4ebf2;--app-stage-dark:#202c3a;--app-selected:#dcebf7;--app-bubble:#dceaf8;--app-chat-bg:#e9f0f6;--app-secondary:#7f9ebb}
+[data-demo-theme="analytics"]{--app-accent:#206784;--app-accent-bright:#7cd7f0;--app-ink:#233e4e;--app-header:#18384d;--app-soft:#eaf7fa;--app-line:#d0e5eb;--app-stage:#e0eff3;--app-stage-dark:#18303a;--app-selected:#d9f1f7;--app-bubble:#d9edf6;--app-chat-bg:#e5f2f6;--app-secondary:#67b8c7}
+[data-demo-theme="sheets"]{--app-accent:#217346;--app-accent-bright:#9ed8ab;--app-ink:#273d31;--app-header:#276b46;--app-soft:#f0f6ee;--app-line:#d7e2d3;--app-stage:#e8eeda;--app-stage-dark:#263021;--app-selected:#e4efd1;--app-bubble:#e0efda;--app-chat-bg:#edf2e5;--app-secondary:#92ac5e}
+[data-demo-theme="terminal"]{--app-accent:#356a83;--app-accent-bright:#93dce8;--app-ink:#283c49;--app-header:#293341;--app-soft:#edf3f6;--app-line:#d7e0e6;--app-stage:#dfe5eb;--app-stage-dark:#222a35;--app-selected:#dceef1;--app-bubble:#e1edf4;--app-chat-bg:#e8eef3;--app-secondary:#73b8bb}
+
+/* Tint the application stage, while the portfolio navigation retains its identity. */
+.case-card[data-demo-theme] .card-demo,[data-demo-theme].demo-player .demo-screen{background-color:var(--app-stage);background-image:linear-gradient(#24344709 1px,transparent 1px),linear-gradient(90deg,#24344709 1px,transparent 1px)}
+.case-card[data-demo-theme] .card-demo::after{background:linear-gradient(transparent,var(--app-stage))}
+.case-card[data-demo-theme] .demo-label{color:var(--app-accent);background:var(--app-soft);border-color:var(--app-line)}
+[data-demo-theme].demo-player{--accent:var(--app-accent);--accent-soft:var(--app-soft);--on-accent:#fff}
+[data-demo-theme].compact-demo::after{background:var(--app-accent)}
+
+/* Shared screen components inherit the project's own colors. */
+[data-demo-theme] .sim-surface{color:var(--app-ink);border-color:var(--app-line);box-shadow:0 9px 24px #172a251b}
+[data-demo-theme] .sim-window-bar{background:var(--app-header);color:var(--app-header-ink);border-bottom-color:transparent}
+[data-demo-theme] .sim-sample{color:inherit;opacity:.72}
+[data-demo-theme] .sim-heading{color:var(--app-ink)}
+[data-demo-theme] .sim-metric{background:var(--app-soft);border-color:var(--app-line)}
+[data-demo-theme] .sim-metric>span,[data-demo-theme] .sim-table th,[data-demo-theme] .sim-field dt,[data-demo-theme] .bar-label{color:var(--app-muted)}
+[data-demo-theme] .sim-metric>b,[data-demo-theme] .bar-value{color:var(--app-ink)}
+[data-demo-theme] .sim-table th{background:var(--app-soft);border-color:var(--app-line)}
+[data-demo-theme] .sim-table td{border-color:var(--app-line)}
+[data-demo-theme] .sim-table tr.highlight{background:var(--app-selected)}
+[data-demo-theme] .sim-table tr.highlight td:first-child{border-left-color:var(--app-accent)}
+[data-demo-theme] .sim-field dd{background:#fff;border-color:var(--app-line);box-shadow:0 1px 2px #18263d05}
+[data-demo-theme] .sim-chat{background:var(--app-chat-bg)}
+[data-demo-theme] .sim-chat .sim-heading{background:var(--app-header);color:var(--app-header-ink);border-color:#ffffff20}
+[data-demo-theme] .sim-message.in{border-color:#d4dee3;background:#fff}
+[data-demo-theme] .sim-message.out{background:var(--app-bubble);border-color:var(--app-line)}
+[data-demo-theme] .sim-message-input{border-color:var(--app-line);color:var(--app-muted)}
+[data-demo-theme] .typing-dots{color:var(--app-accent)}
+[data-demo-theme] .sim-send{background:var(--app-accent)}
+[data-demo-theme] .pipeline-node{background:#fff;border-color:var(--app-line)}
+[data-demo-theme] .pipeline-node.done{background:var(--app-soft);border-color:var(--app-line)}
+[data-demo-theme] .pipeline-node.active{background:var(--app-selected);border-color:var(--app-accent)}
+[data-demo-theme] .pipeline-node.done .pipeline-number{background:var(--app-accent)}
+[data-demo-theme] .pipeline-node.active .pipeline-number{color:var(--app-accent);border-color:var(--app-accent)}
+[data-demo-theme] .sim-log{background:var(--app-soft);border-color:var(--app-line)}
+[data-demo-theme] .sim-log p{color:var(--app-muted)}
+[data-demo-theme] .sim-bar-track{background:var(--app-soft)}
+[data-demo-theme] .sim-bar-fill{background:var(--app-accent)}
+[data-demo-theme] .sim-bar-row:nth-child(even) .sim-bar-fill{background:var(--app-secondary)}
+
+/* Messaging headers use familiar channel chrome instead of browser dots. */
+[data-demo-theme="telegram"] .sim-chat .window-dots,[data-demo-theme="whatsapp"] .sim-chat .window-dots{display:none}
+[data-demo-theme="telegram"] .sim-chat .sim-window-bar,[data-demo-theme="whatsapp"] .sim-chat .sim-window-bar{font-family:var(--body);font-weight:600}
+[data-demo-theme="whatsapp"] .sim-messages{background-image:radial-gradient(#b8ac951c 1px,transparent 1px);background-size:14px 14px}
+[data-demo-theme="telegram"] .sim-chat .sim-heading,[data-demo-theme="whatsapp"] .sim-chat .sim-heading{padding-top:8px}
+
+/* Terminal scenes stay recognizably dark inside every project palette. */
+[data-demo-theme] .sim-terminal{background:#18212e;color:#d3e3ee;border-color:#354352}
+[data-demo-theme] .sim-terminal .sim-window-bar{background:#222f40;color:#b9c9d7}
+[data-demo-theme] .sim-terminal .sim-heading{color:#e2edf5}
+[data-demo-theme] .sim-terminal .sim-code p{color:#bed9e7}
+[data-demo-theme] .sim-terminal .sim-code p:first-child{color:#9bdacc}
+[data-demo-theme] .sim-terminal .sim-metric{background:#223343;border-color:#3b5365}
+[data-demo-theme] .sim-terminal .sim-metric>span{color:#a6bdcc}
+[data-demo-theme] .sim-terminal .sim-metric>b{color:#e3f1f5}
+
+/* Application screens keep their own light colors; dark mode adapts the stage and controls. */
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) [data-demo-theme]{--app-stage:var(--app-stage-dark)}:root:not([data-theme="light"]) [data-demo-theme].demo-player{--accent:var(--app-accent-bright);--accent-soft:#ffffff0b;--on-accent:#12202d}}
+:root[data-theme="dark"] [data-demo-theme]{--app-stage:var(--app-stage-dark)}
+:root[data-theme="dark"] [data-demo-theme].demo-player{--accent:var(--app-accent-bright);--accent-soft:#ffffff0b;--on-accent:#12202d}
+
+[data-demo-theme] .pipeline-node small,[data-demo-theme] .pipeline-number{color:var(--app-muted)}
+[data-demo-theme] .pipeline-number{border-color:var(--app-line)}
+[data-demo-theme] .pipeline-node.done .pipeline-number{color:#fff}

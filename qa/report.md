@@ -19,3 +19,7 @@ Independent specification/privacy/localization and code-quality reviews passed a
 ## Public release
 
 Published at https://flaviosirianni.github.io/flavio-sirianni-projects/ with English at /en/. GitHub Actions run 40345534447 completed successfully (build and deployment). Public smoke test returned HTTP 200, 36 cards, the two expected KPI, English catalog, case selection, scene2 preserved across EN→ES, both CVs and a 390px mobile layout without overflow or JavaScript errors. The account’s public repository inventory contains only this portfolio.
+
+## Distinct project palettes
+
+Eight explicit project palettes give messaging channels, web apps, data tools and console demos distinct application colors. The site identity and original demo content remain unchanged. The same palette is used in card previews and the full player, in both languages. Browser checks covered eight representative projects in both languages and all their scenes at390px; dark-mode messaging and the desktop catalog were visually inspected.

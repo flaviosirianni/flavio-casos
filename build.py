@@ -67,7 +67,7 @@ def locale_path(lang, name='index.html'):
 def head(lang, current, title, description=None):
     """Por que existe: generar cabecera semántica. @returns: str HTML. Efectos secundarios: ninguno."""
     t=COPY[lang];description=description or t['description']
-    return f'''<!doctype html><html lang="{lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{escape(title)} · Flavio Sirianni</title><meta name="description" content="{escape(description,quote=True)}"><meta name="author" content="Flavio Sirianni"><meta name="theme-color" content="#176451"><meta property="og:title" content="{escape(title,quote=True)} · Flavio Sirianni"><meta property="og:description" content="{escape(description,quote=True)}"><meta property="og:type" content="website"><link rel="canonical" href="{SITE+current}"><link rel="icon" href="{relative('favicon.svg',current)}" type="image/svg+xml"><link rel="stylesheet" href="{relative('styles.css',current)}"><script src="{relative('theme.js',current)}"></script></head><body>'''
+    return f'''<!doctype html><html lang="{lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{escape(title)} · Flavio Sirianni</title><meta name="description" content="{escape(description,quote=True)}"><meta name="author" content="Flavio Sirianni"><meta name="theme-color" content="#176451"><meta property="og:title" content="{escape(title,quote=True)} · Flavio Sirianni"><meta property="og:description" content="{escape(description,quote=True)}"><meta property="og:type" content="website"><link rel="canonical" href="{SITE+current}"><link rel="icon" href="{relative('favicon.svg',current)}" type="image/svg+xml"><link rel="stylesheet" href="{relative('styles.css',current)}"><link rel="stylesheet" href="{relative('demo-themes.css',current)}"><script src="{relative('theme.js',current)}"></script></head><body>'''
 
 def header(lang, current, alternate):
     """Por que existe: ofrecer navegación consistente e idioma contextual. @returns: str HTML. Efectos secundarios: ninguno."""
@@ -81,7 +81,7 @@ def footer(lang, current):
 
 def scripts(current):
     """Por que existe: cargar datos y motores offline. @returns: str HTML. Efectos secundarios: ninguno."""
-    return ''.join(f'<script src="{relative(name,current)}" defer></script>' for name in ['demos-data.js','demos.js','app.js'])+'</body></html>'
+    return ''.join(f'<script src="{relative(name,current)}?v=project-palettes-1" defer></script>' for name in ['demos-data.js','demos.js','app.js'])+'</body></html>'
 
 def catalog(lang, cases):
     """Por que existe: generar catálogo accesible sin JavaScript. @returns: str HTML. Efectos secundarios: ninguno."""
@@ -165,7 +165,7 @@ def build():
     out=ROOT/'dist'
     if out.exists():shutil.rmtree(out)
     (out/'en/projects').mkdir(parents=True);(out/'projects').mkdir()
-    for name in ['styles.css','theme.js','app.js','demos.js','favicon.svg','cv.css','cv.js']:
+    for name in ['styles.css','demo-themes.css','theme.js','app.js','demos.js','favicon.svg','cv.css','cv.js']:
         shutil.copy2(ROOT/'src'/name,out/name)
     (out/'demos-data.js').write_text('window.PORTFOLIO_DEMOS = '+json.dumps(demos,ensure_ascii=False,separators=(',',':'))+';\n')
     for lang,items in localized.items():

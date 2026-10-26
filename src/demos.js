@@ -25,11 +25,12 @@
   }
   /** Por que existe: dibujar la pantalla específica de cada escena y tipo de proyecto.
    * @returns {HTMLElement} Pantalla de demostración. Efectos secundarios: crea un árbol DOM local. */
-  function renderView(view, words) {
+  function renderView(view, words, theme) {
     var surface = node('div','sim-surface sim-'+view.type);
     var top = node('div','sim-window-bar');
     var dots = node('span','window-dots');dots.setAttribute('aria-hidden','true');
-    top.append(dots,node('span','sim-app-name',words[view.type]),node('span','sim-sample','DEMO'));
+    var appName=view.type==='chat'&&theme==='telegram'?'Telegram':view.type==='chat'&&theme==='whatsapp'?'WhatsApp':words[view.type];
+    top.append(dots,node('span','sim-app-name',appName),node('span','sim-sample','DEMO'));
     surface.appendChild(top);
     surface.appendChild(node('h3','sim-heading',view.heading));
     if (view.type === 'chat') {
@@ -81,6 +82,9 @@
     options=options||{};var lang=options.lang==='en'?'en':'es',words=I18N[lang];
     var data=global.PORTFOLIO_DEMOS&&global.PORTFOLIO_DEMOS[slug];
     if(!data||!data.steps||!data.steps.length){host.textContent=lang==='en'?'Demo unavailable.':'Demo no disponible.';return null;}
+    var theme=['telegram','whatsapp','indigo','coral','slate','analytics','sheets','terminal'].includes(data.theme)?data.theme:'indigo';
+    host.dataset.demoTheme=theme;
+    var card=host.closest('.case-card');if(card)card.dataset.demoTheme=theme;
     var compact=!!options.compact,index=0,speed=1,visible=false,timer=null;
     var selected=options.step!==null&&options.step!==undefined?Number(options.step):null;
     if(Number.isInteger(selected)&&selected>=0&&selected<data.steps.length)index=selected;
@@ -97,7 +101,7 @@
     /** Por que existe: anunciar solo cambios iniciados por la persona.
      * @returns {void} Efectos secundarios: actualiza pantalla, controles y estado accesible. */
     function draw(announce){
-      var step=data.steps[index];screen.replaceChildren(renderView(step.view[lang],words));
+      var step=data.steps[index];screen.replaceChildren(renderView(step.view[lang],words,theme));
       host.dataset.step=String(index);host.dataset.playing=String(playing);host.dataset.visible=String(visible);host.dataset.sceneType=step.view[lang].type;
       if(compact){host.style.setProperty('--scene-progress',((index+1)/data.steps.length*100)+'%');}
       else{
